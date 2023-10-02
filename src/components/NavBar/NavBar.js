@@ -6,16 +6,9 @@ import MainLogo from "../../logos/main-logo.png";
 import { Link } from "react-router-dom";
 function NavBar() {
   return (
-    <Container className="">
-      <Navbar collapseOnSelect expand="lg" className="navbar-bg">
-        <Navbar.Brand href="">
-          <img
-            src={MainLogo}
-            alt=""
-            width="200"
-            style={{ objectFit: "cover" }}
-          />
-        </Navbar.Brand>
+    <Navbar collapseOnSelect expand="lg" className="navbar-bg">
+      <Container>
+        <Navbar.Brand href="#home">React-Bootstra</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav ">
           <Nav className="mx-5">
