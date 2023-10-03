@@ -2,14 +2,14 @@ import Carousel from "react-bootstrap/Carousel";
 
 function Carousell() {
   return (
-    <Carousel style={{ maxWidth: "100%", maxHeight: "calc(100vh - 70px)" }}>
-      <Carousel.Item interval={1000}>
+    <Carousel style={{height:"calc(100vh - 66px)"}}>
+      <Carousel.Item style={{}} interval={1000}>
         <img
           src={require("../images/landing-img.jpg")}
-          style={{ width: "100%", height: "100%" }}
+          style={{ width: "100%" }}
           alt="..."
         />
-        <Carousel.Caption>
+        <Carousel.Caption style={{}}>
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
@@ -17,7 +17,7 @@ function Carousell() {
       <Carousel.Item interval={500}>
         <img
           src={require("../images/landing-img.jpg")}
-          style={{ width: "100%", height: "100%" }}
+          style={{ width: "100%" }}
           alt="..."
         />
         <Carousel.Caption>
@@ -28,7 +28,7 @@ function Carousell() {
       <Carousel.Item>
         <img
           src={require("../images/landing-img.jpg")}
-          style={{ width: "100%", height: "100%" }}
+          style={{ width: "100%" }}
           alt="..."
         />
         <Carousel.Caption>

@@ -2,12 +2,14 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
+import MainLogo from "../../logos/main-logo.png"
 function NavBar() {
   return (
-    <Navbar collapseOnSelect expand="lg" className="navbar-bg">
+    <Navbar  collapseOnSelect expand="lg" className="navbar navbar-bg  p-0">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home">
+          <img style={{width:"180px"}} src={MainLogo} alt="cit logo"/>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav ">
           <Nav className="mx-5">
