@@ -1,6 +1,11 @@
-.landing{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - 56px);
+.landing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 56px);
+//   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+//     url("../../images/landing-img.jpg");
+//   background-repeat: no-repeat;
+//   background-position: center center;
+//   object-fit: cover;
 }

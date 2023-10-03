@@ -1,9 +1,10 @@
 import React from "react";
 import "./Landing.scss";
+import Carousell from "../Carousell";
 function Landing() {
   return (
     <div className="landing">
-      <h1>Landing Section</h1>
+      <Carousell />
     </div>
   );
 }
