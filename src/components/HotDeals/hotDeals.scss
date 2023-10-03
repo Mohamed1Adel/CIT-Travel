@@ -1,0 +1,15 @@
+.hot-deals {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.hot-deals .box {
+  // width:90%;
+  height: 400px;
+  //   border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,10 +1,22 @@
 @import "../../index.scss";
-.navbar{
-    // position: fixed;
-    // top:0;
-    // left:0;
-    // z-index: 999;
+.navbar {
+  // position: fixed;
+  // top:0;
+  // left:0;
+  // z-index: 999;
+  background-color: #fff !important;
 }
-.navbar-bg{
-    background-color: var(--primary-color);
+.navbar-item {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  font-weight: bold !important;
+//   padding:10px
+}
+.navbar-item:hover {
+  background-color: var(--primary-color);
+  color: #fff !important;
+  border-radius: 4px;
+}
+.navbar-bg {
+  background-color: var(--primary-color);
 }
