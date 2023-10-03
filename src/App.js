@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./components/Landing/Landing";
 import EgyptComponent from "./components/EgyptComponent";
 import { Container } from "react-bootstrap";
+import UploadImages from "./components/UploadImages";
 function App() {
   return (
     <div className="">
@@ -15,6 +16,7 @@ function App() {
           <Route path="/egypt" element={<EgyptComponent />} />
         </Routes>
       </BrowserRouter>
+      {/* <UploadImages /> */}
     </div>
   );
 }

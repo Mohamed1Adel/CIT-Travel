@@ -37,8 +37,8 @@ function NavBar() {
             </Nav.Link>
           </Nav> */}
         </Navbar.Collapse>
-      </Navbar>
-    </Container>
+      </Container>
+    </Navbar>
   );
 }
 
