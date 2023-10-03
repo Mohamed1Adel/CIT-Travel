@@ -3,7 +3,7 @@ import "./Landing.scss";
 import Carousell from "../Carousell";
 function Landing() {
   return (
-    <div className="landing">
+    <div  className="landing">
       <Carousell />
     </div>
   );
