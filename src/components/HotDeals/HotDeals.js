@@ -8,7 +8,7 @@ import { Zoom } from "react-reveal";
 function HotDeals() {
   return (
     <div className="hot-deals">
-      <h1>HotDeals</h1>
+      <h1>Hot Deals</h1>
       <Zoom>
         <Row>
           <Col sm="12" md="6" lg="4" xl="4" className="box">

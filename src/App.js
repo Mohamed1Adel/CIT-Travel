@@ -9,6 +9,10 @@ import HotDeals from "./components/HotDeals/HotDeals";
 import Footer from "./components/Footer/Footer";
 import About from "./components/About/About";
 import MostPopular from "./components/MostPopular/MostPopular";
+import ContactUs from "./components/ContactUs/ContactUs";
+import AllDomestics from "./components/AllDomestics/AllDomestics";
+import DomesticHotelDetails from "./components/DomesticHotelDetails/DomesticHotelDetails";
+import SimpleMap from "./GoogleMaps";
 function App() {
   return (
     <div className="">
@@ -16,16 +20,24 @@ function App() {
       {/* <Landing /> */}
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/egypt" element={<EgyptComponent />} />
-          {/* <Route path="/about" element={<About />} /> */}
-        </Routes>
-      </BrowserRouter>
-      <Container>
+          <Route path="/" element={
+          <>
+          <Landing />
+          <Container>
         <HotDeals />
         <MostPopular />
       </Container>
+          </>
+          } />
+          <Route path="/domestics" element={<AllDomestics />} />
+          <Route path="/DomesticHotelDetails" element={<DomesticHotelDetails />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contactUs" element={<ContactUs />} />
+        </Routes>
+      </BrowserRouter>
+
       <Footer />
+      {/* <SimpleMap/> */}
       {/* <UploadImages /> */}
     </div>
   );

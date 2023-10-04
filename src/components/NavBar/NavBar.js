@@ -8,7 +8,7 @@ function NavBar() {
   return (
     <Navbar collapseOnSelect expand="lg" className="navbar navbar-bg  p-0">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img style={{ width: "180px" }} src={MainLogo} alt="cit logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -17,7 +17,7 @@ function NavBar() {
             {/* <Nav.Link className="nav-item" href="http://wa.me/+201551563900">
               Home
             </Nav.Link> */}
-            <Nav.Link className="navbar-item" href="#">
+            <Nav.Link className="navbar-item" href="/">
               Home
             </Nav.Link>
             <NavDropdown
@@ -39,7 +39,7 @@ function NavBar() {
               </NavDropdown.Item>
               {/* <NavDropdown.Divider /> */}
             </NavDropdown>
-            <Nav.Link className="navbar-item" href="#">
+            <Nav.Link className="navbar-item" href="/domestics">
               Domestic
             </Nav.Link>
             <Nav.Link className="navbar-item" href="#">
@@ -49,20 +49,17 @@ function NavBar() {
               Hajj & Umrah
             </Nav.Link>
             <Nav.Link className="navbar-item" href="#">
-              Pricing
-            </Nav.Link>
-            <Nav.Link className="navbar-item" href="#">
               Transportation
             </Nav.Link>
             <NavDropdown
               className="navbar-item"
-              title="C.I.T Travel"
+              title="C.I.T Travel Egypt"
               id="collapsible-nav-dropdown"
             >
               <NavDropdown.Item className="navbar-item" href="/about">
                 About Us
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="#">
+              <NavDropdown.Item className="navbar-item" href="/contactUs">
                 Contact Us
               </NavDropdown.Item>
               <NavDropdown.Item className="navbar-item" href="#">

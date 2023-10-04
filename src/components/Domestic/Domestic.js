@@ -3,7 +3,8 @@ import { Button, Card, Col, Row } from "react-bootstrap";
 import { Zoom } from "react-reveal";
 import TravelImage from "../../images/travelimg1.jpg";
 function Domestic() {
-  return (
+  return (<Zoom>
+
     <div className="domestics">
       <h3 className="text-center">Domestics</h3>
       <Card className="d-flex m-3" style={{ width: "18rem" }}>
@@ -40,6 +41,7 @@ function Domestic() {
         </Card.Body>
       </Card>
     </div>
+  </Zoom>
   );
 }
 

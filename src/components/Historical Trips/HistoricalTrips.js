@@ -4,6 +4,8 @@ import TravelImage from "../../images/travelimg1.jpg";
 import { Zoom } from "react-reveal";
 function HistoricalTrips() {
   return (
+    <Zoom>
+
     <div className="historical">
       <h3 className="text-center">HistoricalTrips</h3>
       <Card className="d-flex m-3" style={{ width: "18rem" }}>
@@ -40,6 +42,7 @@ function HistoricalTrips() {
         </Card.Body>
       </Card>
     </div>
+    </Zoom>
   );
 }
 
