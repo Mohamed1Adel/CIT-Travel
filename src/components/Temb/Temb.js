@@ -5,14 +5,14 @@ import "./Temb.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faStar } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-function Temb() {
+function Temb({id,title,rate,decs,category,location}) {
   return (
     <Card className="hotel" style={{ width: "18rem" }}>
       <div className="card-image">
         <Card.Img variant="top" src={Hotel2} />
       </div>
       <Card.Body>
-        <Card.Title>Desert Rose</Card.Title>
+        <Card.Title>{title}</Card.Title>
         <Card.Text>
           <div className="rates-stars">
             <FontAwesomeIcon className="star" icon={faStar} />
@@ -21,11 +21,10 @@ function Temb() {
             <FontAwesomeIcon className="star" icon={faStar} />
             <FontAwesomeIcon className="star" icon={faStar} />
           </div>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+         {decs}
         </Card.Text>
         <Button style={{ width: "100px" }} variant="primary">
-          <Link to="/tembDetails">
+          <Link to={"/tembDetails/"+id}>
             Book <FontAwesomeIcon icon={faArrowRight} />
           </Link>
         </Button>

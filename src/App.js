@@ -67,7 +67,7 @@ function App() {
             path="/hajjAndOmrahDetails"
             element={<HajjAndOmrahDetails />}
           />
-          <Route path="/tembDetails" element={<TembDetails />} />
+          <Route path="/tembDetails/:id" element={<TembDetails />} />
           <Route path="/transportation" element={<Transportation />} />
           <Route path="/about" element={<About />} />
           <Route path="/contactUs" element={<ContactUs />} />

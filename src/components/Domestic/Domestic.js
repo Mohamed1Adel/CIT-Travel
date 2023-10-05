@@ -6,6 +6,7 @@ import Temb from "../Temb/Temb";
 import "./Domestic.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { domesticsData } from "../../data/Domesticsdata";
 function Domestic() {
   return (
     <Zoom>
@@ -259,55 +260,75 @@ function Domestic() {
             </div>
           </Col>
           <Col className="domestic-hotels" lg="10">
+            {/* <Row>
+              <Col sm="12" md="4" lg="3">
+                <Temb />
+              </Col>
+              <Col sm="12" md="4" lg="3">
+                <Temb />
+              </Col>
+              <Col sm="12" md="4" lg="3">
+                <Temb />
+              </Col>
+              <Col sm="12" md="4" lg="3">
+                <Temb />
+              </Col>
+              <Col sm="12" md="4" lg="3">
+                <Temb />
+              </Col>
+              <Col sm="12" md="4" lg="3">
+                <Temb />
+              </Col>
+              <Col sm="12" md="4" lg="3">
+                <Temb />
+              </Col>
+              <Col sm="12" md="4" lg="3">
+                <Temb />
+              </Col>
+              <Col sm="12" md="4" lg="3">
+                <Temb />
+              </Col>
+              <Col sm="12" md="4" lg="3">
+                <Temb />
+              </Col>
+              <Col sm="12" md="4" lg="3">
+                <Temb />
+              </Col>
+              <Col sm="12" md="4" lg="3">
+                <Temb />
+              </Col>
+              <Col sm="12" md="4" lg="3">
+                <Temb />
+              </Col>
+              <Col sm="12" md="4" lg="3">
+                <Temb />
+              </Col>
+              <Col sm="12" md="4" lg="3">
+                <Temb />
+              </Col>
+              <Col sm="12" md="4" lg="3">
+                <Temb />
+              </Col>
+            </Row> */}
             <Row>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
+              {domesticsData.length >= 1 ? (
+                domesticsData.map((item) => {
+                  return (
+                    <Col sm="12" md="4" lg="3">
+                      <Temb
+                        id={item.id}
+                        title={item.title}
+                        decs={item.decs}
+                        location={item.location}
+                        rate={item.rate}
+                        category={item.category}
+                      />
+                    </Col>
+                  );
+                })
+              ) : (
+                <h2>not found</h2>
+              )}
             </Row>
           </Col>
         </Row>
