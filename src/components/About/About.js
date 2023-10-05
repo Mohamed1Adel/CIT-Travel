@@ -6,7 +6,7 @@ function About() {
   return (
     <Container>
 
-        <Carousell/>
+        <Carousell />
         <div className="about">
         <h1>About Us</h1>
       <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start"}}>

@@ -10,27 +10,65 @@ import Footer from "./components/Footer/Footer";
 import About from "./components/About/About";
 import MostPopular from "./components/MostPopular/MostPopular";
 import ContactUs from "./components/ContactUs/ContactUs";
-import AllDomestics from "./components/AllDomestics/AllDomestics";
-import DomesticHotelDetails from "./components/DomesticHotelDetails/DomesticHotelDetails";
-import SimpleMap from "./GoogleMaps";
+import Domestic from "./components/Domestic/Domestic";
+import HistoricalTrips from "./components/Historical Trips/HistoricalTrips";
+import Outbound from "./components/Outbound/Outbound";
+import TembDetails from "./components/TembDetails/TembDetails";
+import DayTour from "./components/DayTour/DayTour";
+import MeetAssist from "./components/MeetAssist/MeetAssist";
+import Transportation from "./components/Transportation/Transportation";
+import "./App.scss"
+import HajjAndOmrahDetails from "./components/HajjAndOmrahDetails/HajjAndOmrahDetails";
+import HajjAndOmrah from "./components/HajjAndOmrah/HajjAndOmrah";
 function App() {
   return (
     <div className="">
+      {/* <div class="wrapper">
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+    </div> */}
       <NavBar />
       {/* <Landing /> */}
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={
-          <>
-          <Landing />
-          <Container>
-        <HotDeals />
-        <MostPopular />
-      </Container>
-          </>
-          } />
-          <Route path="/domestics" element={<AllDomestics />} />
-          <Route path="/DomesticHotelDetails" element={<DomesticHotelDetails />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Landing />
+                <Container>
+                  <HotDeals />
+                  <MostPopular />
+                </Container>
+              </>
+            }
+          />
+          {/* <Route path="/domestics" element={<AllDomestics />} /> */}
+          <Route path="/historicalTrips" element={<HistoricalTrips />} />
+          <Route path="/dayTour" element={<DayTour />} />
+          <Route path="/meetAssist" element={<MeetAssist />} />
+          <Route path="/domestics" element={<Domestic />} />
+          <Route path="/outbound" element={<Outbound />} />
+          <Route path="/hajjAndOmrah" element={<HajjAndOmrah />} />
+          <Route
+            path="/hajjAndOmrahDetails"
+            element={<HajjAndOmrahDetails />}
+          />
+          <Route path="/tembDetails" element={<TembDetails />} />
+          <Route path="/transportation" element={<Transportation />} />
           <Route path="/about" element={<About />} />
           <Route path="/contactUs" element={<ContactUs />} />
         </Routes>

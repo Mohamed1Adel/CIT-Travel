@@ -5,13 +5,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import "./hotDeals.scss";
 import { Zoom } from "react-reveal";
+import Hotel from "../Temb/Temb";
+import Temb from "../Temb/Temb";
 function HotDeals() {
   return (
     <div className="hot-deals">
-      <h1>Hot Deals</h1>
+      <h1 className="text-center main-heading">Hot Deals</h1>
       <Zoom>
         <Row>
-          <Col sm="12" md="6" lg="4" xl="4" className="box">
+          {/* <Col sm="12" md="6" lg="4" xl="4" className="box">
             <Card style={{ width: "18rem" }}>
               <Card.Img
                 variant="top"
@@ -63,6 +65,16 @@ function HotDeals() {
                 <Button variant="primary">Go somewhere</Button>
               </Card.Body>
             </Card>
+          </Col> */}
+
+          <Col sm="12" md="6" lg="4">
+            <Temb />
+          </Col>
+          <Col sm="12" md="6" lg="4">
+            <Temb />
+          </Col>
+          <Col sm="12" md="6" lg="4">
+            <Temb />
           </Col>
         </Row>
       </Zoom>

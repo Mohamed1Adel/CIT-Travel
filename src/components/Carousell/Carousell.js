@@ -47,7 +47,7 @@
 import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 // import ExampleCarouselImage from "components/ExampleCarouselImage";
-import "./carousell.scss"
+import "./carousell.scss";
 function Carousell() {
   const [index, setIndex] = useState(0);
 
@@ -84,6 +84,50 @@ function Carousell() {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+
+    // <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+    //   <div class="carousel-inner">
+    //     <div class="carousel-item active">
+    //       <img
+    //         src={require("../../images/landing2.jpg")}
+    //         class="d-block w-100"
+    //         alt="..."
+    //       ></img>
+    //     </div>
+    //     <div class="carousel-item">
+    //       <img
+    //         src={require("../../images/landing2.jpg")}
+    //         class="d-block w-100"
+    //         alt="..."
+    //       ></img>
+    //     </div>
+    //     <div class="carousel-item">
+    //       <img
+    //         src={require("../../images/landing2.jpg")}
+    //         class="d-block w-100"
+    //         alt="..."
+    //       ></img>
+    //     </div>
+    //   </div>
+    //   <button
+    //     class="carousel-control-prev"
+    //     type="button"
+    //     data-bs-target="#carouselExampleRide"
+    //     data-bs-slide="prev"
+    //   >
+    //     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    //     <span class="visually-hidden">Previous</span>
+    //   </button>
+    //   <button
+    //     class="carousel-control-next"
+    //     type="button"
+    //     data-bs-target="#carouselExampleRide"
+    //     data-bs-slide="next"
+    //   >
+    //     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    //     <span class="visually-hidden">Next</span>
+    //   </button>
+    // </div>
   );
 }
 

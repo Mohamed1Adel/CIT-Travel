@@ -25,16 +25,16 @@ function NavBar() {
               title="Visit Egypt"
               id="collapsible-nav-dropdown"
             >
-              <NavDropdown.Item className="navbar-item" href="#">
+              <NavDropdown.Item className="navbar-item" href="/historicalTrips">
                 Historical Trips
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="#">
+              <NavDropdown.Item className="navbar-item" href="/dayTour">
                 Day Tour
               </NavDropdown.Item>
               <NavDropdown.Item className="navbar-item" href="#">
                 Nile Cruise
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="#">
+              <NavDropdown.Item className="navbar-item" href="/meetAssist">
                 Meet & Assist
               </NavDropdown.Item>
               {/* <NavDropdown.Divider /> */}
@@ -42,13 +42,13 @@ function NavBar() {
             <Nav.Link className="navbar-item" href="/domestics">
               Domestic
             </Nav.Link>
-            <Nav.Link className="navbar-item" href="#">
+            <Nav.Link className="navbar-item" href="/outbound">
               Outbound
             </Nav.Link>
-            <Nav.Link className="navbar-item" href="#">
+            <Nav.Link className="navbar-item" href="/hajjAndOmrah">
               Hajj & Umrah
             </Nav.Link>
-            <Nav.Link className="navbar-item" href="#">
+            <Nav.Link className="navbar-item" href="/transportation">
               Transportation
             </Nav.Link>
             <NavDropdown
