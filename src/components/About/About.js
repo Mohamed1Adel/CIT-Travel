@@ -8,7 +8,7 @@ function About() {
 
         <Carousell />
         <div className="about">
-        <h1>About Us</h1>
+        <h1 className="main-heading">About Us</h1>
       <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start"}}>
         We feel both pleased and honoured to introduce ourselves as one of the
         leading travel companies in Egypt. <br /> C.I.T Travel Egypt licensed with the

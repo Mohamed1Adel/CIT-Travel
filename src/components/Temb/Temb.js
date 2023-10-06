@@ -12,7 +12,7 @@ function Temb({id,title,rate,decs,category,location}) {
         <Card.Img variant="top" src={Hotel2} />
       </div>
       <Card.Body>
-        <Card.Title>{title}</Card.Title>
+        <Card.Title>{title} Desert Rose</Card.Title>
         <Card.Text>
           <div className="rates-stars">
             <FontAwesomeIcon className="star" icon={faStar} />
@@ -21,7 +21,7 @@ function Temb({id,title,rate,decs,category,location}) {
             <FontAwesomeIcon className="star" icon={faStar} />
             <FontAwesomeIcon className="star" icon={faStar} />
           </div>
-         {decs}
+         {decs} Desert rose is the best seller hotel and best choise to you
         </Card.Text>
         <Button style={{ width: "100px" }} variant="primary">
           <Link to={"/tembDetails/"+id}>

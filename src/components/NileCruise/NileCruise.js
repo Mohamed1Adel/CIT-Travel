@@ -6,57 +6,46 @@ import Temb from '../Temb/Temb';
 function NileCruise() {
   return (
     <Zoom>
-      <Container className="nile-cruise">
-        <h3 className="text-center">Day Tour</h3>
+      <Container style={{marginTop:"50px"}} className="nile-cruise">
+        <h3 className="text-center main-heading">Day Tour</h3>
         <Row>
-          <Col sm="12" md="4" lg="3">
+          <Col sm="12" md="6" lg="4">
             <Temb />
           </Col>
-          <Col sm="12" md="4" lg="3">
+          <Col sm="12" md="6" lg="4">
             <Temb />
           </Col>
-          <Col sm="12" md="4" lg="3">
+          <Col sm="12" md="6" lg="4">
             <Temb />
           </Col>
-          <Col sm="12" md="4" lg="3">
+          <Col sm="12" md="6" lg="4">
             <Temb />
           </Col>
-          <Col sm="12" md="4" lg="3">
+          <Col sm="12" md="6" lg="4">
             <Temb />
           </Col>
-          <Col sm="12" md="4" lg="3">
+          <Col sm="12" md="6" lg="4">
             <Temb />
           </Col>
-          <Col sm="12" md="4" lg="3">
+          <Col sm="12" md="6" lg="4">
             <Temb />
           </Col>
-          <Col sm="12" md="4" lg="3">
+          <Col sm="12" md="6" lg="4">
             <Temb />
           </Col>
-          <Col sm="12" md="4" lg="3">
+          <Col sm="12" md="6" lg="4">
             <Temb />
           </Col>
-          <Col sm="12" md="4" lg="3">
+          <Col sm="12" md="6" lg="4">
             <Temb />
           </Col>
-          <Col sm="12" md="4" lg="3">
+          <Col sm="12" md="6" lg="4">
             <Temb />
           </Col>
-          <Col sm="12" md="4" lg="3">
+          <Col sm="12" md="6" lg="4">
             <Temb />
           </Col>
-          <Col sm="12" md="4" lg="3">
-            <Temb />
-          </Col>
-          <Col sm="12" md="4" lg="3">
-            <Temb />
-          </Col>
-          <Col sm="12" md="4" lg="3">
-            <Temb />
-          </Col>
-          <Col sm="12" md="4" lg="3">
-            <Temb />
-          </Col>
+          
         </Row>
       </Container>
     </Zoom>

@@ -1,9 +1,23 @@
-import React from "react";
+import React ,{useState,useEffect}from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./TembDetails.scss";
 import Carousell from "../Carousell/Carousell";
 import Form from "react-bootstrap/Form";
+import { useParams } from "react-router-dom";
+import {domesticsData} from "../../data/Domesticsdata"
 function TembDetails() {
+  const  {id} = useParams()
+  
+  const [state , setState] = useState("")
+
+  useEffect(()=>{
+   const e =  domesticsData.filter((item)=>{
+     return item.id === id
+    });
+    setState(e[0])
+  },[id])
+  console.log(state);
+  // console.log(id);
   return (
     <Container>
       <div className="hotel-info">
@@ -11,10 +25,10 @@ function TembDetails() {
           <Col sm="12" md="3" lg="4">
             <div className="info-box">
               <ul>
-                <h3>Country Name:</h3>
-                <h4>Egypt</h4>
+                <h3>Hotel Name:</h3>
+                <h4>{state.title}</h4>
                 <h3>Destination</h3>
-                <h4>Cairo</h4>
+                <h4>{state.location}</h4>
                 <h4> 0 Days / 0 Nights</h4>
                 <h3>Dates:</h3>
                 <h4>25/0h49/1999</h4>

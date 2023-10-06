@@ -31,7 +31,7 @@ function NavBar() {
               <NavDropdown.Item className="navbar-item" href="/dayTour">
                 Day Tour
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="#">
+              <NavDropdown.Item className="navbar-item" href="/nileCruise">
                 Nile Cruise
               </NavDropdown.Item>
               <NavDropdown.Item className="navbar-item" href="/meetAssist">

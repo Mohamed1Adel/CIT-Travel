@@ -20,6 +20,7 @@ import Transportation from "./components/Transportation/Transportation";
 import "./App.scss"
 import HajjAndOmrahDetails from "./components/HajjAndOmrahDetails/HajjAndOmrahDetails";
 import HajjAndOmrah from "./components/HajjAndOmrah/HajjAndOmrah";
+import NileCruise from "./components/NileCruise/NileCruise";
 function App() {
   return (
     <div className="">
@@ -59,6 +60,7 @@ function App() {
           {/* <Route path="/domestics" element={<AllDomestics />} /> */}
           <Route path="/historicalTrips" element={<HistoricalTrips />} />
           <Route path="/dayTour" element={<DayTour />} />
+          <Route path="/nileCruise" element={<NileCruise />} />
           <Route path="/meetAssist" element={<MeetAssist />} />
           <Route path="/domestics" element={<Domestic />} />
           <Route path="/outbound" element={<Outbound />} />

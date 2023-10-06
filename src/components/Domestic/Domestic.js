@@ -314,7 +314,7 @@ function Domestic() {
               {domesticsData.length >= 1 ? (
                 domesticsData.map((item) => {
                   return (
-                    <Col sm="12" md="4" lg="3">
+                    <Col sm="12" md="6" lg="4">
                       <Temb
                         id={item.id}
                         title={item.title}

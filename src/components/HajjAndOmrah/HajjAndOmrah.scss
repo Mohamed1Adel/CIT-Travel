@@ -1,0 +1,30 @@
+.domestic-section{
+    margin-top: 50px;
+}
+.col{
+    height: 100%;
+    border:1px solid black
+}
+.domestic-hotels .row .col .card{
+    margin-bottom: 10px;
+}
+.filter{
+    margin-bottom: 20px;
+    text-align: center;
+}
+.rating-filter ul{
+    padding:0
+}
+.rating-filter button{
+margin:5px
+}
+
+.rates-stars{
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.rates-stars:hover{
+    border-radius: 5px;
+    background-color: #989898;
+    transform: scale(1.1);
+}

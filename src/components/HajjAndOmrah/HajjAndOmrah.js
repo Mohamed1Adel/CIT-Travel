@@ -221,54 +221,43 @@ function HajjAndOmrah() {
             </Col>
             <Col className="domestic-hotels" lg="10">
               <Row>
-                <Col sm="12" md="4" lg="3">
+                <Col ssm="12" md="6" lg="4">
                   <Temb />
                 </Col>
-                <Col sm="12" md="4" lg="3">
+                <Col ssm="12" md="6" lg="4">
                   <Temb />
                 </Col>
-                <Col sm="12" md="4" lg="3">
+                <Col ssm="12" md="6" lg="4">
                   <Temb />
                 </Col>
-                <Col sm="12" md="4" lg="3">
+                <Col ssm="12" md="6" lg="4">
                   <Temb />
                 </Col>
-                <Col sm="12" md="4" lg="3">
+                <Col ssm="12" md="6" lg="4">
                   <Temb />
                 </Col>
-                <Col sm="12" md="4" lg="3">
+                <Col ssm="12" md="6" lg="4">
                   <Temb />
                 </Col>
-                <Col sm="12" md="4" lg="3">
+                <Col ssm="12" md="6" lg="4">
                   <Temb />
                 </Col>
-                <Col sm="12" md="4" lg="3">
+                <Col ssm="12" md="6" lg="4">
                   <Temb />
                 </Col>
-                <Col sm="12" md="4" lg="3">
+                <Col ssm="12" md="6" lg="4">
                   <Temb />
                 </Col>
-                <Col sm="12" md="4" lg="3">
+                <Col ssm="12" md="6" lg="4">
                   <Temb />
                 </Col>
-                <Col sm="12" md="4" lg="3">
+                <Col ssm="12" md="6" lg="4">
                   <Temb />
                 </Col>
-                <Col sm="12" md="4" lg="3">
+                <Col ssm="12" md="6" lg="4">
                   <Temb />
                 </Col>
-                <Col sm="12" md="4" lg="3">
-                  <Temb />
-                </Col>
-                <Col sm="12" md="4" lg="3">
-                  <Temb />
-                </Col>
-                <Col sm="12" md="4" lg="3">
-                  <Temb />
-                </Col>
-                <Col sm="12" md="4" lg="3">
-                  <Temb />
-                </Col>
+                
               </Row>
             </Col>
           </Row>
