@@ -16,7 +16,7 @@ function Footer() {
         <Row>
           <Col>
             <img src={MainLogo} style={{ width: "250px" }} alt="main logo" />
-            <h3>Let's Socialize</h3>
+            {/* <h3>Let's Socialize</h3> */}
             <div className="social-icons">
               <ul>
                 <li>

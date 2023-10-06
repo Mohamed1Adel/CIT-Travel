@@ -1,20 +1,58 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import React ,{useState}from "react";
+import { Carousel, Col, Container, Row } from "react-bootstrap";
 import Carousell from "../Carousell/Carousell";
 import { Zoom } from "react-reveal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Temb from "../Temb/Temb";
-
+import HajjTamb from "../HajjTamb/HajjTamb";
+import "./HajjAndOmrah.scss";
+import HajjImg1 from "../../images/hajj/hajjImg1.jpg";
+import HajjImg2 from "../../images/hajj/hajjImg2.jpg";
+import HajjImg3 from "../../images/hajj/hajjImg3.jpg";
 function HajjAndOmrah() {
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex) => {
+    setIndex(selectedIndex);
+  };
   return (
-    <Container dir="rtl">
-      <Carousell />
+    <div dir="rtl">
+      <Container>
+        <Carousel activeIndex={index} onSelect={handleSelect}>
+          <Carousel.Item>
+            {/* <ExampleCarouselImage text="First slide" /> */}
+            <img src={HajjImg1} alt="..." />
+            <Carousel.Caption>
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            {/* <ExampleCarouselImage text="Second slide" /> */}
+            <img src={HajjImg2} alt="..." />
+            <Carousel.Caption>
+              <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            {/* <ExampleCarouselImage text="Third slide" /> */}
+            <img src={HajjImg3} alt="..." />
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+      </Container>
       <Zoom>
         <div style={{ marginTop: "50px" }} className="container-fluid">
           <h1 className="text-center main-heading">رحلات الحج والعمرة</h1>
           <Row className="domestic-section">
-            <Col lg="2">
+            <Col className="side-filter-col" lg="2">
               <div className="location-filter">
                 <h2>نوع الرحلة</h2>
                 <div className="checkboxes-group">
@@ -222,48 +260,44 @@ function HajjAndOmrah() {
             <Col className="domestic-hotels" lg="10">
               <Row>
                 <Col ssm="12" md="6" lg="4">
-                  <Temb />
+                  <HajjTamb />
                 </Col>
                 <Col ssm="12" md="6" lg="4">
-                  <Temb />
+                  <HajjTamb />
                 </Col>
                 <Col ssm="12" md="6" lg="4">
-                  <Temb />
+                  <HajjTamb />
                 </Col>
                 <Col ssm="12" md="6" lg="4">
-                  <Temb />
+                  <HajjTamb />
                 </Col>
                 <Col ssm="12" md="6" lg="4">
-                  <Temb />
+                  <HajjTamb />
                 </Col>
                 <Col ssm="12" md="6" lg="4">
-                  <Temb />
+                  <HajjTamb />
                 </Col>
                 <Col ssm="12" md="6" lg="4">
-                  <Temb />
+                  <HajjTamb />
                 </Col>
                 <Col ssm="12" md="6" lg="4">
-                  <Temb />
+                  <HajjTamb />
                 </Col>
                 <Col ssm="12" md="6" lg="4">
-                  <Temb />
+                  <HajjTamb />
                 </Col>
                 <Col ssm="12" md="6" lg="4">
-                  <Temb />
+                  <HajjTamb />
                 </Col>
                 <Col ssm="12" md="6" lg="4">
-                  <Temb />
+                  <HajjTamb />
                 </Col>
-                <Col ssm="12" md="6" lg="4">
-                  <Temb />
-                </Col>
-                
               </Row>
             </Col>
           </Row>
         </div>
       </Zoom>
-    </Container>
+    </div>
   );
 }
 

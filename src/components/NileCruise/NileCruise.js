@@ -7,7 +7,7 @@ function NileCruise() {
   return (
     <Zoom>
       <Container style={{marginTop:"50px"}} className="nile-cruise">
-        <h3 className="text-center main-heading">Day Tour</h3>
+        <h3 className="text-center main-heading">Nile Cruise</h3>
         <Row>
           <Col sm="12" md="6" lg="4">
             <Temb />

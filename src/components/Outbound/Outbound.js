@@ -16,7 +16,7 @@ function Outbound() {
   ];
   return (
     <div style={{ marginTop: "50px" }} className="outbound">
-      <h1 className="text-center main-heading">Outbound</h1>
+      {/* <h1 className="text-center main-heading">Outbound</h1> */}
       {/* <Card className="d-flex m-3" style={{ width: "18rem" }}>
           <Card.Img variant="top" src={TravelImage} />
           <Card.Body>
@@ -53,7 +53,7 @@ function Outbound() {
       <Zoom>
         <div className="container-fluid">
           <Row className="domestic-section">
-            <Col lg="2">
+            <Col className="side-filter-col" lg="2">
               <div className="location-filter">
                 <h2>Hotel Deals</h2>
                 {/* <div className="checkboxes-group">

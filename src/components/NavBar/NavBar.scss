@@ -1,10 +1,11 @@
 @import "../../index.scss";
 .navbar {
-  // position: fixed;
-  // top:0;
-  // left:0;
-  // z-index: 999;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 999;
   background-color: #fff !important;
+  width:100%
 }
 .navbar-item {
   font-size: 16px !important;

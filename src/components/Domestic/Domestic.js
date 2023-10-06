@@ -10,10 +10,10 @@ import { domesticsData } from "../../data/Domesticsdata";
 function Domestic() {
   return (
     <Zoom>
-      <div style={{ marginTop: "50px" }} className="container-fluid">
-        <h1 className="text-center main-heading">Domestics</h1>
+      <div  className="container-fluid">
+        {/* <h1 className="text-center main-heading">Domestics</h1> */}
         <Row className="domestic-section">
-          <Col lg="2">
+          <Col className="side-filter-col" lg="2">
             <div className="location-filter">
               <h2>Hotel Deals</h2>
               <div className="checkboxes-group">

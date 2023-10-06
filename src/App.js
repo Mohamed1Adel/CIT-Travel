@@ -17,10 +17,11 @@ import TembDetails from "./components/TembDetails/TembDetails";
 import DayTour from "./components/DayTour/DayTour";
 import MeetAssist from "./components/MeetAssist/MeetAssist";
 import Transportation from "./components/Transportation/Transportation";
-import "./App.scss"
+import "./App.scss";
 import HajjAndOmrahDetails from "./components/HajjAndOmrahDetails/HajjAndOmrahDetails";
 import HajjAndOmrah from "./components/HajjAndOmrah/HajjAndOmrah";
 import NileCruise from "./components/NileCruise/NileCruise";
+import HajjTamb from "./components/HajjTamb/HajjTamb";
 function App() {
   return (
     <div className="">
@@ -69,6 +70,12 @@ function App() {
             path="/hajjAndOmrahDetails"
             element={<HajjAndOmrahDetails />}
           />
+          <Route path="/HajjTamb" element={<HajjTamb />} />
+          <Route
+            path="/HajjAndOmrahDetails"
+            element={<HajjAndOmrahDetails />}
+          />
+
           <Route path="/tembDetails/:id" element={<TembDetails />} />
           <Route path="/transportation" element={<Transportation />} />
           <Route path="/about" element={<About />} />
