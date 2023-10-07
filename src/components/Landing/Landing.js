@@ -1,6 +1,6 @@
 import React ,{useState}from "react";
 import "./Landing.scss";
-import Carousell from "../Carousell/Carousell";
+// import Carousell from "../Carousell/Carousell";
 import { Carousel, Container } from "react-bootstrap";
 import travel from "../../images/travel1.jpg";
 function Landing() {

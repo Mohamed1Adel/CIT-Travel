@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, Card, Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { Zoom } from "react-reveal";
-import TravelImage from "../../images/travelimg1.jpg";
+// import TravelImage from "../../images/travelimg1.jpg";
 import Temb from "../Temb/Temb";
 import "./Domestic.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -55,25 +55,25 @@ function Footer() {
             <h3>Explore</h3>
             <ul className="content-links">
               <li>
-                <a href="#">Home</a>
+                <a href="/">Home</a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#"></a>
+              </li> */}
+              <li>
+                <a href="/domestics">Domestic</a>
               </li>
               <li>
-                <a href="#">Domestic</a>
+                <a href="/outbound">Outbound</a>
               </li>
               <li>
-                <a href="#">Outbound</a>
+                <a href="/hajjAndOmrah">Hajj & Umrah</a>
               </li>
               <li>
-                <a href="#">Hajj & Umrah</a>
+                <a href="/transportation">Transportation</a>
               </li>
               <li>
-                <a href="#">Transportation</a>
-              </li>
-              <li>
-                <a href="#">C.I.T Travel Egypt</a>
+                <a href="/about">C.I.T Travel Egypt</a>
               </li>
             </ul>
           </Col>

@@ -20,10 +20,10 @@ function UploadImages() {
       <div className="auth-inner" style={{ width: "auto" }}>
         Lets Upload UploadImages
         <input accept="images/*" type="file" onChange={convertToBase64} />{" "}
-        {image == "" || image == null ? (
+        {image === "" || image === null ? (
           ""
         ) : (
-          <img src={image} width={100} height={100} />
+          <img src={image} width={100} height={100} alt =""/>
         )}
       </div>
     </div>

@@ -49,7 +49,7 @@ import Carousel from "react-bootstrap/Carousel";
 // import ExampleCarouselImage from "components/ExampleCarouselImage";
 import "./carousell.scss";
 import hotel1 from "../../images/hotel2.jpg";
-import { Container } from "react-bootstrap";
+// import { Container } from "react-bootstrap";
 function Carousell() {
   const [index, setIndex] = useState(0);
 

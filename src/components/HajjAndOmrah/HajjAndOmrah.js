@@ -1,10 +1,10 @@
 import React ,{useState}from "react";
 import { Carousel, Col, Container, Row } from "react-bootstrap";
-import Carousell from "../Carousell/Carousell";
+// import Carousell from "../Carousell/Carousell";
 import { Zoom } from "react-reveal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import Temb from "../Temb/Temb";
+// import Temb from "../Temb/Temb";
 import HajjTamb from "../HajjTamb/HajjTamb";
 import "./HajjAndOmrah.scss";
 import HajjImg1 from "../../images/hajj/hajjImg1.jpg";

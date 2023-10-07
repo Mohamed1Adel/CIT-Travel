@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Card } from 'react-bootstrap';
 import Hotel2 from '../../images/hotel2.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faStar } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import "./HajjTamb.scss"
 function HajjTamb() {
