@@ -322,6 +322,11 @@ function Domestic() {
                         location={item.location}
                         rate={item.rate}
                         category={item.category}
+                        dur={item.dur}
+                        packageInclude={item.packageInclude}
+                        packageExclude={item.packageExclude}
+                        childrenPolicy={item.childrenPolicy}
+                        termsAndConditions={item.termsAndConditions}
                       />
                     </Col>
                   );
