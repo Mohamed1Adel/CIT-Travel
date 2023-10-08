@@ -31,7 +31,7 @@ function Temb({ id, title, rate, decs, category, location }) {
           </div>
           {decs} Desert rose is the best seller hotel and best choise to you
         </Card.Text>
-        <Button style={{ width: "120px" }} variant="primary">
+        <Button style={{ width: "140px" }} variant="primary">
           <Link to={"/tembDetails/" + id}>
             Book Now <FontAwesomeIcon icon={faArrowRight} />
           </Link>
