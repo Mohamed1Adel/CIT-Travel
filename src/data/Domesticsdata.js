@@ -6,6 +6,30 @@ export const domesticsData = [
     location: "Sharm",
     rate: "5",
     category: "Hsram",
+    dates:{
+      start:"20/09/2023",
+      end:"31/10/2023"
+    },
+    dur: {
+      days: "4",
+      nights: "3",
+    },
+    packageInclude: [
+      "Accommodation per person per stay (04 days / 03 nights package) in a superior room",
+    ],
+    packageExclude: [
+      "Any item not mentioned in the “package includes” section",
+      "All expenses of personal nature such as beverages, room, service, laundry, telephone calls, etc.",
+    ],
+    childrenPolicy: [
+      "1st child from 3 years till 11 years free .",
+      "2nd child from 3 years till 11 years will 50% from adult rate.",
+    ],
+    termsAndConditions: [
+      "1 night fee will be applied in case of cancellation within 10 days prior check in during low periods",
+      "1 night fee will be applied in case of cancellation within 30 days prior check in during high periods.​",
+      "Full charge will be applied in case of cancellation within 25 days prior check in during  high period​",
+    ],
   },
   {
     id: "2",
@@ -14,6 +38,26 @@ export const domesticsData = [
     location: "Sharm",
     rate: "4",
     category: "Hsram",
+    dur: {
+      days: "4",
+      nights: "3",
+    },
+    packageInclude: [
+      "Accommodation per person per stay (04 days / 03 nights package) in a superior room",
+    ],
+    packageExclude: [
+      "Any item not mentioned in the “package includes” section",
+      "All expenses of personal nature such as beverages, room, service, laundry, telephone calls, etc.",
+    ],
+    childrenPolicy: [
+      "1st child from 3 years till 11 years free .",
+      "2nd child from 3 years till 11 years will 50% from adult rate.",
+    ],
+    termsAndConditions: [
+      "1 night fee will be applied in case of cancellation within 10 days prior check in during low periods",
+      "1 night fee will be applied in case of cancellation within 30 days prior check in during high periods.​",
+      "Full charge will be applied in case of cancellation within 25 days prior check in during  high period​",
+    ],
   },
   {
     id: "3",
@@ -22,6 +66,26 @@ export const domesticsData = [
     location: "Sharm",
     rate: "5",
     category: "Hsram",
+    dur: {
+      days: "4",
+      nights: "3",
+    },
+    packageInclude: [
+      "Accommodation per person per stay (04 days / 03 nights package) in a superior room",
+    ],
+    packageExclude: [
+      "Any item not mentioned in the “package includes” section",
+      "All expenses of personal nature such as beverages, room, service, laundry, telephone calls, etc.",
+    ],
+    childrenPolicy: [
+      "1st child from 3 years till 11 years free .",
+      "2nd child from 3 years till 11 years will 50% from adult rate.",
+    ],
+    termsAndConditions: [
+      "1 night fee will be applied in case of cancellation within 10 days prior check in during low periods",
+      "1 night fee will be applied in case of cancellation within 30 days prior check in during high periods.​",
+      "Full charge will be applied in case of cancellation within 25 days prior check in during  high period​",
+    ],
   },
   {
     id: "4",
@@ -30,6 +94,26 @@ export const domesticsData = [
     location: "Sharm",
     rate: "2",
     category: "Hsram",
+    dur: {
+      days: "4",
+      nights: "3",
+    },
+    packageInclude: [
+      "Accommodation per person per stay (04 days / 03 nights package) in a superior room",
+    ],
+    packageExclude: [
+      "Any item not mentioned in the “package includes” section",
+      "All expenses of personal nature such as beverages, room, service, laundry, telephone calls, etc.",
+    ],
+    childrenPolicy: [
+      "1st child from 3 years till 11 years free .",
+      "2nd child from 3 years till 11 years will 50% from adult rate.",
+    ],
+    termsAndConditions: [
+      "1 night fee will be applied in case of cancellation within 10 days prior check in during low periods",
+      "1 night fee will be applied in case of cancellation within 30 days prior check in during high periods.​",
+      "Full charge will be applied in case of cancellation within 25 days prior check in during  high period​",
+    ],
   },
   {
     id: "5",
@@ -38,6 +122,26 @@ export const domesticsData = [
     location: "Sharm",
     rate: "4",
     category: "Hsram",
+    dur: {
+      days: "4",
+      nights: "3",
+    },
+    packageInclude: [
+      "Accommodation per person per stay (04 days / 03 nights package) in a superior room",
+    ],
+    packageExclude: [
+      "Any item not mentioned in the “package includes” section",
+      "All expenses of personal nature such as beverages, room, service, laundry, telephone calls, etc.",
+    ],
+    childrenPolicy: [
+      "1st child from 3 years till 11 years free .",
+      "2nd child from 3 years till 11 years will 50% from adult rate.",
+    ],
+    termsAndConditions: [
+      "1 night fee will be applied in case of cancellation within 10 days prior check in during low periods",
+      "1 night fee will be applied in case of cancellation within 30 days prior check in during high periods.​",
+      "Full charge will be applied in case of cancellation within 25 days prior check in during  high period​",
+    ],
   },
   {
     id: "6",
@@ -46,6 +150,26 @@ export const domesticsData = [
     location: "Sharm",
     rate: "5",
     category: "Hsram",
+    dur: {
+      days: "4",
+      nights: "3",
+    },
+    packageInclude: [
+      "Accommodation per person per stay (04 days / 03 nights package) in a superior room",
+    ],
+    packageExclude: [
+      "Any item not mentioned in the “package includes” section",
+      "All expenses of personal nature such as beverages, room, service, laundry, telephone calls, etc.",
+    ],
+    childrenPolicy: [
+      "1st child from 3 years till 11 years free .",
+      "2nd child from 3 years till 11 years will 50% from adult rate.",
+    ],
+    termsAndConditions: [
+      "1 night fee will be applied in case of cancellation within 10 days prior check in during low periods",
+      "1 night fee will be applied in case of cancellation within 30 days prior check in during high periods.​",
+      "Full charge will be applied in case of cancellation within 25 days prior check in during  high period​",
+    ],
   },
   {
     id: "7",
@@ -54,6 +178,26 @@ export const domesticsData = [
     location: "Sharm",
     rate: "5",
     category: "Hsram",
+    dur: {
+      days: "4",
+      nights: "3",
+    },
+    packageInclude: [
+      "Accommodation per person per stay (04 days / 03 nights package) in a superior room",
+    ],
+    packageExclude: [
+      "Any item not mentioned in the “package includes” section",
+      "All expenses of personal nature such as beverages, room, service, laundry, telephone calls, etc.",
+    ],
+    childrenPolicy: [
+      "1st child from 3 years till 11 years free .",
+      "2nd child from 3 years till 11 years will 50% from adult rate.",
+    ],
+    termsAndConditions: [
+      "1 night fee will be applied in case of cancellation within 10 days prior check in during low periods",
+      "1 night fee will be applied in case of cancellation within 30 days prior check in during high periods.​",
+      "Full charge will be applied in case of cancellation within 25 days prior check in during  high period​",
+    ],
   },
   {
     id: "8",
@@ -62,5 +206,25 @@ export const domesticsData = [
     location: "Sharm",
     rate: "5",
     category: "Hsram",
+    dur: {
+      days: "4",
+      nights: "3",
+    },
+    packageInclude: [
+      "Accommodation per person per stay (04 days / 03 nights package) in a superior room",
+    ],
+    packageExclude: [
+      "Any item not mentioned in the “package includes” section",
+      "All expenses of personal nature such as beverages, room, service, laundry, telephone calls, etc.",
+    ],
+    childrenPolicy: [
+      "1st child from 3 years till 11 years free .",
+      "2nd child from 3 years till 11 years will 50% from adult rate.",
+    ],
+    termsAndConditions: [
+      "1 night fee will be applied in case of cancellation within 10 days prior check in during low periods",
+      "1 night fee will be applied in case of cancellation within 30 days prior check in during high periods.​",
+      "Full charge will be applied in case of cancellation within 25 days prior check in during  high period​",
+    ],
   },
 ];
