@@ -161,7 +161,7 @@ function TembDetails() {
                 <div class="tab-content">
                   <div class="tab-pane " id="rates">
                     <div className=" main-table">
-                      <h6>Duration</h6>
+                      <h6>cost room per night</h6>
                       <table class="table">
                         <thead>
                           <tr>
@@ -169,16 +169,22 @@ function TembDetails() {
                             <th scope="col">duration</th>
                             <th scope="col">from</th>
                             <th scope="col">to</th>
+                            <th scope="col">single</th>
+                            <th scope="col">double</th>
+                            <th scope="col">triple</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <th scope="row">clasic room</th>
+                            <th scope="row">Standard room</th>
                             <td>summer</td>
                             <td>20/09/2023</td>
                             <td>15/10/2023</td>
+                            <td>2000</td>
+                            <td>2500</td>
+                            <td>3000</td>
                           </tr>
-                          <tr>
+                          {/* <tr>
                             <th scope="row">clasic room lagon</th>
                             <td>summer</td>
                             <td>20/09/2023</td>
@@ -195,11 +201,11 @@ function TembDetails() {
                             <td>summer</td>
                             <td>20/09/2023</td>
                             <td>@15/10/2023</td>
-                          </tr>
+                          </tr> */}
                         </tbody>
                       </table>
                     </div>
-                    <div className="trips-tables d-flex">
+                    {/* <div className="trips-tables d-flex">
                       <div className="t">
                         <h6 className="trip-heading">4 Days / 3 Nights Trip</h6>
                         <table class="table">
@@ -268,7 +274,7 @@ function TembDetails() {
                           </tbody>
                         </table>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                   {/* <div class="tab-pane" id="cancellation-polices">
                     <h4>Cancelation & No Show Plocies:</h4>
