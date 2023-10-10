@@ -133,7 +133,7 @@ function TembDetails() {
                 <div class="tab-content">
                   <div class="tab-pane programs" id="hotels-rates">
                     
-                  <div className=" main-table">
+                  {/* <div className=" main-table">
                       <h6>Duration</h6>
                       <table class="table">
                         <thead>
@@ -241,7 +241,7 @@ function TembDetails() {
                         </tbody>
                       </table>
                     </div>
-                    </div>
+                    </div> */}
                   </div>
                   <div class="tab-pane" id="cancellation-polices">
                   <h4>Cancelation & No Show Plocies:</h4>
