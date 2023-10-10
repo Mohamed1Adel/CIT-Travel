@@ -53,8 +53,13 @@ function Temb(domestic) {
             </div>
           {}
         </Card.Text>
+<<<<<<< HEAD
         <Button style={{ width: "140px" }} variant="primary">
           {/* <Link to={"/tembDetails/"+ domestic.domestic.id }>
+=======
+        <Button style={{ width: "120px" }} variant="primary">
+          <Link to={"/tembDetails/" + id}>
+>>>>>>> 4a714d9bf5308d2571d89ce09ee9bffb66da7a9d
             Book Now <FontAwesomeIcon icon={faArrowRight} />
           </Link> */}
         </Button>
