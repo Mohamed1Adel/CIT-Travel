@@ -9,7 +9,7 @@ function DayTour() {
       <Container style={{ marginTop: "50px" }} className="day-tour">
         <h3 className="text-center main-heading">Day Tour</h3>
         <Row>
-          <Col sm="12" md="6" lg="4" >
+          {/* <Col sm="12" md="6" lg="4" >
             <Temb />
           </Col>
           <Col sm="12" md="6" lg="4" >
@@ -35,7 +35,7 @@ function DayTour() {
           </Col>
           <Col sm="12" md="6" lg="4" >
             <Temb />
-          </Col>
+          </Col> */}
 
         </Row>
       </Container>

@@ -216,7 +216,7 @@ function Outbound() {
             </Col>
             <Col className="domestic-hotels" lg="10">
               <Row>
-                <Col sm="12" md="6" lg="4">
+                {/* <Col sm="12" md="6" lg="4">
                   <Temb />
                 </Col>
                 <Col sm="12" md="6" lg="4">
@@ -248,7 +248,7 @@ function Outbound() {
                 </Col>
                 <Col sm="12" md="6" lg="4">
                   <Temb />
-                </Col>
+                </Col> */}
                 
               </Row>
             </Col>

@@ -9,7 +9,7 @@ function NileCruise() {
       <Container style={{marginTop:"50px"}} className="nile-cruise">
         <h3 className="text-center main-heading">Nile Cruise</h3>
         <Row>
-          <Col sm="12" md="6" lg="4">
+          {/* <Col sm="12" md="6" lg="4">
             <Temb />
           </Col>
           <Col sm="12" md="6" lg="4">
@@ -44,7 +44,7 @@ function NileCruise() {
           </Col>
           <Col sm="12" md="6" lg="4">
             <Temb />
-          </Col>
+          </Col> */}
           
         </Row>
       </Container>

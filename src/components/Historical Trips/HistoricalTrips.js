@@ -9,7 +9,7 @@ function HistoricalTrips() {
       <Container style={{ marginTop: "50px" }} className="historical">
         <h3 className="text-center main-heading">HistoricalTrips</h3>
         <Row>
-          <Col sm="12" md="6" lg="4">
+          {/* <Col sm="12" md="6" lg="4">
             <Temb />
           </Col>
           <Col sm="12" md="6" lg="4">
@@ -53,7 +53,7 @@ function HistoricalTrips() {
           </Col>
           <Col sm="12" md="6" lg="4">
             <Temb />
-          </Col>
+          </Col> */}
           
         </Row>
       </Container>

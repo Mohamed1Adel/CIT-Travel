@@ -3,13 +3,13 @@ import { Col, Container, Row } from "react-bootstrap";
 import HistoricalTrips from "../Historical Trips/HistoricalTrips";
 import Outbound from "../Outbound/Outbound";
 import Domestic from "../Domestic/Domestic";
-import Hotel from "../Temb/Temb";
+import Temb from "../Temb/Temb";
 
 function MostPopular() {
   return (
     <div style={{ marginTop: "40px" }} className="most-popular">
       <Row>
-        <Col
+        {/* <Col
           sm="12"
           md="6"
           lg="4"
@@ -17,9 +17,9 @@ function MostPopular() {
           className="box d-flex flex-column align-items-center justify-content-center"
         >
           <h1 className="text-center main-heading">Historical Trips</h1>
-          <Hotel />
-          <Hotel />
-          <Hotel />
+          <Temb />
+          <Temb />
+          <Temb />
         </Col>
 
         <Col
@@ -30,9 +30,9 @@ function MostPopular() {
           className="box d-flex flex-column align-items-center justify-content-center"
         >
           <h1 className="text-center main-heading">Outbound</h1>
-          <Hotel />
-          <Hotel />
-          <Hotel />
+          <Temb />
+          <Temb />
+          <Temb />
         </Col>
 
         <Col
@@ -43,10 +43,10 @@ function MostPopular() {
           className="box d-flex flex-column align-items-center justify-content-center"
         >
           <h1 className="text-center main-heading">Domestics</h1>
-          <Hotel />
-          <Hotel />
-          <Hotel />
-        </Col>
+          <Temb />
+          <Temb />
+          <Temb />
+        </Col> */}
       </Row>
     </div>
   );

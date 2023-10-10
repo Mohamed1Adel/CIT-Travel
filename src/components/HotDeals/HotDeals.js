@@ -67,7 +67,7 @@ function HotDeals() {
             </Card>
           </Col> */}
 
-          <Col sm="12" md="6" lg="4">
+          {/* <Col sm="12" md="6" lg="4">
             <Temb />
           </Col>
           <Col sm="12" md="6" lg="4">
@@ -75,7 +75,7 @@ function HotDeals() {
           </Col>
           <Col sm="12" md="6" lg="4">
             <Temb />
-          </Col>
+          </Col> */}
         </Row>
       </Zoom>
     </div>
