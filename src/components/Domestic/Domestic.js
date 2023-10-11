@@ -13,12 +13,17 @@ function Domestic() {
   const [data, setData] = useState({});
 
   const getAllData = async () => {
-     await fetch("http://localhost:9000/domestics")
+    try{     await fetch("http://localhost:9000/domestics")
        .then((res) => res.json())
        .then((res) => setData(res));
     ;
     console.log(data);
     console.log("get data");
+  }
+    catch(e){
+      console.log(e);
+    }
+
   };
 
   useEffect(() => {
