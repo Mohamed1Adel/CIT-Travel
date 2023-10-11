@@ -10,13 +10,20 @@ import axios from "axios";
 
 function TembDetails() {
   // console.log(domestic);
-  const [domesticById, setDomesticById] = useState();
+  const [itemDetails, setItemDetails] = useState({});
+  const [images, setImages] = useState([]);
   const { id } = useParams();
 
   const getDomesticById = async () => {
-    const response = await axios.get(`http://localhost:9000/domestics/${id}`);
-    setDomesticById(response);
-    console.log(domesticById);
+    await fetch(`http://localhost:9000/domestics/${id}`)
+      .then((res) => res.json())
+      .then((res) => setItemDetails(res));
+
+    getImages();
+  };
+
+  const getImages = async () => {
+     setImages(itemDetails.images);
   };
 
   useEffect(() => {
@@ -38,7 +45,7 @@ function TembDetails() {
               <ul>
                 <h4>Hotel Name:</h4>
                 <h5>
-                  {domesticById} 
+                  {itemDetails.title}
                   <br />{" "}
                   {
                     <>
@@ -52,29 +59,24 @@ function TembDetails() {
                 </h5>
                 <h5>Location : Hurghada</h5>
                 <h4>Duration Period:</h4>
-                <h5>from 25/09/2023</h5>
-                <h5> to 25/09/2023</h5>
+                <h5>from {itemDetails.startDate}</h5>
+                <h5> to {itemDetails.endDate}</h5>
               </ul>
             </div>
           </Col>
           <Col sm="12" md="9" lg="8">
-            {/* <Carousel activeIndex={index} onSelect={handleSelect}>
-              <Carousel.Item>
-                <img src={} alt="..." />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img src={} alt="..." />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img src={} alt="..." />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img src={} alt="..." />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img src={} alt="..." />
-              </Carousel.Item>
-            </Carousel> */}
+            <Carousel activeIndex={index} onSelect={handleSelect}>
+              {images.length >= 1
+                ? images.map((img) => {
+                    console.log("images is loaded");
+                    return (
+                      <Carousel.Item key={Math.random()}>
+                        <img src={img.data_url} alt="..." />
+                      </Carousel.Item>
+                    );
+                  })
+                : console.log("hhh")}
+            </Carousel>
           </Col>
         </Row>
         <Row className="my-5">
@@ -248,6 +250,7 @@ function TembDetails() {
                 <div class="tab-content">
                   <div class="tab-pane active" id="cancellation-polices">
                     <h4>Cancelation & No Show Plocies:</h4>
+                    {itemDetails.cancellation}
                   </div>
                   <div class="tab-pane" id="children">
                     <h4>Children Polices : </h4>

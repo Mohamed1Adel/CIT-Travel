@@ -19,24 +19,22 @@ import { Link } from "react-router-dom";
 //   childrenPolicis,
 //   images,
 // }
-function Temb(domestic) {
-
-  console.log(domestic);
-  // let star = <FontAwesomeIcon className="star" icon={faStar} />;
-  // let rateStars = [];
-  // for (let i = 1; i <= Number(domestic.domestic.stars); i++) {
-  //   // console.log(domestic.domestic.stars);
-  //   rateStars.push(star);
-  // }
+function Temb(item) {
+  console.log(item.item);
+  // console.log(domestic);
+  let star = <FontAwesomeIcon className="star" icon={faStar} />;
+  let rateStars = [];
+  for (let i = 1; i <= Number(item.item.stars); i++) {
+    // console.log(domestic.domestic.stars);
+    rateStars.push(star);
+  }
   return (
     <Card className="hotel" style={{ width: "18rem" }}>
       <div className="card-image">
-        {/* <Card.Img variant="top" src={domestic.domestic.images[0].data_url} /> */}
+        <Card.Img variant="top" src={item.item.images[0].data_url} />
       </div>
       <Card.Body>
-        <Card.Title>
-          {/* {domestic.domestic.title ? domestic.domestic.title : "dome"}{" "} */}
-        </Card.Title>
+        <Card.Title>{item.item.title ? item.item.title : "dome"} </Card.Title>
         <Card.Text>
           <div className="rates-stars">
             {/* <FontAwesomeIcon className="star" icon={faStar} />
@@ -44,24 +42,21 @@ function Temb(domestic) {
             <FontAwesomeIcon className="star" icon={faStar} />
             <FontAwesomeIcon className="star" icon={faStar} />
             <FontAwesomeIcon className="star" icon={faStar} /> */}
-            {/* {rateStars.map((star) => {
+            {rateStars.map((star) => {
               return star;
-            })} */}
+            })}
           </div>
-            <div className="card-desc">
-              {/* <h5>{domestic.domestic.description}</h5> */}
-            </div>
+          <div className="card-desc">
+            <h5>{item.item.description}</h5>
+          </div>
           {}
         </Card.Text>
-<<<<<<< HEAD
-        <Button style={{ width: "140px" }} variant="primary">
-          {/* <Link to={"/tembDetails/"+ domestic.domestic.id }>
-=======
+
+        <Card.Body></Card.Body>
         <Button style={{ width: "120px" }} variant="primary">
-          <Link to={"/tembDetails/" + id}>
->>>>>>> 4a714d9bf5308d2571d89ce09ee9bffb66da7a9d
+          <Link to={"/tembDetails/" + item.item.id}>
             Book Now <FontAwesomeIcon icon={faArrowRight} />
-          </Link> */}
+          </Link>
         </Button>
       </Card.Body>
     </Card>
