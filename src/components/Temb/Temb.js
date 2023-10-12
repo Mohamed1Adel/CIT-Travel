@@ -31,7 +31,7 @@ function Temb(item) {
   return (
     <Card className="hotel" style={{ width: "18rem" }}>
       <div className="card-image">
-        <Card.Img variant="top" src={item.item.images[0].data_url} />
+        <Card.Img variant="top" src={item.item.images[0].img_url} />
       </div>
       <Card.Body>
         <Card.Title>{item.item.title ? item.item.title : "dome"} </Card.Title>
@@ -53,7 +53,7 @@ function Temb(item) {
         </Card.Text>
 
         <Card.Body></Card.Body>
-        <Button style={{ width: "120px" }} variant="primary">
+        <Button style={{ width: "130px" }} variant="primary">
           <Link to={"/tembDetails/" + item.item.id}>
             Book Now <FontAwesomeIcon icon={faArrowRight} />
           </Link>

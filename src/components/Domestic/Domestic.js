@@ -10,13 +10,14 @@ import { domesticsData } from "../../data/Domesticsdata";
 import axios from "axios";
 
 function Domestic() {
+
+
   const [data, setData] = useState({});
 
   const getAllData = async () => {
-    try{     await fetch("http://localhost:9000/domestics")
+    try{await fetch("http://localhost:9000/domestics")
        .then((res) => res.json())
        .then((res) => setData(res));
-    ;
     console.log(data);
     console.log("get data");
   }

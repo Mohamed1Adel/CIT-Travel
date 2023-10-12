@@ -10,18 +10,26 @@ import axios from "axios";
 
 function TembDetails() {
   // console.log(domestic);
+
+  
   const [itemDetails, setItemDetails] = useState({value:""});
   const [images, setImages] = useState([]);
   const { id } = useParams(0);
 
-  const getDomesticById = async () => {
+  const url = `http://localhost:9000/domestics/${id}`
+  async function getDomesticById() {
     try {
-      await fetch(`http://localhost:9000/domestics/${id}`)
-        .then(async(res) => await res.json())
-        .then((res) => setItemDetails(res))
+
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log(data);
+      setItemDetails(data)
+      // await fetch(url)
+      //   .then((res) => res.json())
+      //   .then((res) => setItemDetails(res))
         
       
-        console.log(itemDetails);
+      //   console.log(itemDetails);
 
       // const imgs = itemDetails.images.map((img) => {
       //   console.log("images is loaded");
@@ -44,9 +52,20 @@ function TembDetails() {
     setImages(itemDetails.images);
   };
 
+  let star = <FontAwesomeIcon className="star" icon={faStar} />;
+  let rateStars = [];
+  for (let i = 1; i <= Number(itemDetails.stars); i++) {
+    // console.log(domestic.domestic.stars);
+    rateStars.push(star);
+  }
+
+
+
   useEffect(() => {
     getDomesticById();
   }, []);
+
+
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex) => {
@@ -67,11 +86,9 @@ function TembDetails() {
                   <br />{" "}
                   {
                     <>
-                      <FontAwesomeIcon className="star" icon={faStar} />
-                      <FontAwesomeIcon className="star" icon={faStar} />
-                      <FontAwesomeIcon className="star" icon={faStar} />
-                      <FontAwesomeIcon className="star" icon={faStar} />
-                      <FontAwesomeIcon className="star" icon={faStar} />
+                                  {rateStars.map((star) => {
+              return star;
+            })}
                     </>
                   }{" "}
                 </h5>
@@ -85,20 +102,54 @@ function TembDetails() {
           <Col sm="12" md="9" lg="8">
             <Carousel activeIndex={index} onSelect={handleSelect}>
               {
-                // images.length >= 1
-                //   ? images.map((img) => {
-                //       console.log("images is loaded");
-                //       return (
-                //         <Carousel.Item key={Math.random()}>
-                //           <img src={img.data_url} alt="..." />
-                //         </Carousel.Item>
-                //       );
-                //     })
+                itemDetails.images?.length >= 1
+                  ? itemDetails.images?.map((img) => {
+                      console.log("images is loaded");
+                      return (
+                        <Carousel.Item key={Math.random()}>
+                          <img src={img.img_url} alt="..." />
+                        </Carousel.Item>
+                      );
+                    }) : <h2>not found</h2>
               }
             </Carousel>
           </Col>
         </Row>
         <Row className="my-5">
+        <Col sm="12" md="3" lg="4">
+            <div className="book-form">
+              <h2>Book Now</h2>
+              <Form>
+                <Form.Group className="mb-3" controlId="formBasicName">
+                  <Form.Control type="text" placeholder="Your Name" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Control type="email" placeholder="Your Email Address" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicNumber">
+                  <Form.Control type="text" placeholder="Your Phone Number" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicName">
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter Number of Rooms"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicName">
+                  <Form.Control type="text" placeholder="Enter Number of Pax" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicName">
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter Number of Child"
+                  />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                  Book Now
+                </Button>
+              </Form>
+            </div>
+          </Col>
           <Col sm="12" md="9" lg="8">
             <div class="card text-center">
               <div class="card-header">
@@ -125,17 +176,63 @@ function TembDetails() {
                             <th scope="col">single</th>
                             <th scope="col">double</th>
                             <th scope="col">triple</th>
+
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
                             <th scope="row">Standard room</th>
                             <td>summer</td>
-                            <td>20/09/2023</td>
-                            <td>15/10/2023</td>
-                            <td>2000</td>
-                            <td>2500</td>
-                            <td>3000</td>
+                            <td>{itemDetails.startDate}</td>
+                            <td>{itemDetails.endDate}</td>
+                            <td>{itemDetails.single}</td>
+                            <td>{itemDetails.double}</td>
+                            <td>{itemDetails.triple}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Standard room</th>
+                            <td>summer</td>
+                            <td>{itemDetails.startDate}</td>
+                            <td>{itemDetails.endDate}</td>
+                            <td>{itemDetails.single}</td>
+                            <td>{itemDetails.double}</td>
+                            <td>{itemDetails.triple}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Standard room</th>
+                            <td>summer</td>
+                            <td>{itemDetails.startDate}</td>
+                            <td>{itemDetails.endDate}</td>
+                            <td>{itemDetails.single}</td>
+                            <td>{itemDetails.double}</td>
+                            <td>{itemDetails.triple}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Standard room</th>
+                            <td>summer</td>
+                            <td>{itemDetails.startDate}</td>
+                            <td>{itemDetails.endDate}</td>
+                            <td>{itemDetails.single}</td>
+                            <td>{itemDetails.double}</td>
+                            <td>{itemDetails.triple}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Standard room</th>
+                            <td>summer</td>
+                            <td>{itemDetails.startDate}</td>
+                            <td>{itemDetails.endDate}</td>
+                            <td>{itemDetails.single}</td>
+                            <td>{itemDetails.double}</td>
+                            <td>{itemDetails.triple}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Standard room</th>
+                            <td>summer</td>
+                            <td>{itemDetails.startDate}</td>
+                            <td>{itemDetails.endDate}</td>
+                            <td>{itemDetails.single}</td>
+                            <td>{itemDetails.double}</td>
+                            <td>{itemDetails.triple}</td>
                           </tr>
                           {/* <tr>
                             <th scope="row">clasic room lagon</th>
@@ -269,13 +366,18 @@ function TembDetails() {
                 <div class="tab-content">
                   <div class="tab-pane active" id="cancellation-polices">
                     <h4>Cancelation & No Show Plocies:</h4>
-                    {itemDetails.cancellation}
+                    {itemDetails.cancillation}
+                    <div dangerouslySetInnerHTML={{ __html: itemDetails.cancillation }} />
                   </div>
                   <div class="tab-pane" id="children">
                     <h4>Children Polices : </h4>
+
+                    <div dangerouslySetInnerHTML={{ __html: itemDetails.childrenPolicis }} />
                   </div>
                   <div class="tab-pane" id="terms">
                     <h4>Terms and Conditions</h4>
+                    <div dangerouslySetInnerHTML={{ __html: itemDetails.termsAndConditions }} />
+  
                   </div>
                   <div class="tab-pane" id="document-required">
                     <h5>Documents required at the hotel:-</h5>
@@ -284,40 +386,7 @@ function TembDetails() {
               </div>
             </div>
           </Col>
-          <Col sm="12" md="3" lg="4">
-            <div className="book-form">
-              <h2>Book Now</h2>
-              <Form>
-                <Form.Group className="mb-3" controlId="formBasicName">
-                  <Form.Control type="text" placeholder="Your Name" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Control type="email" placeholder="Your Email Address" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicNumber">
-                  <Form.Control type="text" placeholder="Your Phone Number" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicName">
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter Number of Rooms"
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicName">
-                  <Form.Control type="text" placeholder="Enter Number of Pax" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicName">
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter Number of Child"
-                  />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                  Book Now
-                </Button>
-              </Form>
-            </div>
-          </Col>
+
         </Row>
       </div>
     </Container>
