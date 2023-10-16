@@ -11,24 +11,21 @@ import axios from "axios";
 function TembDetails() {
   // console.log(domestic);
 
-  
-  const [itemDetails, setItemDetails] = useState({value:""});
+  const [itemDetails, setItemDetails] = useState({ value: "" });
   const [images, setImages] = useState([]);
   const { id } = useParams(0);
 
-  const url = `http://localhost:9000/domestics/${id}`
+  const url = `http://localhost:9000/domestics/${id}`;
   async function getDomesticById() {
     try {
-
       const response = await fetch(url);
       const data = await response.json();
       console.log(data);
-      setItemDetails(data)
+      setItemDetails(data);
       // await fetch(url)
       //   .then((res) => res.json())
       //   .then((res) => setItemDetails(res))
-        
-      
+
       //   console.log(itemDetails);
 
       // const imgs = itemDetails.images.map((img) => {
@@ -46,7 +43,7 @@ function TembDetails() {
     } catch (e) {
       console.log(e);
     }
-  };
+  }
 
   const getImages = async () => {
     setImages(itemDetails.images);
@@ -59,12 +56,9 @@ function TembDetails() {
     rateStars.push(star);
   }
 
-
-
   useEffect(() => {
     getDomesticById();
   }, []);
-
 
   const [index, setIndex] = useState(0);
 
@@ -80,43 +74,43 @@ function TembDetails() {
           <Col sm="12" md="3" lg="4">
             <div className="info-box">
               <ul>
-                <h4>Hotel Name:</h4>
+                <h4 style={{ color: "orange" }}>{itemDetails.title}</h4>
                 <h5>
-                  {itemDetails.title}
-                  <br />{" "}
-                  {
-                    <>
-                                  {rateStars.map((star) => {
-              return star;
-            })}
-                    </>
-                  }{" "}
+                  {" "}
+                  {rateStars.map((star) => {
+                    return star;
+                  })}
                 </h5>
-                <h5>Location : Hurghada</h5>
-                <h4>Duration Period:</h4>
-                <h5>from {itemDetails.startDate}</h5>
-                <h5> to {itemDetails.endDate}</h5>
+                {/* <h5>{itemDetails.category}</h5> */}
+                <h5 style={{ color: "green" }}>{itemDetails.description}</h5>
+                <h5 style={{ color: "red" }}>{itemDetails.destination}</h5>
+                <h5>{itemDetails.box6}</h5>
+                <h5>{itemDetails.box7}</h5>
+                <h5>{itemDetails.box8}</h5>
+                <h5>{itemDetails.box9}</h5>
+                <h5>{itemDetails.box10}</h5>
               </ul>
             </div>
           </Col>
           <Col sm="12" md="9" lg="8">
             <Carousel activeIndex={index} onSelect={handleSelect}>
-              {
-                itemDetails.images?.length >= 1
-                  ? itemDetails.images?.map((img) => {
-                      console.log("images is loaded");
-                      return (
-                        <Carousel.Item key={Math.random()}>
-                          <img src={img.img_url} alt="..." />
-                        </Carousel.Item>
-                      );
-                    }) : <h2>not found</h2>
-              }
+              {itemDetails.images?.length >= 1 ? (
+                itemDetails.images?.map((img) => {
+                  console.log("images is loaded");
+                  return (
+                    <Carousel.Item key={Math.random()}>
+                      <img src={img.img_url} alt="..." />
+                    </Carousel.Item>
+                  );
+                })
+              ) : (
+                <h2>not found</h2>
+              )}
             </Carousel>
           </Col>
         </Row>
         <Row className="my-5">
-        <Col sm="12" md="3" lg="4">
+          <Col sm="12" md="3" lg="4">
             <div className="book-form">
               <h2>Book Now</h2>
               <Form>
@@ -151,7 +145,10 @@ function TembDetails() {
             </div>
           </Col>
           <Col sm="12" md="9" lg="8">
-            <div class="card text-center">
+            <div
+              class="card bottom-card text-center"
+              style={{ width: "100% !important" }}
+            >
               <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs" id="tabs">
                   <li class="nav-item">
@@ -161,79 +158,38 @@ function TembDetails() {
                   </li>
                 </ul>
               </div>
-              <div class="card-body ">
+              <div class="card-body tabs-card">
                 <div class="tab-content">
                   <div class="tab-pane " id="rates">
                     <div className=" main-table">
-                      <h6>cost room per night</h6>
+                      <h6>Available Packages</h6>
                       <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">room type</th>
+                            <th scope="col">package</th>
                             <th scope="col">duration</th>
                             <th scope="col">from</th>
                             <th scope="col">to</th>
                             <th scope="col">single</th>
                             <th scope="col">double</th>
                             <th scope="col">triple</th>
-
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">Standard room</th>
-                            <td>summer</td>
-                            <td>{itemDetails.startDate}</td>
-                            <td>{itemDetails.endDate}</td>
-                            <td>{itemDetails.single}</td>
-                            <td>{itemDetails.double}</td>
-                            <td>{itemDetails.triple}</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">Standard room</th>
-                            <td>summer</td>
-                            <td>{itemDetails.startDate}</td>
-                            <td>{itemDetails.endDate}</td>
-                            <td>{itemDetails.single}</td>
-                            <td>{itemDetails.double}</td>
-                            <td>{itemDetails.triple}</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">Standard room</th>
-                            <td>summer</td>
-                            <td>{itemDetails.startDate}</td>
-                            <td>{itemDetails.endDate}</td>
-                            <td>{itemDetails.single}</td>
-                            <td>{itemDetails.double}</td>
-                            <td>{itemDetails.triple}</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">Standard room</th>
-                            <td>summer</td>
-                            <td>{itemDetails.startDate}</td>
-                            <td>{itemDetails.endDate}</td>
-                            <td>{itemDetails.single}</td>
-                            <td>{itemDetails.double}</td>
-                            <td>{itemDetails.triple}</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">Standard room</th>
-                            <td>summer</td>
-                            <td>{itemDetails.startDate}</td>
-                            <td>{itemDetails.endDate}</td>
-                            <td>{itemDetails.single}</td>
-                            <td>{itemDetails.double}</td>
-                            <td>{itemDetails.triple}</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">Standard room</th>
-                            <td>summer</td>
-                            <td>{itemDetails.startDate}</td>
-                            <td>{itemDetails.endDate}</td>
-                            <td>{itemDetails.single}</td>
-                            <td>{itemDetails.double}</td>
-                            <td>{itemDetails.triple}</td>
-                          </tr>
+                          {itemDetails.packages?.map((pack) => {
+                            return (
+                              <tr>
+                                <th scope="row">{pack.packTitle}</th>
+                                <td>{pack.duration}</td>
+                                <td>{pack.startDate}</td>
+                                <td>{pack.endDate}</td>
+                                <td>{pack.single}</td>
+                                <td>{pack.double}</td>
+                                <td>{pack.triple}</td>
+                              </tr>
+                            );
+                          })}
+
                           {/* <tr>
                             <th scope="row">clasic room lagon</th>
                             <td>summer</td>
@@ -366,18 +322,29 @@ function TembDetails() {
                 <div class="tab-content">
                   <div class="tab-pane active" id="cancellation-polices">
                     <h4>Cancelation & No Show Plocies:</h4>
-                    {itemDetails.cancillation}
-                    <div dangerouslySetInnerHTML={{ __html: itemDetails.cancillation }} />
+                    {/* {itemDetails.cancellation} */}
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: itemDetails.cancellation,
+                      }}
+                    />
                   </div>
                   <div class="tab-pane" id="children">
                     <h4>Children Polices : </h4>
 
-                    <div dangerouslySetInnerHTML={{ __html: itemDetails.childrenPolicis }} />
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: itemDetails.childrenPolices,
+                      }}
+                    />
                   </div>
                   <div class="tab-pane" id="terms">
                     <h4>Terms and Conditions</h4>
-                    <div dangerouslySetInnerHTML={{ __html: itemDetails.termsAndConditions }} />
-  
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: itemDetails.termsAndConditions,
+                      }}
+                    />
                   </div>
                   <div class="tab-pane" id="document-required">
                     <h5>Documents required at the hotel:-</h5>
@@ -386,12 +353,10 @@ function TembDetails() {
               </div>
             </div>
           </Col>
-
         </Row>
       </div>
     </Container>
   );
-
 }
 
 export default TembDetails;

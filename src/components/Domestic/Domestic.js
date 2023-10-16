@@ -40,7 +40,7 @@ function Domestic() {
     <Zoom>
     {
     }
-      <div className="container-fluid">
+      <div  className="domestics container-fluid" >
         {/* <h1 className="text-center main-heading">Domestics</h1> */}
         <Row className="domestic-section">
           <Col className="side-filter-col" lg="2">
@@ -344,7 +344,7 @@ function Domestic() {
               {data.length >= 1 ? (
                 data.map((item) => {
                   return (
-                    <Col key={item.id} sm="12" md="6" lg="4">
+                    <Col key={item.id} sm="12" md="6" lg="4" xl="3">
                       <Temb item={item} />
                     </Col>
                   );

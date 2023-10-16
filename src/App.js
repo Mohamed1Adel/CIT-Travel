@@ -22,6 +22,7 @@ import HajjAndOmrahDetails from "./components/HajjAndOmrahDetails/HajjAndOmrahDe
 import HajjAndOmrah from "./components/HajjAndOmrah/HajjAndOmrah";
 import NileCruise from "./components/NileCruise/NileCruise";
 import HajjTamb from "./components/HajjTamb/HajjTamb";
+import HistorecalTembDetails from "./components/HistorecalTempDetails/HistorecalTempDetails";
 function App() {
   return (
     <div className="">
@@ -77,6 +78,8 @@ function App() {
           />
 
           <Route path="/tembDetails/:id" element={<TembDetails />} />
+          <Route path="/historecaltembDetails/:id" element={<HistorecalTembDetails />} />
+
           <Route path="/transportation" element={<Transportation />} />
           <Route path="/about" element={<About />} />
           <Route path="/contactUs" element={<ContactUs />} />
