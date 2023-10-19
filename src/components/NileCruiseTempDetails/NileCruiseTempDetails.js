@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { Button, Carousel, Col, Container, Row } from "react-bootstrap";
-import "./TembDetails.scss";
+import { Accordion, Button, Carousel, Col, Container, Row } from "react-bootstrap";
+import "./NileCruiseTempDetails.scss";
 // import Carousell from "../Carousell/Carousell";
 import Form from "react-bootstrap/Form";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-function TembDetails() {
+function NileCruiseTempDetails() {
   // console.log(domestic);
 
-  const [itemDetails, setItemDetails] = useState({ value: "" });
+  const [nileCruiseDetails, setNileCruiseDetails] = useState();
   const [images, setImages] = useState([]);
-  const { id } = useParams(0);
+  const { id } = useParams();
 
-  const url = `http://localhost:9000/domestics/${id}`;
+  const url = `http://localhost:9000/nileCruise/${id}`;
   async function getDomesticById() {
     try {
       const response = await fetch(url);
       const data = await response.json();
       console.log(data);
-      setItemDetails(data);
+      setNileCruiseDetails(data);
       // await fetch(url)
       //   .then((res) => res.json())
       //   .then((res) => setItemDetails(res))
@@ -46,15 +46,9 @@ function TembDetails() {
   }
 
   const getImages = async () => {
-    setImages(itemDetails.images);
+    setImages(nileCruiseDetails?.images);
   };
 
-  let star = <FontAwesomeIcon className="star" icon={faStar} />;
-  let rateStars = [];
-  for (let i = 1; i <= Number(itemDetails.stars); i++) {
-    // console.log(domestic.domestic.stars);
-    rateStars.push(star);
-  }
 
   useEffect(() => {
     getDomesticById();
@@ -74,31 +68,28 @@ function TembDetails() {
           <Col sm="12" md="3" lg="4">
             <div className="info-box">
               <ul>
-                <h4 style={{ color: "orange" }}>{itemDetails.title}</h4>
-                <h5>
-                  {" "}
-                  {rateStars.map((star) => {
-                    return star;
-                  })}
-                </h5>
+                <h4 style={{ color: "orange" }}>{nileCruiseDetails?.title}</h4>
+
                 {/* <h5>{itemDetails.category}</h5> */}
-                <h5 style={{ color: "green" }}>{itemDetails.description}</h5>
+                <h5 style={{ color: "green" }}>
+                  {nileCruiseDetails?.description}
+                </h5>
                 <h5 style={{ color: "red" }}>
                   <FontAwesomeIcon icon={faLocationDot} />{" "}
-                  {itemDetails.destination}
+                  {nileCruiseDetails?.destination}
                 </h5>
-                <h5>{itemDetails.box6}</h5>
-                <h5>{itemDetails.box7}</h5>
-                <h5>{itemDetails.box8}</h5>
-                <h5>{itemDetails.box9}</h5>
-                <h5>{itemDetails.box10}</h5>
+                <h5>{nileCruiseDetails?.box6}</h5>
+                <h5>{nileCruiseDetails?.box7}</h5>
+                <h5>{nileCruiseDetails?.box8}</h5>
+                <h5>{nileCruiseDetails?.box9}</h5>
+                <h5>{nileCruiseDetails?.box10}</h5>
               </ul>
             </div>
           </Col>
           <Col sm="12" md="9" lg="8">
             <Carousel activeIndex={index} onSelect={handleSelect}>
-              {itemDetails.images?.length >= 1 ? (
-                itemDetails.images?.map((img) => {
+              {nileCruiseDetails?.images?.length >= 1 ? (
+                nileCruiseDetails?.images?.map((img) => {
                   console.log("images is loaded");
                   return (
                     <Carousel.Item key={Math.random()}>
@@ -170,7 +161,6 @@ function TembDetails() {
                         <thead>
                           <tr>
                             <th scope="col">package</th>
-                            <th scope="col">duration</th>
                             <th scope="col">from</th>
                             <th scope="col">to</th>
                             <th scope="col">single</th>
@@ -179,11 +169,10 @@ function TembDetails() {
                           </tr>
                         </thead>
                         <tbody>
-                          {itemDetails.packages?.map((pack) => {
+                          {nileCruiseDetails?.packages?.map((pack) => {
                             return (
                               <tr>
                                 <th scope="row">{pack.packTitle}</th>
-                                <td>{pack.duration}</td>
                                 <td>{pack.startDate}</td>
                                 <td>{pack.endDate}</td>
                                 <td>{pack.single}</td>
@@ -292,19 +281,16 @@ function TembDetails() {
               <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs" id="tabs">
                   <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="#cancellation-polices"
-                      data-toggle="tab"
-                    >
-                      Cancellation Polices
+                    <a class="nav-link" href="#itenary" data-toggle="tab">
+                      Itenary
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#children" data-toggle="tab">
-                      Children Policy
+                    <a class="nav-link" href="#details" data-toggle="tab">
+                      Details
                     </a>
                   </li>
+
                   <li class="nav-item">
                     <a class="nav-link" href="#terms" data-toggle="tab">
                       terms & Conditions
@@ -313,31 +299,64 @@ function TembDetails() {
                   <li class="nav-item">
                     <a
                       class="nav-link"
-                      href="#document-required"
+                      href="#cancellation-polices"
                       data-toggle="tab"
                     >
-                      Required Docs
+                      Cancellation Polices
                     </a>
                   </li>
                 </ul>
               </div>
               <div class="card-body ">
                 <div class="tab-content">
-                  <div class="tab-pane active" id="cancellation-polices">
-                    <h4>Cancelation & No Show Plocies:</h4>
+                  <div class="tab-pane active" id="itenary">
+                    <h4>Itenary</h4>
                     {/* {itemDetails.cancellation} */}
-                    <div
+                    {/* <div
                       dangerouslySetInnerHTML={{
-                        __html: itemDetails.cancellation,
+                        __html: nileCruiseDetails?.cancellation,
                       }}
-                    />
+                    /> */}
+                    <Accordion
+                      className="itenary-accordion"
+                      defaultActiveKey="0"
+                    >
+                      {nileCruiseDetails?.itenary?.map((day, index) => {
+                        return (
+                          <Accordion.Item eventKey={`${index + 1}`}>
+                            <Accordion.Header>
+                              Day {index + 1} {"  "}
+                              &nbsp; <FontAwesomeIcon icon={faArrowRight} />
+                              &nbsp;{"  "}
+                              {day.dayTitle}
+                            </Accordion.Header>
+                            <Accordion.Body>
+                              <div
+                                dangerouslySetInnerHTML={{
+                                  __html: day?.dayContent,
+                                }}
+                              />
+                              {/* <h4 style={{ fontWeight: "bold", color: "red" }}>
+                                Optional Tours
+                              </h4>
+                              <div
+                                style={{ marginTop: "10px" }}
+                                dangerouslySetInnerHTML={{
+                                  __html: day?.optTour,
+                                }}
+                              /> */}
+                            </Accordion.Body>
+                          </Accordion.Item>
+                        );
+                      })}
+                    </Accordion>
                   </div>
-                  <div class="tab-pane" id="children">
-                    <h4>Children Polices : </h4>
+                  <div class="tab-pane" id="details">
+                    <h4>Details</h4>
 
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: itemDetails.childrenPolices,
+                        __html: nileCruiseDetails?.description,
                       }}
                     />
                   </div>
@@ -345,12 +364,17 @@ function TembDetails() {
                     <h4>Terms and Conditions</h4>
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: itemDetails.termsAndConditions,
+                        __html: nileCruiseDetails?.termsAndConditions,
                       }}
                     />
                   </div>
-                  <div class="tab-pane" id="document-required">
-                    <h5>Documents required at the hotel:-</h5>
+                  <div class="tab-pane" id="cancellation-polices">
+                    <h5>Cancelation</h5>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: nileCruiseDetails?.cancellation,
+                      }}
+                    />
                   </div>
                 </div>
               </div>
@@ -362,7 +386,7 @@ function TembDetails() {
   );
 }
 
-export default TembDetails;
+export default NileCruiseTempDetails;
 // import React ,{useState,useEffect}from "react";
 // import { Button, Col, Container, Row } from "react-bootstrap";
 // import "./TembDetails.scss";

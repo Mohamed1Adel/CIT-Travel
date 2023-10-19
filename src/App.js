@@ -23,6 +23,9 @@ import HajjAndOmrah from "./components/HajjAndOmrah/HajjAndOmrah";
 import NileCruise from "./components/NileCruise/NileCruise";
 import HajjTamb from "./components/HajjTamb/HajjTamb";
 import HistorecalTembDetails from "./components/HistorecalTempDetails/HistorecalTempDetails";
+import OutboundTempDetails from "./components/OutboundTempDetails/OutboundTempDetails";
+import NileCruiseTempDetails from "./components/NileCruiseTempDetails/NileCruiseTempDetails";
+import DayTourTempDetails from "./components/DayTourTempDetails/DayTourTempDetails";
 function App() {
   return (
     <div className="">
@@ -62,10 +65,14 @@ function App() {
           {/* <Route path="/domestics" element={<AllDomestics />} /> */}
           <Route path="/historicalTrips" element={<HistoricalTrips />} />
           <Route path="/dayTour" element={<DayTour />} />
+          <Route path="/dayTourTempDetails/:id" element={<DayTourTempDetails />} />
           <Route path="/nileCruise" element={<NileCruise />} />
+          <Route path="/nileCruiseTempDetails/:id" element={<NileCruiseTempDetails />} />
           <Route path="/meetAssist" element={<MeetAssist />} />
           <Route path="/domestics" element={<Domestic />} />
           <Route path="/outbound" element={<Outbound />} />
+          <Route path="/outboundTempDetails/:id" element={<OutboundTempDetails />} />
+          
           <Route path="/hajjAndOmrah" element={<HajjAndOmrah />} />
           <Route
             path="/hajjAndOmrahDetails"

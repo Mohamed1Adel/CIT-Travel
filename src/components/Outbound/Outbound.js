@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { Zoom } from "react-reveal";
 // import TravelImage from "../../images/travelimg1.jpg";
 import Temb from "../Temb/Temb";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+import { API_URL } from "../../envData";
+import OutboundTempDetails from "../OutboundTempDetails/OutboundTempDetails";
+import OutboundTemp from "../OutboundTemp/OutboundTemp";
 function Outbound() {
+  const [outbounds, setOutbounds] = useState();
+
+  const getAllOutbound = async () => {
+    const response = await axios.get(`${API_URL}/outbound`);
+    const data = response.data;
+    setOutbounds(data)
+    console.log(data);
+  };
+
+  useEffect(() => {
+    getAllOutbound();
+  }, []);
+
   const checks = [
     "Africa",
     "Asia",
@@ -249,7 +266,15 @@ function Outbound() {
                 <Col sm="12" md="6" lg="4">
                   <Temb />
                 </Col> */}
-                
+              {
+                outbounds?.map?.((outbound)=>{
+                  return (
+                    <Col sm="12" md="6" lg="4">
+                      <OutboundTemp outbound={outbound} />
+                    </Col>
+                  );
+                })
+              }
               </Row>
             </Col>
           </Row>
