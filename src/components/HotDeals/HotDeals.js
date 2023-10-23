@@ -5,8 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import "./hotDeals.scss";
 import { Zoom } from "react-reveal";
-import Hotel from "../Temb/Temb";
-import Temb from "../Temb/Temb";
 function HotDeals() {
   return (
     <div className="hot-deals">

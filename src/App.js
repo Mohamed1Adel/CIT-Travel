@@ -75,7 +75,7 @@ function App() {
           
           <Route path="/hajjAndOmrah" element={<HajjAndOmrah />} />
           <Route
-            path="/hajjAndOmrahDetails"
+            path="/hajjAndOmrahDetails/:id"
             element={<HajjAndOmrahDetails />}
           />
           <Route path="/HajjTamb" element={<HajjTamb />} />

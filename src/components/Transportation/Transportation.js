@@ -3,7 +3,6 @@ import { Button, Carousel, Container, Form } from "react-bootstrap";
 import "./Transportation.scss";
 function Transportation() {
   const [index, setIndex] = useState(0);
-
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
@@ -71,7 +70,6 @@ function Transportation() {
               <Form.Control type="text" placeholder="Your E-Mail" />
             </Form.Group>
           </div>
-
           <div className="right-form">
             <Form.Group
               className="mb-3"
@@ -83,7 +81,6 @@ function Transportation() {
                 rows={3}
               />
             </Form.Group>
-
             <Button variant="primary" type="submit">
               Book Now
             </Button>

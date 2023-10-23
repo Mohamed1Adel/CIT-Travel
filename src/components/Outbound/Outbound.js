@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { Zoom } from "react-reveal";
-// import TravelImage from "../../images/travelimg1.jpg";
 import Temb from "../Temb/Temb";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-import { API_URL } from "../../envData";
+import { API_URL, MONGODB_URL } from "../../envData";
 import OutboundTempDetails from "../OutboundTempDetails/OutboundTempDetails";
 import OutboundTemp from "../OutboundTemp/OutboundTemp";
 function Outbound() {
   const [outbounds, setOutbounds] = useState();
-
   const getAllOutbound = async () => {
-    const response = await axios.get(`${API_URL}/outbound`);
+    // const response = await axios.get(`${API_URL}/outbound`);
+    const response = await axios.get(`${MONGODB_URL}/getAllOutbound`);
     const data = response.data;
     setOutbounds(data)
     console.log(data);
@@ -33,114 +32,12 @@ function Outbound() {
   ];
   return (
     <div style={{ marginTop: "50px" }} className="outbound">
-      {/* <h1 className="text-center main-heading">Outbound</h1> */}
-      {/* <Card className="d-flex m-3" style={{ width: "18rem" }}>
-          <Card.Img variant="top" src={TravelImage} />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>
-        <Card className="d-flex m-3" style={{ width: "18rem" }}>
-          <Card.Img variant="top" src={TravelImage} />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>
-        <Card className="d-flex m-3" style={{ width: "18rem" }}>
-          <Card.Img variant="top" src={TravelImage} />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card> */}
       <Zoom>
         <div className="container-fluid">
           <Row className="domestic-section">
             <Col className="side-filter-col" lg="2">
               <div className="location-filter">
                 <h2>Hotel Deals</h2>
-                {/* <div className="checkboxes-group">
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    ></input>
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Africa
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    ></input>
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Asia
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    ></input>
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Eurasia
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    ></input>
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Europe
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    ></input>
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Indian Ocean
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    ></input>
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Middle East
-                    </label>
-                  </div>
-                </div> */}
                 <div className="checkboxes-group">
                   {checks.map((check) => {
                     return (
@@ -233,47 +130,15 @@ function Outbound() {
             </Col>
             <Col className="domestic-hotels" lg="10">
               <Row>
-                {/* <Col sm="12" md="6" lg="4">
-                  <Temb />
-                </Col>
-                <Col sm="12" md="6" lg="4">
-                  <Temb />
-                </Col>
-                <Col sm="12" md="6" lg="4">
-                  <Temb />
-                </Col>
-                <Col sm="12" md="6" lg="4">
-                  <Temb />
-                </Col>
-                <Col sm="12" md="6" lg="4">
-                  <Temb />
-                </Col>
-                <Col sm="12" md="6" lg="4">
-                  <Temb />
-                </Col>
-                <Col sm="12" md="6" lg="4">
-                  <Temb />
-                </Col>
-                <Col sm="12" md="6" lg="4">
-                  <Temb />
-                </Col>
-                <Col sm="12" md="6" lg="4">
-                  <Temb />
-                </Col>
-                <Col sm="12" md="6" lg="4">
-                  <Temb />
-                </Col>
-                <Col sm="12" md="6" lg="4">
-                  <Temb />
-                </Col> */}
               {
+                outbounds?.length >=1 ?
                 outbounds?.map?.((outbound)=>{
                   return (
                     <Col sm="12" md="6" lg="4">
                       <OutboundTemp outbound={outbound} />
                     </Col>
                   );
-                })
+                }) : "Not Found"
               }
               </Row>
             </Col>

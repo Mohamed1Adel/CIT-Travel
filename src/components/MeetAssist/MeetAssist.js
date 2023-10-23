@@ -2,7 +2,6 @@ import React from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import Carousell from "../Carousell/Carousell";
 import "./MeetAssist.scss";
-
 function MeetAssist() {
   return (
     <Container>
@@ -47,27 +46,6 @@ function MeetAssist() {
           luggage • TB1, TB2 & TB3 ( Arrival and Departure ).
         </p>
       </div>
-      {/* <div className="book-form">
-        <h2>Book Now</h2>
-        <Form>
-          <div className="text-input-group">
-            <Form.Group className="mb-3" controlId="formBasicName">
-              <Form.Control type="text" placeholder="Your Name" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control type="email" placeholder="Your Email Address" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicNumber">
-              <Form.Control type="text" placeholder="Your Phone Number" />
-            </Form.Group>
-          </div>
-          <div>
-            <Button variant="primary" type="submit">
-              Book Now
-            </Button>
-          </div>
-        </Form>
-      </div> */}
       <div className="contact-us mt-5">
         <h1 className="main-heading">Book Now</h1>
         <Form className="d-flex">

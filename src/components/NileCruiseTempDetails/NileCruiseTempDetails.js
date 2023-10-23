@@ -1,55 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { Accordion, Button, Carousel, Col, Container, Row } from "react-bootstrap";
 import "./NileCruiseTempDetails.scss";
-// import Carousell from "../Carousell/Carousell";
 import Form from "react-bootstrap/Form";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
-
+import { faArrowRight, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import {API_URL, MONGODB_URL} from '../../envData'
+import { Progress } from "../../progressComponent";
 function NileCruiseTempDetails() {
-  // console.log(domestic);
-
   const [nileCruiseDetails, setNileCruiseDetails] = useState();
   const [images, setImages] = useState([]);
   const { id } = useParams();
 
-  const url = `http://localhost:9000/nileCruise/${id}`;
   async function getDomesticById() {
     try {
-      const response = await fetch(url);
+      // const response = await fetch(`${API_URL}/nileCruise/${id}`);
+      const response = await fetch(`${MONGODB_URL}/getNileCruiseDetails/${id}`);
       const data = await response.json();
       console.log(data);
       setNileCruiseDetails(data);
-      // await fetch(url)
-      //   .then((res) => res.json())
-      //   .then((res) => setItemDetails(res))
-
-      //   console.log(itemDetails);
-
-      // const imgs = itemDetails.images.map((img) => {
-      //   console.log("images is loaded");
-      //   return (
-      //     <Carousel.Item key={Math.random()}>
-      //       <img src={img.data_url} alt="..." />
-      //     </Carousel.Item>
-      //   );
-      // });
-
-      // console.log("imgs is",imgs);
-
       getImages();
     } catch (e) {
       console.log(e);
     }
   }
-
   const getImages = async () => {
     setImages(nileCruiseDetails?.images);
   };
-
-
   useEffect(() => {
     getDomesticById();
   }, []);
@@ -59,8 +36,6 @@ function NileCruiseTempDetails() {
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
-  // console.log(state);
-  // console.log(id);
   return (
     <Container>
       <div className="hotel-info">
@@ -69,8 +44,6 @@ function NileCruiseTempDetails() {
             <div className="info-box">
               <ul>
                 <h4 style={{ color: "orange" }}>{nileCruiseDetails?.title}</h4>
-
-                {/* <h5>{itemDetails.category}</h5> */}
                 <h5 style={{ color: "green" }}>
                   {nileCruiseDetails?.description}
                 </h5>
@@ -98,7 +71,7 @@ function NileCruiseTempDetails() {
                   );
                 })
               ) : (
-                <h2>not found</h2>
+                <Progress />
               )}
             </Carousel>
           </Col>
@@ -181,98 +154,9 @@ function NileCruiseTempDetails() {
                               </tr>
                             );
                           })}
-
-                          {/* <tr>
-                            <th scope="row">clasic room lagon</th>
-                            <td>summer</td>
-                            <td>20/09/2023</td>
-                            <td>15/10/2023</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">delux room</th>
-                            <td>summer</td>
-                            <td>20/09/2023</td>
-                            <td>15/10/2023</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">delux room lagon </th>
-                            <td>summer</td>
-                            <td>20/09/2023</td>
-                            <td>@15/10/2023</td>
-                          </tr> */}
                         </tbody>
                       </table>
                     </div>
-                    {/* <div className="trips-tables d-flex">
-                      <div className="t">
-                        <h6 className="trip-heading">4 Days / 3 Nights Trip</h6>
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th scope="col">single room</th>
-                              <th scope="col">double room</th>
-                              <th scope="col">triple room</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">9,260</th>
-                              <td>5,790</td>
-                              <td>N/A</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">10,080</th>
-                              <td>6,300</td>
-                              <td>N/A</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">9,600</th>
-                              <td>5,990</td>
-                              <td>5,890</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">10,320</th>
-                              <td>6,440</td>
-                              <td>6,340</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div className="t">
-                        <h6 className="trip-heading">5 Days / 4 Nights Trip</h6>
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th scope="col">single room</th>
-                              <th scope="col">double room</th>
-                              <th scope="col">triple room</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">12,350</th>
-                              <td>7,720</td>
-                              <td>N/A</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">13,440</th>
-                              <td>8,400</td>
-                              <td>N/A</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">12,800</th>
-                              <td>7,990</td>
-                              <td>7,850</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">13,760</th>
-                              <td>8,590</td>
-                              <td>8,450</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div> */}
                   </div>
                 </div>
               </div>
@@ -290,7 +174,6 @@ function NileCruiseTempDetails() {
                       Details
                     </a>
                   </li>
-
                   <li class="nav-item">
                     <a class="nav-link" href="#terms" data-toggle="tab">
                       terms & Conditions
@@ -311,12 +194,6 @@ function NileCruiseTempDetails() {
                 <div class="tab-content">
                   <div class="tab-pane active" id="itenary">
                     <h4>Itenary</h4>
-                    {/* {itemDetails.cancellation} */}
-                    {/* <div
-                      dangerouslySetInnerHTML={{
-                        __html: nileCruiseDetails?.cancellation,
-                      }}
-                    /> */}
                     <Accordion
                       className="itenary-accordion"
                       defaultActiveKey="0"
@@ -336,15 +213,6 @@ function NileCruiseTempDetails() {
                                   __html: day?.dayContent,
                                 }}
                               />
-                              {/* <h4 style={{ fontWeight: "bold", color: "red" }}>
-                                Optional Tours
-                              </h4>
-                              <div
-                                style={{ marginTop: "10px" }}
-                                dangerouslySetInnerHTML={{
-                                  __html: day?.optTour,
-                                }}
-                              /> */}
                             </Accordion.Body>
                           </Accordion.Item>
                         );
@@ -387,7 +255,6 @@ function NileCruiseTempDetails() {
 }
 
 export default NileCruiseTempDetails;
-// import React ,{useState,useEffect}from "react";
 // import { Button, Col, Container, Row } from "react-bootstrap";
 // import "./TembDetails.scss";
 // import Carousell from "../Carousell/Carousell";

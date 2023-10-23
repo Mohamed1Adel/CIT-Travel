@@ -1,47 +1,46 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { Zoom } from "react-reveal";
-// import TravelImage from "../../images/travelimg1.jpg";
 import Temb from "../Temb/Temb";
 import "./Domestic.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { domesticsData } from "../../data/Domesticsdata";
+import { API_URL, MONGODB_URL } from "../../envData";
+import { Progress } from "../../progressComponent";
 import axios from "axios";
-
 function Domestic() {
-
-
   const [data, setData] = useState({});
+  const [newDataArray, setNewDataArray] = useState({});
 
   const getAllData = async () => {
-    try{await fetch("http://localhost:9000/domestics")
-       .then((res) => res.json())
-       .then((res) => setData(res));
-    console.log(data);
-    console.log("get data");
-  }
-    catch(e){
+    try {
+      // await fetch(`${API_URL}/domestics`)
+      //   .then((res) => res.json())
+      //   .then((res) => {
+      //     setData(res);
+      //     setNewDataArray(res);
+      //   });
+      // console.log(data);
+      // console.log("get data");
+      // const response = await axios.get(`http://localhost:5000/getAllDomestics`);
+      const response = await axios.get(`${MONGODB_URL}/getAllDomestics`);
+      const data = response.data;
+      console.log(data);
+      setData(data);
+    } catch (e) {
       console.log(e);
     }
-
   };
-
   useEffect(() => {
-    getAllData()
-
+    getAllData();
   }, []);
-  // console.log(data);
-  window.onload = ()=>{
-    getAllData()
-    console.log("on load");
-  }
+  // window.onload = () => {
+  //   getAllData();
+  //   console.log("on load");
+  // };
   return (
     <Zoom>
-    {
-    }
-      <div  className="domestics container-fluid" >
-        {/* <h1 className="text-center main-heading">Domestics</h1> */}
+      <div className="domestics container-fluid">
         <Row className="domestic-section">
           <Col className="side-filter-col" lg="2">
             <div className="location-filter">
@@ -64,6 +63,14 @@ function Domestic() {
                     type="checkbox"
                     value=""
                     id="Hurghada"
+                    onChange={() => {
+                      newDataArray.forEach((item) =>
+                        setNewDataArray(
+                          ...newDataArray,
+                          item.category === "Hurghada"
+                        )
+                      );
+                    }}
                   ></input>
                   <label class="form-check-label" for="Hurghada">
                     Hurghada
@@ -200,7 +207,16 @@ function Domestic() {
             <li>3 Stars</li> */}
                 <li>
                   {" "}
-                  <div className="rates-stars p-2">
+                  <div
+                    className="rates-stars p-2"
+                    onClick={() => {
+                      let fiveStarsHotels = [];
+                      data.forEach((item) =>
+                        item.stars === "5" ? fiveStarsHotels.push(item) : item
+                      );
+                      setNewDataArray(fiveStarsHotels);
+                    }}
+                  >
                     <FontAwesomeIcon className="star" icon={faStar} />
                     <FontAwesomeIcon className="star" icon={faStar} />
                     <FontAwesomeIcon className="star" icon={faStar} />
@@ -210,7 +226,16 @@ function Domestic() {
                 </li>
                 <li>
                   {" "}
-                  <div className="rates-stars p-2">
+                  <div
+                    className="rates-stars p-2"
+                    onClick={() => {
+                      let fourStarsHotels = [];
+                      data.forEach((item) =>
+                        item.stars === "4" ? fourStarsHotels.push(item) : item
+                      );
+                      setNewDataArray(fourStarsHotels);
+                    }}
+                  >
                     <FontAwesomeIcon className="star" icon={faStar} />
                     <FontAwesomeIcon className="star" icon={faStar} />
                     <FontAwesomeIcon className="star" icon={faStar} />
@@ -219,7 +244,16 @@ function Domestic() {
                 </li>
                 <li>
                   {" "}
-                  <div className="rates-stars p-2">
+                  <div
+                    className="rates-stars p-2"
+                    onClick={() => {
+                      let threeStarsHotels = [];
+                      data.forEach((item) =>
+                        item.stars === "3" ? threeStarsHotels.push(item) : item
+                      );
+                      setNewDataArray(threeStarsHotels);
+                    }}
+                  >
                     <FontAwesomeIcon className="star" icon={faStar} />
                     <FontAwesomeIcon className="star" icon={faStar} />
                     <FontAwesomeIcon className="star" icon={faStar} />
@@ -290,56 +324,6 @@ function Domestic() {
             </div>
           </Col>
           <Col className="domestic-hotels" lg="10">
-            {/* <Row>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-              <Col sm="12" md="4" lg="3">
-                <Temb />
-              </Col>
-            </Row> */}
             <Row>
               {data.length >= 1 ? (
                 data.map((item) => {
@@ -350,7 +334,7 @@ function Domestic() {
                   );
                 })
               ) : (
-                <h2>not found</h2>
+                <Progress />
               )}
             </Row>
           </Col>
@@ -362,7 +346,6 @@ function Domestic() {
 
 export default Domestic;
 
-// import React, { useState, useEffect } from "react";
 // import { Col, Row } from "react-bootstrap";
 // import { Zoom } from "react-reveal";
 // // import TravelImage from "../../images/travelimg1.jpg";

@@ -13,108 +13,18 @@ import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faStar } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-import { API_URL } from "../../envData";
-
+import { Progress } from "../../progressComponent";
+import { API_URL, MONGODB_URL } from "../../envData";
 function OutboundTempDetails() {
   const [outboundDetails, setOutboundDetails] =
     useState();
-    // {
-    //   title: "cairo - parice",
-    //   description: "decs",
-    //   box6: "box",
-    //   box7: "box",
-    //   box8: "box",
-    //   box9: "box",
-    //   box10: "box",
-    //   termsAndConditions: "termsAndConditions",
-    //   packInclude:"packInclude",
-    //   visa:"visa",
-    //   flyDetails:"",
-    //   itenary:[
-    //     {
-    //       id:1,
-    //       dayTitle:"Day 1",
-    //       dayContent:"dayContent",
-    //       optTour:"optTrip",
-    //     },
-    //     {
-    //       id:2,
-    //       dayTitle:"Day 2",
-    //       dayContent:"dayContent",
-    //       optTour:"optTrip",
-    //     },
-    //     {
-    //       id:3,
-    //       dayTitle:"Day 3",
-    //       dayContent:"dayContent",
-    //       optTour:"optTrip",
-    //     }
-    //   ],
-    //   PackhotelsAndPrices:[
-    //     {
-    //       hotel:[
-    //         {
-    //           id:1,
-    //           hotelName:"hotel 1",
-    //           hotelLocation:"hotel location 1",
-    //         },
-    //         {
-    //           id:2,
-    //           hotelName:"hotel 2",
-    //           hotelLocation:"hotel location 2",
-    //         }
-    //       ],
-    //       single:"2000",
-    //       double:"3000",
-    //       triple:"4000",
-    //       child:"1500"
-    //     },
-    //     {
-    //       hotel:[
-    //         {
-    //           id:1,
-    //           hotelName:"hotel 1",
-    //           hotelLocation:"hotel location 1",
-    //         },
-    //         {
-    //           id:2,
-    //           hotelName:"hotel 2",
-    //           hotelLocation:"hotel location 2",
-    //         }
-    //       ],
-    //       single:"2000",
-    //       double:"3000",
-    //       triple:"4000",
-    //       child:"1500"
-    //     },
-    //     {
-    //       hotel:[
-    //         {
-    //           id:1,
-    //           hotelName:"hotel 1",
-    //           hotelLocation:"hotel location 1",
-    //         },
-    //         {
-    //           id:2,
-    //           hotelName:"hotel 2",
-    //           hotelLocation:"hotel location 2",
-    //         }
-    //       ],
-    //       single:"2000",
-    //       double:"3000",
-    //       triple:"4000",
-    //       child:"1500"
-    //     },
-    //   ]
-
-    // }
   const [images, setImages] = useState([]);
   const { id } = useParams();
   console.log(id);
 
   async function getProgramById() {
     try {
-      const response = await fetch(`${API_URL}/outbound/${id}`);
+      const response = await fetch(`${MONGODB_URL}/getOutboundDetails/${id}`);
       const data = await response.json();
       console.log(data);
       setOutboundDetails(data);
@@ -150,15 +60,11 @@ function OutboundTempDetails() {
                     }}
                   />
                 </h5>
-                {/* <h5>{programDetails?.description}</h5> */}
                 <h5>{outboundDetails?.box6}</h5>
                 <h5>{outboundDetails?.box7}</h5>
                 <h5>{outboundDetails?.box8}</h5>
                 <h5>{outboundDetails?.box9}</h5>
                 <h5>{outboundDetails?.box10}</h5>
-                {/* <h4>Duration Period:</h4>
-                <h5>from {itemDetails.startDate}</h5>
-                <h5> to {itemDetails.endDate}</h5> */}
               </ul>
             </div>
           </Col>
@@ -174,7 +80,7 @@ function OutboundTempDetails() {
                   );
                 })
               ) : (
-                <h2>not found</h2>
+                <Progress />
               )}
             </Carousel>
           </Col>

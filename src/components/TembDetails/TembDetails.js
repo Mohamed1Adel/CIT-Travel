@@ -1,72 +1,43 @@
 import React, { useState, useEffect } from "react";
 import { Button, Carousel, Col, Container, Row } from "react-bootstrap";
 import "./TembDetails.scss";
-// import Carousell from "../Carousell/Carousell";
 import Form from "react-bootstrap/Form";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
-
+import {API_URL, MONGODB_URL} from '../../envData'
+import { Progress } from "../../progressComponent";
 function TembDetails() {
-  // console.log(domestic);
-
   const [itemDetails, setItemDetails] = useState({ value: "" });
   const [images, setImages] = useState([]);
   const { id } = useParams(0);
-
-  const url = `http://localhost:9000/domestics/${id}`;
   async function getDomesticById() {
     try {
-      const response = await fetch(url);
+      const response = await fetch(`${MONGODB_URL}/getDomesticDetails/${id}`);
+      // const response = await fetch(`${API_URL}/domestics/${id}`);
       const data = await response.json();
       console.log(data);
       setItemDetails(data);
-      // await fetch(url)
-      //   .then((res) => res.json())
-      //   .then((res) => setItemDetails(res))
-
-      //   console.log(itemDetails);
-
-      // const imgs = itemDetails.images.map((img) => {
-      //   console.log("images is loaded");
-      //   return (
-      //     <Carousel.Item key={Math.random()}>
-      //       <img src={img.data_url} alt="..." />
-      //     </Carousel.Item>
-      //   );
-      // });
-
-      // console.log("imgs is",imgs);
-
       getImages();
     } catch (e) {
       console.log(e);
     }
   }
-
   const getImages = async () => {
     setImages(itemDetails.images);
   };
-
   let star = <FontAwesomeIcon className="star" icon={faStar} />;
   let rateStars = [];
   for (let i = 1; i <= Number(itemDetails.stars); i++) {
-    // console.log(domestic.domestic.stars);
     rateStars.push(star);
   }
-
   useEffect(() => {
     getDomesticById();
   }, []);
-
   const [index, setIndex] = useState(0);
-
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
-  // console.log(state);
-  // console.log(id);
   return (
     <Container>
       <div className="hotel-info">
@@ -81,7 +52,6 @@ function TembDetails() {
                     return star;
                   })}
                 </h5>
-                {/* <h5>{itemDetails.category}</h5> */}
                 <h5 style={{ color: "green" }}>{itemDetails.description}</h5>
                 <h5 style={{ color: "red" }}>
                   <FontAwesomeIcon icon={faLocationDot} />{" "}
@@ -102,12 +72,12 @@ function TembDetails() {
                   console.log("images is loaded");
                   return (
                     <Carousel.Item key={Math.random()}>
-                      <img src={img.img_url} alt="..." />
+                      <img src={img?.img_url} alt="..." />
                     </Carousel.Item>
                   );
                 })
               ) : (
-                <h2>not found</h2>
+                <Progress />
               )}
             </Carousel>
           </Col>
@@ -214,76 +184,6 @@ function TembDetails() {
                         </tbody>
                       </table>
                     </div>
-                    {/* <div className="trips-tables d-flex">
-                      <div className="t">
-                        <h6 className="trip-heading">4 Days / 3 Nights Trip</h6>
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th scope="col">single room</th>
-                              <th scope="col">double room</th>
-                              <th scope="col">triple room</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">9,260</th>
-                              <td>5,790</td>
-                              <td>N/A</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">10,080</th>
-                              <td>6,300</td>
-                              <td>N/A</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">9,600</th>
-                              <td>5,990</td>
-                              <td>5,890</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">10,320</th>
-                              <td>6,440</td>
-                              <td>6,340</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div className="t">
-                        <h6 className="trip-heading">5 Days / 4 Nights Trip</h6>
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th scope="col">single room</th>
-                              <th scope="col">double room</th>
-                              <th scope="col">triple room</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">12,350</th>
-                              <td>7,720</td>
-                              <td>N/A</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">13,440</th>
-                              <td>8,400</td>
-                              <td>N/A</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">12,800</th>
-                              <td>7,990</td>
-                              <td>7,850</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">13,760</th>
-                              <td>8,590</td>
-                              <td>8,450</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div> */}
                   </div>
                 </div>
               </div>
@@ -334,7 +234,6 @@ function TembDetails() {
                   </div>
                   <div class="tab-pane" id="children">
                     <h4>Children Polices : </h4>
-
                     <div
                       dangerouslySetInnerHTML={{
                         __html: itemDetails.childrenPolices,
@@ -363,7 +262,6 @@ function TembDetails() {
 }
 
 export default TembDetails;
-// import React ,{useState,useEffect}from "react";
 // import { Button, Col, Container, Row } from "react-bootstrap";
 // import "./TembDetails.scss";
 // import Carousell from "../Carousell/Carousell";

@@ -5,62 +5,46 @@ import { Zoom } from "react-reveal";
 import Temb from "../Temb/Temb";
 import axios from "axios";
 import DayTourTemp from "../DayTourTemp/DayTourTemp";
+import { Progress } from "../../progressComponent";
+import {MONGODB_URL} from '../../envData'
 function DayTour() {
   const [dayTours, setDayTours] = useState();
 
   const getAllDayTours = async () => {
-    const response = await axios.get("http://localhost:9000/dayTour");
-    const data = response.data;
-    setDayTours(data);
+    try {
+      // const response = await axios.get("http://localhost:9000/dayTour");
+      const response = await axios.get(`${MONGODB_URL}/getAllDayTours`);
+      const data = response.data;
+      setDayTours(data);
+    } catch (e) {
+      console.log("====================================");
+      console.log(e);
+      console.log("====================================");
+    }
   };
 
   useEffect(() => {
     getAllDayTours();
-    console.log('====================================');
+    console.log("====================================");
     console.log(dayTours);
-    console.log('====================================');
-  },[]);
+    console.log("====================================");
+  }, []);
   return (
     <Zoom>
       <Container style={{ marginTop: "50px" }} className="day-tour">
         <h3 className="text-center main-heading">Day Tour</h3>
         <Row>
-          {/* <Col sm="12" md="6" lg="4" >
-            <Temb />
-          </Col>
-          <Col sm="12" md="6" lg="4" >
-            <Temb />
-          </Col>
-          <Col sm="12" md="6" lg="4" >
-            <Temb />
-          </Col>
-          <Col sm="12" md="6" lg="4" >
-            <Temb />
-          </Col>
-          <Col sm="12" md="6" lg="4" >
-            <Temb />
-          </Col>
-          <Col sm="12" md="6" lg="4" >
-            <Temb />
-          </Col>
-          <Col sm="12" md="6" lg="4" >
-            <Temb />
-          </Col>
-          <Col sm="12" md="6" lg="4" >
-            <Temb />
-          </Col>
-          <Col sm="12" md="6" lg="4" >
-            <Temb />
-          </Col> */}
-          {
-             dayTours?.map((dayTour) => {
-                return (
-                  <Col sm="12" md="6" lg="4">
-                    <DayTourTemp dayTour={dayTour} />
-                  </Col>
-                );
-              })
-            }
+          {dayTours?.length >= 1 ? (
+            dayTours?.map((dayTour) => {
+              return (
+                <Col sm="12" md="6" lg="4">
+                  <DayTourTemp dayTour={dayTour} />
+                </Col>
+              );
+            })
+          ) : (
+            <Progress />
+          )}
         </Row>
       </Container>
     </Zoom>

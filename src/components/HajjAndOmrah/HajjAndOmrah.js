@@ -1,5 +1,5 @@
-import React ,{useState}from "react";
-import { Carousel, Col, Container, Row } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Carousel, Col, Container, ProgressBar, Row } from "react-bootstrap";
 // import Carousell from "../Carousell/Carousell";
 import { Zoom } from "react-reveal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,18 +10,40 @@ import "./HajjAndOmrah.scss";
 import HajjImg1 from "../../images/hajj/hajjImg1.jpg";
 import HajjImg2 from "../../images/hajj/hajjImg2.jpg";
 import HajjImg3 from "../../images/hajj/hajjImg3.jpg";
+import axios from "axios";
+import { Progress } from "../../progressComponent";
+import {MONGODB_URL} from '../../envData'
 function HajjAndOmrah() {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
+  const [hajjOmrahs, setHajjOmrahs] = useState();
+
+  const getAllHajjOmrah = async () => {
+    try {
+      // const response = await axios.get(`http://localhost:9000/hajjOmrah`);
+      const response = await axios.get(`${MONGODB_URL}/getAllHajjOmrah`);
+      const data = await response.data;
+      console.log("====================================");
+      console.log(data);
+      console.log("====================================");
+      setHajjOmrahs(data);
+    } catch (e) {
+      console.log("====================================");
+      console.log(e);
+      console.log("====================================");
+    }
+  };
+  useEffect(() => {
+    getAllHajjOmrah();
+  }, []);
   return (
     <div dir="rtl">
       <Container>
         <Carousel activeIndex={index} onSelect={handleSelect}>
           <Carousel.Item>
-            {/* <ExampleCarouselImage text="First slide" /> */}
             <img src={HajjImg1} alt="..." />
             <Carousel.Caption>
               <h3>First slide label</h3>
@@ -29,7 +51,6 @@ function HajjAndOmrah() {
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            {/* <ExampleCarouselImage text="Second slide" /> */}
             <img src={HajjImg2} alt="..." />
             <Carousel.Caption>
               <h3>Second slide label</h3>
@@ -37,7 +58,6 @@ function HajjAndOmrah() {
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            {/* <ExampleCarouselImage text="Third slide" /> */}
             <img src={HajjImg3} alt="..." />
             <Carousel.Caption>
               <h3>Third slide label</h3>
@@ -259,39 +279,15 @@ function HajjAndOmrah() {
             </Col>
             <Col className="domestic-hotels" lg="10">
               <Row>
-                <Col ssm="12" md="6" lg="4">
-                  <HajjTamb />
-                </Col>
-                <Col ssm="12" md="6" lg="4">
-                  <HajjTamb />
-                </Col>
-                <Col ssm="12" md="6" lg="4">
-                  <HajjTamb />
-                </Col>
-                <Col ssm="12" md="6" lg="4">
-                  <HajjTamb />
-                </Col>
-                <Col ssm="12" md="6" lg="4">
-                  <HajjTamb />
-                </Col>
-                <Col ssm="12" md="6" lg="4">
-                  <HajjTamb />
-                </Col>
-                <Col ssm="12" md="6" lg="4">
-                  <HajjTamb />
-                </Col>
-                <Col ssm="12" md="6" lg="4">
-                  <HajjTamb />
-                </Col>
-                <Col ssm="12" md="6" lg="4">
-                  <HajjTamb />
-                </Col>
-                <Col ssm="12" md="6" lg="4">
-                  <HajjTamb />
-                </Col>
-                <Col ssm="12" md="6" lg="4">
-                  <HajjTamb />
-                </Col>
+                {hajjOmrahs?.length >= 1
+                  ? hajjOmrahs?.map((hajjOmrah) => {
+                      return (
+                        <Col sm="12" md="6" lg="4" xl="3">
+                          <HajjTamb hajjOmrah={hajjOmrah} />
+                        </Col>
+                      );
+                    })
+                  : <Progress />}
               </Row>
             </Col>
           </Row>

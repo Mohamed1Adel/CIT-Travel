@@ -1,76 +1,38 @@
 import React, { useState, useEffect } from "react";
-import {
-  Accordion,
-  Button,
-  Carousel,
-  Col,
-  Container,
-  Row,
-} from "react-bootstrap";
+import { Button, Carousel, Col, Container, Row } from "react-bootstrap";
 import "./DayTourTempDetails.scss";
-// import Carousell from "../Carousell/Carousell";
 import Form from "react-bootstrap/Form";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowRight,
-  faLocationDot,
-  faStar,
-} from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
-
+import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
+import { API_URL, MONGODB_URL } from "../../envData";
+import {Progress} from '../../progressComponent'
 function DayTourTempDetails() {
-  // console.log(domestic);
-
   const [dayTourDetails, setDayTourDetails] = useState();
   const [images, setImages] = useState([]);
   const { id } = useParams();
-
-  const url = `http://localhost:9000/dayTour/${id}`;
   async function getDomesticById() {
     try {
-      const response = await fetch(url);
+      // const response = await fetch(`${API_URL}/dayTour/${id}`);
+      const response = await fetch(`${MONGODB_URL}/getDayTourDetails/${id}`);
       const data = await response.json();
       console.log(data);
       setDayTourDetails(data);
-      // await fetch(url)
-      //   .then((res) => res.json())
-      //   .then((res) => setItemDetails(res))
-
-      //   console.log(itemDetails);
-
-      // const imgs = itemDetails.images.map((img) => {
-      //   console.log("images is loaded");
-      //   return (
-      //     <Carousel.Item key={Math.random()}>
-      //       <img src={img.data_url} alt="..." />
-      //     </Carousel.Item>
-      //   );
-      // });
-
-      // console.log("imgs is",imgs);
-
       getImages();
     } catch (e) {
       console.log(e);
     }
   }
-
   const getImages = async () => {
     setImages(dayTourDetails?.images);
   };
-
   useEffect(() => {
     getDomesticById();
   }, []);
-
   const [index, setIndex] = useState(0);
-
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
-  // console.log(state);
-  // console.log(id);
   return (
     <Container>
       <div className="hotel-info">
@@ -79,8 +41,6 @@ function DayTourTempDetails() {
             <div className="info-box">
               <ul>
                 <h4 style={{ color: "orange" }}>{dayTourDetails?.title}</h4>
-
-                {/* <h5>{itemDetails.category}</h5> */}
                 <h5 style={{ color: "green" }}>
                   {dayTourDetails?.description}
                 </h5>
@@ -98,18 +58,16 @@ function DayTourTempDetails() {
           </Col>
           <Col sm="12" md="9" lg="8">
             <Carousel activeIndex={index} onSelect={handleSelect}>
-              {dayTourDetails?.images?.length >= 1 ? (
-                dayTourDetails?.images?.map((img) => {
-                  console.log("images is loaded");
-                  return (
-                    <Carousel.Item key={Math.random()}>
-                      <img src={img.img_url} alt="..." />
-                    </Carousel.Item>
-                  );
-                })
-              ) : (
-                <h2>not found</h2>
-              )}
+              {dayTourDetails?.images?.length >= 1
+                ? dayTourDetails?.images?.map((img) => {
+                    console.log("images is loaded");
+                    return (
+                      <Carousel.Item key={Math.random()}>
+                        <img src={img.img_url} alt="..." />
+                      </Carousel.Item>
+                    );
+                  })
+                : <Progress />}
             </Carousel>
           </Col>
         </Row>
@@ -149,7 +107,7 @@ function DayTourTempDetails() {
             </div>
           </Col>
           <Col sm="12" md="9" lg="8">
-            {/* <div
+            <div
               class="card bottom-card text-center"
               style={{ width: "100% !important" }}
             >
@@ -166,28 +124,24 @@ function DayTourTempDetails() {
                 <div class="tab-content">
                   <div class="tab-pane " id="rates">
                     <div className=" main-table">
-                      <h6>Available Packages</h6>
+                      <h6>Cars And Costs</h6>
                       <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">package</th>
-                            <th scope="col">from</th>
-                            <th scope="col">to</th>
-                            <th scope="col">single</th>
-                            <th scope="col">double</th>
-                            <th scope="col">triple</th>
+                            <th scope="col">Persons</th>
+                            <th scope="col">Car Type</th>
+                            <th scope="col">
+                              Const per person <br /> per pax
+                            </th>
                           </tr>
                         </thead>
                         <tbody>
-                          {nileCruiseDetails?.packages?.map((pack) => {
+                          {dayTourDetails?.rates?.map((rate) => {
                             return (
                               <tr>
-                                <th scope="row">{pack.packTitle}</th>
-                                <td>{pack.startDate}</td>
-                                <td>{pack.endDate}</td>
-                                <td>{pack.single}</td>
-                                <td>{pack.double}</td>
-                                <td>{pack.triple}</td>
+                                <th scope="row">{rate.persons}</th>
+                                <td>{rate.carType}</td>
+                                <td>{rate.costPerPerson}</td>
                               </tr>
                             );
                           })}
@@ -197,7 +151,7 @@ function DayTourTempDetails() {
                   </div>
                 </div>
               </div>
-            </div> */}
+            </div>
             <div class="card text-center mt-3">
               <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs" id="tabs">
@@ -211,7 +165,6 @@ function DayTourTempDetails() {
                       Details
                     </a>
                   </li>
-
                   <li class="nav-item">
                     <a class="nav-link" href="#terms" data-toggle="tab">
                       terms & Conditions
@@ -231,43 +184,15 @@ function DayTourTempDetails() {
               <div class="card-body ">
                 <div class="tab-content">
                   <div class="tab-pane active" id="itenary">
-                    {/* <h4>Itenary</h4> */}
-                    {/* {itemDetails.cancellation} */}
-                    {/* <div
-                      dangerouslySetInnerHTML={{
-                        __html: nileCruiseDetails?.cancellation,
-                      }}
-                    /> */}
-                    {/* <Accordion
-                      className="itenary-accordion"
-                      defaultActiveKey="0"
-                    >
-                      {dayTourDetails?.itenary?.map((day, index) => {
-                        return (
-                          <Accordion.Item eventKey={`${index + 1}`}>
-                            <Accordion.Header>
-                              Day {index + 1} {"  "}
-                              &nbsp; <FontAwesomeIcon icon={faArrowRight} />
-                              &nbsp;{"  "}
-                              {day.dayTitle}
-                            </Accordion.Header>
-                            <Accordion.Body>
-                              <div
-                                dangerouslySetInnerHTML={{
-                                  __html: day?.dayContent,
-                                }}
-                              />
-                            </Accordion.Body>
-                          </Accordion.Item>
-                        );
-                      })}
-                    </Accordion> */}
                     <h4>{dayTourDetails?.itenary[0].dayTitle}</h4>
-                    <h5>{dayTourDetails?.itenary[0].dayContent}</h5>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: dayTourDetails?.itenary[0].dayContent,
+                      }}
+                    />
                   </div>
                   <div class="tab-pane" id="details">
                     <h4>Details</h4>
-
                     <div
                       dangerouslySetInnerHTML={{
                         __html: dayTourDetails?.description,

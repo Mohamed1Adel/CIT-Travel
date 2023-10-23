@@ -1,12 +1,9 @@
 import React ,{useState}from "react";
 import "./Landing.scss";
-// import Carousell from "../Carousell/Carousell";
 import { Carousel, Container } from "react-bootstrap";
 import travel from "../../images/travel1.jpg";
 function Landing() {
-
     const [index, setIndex] = useState(0);
-
     const handleSelect = (selectedIndex) => {
       setIndex(selectedIndex);
     };
@@ -14,7 +11,6 @@ function Landing() {
     <Container>
       <Carousel activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item>
-          {/* <ExampleCarouselImage text="First slide" /> */}
           <img src={travel} style={{ height: "300px" }} alt="..." />
           <Carousel.Caption>
             <h3>First slide label</h3>
@@ -22,7 +18,6 @@ function Landing() {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          {/* <ExampleCarouselImage text="Second slide" /> */}
           <img src={travel} style={{ height: "300px" }} alt="..." />
           <Carousel.Caption>
             <h3>Second slide label</h3>
@@ -30,7 +25,6 @@ function Landing() {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          {/* <ExampleCarouselImage text="Third slide" /> */}
           <img src={travel} style={{ height: "300px" }} alt="..." />
           <Carousel.Caption>
             <h3>Third slide label</h3>
