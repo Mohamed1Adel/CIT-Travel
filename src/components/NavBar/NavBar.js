@@ -17,7 +17,7 @@ function NavBar() {
             {/* <Nav.Link className="nav-item" href="http://wa.me/+201551563900">
               Home
             </Nav.Link> */}
-            <Nav.Link className="navbar-item" href="/">
+            <Nav.Link className="navbar-item" to="#/">
               Home
             </Nav.Link>
             <NavDropdown
@@ -25,30 +25,30 @@ function NavBar() {
               title="Visit Egypt"
               id="collapsible-nav-dropdown"
             >
-              <NavDropdown.Item className="navbar-item" href="/historicalTrips">
+              <NavDropdown.Item className="navbar-item" to="#/historicalTrips">
                 Historical Trips
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="/dayTour">
+              <NavDropdown.Item className="navbar-item" to="#/dayTour">
                 Day Tour
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="/nileCruise">
+              <NavDropdown.Item className="navbar-item" to="#/nileCruise">
                 Nile Cruise
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="/meetAssist">
+              <NavDropdown.Item className="navbar-item" to="#/meetAssist">
                 Meet & Assist
               </NavDropdown.Item>
               {/* <NavDropdown.Divider /> */}
             </NavDropdown>
-            <Nav.Link className="navbar-item" href="/domestics">
+            <Nav.Link className="navbar-item" to="#/domestics">
               Domestic
             </Nav.Link>
-            <Nav.Link className="navbar-item" href="/outbound">
+            <Nav.Link className="navbar-item" to="#/outbound">
               Outbound
             </Nav.Link>
-            <Nav.Link className="navbar-item" href="/hajjAndOmrah">
+            <Nav.Link className="navbar-item" to="#/hajjAndOmrah">
               Hajj & Umrah
             </Nav.Link>
-            <Nav.Link className="navbar-item" href="/transportation">
+            <Nav.Link className="navbar-item" to="#/transportation">
               Transportation
             </Nav.Link>
             <NavDropdown
@@ -56,13 +56,13 @@ function NavBar() {
               title="C.I.T Travel Egypt"
               id="collapsible-nav-dropdown"
             >
-              <NavDropdown.Item className="navbar-item" href="/about">
+              <NavDropdown.Item className="navbar-item" to="#/about">
                 About Us
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="/contactUs">
+              <NavDropdown.Item className="navbar-item" to="#/contactUs">
                 Contact Us
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="#">
+              <NavDropdown.Item className="navbar-item" href="#/">
                 Career
               </NavDropdown.Item>
             </NavDropdown>
