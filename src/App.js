@@ -51,7 +51,7 @@ function App() {
 
         <Routes>
           <Route
-            path="#/"
+            path="/"
             element={
               <>
                 <Landing />
@@ -63,31 +63,31 @@ function App() {
             }
           />
           {/* <Route path="/domestics" element={<AllDomestics />} /> */}
-          <Route path="#/historicalTrips" element={<HistoricalTrips />} />
-          <Route path="#/dayTour" element={<DayTour />} />
+          <Route path="/historicalTrips" element={<HistoricalTrips />} />
+          <Route path="/dayTour" element={<DayTour />} />
           <Route
             path="/dayTourTempDetails/:id"
             element={<DayTourTempDetails />}
           />
-          <Route path="#/nileCruise" element={<NileCruise />} />
+          <Route path="/nileCruise" element={<NileCruise />} />
           <Route
             path="/nileCruiseTempDetails/:id"
             element={<NileCruiseTempDetails />}
           />
-          <Route path="#/meetAssist" element={<MeetAssist />} />
-          <Route path="#/domestics" element={<Domestic />} />
-          <Route path="#/outbound" element={<Outbound />} />
+          <Route path="/meetAssist" element={<MeetAssist />} />
+          <Route path="/domestics" element={<Domestic />} />
+          <Route path="/outbound" element={<Outbound />} />
           <Route
             path="/outboundTempDetails/:id"
             element={<OutboundTempDetails />}
           />
 
-          <Route path="#/hajjAndOmrah" element={<HajjAndOmrah />} />
+          <Route path="/hajjAndOmrah" element={<HajjAndOmrah />} />
           <Route
             path="/hajjAndOmrahDetails/:id"
             element={<HajjAndOmrahDetails />}
           />
-          <Route path="#/HajjTamb" element={<HajjTamb />} />
+          <Route path="/HajjTamb" element={<HajjTamb />} />
           <Route
             path="/HajjAndOmrahDetails"
             element={<HajjAndOmrahDetails />}
@@ -99,9 +99,9 @@ function App() {
             element={<HistorecalTembDetails />}
           />
 
-          <Route path="#/transportation" element={<Transportation />} />
-          <Route path="#/about" element={<About />} />
-          <Route path="#/contactUs" element={<ContactUs />} />
+          <Route path="/transportation" element={<Transportation />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contactUs" element={<ContactUs />} />
         </Routes>
 
 

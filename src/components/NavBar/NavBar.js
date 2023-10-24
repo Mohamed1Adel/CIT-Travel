@@ -4,7 +4,6 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import MainLogo from "../../logos/main-logo.png";
 import "./NavBar.scss";
-import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <Navbar collapseOnSelect expand="lg" className="navbar navbar-bg  p-0">
@@ -18,54 +17,54 @@ function NavBar() {
             {/* <Nav.Link className="nav-item" href="http://wa.me/+201551563900">
               Home
             </Nav.Link> */}
-            <Link className="navbar-item" to="#/">
+            <Nav.Link className="navbar-item" href="/">
               Home
-            </Link>
+            </Nav.Link>
             <NavDropdown
               className="navbar-item"
               title="Visit Egypt"
               id="collapsible-nav-dropdown"
             >
-              <Link className="navbar-item" to="#/historicalTrips">
+              <NavDropdown.Item className="navbar-item" href="/historicalTrips">
                 Historical Trips
-              </Link>
-              <Link className="navbar-item" to="#/dayTour">
+              </NavDropdown.Item>
+              <NavDropdown.Item className="navbar-item" href="/dayTour">
                 Day Tour
-              </Link>
-              <Link className="navbar-item" to="#/nileCruise">
+              </NavDropdown.Item>
+              <NavDropdown.Item className="navbar-item" href="/nileCruise">
                 Nile Cruise
-              </Link>
-              <Link className="navbar-item" to="#/meetAssist">
+              </NavDropdown.Item>
+              <NavDropdown.Item className="navbar-item" href="/meetAssist">
                 Meet & Assist
-              </Link>
+              </NavDropdown.Item>
               {/* <NavDropdown.Divider /> */}
             </NavDropdown>
-            <Link className="navbar-item" to="#/domestics">
+            <Nav.Link className="navbar-item" href="/domestics">
               Domestic
-            </Link>
-            <Link className="navbar-item" to="#/outbound">
+            </Nav.Link>
+            <Nav.Link className="navbar-item" href="/outbound">
               Outbound
-            </Link>
-            <Link className="navbar-item" to="#/hajjAndOmrah">
+            </Nav.Link>
+            <Nav.Link className="navbar-item" href="/hajjAndOmrah">
               Hajj & Umrah
-            </Link>
-            <Link className="navbar-item" to="#/transportation">
+            </Nav.Link>
+            <Nav.Link className="navbar-item" href="/transportation">
               Transportation
-            </Link>
+            </Nav.Link>
             <NavDropdown
               className="navbar-item"
               title="C.I.T Travel Egypt"
               id="collapsible-nav-dropdown"
             >
-              <Link className="navbar-item" to="#/about">
+              <NavDropdown.Item className="navbar-item" href="/about">
                 About Us
-              </Link>
-              <Link className="navbar-item" to="#/contactUs">
+              </NavDropdown.Item>
+              <NavDropdown.Item className="navbar-item" href="/contactUs">
                 Contact Us
-              </Link>
-              <Link className="navbar-item" href="#/">
+              </NavDropdown.Item>
+              <NavDropdown.Item className="navbar-item" href="#">
                 Career
-              </Link>
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
