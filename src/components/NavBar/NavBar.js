@@ -19,7 +19,7 @@ function NavBar() {
             </Nav.Link> */}
             <Nav.Link
               className="navbar-item"
-              href="https://Mohamed1Adel.github.io/CIT-Travel/"
+              href="https://Mohamed1Adel.github.io/CIT-Travel/#/"
             >
               Home
             </Nav.Link>
@@ -28,30 +28,54 @@ function NavBar() {
               title="Visit Egypt"
               id="collapsible-nav-dropdown"
             >
-              <NavDropdown.Item className="navbar-item" href="https://Mohamed1Adel.github.io/CIT-Travel/historicalTrips">
+              <NavDropdown.Item
+                className="navbar-item"
+                href="https://Mohamed1Adel.github.io/CIT-Travel/#/historicalTrips"
+              >
                 Historical Trips
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="https://Mohamed1Adel.github.io/CIT-Travel/dayTour">
+              <NavDropdown.Item
+                className="navbar-item"
+                href="https://Mohamed1Adel.github.io/CIT-Travel/#/dayTour"
+              >
                 Day Tour
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="https://Mohamed1Adel.github.io/CIT-Travel/nileCruise">
+              <NavDropdown.Item
+                className="navbar-item"
+                href="https://Mohamed1Adel.github.io/CIT-Travel/#/nileCruise"
+              >
                 Nile Cruise
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="https://Mohamed1Adel.github.io/CIT-Travel/meetAssist">
+              <NavDropdown.Item
+                className="navbar-item"
+                href="https://Mohamed1Adel.github.io/CIT-Travel/#/meetAssist"
+              >
                 Meet & Assist
               </NavDropdown.Item>
               {/* <NavDropdown.Divider /> */}
             </NavDropdown>
-            <Nav.Link className="navbar-item" href="https://Mohamed1Adel.github.io/CIT-Travel/domestics">
+            <Nav.Link
+              className="navbar-item"
+              href="https://Mohamed1Adel.github.io/CIT-Travel/#/domestics"
+            >
               Domestic
             </Nav.Link>
-            <Nav.Link className="navbar-item" href="https://Mohamed1Adel.github.io/CIT-Travel/outbound">
+            <Nav.Link
+              className="navbar-item"
+              href="https://Mohamed1Adel.github.io/CIT-Travel/#/outbound"
+            >
               Outbound
             </Nav.Link>
-            <Nav.Link className="navbar-item" href="https://Mohamed1Adel.github.io/CIT-Travel/hajjAndOmrah">
+            <Nav.Link
+              className="navbar-item"
+              href="https://Mohamed1Adel.github.io/CIT-Travel/#/hajjAndOmrah"
+            >
               Hajj & Umrah
             </Nav.Link>
-            <Nav.Link className="navbar-item" href="https://Mohamed1Adel.github.io/CIT-Travel/transportation">
+            <Nav.Link
+              className="navbar-item"
+              href="https://Mohamed1Adel.github.io/CIT-Travel/#/transportation"
+            >
               Transportation
             </Nav.Link>
             <NavDropdown
@@ -59,10 +83,16 @@ function NavBar() {
               title="C.I.T Travel Egypt"
               id="collapsible-nav-dropdown"
             >
-              <NavDropdown.Item className="navbar-item" href="https://Mohamed1Adel.github.io/CIT-Travel/about">
+              <NavDropdown.Item
+                className="navbar-item"
+                href="https://Mohamed1Adel.github.io/CIT-Travel/#/about"
+              >
                 About Us
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="https://Mohamed1Adel.github.io/CIT-Travel/contactUs">
+              <NavDropdown.Item
+                className="navbar-item"
+                href="https://Mohamed1Adel.github.io/CIT-Travel/#/contactUs"
+              >
                 Contact Us
               </NavDropdown.Item>
               <NavDropdown.Item className="navbar-item" href="#">
