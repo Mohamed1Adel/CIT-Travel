@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "./components/NavBar/NavBar";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import Landing from "./components/Landing/Landing";
 // import EgyptComponent from "./components/EgyptComponent";
 import { Container } from "react-bootstrap";
@@ -48,14 +48,13 @@ function App() {
     </div> */}
       <NavBar />
       {/* <Landing /> */}
-      <h1>hello</h1>
-      <Landing />
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route
             path="/"
             element={
               <>
+                <Landing />
                 <Container>
                   <HotDeals />
                   <MostPopular />
@@ -104,7 +103,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contactUs" element={<ContactUs />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
 
       <Footer />
       {/* <SimpleMap/> */}
