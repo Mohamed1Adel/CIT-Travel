@@ -17,10 +17,7 @@ function NavBar() {
             {/* <Nav.Link className="nav-item" href="http://wa.me/+201551563900">
               Home
             </Nav.Link> */}
-            <Nav.Link
-              className="navbar-item"
-              href="https://Mohamed1Adel.github.io/CIT-Travel/#/"
-            >
+            <Nav.Link className="navbar-item" href="/">
               Home
             </Nav.Link>
             <NavDropdown
@@ -28,54 +25,30 @@ function NavBar() {
               title="Visit Egypt"
               id="collapsible-nav-dropdown"
             >
-              <NavDropdown.Item
-                className="navbar-item"
-                href="https://Mohamed1Adel.github.io/CIT-Travel/#/historicalTrips"
-              >
+              <NavDropdown.Item className="navbar-item" href="/historicalTrips">
                 Historical Trips
               </NavDropdown.Item>
-              <NavDropdown.Item
-                className="navbar-item"
-                href="https://Mohamed1Adel.github.io/CIT-Travel/#/dayTour"
-              >
+              <NavDropdown.Item className="navbar-item" href="/dayTour">
                 Day Tour
               </NavDropdown.Item>
-              <NavDropdown.Item
-                className="navbar-item"
-                href="https://Mohamed1Adel.github.io/CIT-Travel/#/nileCruise"
-              >
+              <NavDropdown.Item className="navbar-item" href="/nileCruise">
                 Nile Cruise
               </NavDropdown.Item>
-              <NavDropdown.Item
-                className="navbar-item"
-                href="https://Mohamed1Adel.github.io/CIT-Travel/#/meetAssist"
-              >
+              <NavDropdown.Item className="navbar-item" href="/meetAssist">
                 Meet & Assist
               </NavDropdown.Item>
               {/* <NavDropdown.Divider /> */}
             </NavDropdown>
-            <Nav.Link
-              className="navbar-item"
-              href="https://Mohamed1Adel.github.io/CIT-Travel/#/domestics"
-            >
+            <Nav.Link className="navbar-item" href="/domestics">
               Domestic
             </Nav.Link>
-            <Nav.Link
-              className="navbar-item"
-              href="https://Mohamed1Adel.github.io/CIT-Travel/#/outbound"
-            >
+            <Nav.Link className="navbar-item" href="/outbound">
               Outbound
             </Nav.Link>
-            <Nav.Link
-              className="navbar-item"
-              href="https://Mohamed1Adel.github.io/CIT-Travel/#/hajjAndOmrah"
-            >
+            <Nav.Link className="navbar-item" href="/hajjAndOmrah">
               Hajj & Umrah
             </Nav.Link>
-            <Nav.Link
-              className="navbar-item"
-              href="https://Mohamed1Adel.github.io/CIT-Travel/#/transportation"
-            >
+            <Nav.Link className="navbar-item" href="/transportation">
               Transportation
             </Nav.Link>
             <NavDropdown
@@ -83,16 +56,10 @@ function NavBar() {
               title="C.I.T Travel Egypt"
               id="collapsible-nav-dropdown"
             >
-              <NavDropdown.Item
-                className="navbar-item"
-                href="https://Mohamed1Adel.github.io/CIT-Travel/#/about"
-              >
+              <NavDropdown.Item className="navbar-item" href="/about">
                 About Us
               </NavDropdown.Item>
-              <NavDropdown.Item
-                className="navbar-item"
-                href="https://Mohamed1Adel.github.io/CIT-Travel/#/contactUs"
-              >
+              <NavDropdown.Item className="navbar-item" href="/contactUs">
                 Contact Us
               </NavDropdown.Item>
               <NavDropdown.Item className="navbar-item" href="#">

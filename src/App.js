@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "./components/NavBar/NavBar";
-import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./components/Landing/Landing";
 // import EgyptComponent from "./components/EgyptComponent";
 import { Container } from "react-bootstrap";
@@ -48,10 +48,10 @@ function App() {
     </div> */}
       <NavBar />
       {/* <Landing /> */}
-      <HashRouter>
+      <BrowserRouter basename="/">
         <Routes>
           <Route
-            path="https://Mohamed1Adel.github.io/CIT-Travel/#/"
+            path="/"
             element={
               <>
                 <Landing />
@@ -63,47 +63,26 @@ function App() {
             }
           />
           {/* <Route path="/domestics" element={<AllDomestics />} /> */}
-          <Route
-            path="https://Mohamed1Adel.github.io/CIT-Travel/#/historicalTrips"
-            element={<HistoricalTrips />}
-          />
-          <Route
-            path="https://Mohamed1Adel.github.io/CIT-Travel/#/dayTour"
-            element={<DayTour />}
-          />
+          <Route path="/historicalTrips" element={<HistoricalTrips />} />
+          <Route path="/dayTour" element={<DayTour />} />
           <Route
             path="/dayTourTempDetails/:id"
             element={<DayTourTempDetails />}
           />
-          <Route
-            path="https://Mohamed1Adel.github.io/CIT-Travel/#/nileCruise"
-            element={<NileCruise />}
-          />
+          <Route path="/nileCruise" element={<NileCruise />} />
           <Route
             path="/nileCruiseTempDetails/:id"
             element={<NileCruiseTempDetails />}
           />
-          <Route
-            path="https://Mohamed1Adel.github.io/CIT-Travel/#/meetAssist"
-            element={<MeetAssist />}
-          />
-          <Route
-            path="https://Mohamed1Adel.github.io/CIT-Travel/#/domestics"
-            element={<Domestic />}
-          />
-          <Route
-            path="https://Mohamed1Adel.github.io/CIT-Travel/#/outbound"
-            element={<Outbound />}
-          />
+          <Route path="/meetAssist" element={<MeetAssist />} />
+          <Route path="/domestics" element={<Domestic />} />
+          <Route path="/outbound" element={<Outbound />} />
           <Route
             path="/outboundTempDetails/:id"
             element={<OutboundTempDetails />}
           />
 
-          <Route
-            path="https://Mohamed1Adel.github.io/CIT-Travel/#/hajjAndOmrah"
-            element={<HajjAndOmrah />}
-          />
+          <Route path="/hajjAndOmrah" element={<HajjAndOmrah />} />
           <Route
             path="/hajjAndOmrahDetails/:id"
             element={<HajjAndOmrahDetails />}
@@ -120,20 +99,11 @@ function App() {
             element={<HistorecalTembDetails />}
           />
 
-          <Route
-            path="https://Mohamed1Adel.github.io/CIT-Travel/#/transportation"
-            element={<Transportation />}
-          />
-          <Route
-            path="https://Mohamed1Adel.github.io/CIT-Travel/#/about"
-            element={<About />}
-          />
-          <Route
-            path="https://Mohamed1Adel.github.io/CIT-Travel/#/contactUs"
-            element={<ContactUs />}
-          />
+          <Route path="/transportation" element={<Transportation />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contactUs" element={<ContactUs />} />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
 
       <Footer />
       {/* <SimpleMap/> */}
