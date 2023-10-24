@@ -51,7 +51,7 @@ function App() {
 
         <Routes>
           <Route
-            path="/"
+            path="https://Mohamed1Adel.github.io/CIT-Travel/"
             element={
               <>
                 <Landing />
@@ -63,26 +63,26 @@ function App() {
             }
           />
           {/* <Route path="/domestics" element={<AllDomestics />} /> */}
-          <Route path="/historicalTrips" element={<HistoricalTrips />} />
-          <Route path="/dayTour" element={<DayTour />} />
+          <Route path="https://Mohamed1Adel.github.io/CIT-Travel/historicalTrips" element={<HistoricalTrips />} />
+          <Route path="https://Mohamed1Adel.github.io/CIT-Travel/dayTour" element={<DayTour />} />
           <Route
             path="/dayTourTempDetails/:id"
             element={<DayTourTempDetails />}
           />
-          <Route path="/nileCruise" element={<NileCruise />} />
+          <Route path="https://Mohamed1Adel.github.io/CIT-Travel/nileCruise" element={<NileCruise />} />
           <Route
-            path="/nileCruiseTempDetails/:id"
+            path="https://Mohamed1Adel.github.io/CIT-Travel/nileCruiseTempDetails/:id"
             element={<NileCruiseTempDetails />}
           />
-          <Route path="/meetAssist" element={<MeetAssist />} />
-          <Route path="/#domestics" element={<Domestic />} />
-          <Route path="/outbound" element={<Outbound />} />
+          <Route path="https://Mohamed1Adel.github.io/CIT-Travel/meetAssist" element={<MeetAssist />} />
+          <Route path="https://Mohamed1Adel.github.io/CIT-Travel/domestics" element={<Domestic />} />
+          <Route path="https://Mohamed1Adel.github.io/CIT-Travel/outbound" element={<Outbound />} />
           <Route
             path="/outboundTempDetails/:id"
             element={<OutboundTempDetails />}
           />
 
-          <Route path="/hajjAndOmrah" element={<HajjAndOmrah />} />
+          <Route path="https://Mohamed1Adel.github.io/CIT-Travel/hajjAndOmrah" element={<HajjAndOmrah />} />
           <Route
             path="/hajjAndOmrahDetails/:id"
             element={<HajjAndOmrahDetails />}
@@ -99,9 +99,9 @@ function App() {
             element={<HistorecalTembDetails />}
           />
 
-          <Route path="/transportation" element={<Transportation />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contactUs" element={<ContactUs />} />
+          <Route path="https://Mohamed1Adel.github.io/CIT-Travel/transportation" element={<Transportation />} />
+          <Route path="https://Mohamed1Adel.github.io/CIT-Travel/about" element={<About />} />
+          <Route path="https://Mohamed1Adel.github.io/CIT-Travel/contactUs" element={<ContactUs />} />
         </Routes>
 
 
