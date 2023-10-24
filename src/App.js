@@ -48,7 +48,7 @@ function App() {
     </div> */}
       <NavBar />
       {/* <Landing /> */}
-      <HashRouter>
+
         <Routes>
           <Route
             path="/"
@@ -103,7 +103,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contactUs" element={<ContactUs />} />
         </Routes>
-      </HashRouter>
+
 
       <Footer />
       {/* <SimpleMap/> */}
