@@ -39,7 +39,7 @@ function NavBar() {
               </NavDropdown.Item>
               {/* <NavDropdown.Divider /> */}
             </NavDropdown>
-            <Nav.Link className="navbar-item" href="/domestics">
+            <Nav.Link className="navbar-item" href="/#domestics">
               Domestic
             </Nav.Link>
             <Nav.Link className="navbar-item" href="/outbound">

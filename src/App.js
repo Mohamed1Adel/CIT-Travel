@@ -75,7 +75,7 @@ function App() {
             element={<NileCruiseTempDetails />}
           />
           <Route path="/meetAssist" element={<MeetAssist />} />
-          <Route path="/domestics" element={<Domestic />} />
+          <Route path="/#domestics" element={<Domestic />} />
           <Route path="/outbound" element={<Outbound />} />
           <Route
             path="/outboundTempDetails/:id"
