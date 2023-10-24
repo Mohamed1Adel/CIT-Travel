@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/CIT-Travel/static/css/main.675a0a23.css",
-    "main.js": "/CIT-Travel/static/js/main.cfc46319.js",
+    "main.js": "/CIT-Travel/static/js/main.1d66a03a.js",
     "static/media/hotel2.jpg": "/CIT-Travel/static/media/hotel2.9fd6736dcdaac48676f3.jpg",
     "static/media/hajjImg2.jpg": "/CIT-Travel/static/media/hajjImg2.6970b9ae2c47b579b21f.jpg",
     "static/media/bus2.jpg": "/CIT-Travel/static/media/bus2.c178538263b681004693.jpg",
@@ -12,10 +12,10 @@
     "static/media/travelimg1.jpg": "/CIT-Travel/static/media/travelimg1.3f134bb454c0599fcb38.jpg",
     "index.html": "/CIT-Travel/index.html",
     "main.675a0a23.css.map": "/CIT-Travel/static/css/main.675a0a23.css.map",
-    "main.cfc46319.js.map": "/CIT-Travel/static/js/main.cfc46319.js.map"
+    "main.1d66a03a.js.map": "/CIT-Travel/static/js/main.1d66a03a.js.map"
   },
   "entrypoints": [
     "static/css/main.675a0a23.css",
-    "static/js/main.cfc46319.js"
+    "static/js/main.1d66a03a.js"
   ]
 }
