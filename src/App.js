@@ -49,13 +49,13 @@ function App() {
       <NavBar />
       {/* <Landing /> */}
       <h1>hello</h1>
+      <Landing />
       <BrowserRouter>
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <Landing />
                 <Container>
                   <HotDeals />
                   <MostPopular />
@@ -66,14 +66,23 @@ function App() {
           {/* <Route path="/domestics" element={<AllDomestics />} /> */}
           <Route path="/historicalTrips" element={<HistoricalTrips />} />
           <Route path="/dayTour" element={<DayTour />} />
-          <Route path="/dayTourTempDetails/:id" element={<DayTourTempDetails />} />
+          <Route
+            path="/dayTourTempDetails/:id"
+            element={<DayTourTempDetails />}
+          />
           <Route path="/nileCruise" element={<NileCruise />} />
-          <Route path="/nileCruiseTempDetails/:id" element={<NileCruiseTempDetails />} />
+          <Route
+            path="/nileCruiseTempDetails/:id"
+            element={<NileCruiseTempDetails />}
+          />
           <Route path="/meetAssist" element={<MeetAssist />} />
           <Route path="/domestics" element={<Domestic />} />
           <Route path="/outbound" element={<Outbound />} />
-          <Route path="/outboundTempDetails/:id" element={<OutboundTempDetails />} />
-          
+          <Route
+            path="/outboundTempDetails/:id"
+            element={<OutboundTempDetails />}
+          />
+
           <Route path="/hajjAndOmrah" element={<HajjAndOmrah />} />
           <Route
             path="/hajjAndOmrahDetails/:id"
@@ -86,7 +95,10 @@ function App() {
           />
 
           <Route path="/tembDetails/:id" element={<TembDetails />} />
-          <Route path="/historecaltembDetails/:id" element={<HistorecalTembDetails />} />
+          <Route
+            path="/historecaltembDetails/:id"
+            element={<HistorecalTembDetails />}
+          />
 
           <Route path="/transportation" element={<Transportation />} />
           <Route path="/about" element={<About />} />
