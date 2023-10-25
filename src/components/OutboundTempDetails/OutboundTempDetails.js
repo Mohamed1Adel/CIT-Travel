@@ -85,7 +85,7 @@ function OutboundTempDetails() {
             </Carousel>
           </Col>
         </Row>
-        <Row className="my-5">
+        <Row className="my-5 book-rates">
           <Col sm="12" md="3" lg="4">
             <div className="book-form">
               <h2>Book Now</h2>

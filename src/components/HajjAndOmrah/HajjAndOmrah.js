@@ -282,7 +282,7 @@ function HajjAndOmrah() {
                 {hajjOmrahs?.length >= 1
                   ? hajjOmrahs?.map((hajjOmrah) => {
                       return (
-                        <Col sm="12" md="6" lg="4" xl="3">
+                        <Col key={hajjOmrah._id} sm="12" md="6" lg="4" xxl="4">
                           <HajjTamb hajjOmrah={hajjOmrah} />
                         </Col>
                       );
