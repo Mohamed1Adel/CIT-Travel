@@ -4,9 +4,9 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import MainLogo from "../../logos/main-logo.png";
 import "./NavBar.scss";
-import { useNavigate } from "react-router-dom";
+
 function NavBar() {
-  const navigate = useNavigate()
+
   return (
     <Navbar collapseOnSelect expand="lg" className="navbar navbar-bg  p-0">
       <Container>
