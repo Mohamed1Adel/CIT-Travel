@@ -1,18 +1,18 @@
 @import "../../index.scss";
 .navbar {
   position: fixed;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   z-index: 999;
   background-color: #fff !important;
-  width:100%
+  width: 100%;
 }
 .navbar-item {
   font-size: 16px !important;
   font-weight: 500 !important;
   font-weight: bold !important;
-//   padding:10px;
-transition: all 0.3s ease-in-out;
+  //   padding:10px;
+  transition: all 0.3s ease-in-out;
 }
 .navbar-item:hover {
   background-color: var(--primary-color);
@@ -21,4 +21,7 @@ transition: all 0.3s ease-in-out;
 }
 .navbar-bg {
   background-color: var(--primary-color);
+}
+.navbar-item a {
+  color: #000;
 }

@@ -46,11 +46,10 @@ function App() {
       <div><span class="dot"></span></div>
       <div><span class="dot"></span></div>
     </div> */}
+      <NavBar />
+      {/* <Landing /> */}
+      <Landing />
       <HashRouter>
-        <NavBar />
-        {/* <Landing /> */}
-        <Landing />
-
         <Routes>
           <Route
             path="/"
@@ -104,9 +103,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contactUs" element={<ContactUs />} />
         </Routes>
-
-        <Footer />
       </HashRouter>
+      <Footer />
       {/* <SimpleMap/> */}
       {/* <UploadImages /> */}
     </div>
