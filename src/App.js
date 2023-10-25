@@ -48,8 +48,8 @@ function App() {
     </div> */}
       <NavBar />
       {/* <Landing /> */}
-          <Landing />
-
+      <Landing />
+      <BrowserRouter>
         <Routes>
           <Route
             path="/CIT-Travel/#/"
@@ -63,7 +63,10 @@ function App() {
             }
           />
           {/* <Route path="/domestics" element={<AllDomestics />} /> */}
-          <Route path="/CIT-Travel/#/historicalTrips" element={<HistoricalTrips />} />
+          <Route
+            path="/CIT-Travel/#/historicalTrips"
+            element={<HistoricalTrips />}
+          />
           <Route path="/CIT-Travel/#/dayTour" element={<DayTour />} />
           <Route
             path="/dayTourTempDetails/:id"
@@ -75,7 +78,7 @@ function App() {
             element={<NileCruiseTempDetails />}
           />
           <Route path="/CIT-Travel/#/meetAssist" element={<MeetAssist />} />
-          <Route path="/CIT-Travel/#/domestics" element={<Domestic />} />
+          <Route path="/domestics" element={<Domestic />} />
           <Route path="/CIT-Travel/#/outbound" element={<Outbound />} />
           <Route
             path="/outboundTempDetails/:id"
@@ -99,11 +102,14 @@ function App() {
             element={<HistorecalTembDetails />}
           />
 
-          <Route path="/CIT-Travel/#/transportation" element={<Transportation />} />
+          <Route
+            path="/CIT-Travel/#/transportation"
+            element={<Transportation />}
+          />
           <Route path="/CIT-Travel/#/about" element={<About />} />
           <Route path="/CIT-Travel/#/contactUs" element={<ContactUs />} />
         </Routes>
-
+      </BrowserRouter>
 
       <Footer />
       {/* <SimpleMap/> */}
