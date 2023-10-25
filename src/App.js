@@ -49,7 +49,7 @@ function App() {
       <NavBar />
       {/* <Landing /> */}
           <Landing />
-      <HashRouter>
+
         <Routes>
           <Route
             path="/CIT-Travel/#/"
@@ -103,7 +103,7 @@ function App() {
           <Route path="/CIT-Travel/#/about" element={<About />} />
           <Route path="/CIT-Travel/#/contactUs" element={<ContactUs />} />
         </Routes>
-      </HashRouter>
+
 
       <Footer />
       {/* <SimpleMap/> */}
