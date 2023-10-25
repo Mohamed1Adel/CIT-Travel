@@ -19,7 +19,7 @@ function NavBar() {
             {/* <Nav.Link className="nav-item" href="http://wa.me/+201551563900">
               Home
             </Nav.Link> */}
-            <Nav.Link className="navbar-item" href="/CIT-Travel/#/">
+            <Nav.Link className="navbar-item" href="/">
               Home
             </Nav.Link>
             <NavDropdown
@@ -29,25 +29,25 @@ function NavBar() {
             >
               <NavDropdown.Item
                 className="navbar-item"
-                href="/CIT-Travel/#/historicalTrips"
+                href="/historicalTrips"
               >
                 Historical Trips
               </NavDropdown.Item>
               <NavDropdown.Item
                 className="navbar-item"
-                href="/CIT-Travel/#/dayTour"
+                href="/dayTour"
               >
                 Day Tour
               </NavDropdown.Item>
               <NavDropdown.Item
                 className="navbar-item"
-                href="/CIT-Travel/#/nileCruise"
+                href="/nileCruise"
               >
                 Nile Cruise
               </NavDropdown.Item>
               <NavDropdown.Item
                 className="navbar-item"
-                href="/CIT-Travel/#/meetAssist"
+                href="/meetAssist"
               >
                 Meet & Assist
               </NavDropdown.Item>
@@ -55,20 +55,20 @@ function NavBar() {
             </NavDropdown>
             <Nav.Link
               className="navbar-item"
-              onClick={() => navigate("/domestics")}
+              href="/domestic"
               
             >
               Domestic
             </Nav.Link>
-            <Nav.Link className="navbar-item" href="/CIT-Travel/#/outbound">
+            <Nav.Link className="navbar-item" href="/outbound">
               Outbound
             </Nav.Link>
-            <Nav.Link className="navbar-item" href="/CIT-Travel/#/hajjAndOmrah">
+            <Nav.Link className="navbar-item" href="/hajjAndOmrah">
               Hajj & Umrah
             </Nav.Link>
             <Nav.Link
               className="navbar-item"
-              href="/CIT-Travel/#/transportation"
+              href="/transportation"
             >
               Transportation
             </Nav.Link>
@@ -79,13 +79,13 @@ function NavBar() {
             >
               <NavDropdown.Item
                 className="navbar-item"
-                href="/CIT-Travel/#/about"
+                href="/about"
               >
                 About Us
               </NavDropdown.Item>
               <NavDropdown.Item
                 className="navbar-item"
-                href="/CIT-Travel/#/contactUs"
+                href="/contactUs"
               >
                 Contact Us
               </NavDropdown.Item>
