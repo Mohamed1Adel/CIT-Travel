@@ -17,7 +17,7 @@ function NavBar() {
             {/* <Nav.Link className="nav-item" href="http://wa.me/+201551563900">
               Home
             </Nav.Link> */}
-            <Nav.Link className="navbar-item" href="/">
+            <Nav.Link className="navbar-item" href="/CIT-Travel/#/">
               Home
             </Nav.Link>
             <NavDropdown
@@ -25,30 +25,30 @@ function NavBar() {
               title="Visit Egypt"
               id="collapsible-nav-dropdown"
             >
-              <NavDropdown.Item className="navbar-item" href="/historicalTrips">
+              <NavDropdown.Item className="navbar-item" href="/CIT-Travel/#/historicalTrips">
                 Historical Trips
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="/dayTour">
+              <NavDropdown.Item className="navbar-item" href="/CIT-Travel/#/dayTour">
                 Day Tour
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="/nileCruise">
+              <NavDropdown.Item className="navbar-item" href="/CIT-Travel/#/nileCruise">
                 Nile Cruise
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="/meetAssist">
+              <NavDropdown.Item className="navbar-item" href="/CIT-Travel/#/meetAssist">
                 Meet & Assist
               </NavDropdown.Item>
               {/* <NavDropdown.Divider /> */}
             </NavDropdown>
-            <Nav.Link className="navbar-item" href="/domestics">
+            <Nav.Link className="navbar-item" href="/CIT-Travel/#/domestics">
               Domestic
             </Nav.Link>
-            <Nav.Link className="navbar-item" href="/outbound">
+            <Nav.Link className="navbar-item" href="/CIT-Travel/#/outbound">
               Outbound
             </Nav.Link>
-            <Nav.Link className="navbar-item" href="/hajjAndOmrah">
+            <Nav.Link className="navbar-item" href="/CIT-Travel/#/hajjAndOmrah">
               Hajj & Umrah
             </Nav.Link>
-            <Nav.Link className="navbar-item" href="/transportation">
+            <Nav.Link className="navbar-item" href="/CIT-Travel/#/transportation">
               Transportation
             </Nav.Link>
             <NavDropdown
@@ -56,10 +56,10 @@ function NavBar() {
               title="C.I.T Travel Egypt"
               id="collapsible-nav-dropdown"
             >
-              <NavDropdown.Item className="navbar-item" href="/about">
+              <NavDropdown.Item className="navbar-item" href="/CIT-Travel/#/about">
                 About Us
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="/contactUs">
+              <NavDropdown.Item className="navbar-item" href="/CIT-Travel/#/contactUs">
                 Contact Us
               </NavDropdown.Item>
               <NavDropdown.Item className="navbar-item" href="#">
