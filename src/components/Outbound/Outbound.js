@@ -8,13 +8,14 @@ import axios from "axios";
 import { API_URL, MONGODB_URL } from "../../envData";
 import OutboundTempDetails from "../OutboundTempDetails/OutboundTempDetails";
 import OutboundTemp from "../OutboundTemp/OutboundTemp";
+import { Progress } from "../../progressComponent";
 function Outbound() {
   const [outbounds, setOutbounds] = useState();
   const getAllOutbound = async () => {
     // const response = await axios.get(`${API_URL}/outbound`);
     const response = await axios.get(`${MONGODB_URL}/getAllOutbound`);
     const data = response.data;
-    setOutbounds(data)
+    setOutbounds(data);
     console.log(data);
   };
 
@@ -130,16 +131,17 @@ function Outbound() {
             </Col>
             <Col className="domestic-hotels" lg="10">
               <Row>
-              {
-                outbounds?.length >=1 ?
-                outbounds?.map?.((outbound)=>{
-                  return (
-                    <Col sm="12" md="6" lg="4">
-                      <OutboundTemp outbound={outbound} />
-                    </Col>
-                  );
-                }) : "Not Found"
-              }
+                {outbounds?.length >= 1 ? (
+                  outbounds?.map?.((outbound) => {
+                    return (
+                      <Col sm="12" md="6" lg="4">
+                        <OutboundTemp outbound={outbound} />
+                      </Col>
+                    );
+                  })
+                ) : (
+                  <Progress />
+                )}
               </Row>
             </Col>
           </Row>

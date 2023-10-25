@@ -1,6 +1,5 @@
 {
   "name": "cit-travel",
-  "homepage": "https://Mohamed1Adel.github.io/CIT-Travel/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -33,9 +32,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "surge --project ./build --domain cit-travel-eg.surge.sh",
     "test": "react-scripts test",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

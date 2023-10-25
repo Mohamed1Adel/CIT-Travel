@@ -48,62 +48,65 @@ function App() {
     </div> */}
       <NavBar />
       {/* <Landing /> */}
-      <Landing />
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Container>
-                  <HotDeals />
-                  <MostPopular />
-                </Container>
-              </>
-            }
-          />
-          {/* <Route path="/domestics" element={<AllDomestics />} /> */}
-          <Route path="/historicalTrips" element={<HistoricalTrips />} />
-          <Route path="/dayTour" element={<DayTour />} />
-          <Route
-            path="/dayTourTempDetails/:id"
-            element={<DayTourTempDetails />}
-          />
-          <Route path="/nileCruise" element={<NileCruise />} />
-          <Route
-            path="/nileCruiseTempDetails/:id"
-            element={<NileCruiseTempDetails />}
-          />
-          <Route path="/meetAssist" element={<MeetAssist />} />
-          <Route path="/domestics" element={<Domestic />} />
-          <Route path="/outbound" element={<Outbound />} />
-          <Route
-            path="/outboundTempDetails/:id"
-            element={<OutboundTempDetails />}
-          />
+      <div style={{minHeight:"100vh"}}>
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Landing />
+                  <Container>
+                    <HotDeals />
+                    <MostPopular />
+                  </Container>
+                </>
+              }
+            />
+            {/* <Route path="/domestics" element={<AllDomestics />} /> */}
+            <Route path="/historicalTrips" element={<HistoricalTrips />} />
+            <Route path="/dayTour" element={<DayTour />} />
+            <Route
+              path="/dayTourTempDetails/:id"
+              element={<DayTourTempDetails />}
+            />
+            <Route path="/nileCruise" element={<NileCruise />} />
+            <Route
+              path="/nileCruiseTempDetails/:id"
+              element={<NileCruiseTempDetails />}
+            />
+            <Route path="/meetAssist" element={<MeetAssist />} />
+            <Route path="/domestics" element={<Domestic />} />
+            <Route path="/outbound" element={<Outbound />} />
+            <Route
+              path="/outboundTempDetails/:id"
+              element={<OutboundTempDetails />}
+            />
 
-          <Route path="/hajjAndOmrah" element={<HajjAndOmrah />} />
-          <Route
-            path="/hajjAndOmrahDetails/:id"
-            element={<HajjAndOmrahDetails />}
-          />
-          <Route path="/HajjTamb" element={<HajjTamb />} />
-          <Route
-            path="/HajjAndOmrahDetails"
-            element={<HajjAndOmrahDetails />}
-          />
+            <Route path="/hajjAndOmrah" element={<HajjAndOmrah />} />
+            <Route
+              path="/hajjAndOmrahDetails/:id"
+              element={<HajjAndOmrahDetails />}
+            />
+            <Route path="/HajjTamb" element={<HajjTamb />} />
+            <Route
+              path="/HajjAndOmrahDetails"
+              element={<HajjAndOmrahDetails />}
+            />
 
-          <Route path="/tembDetails/:id" element={<TembDetails />} />
-          <Route
-            path="/historecaltembDetails/:id"
-            element={<HistorecalTembDetails />}
-          />
+            <Route path="/tembDetails/:id" element={<TembDetails />} />
+            <Route
+              path="/historecaltembDetails/:id"
+              element={<HistorecalTembDetails />}
+            />
 
-          <Route path="/transportation" element={<Transportation />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contactUs" element={<ContactUs />} />
-        </Routes>
-      </BrowserRouter>
+            <Route path="/transportation" element={<Transportation />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contactUs" element={<ContactUs />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+
       <Footer />
       {/* <SimpleMap/> */}
       {/* <UploadImages /> */}
