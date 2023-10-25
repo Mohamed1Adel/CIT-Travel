@@ -49,7 +49,7 @@ function App() {
       <NavBar />
       {/* <Landing /> */}
       <Landing />
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
           <Route
             path="/"
@@ -103,7 +103,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contactUs" element={<ContactUs />} />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
       <Footer />
       {/* <SimpleMap/> */}
       {/* <UploadImages /> */}
