@@ -9,18 +9,23 @@ function HajjTamb({hajjOmrah}) {
   console.log(hajjOmrah);
   console.log('====================================');
   return (
-    <Card className="hotel hotel-card" style={{ width: "18rem" }}>
+    <Card
+      className="hotel hotel-card "
+      id='hajj-card'
+      style={{ width: "18rem" }}
+    >
       <div className="card-image">
         <Card.Img variant="top" src={hajjOmrah?.images[0].img_url} />
       </div>
       <Card.Body>
         <Card.Title>{hajjOmrah?.title}</Card.Title>
-        <Card.Text>
-          {
-            hajjOmrah?.description
-          }
-        </Card.Text>
-        <Button style={{ width: "100px" }} variant="primary">
+        <Card.Text>{hajjOmrah?.description}</Card.Text>
+        <Button
+          className=""
+          id="hajj-btn"
+          style={{ width: "100px" }}
+          variant="primary"
+        >
           <Link to={`/HajjAndOmrahDetails/${hajjOmrah?._id}`}>
             احجز الان <FontAwesomeIcon icon={faArrowLeft} />
           </Link>

@@ -1,4 +1,10 @@
-.card-body button{
-    float:left
+
+#hajj-card{
+    position: relative;
 }
 
+#hajj-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px 
+}

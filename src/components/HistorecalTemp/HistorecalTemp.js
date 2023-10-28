@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 function HistorecalTemp({program}) {
-console.log(program);
+// console.log(program);
   return (
     <Card className="hotel-card" style={{ width: "18rem" }}>
       <div className="card-image">

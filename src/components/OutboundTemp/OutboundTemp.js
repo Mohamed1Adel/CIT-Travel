@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 function OutboundTemp({ outbound }) {
-  console.log(outbound);
+  // console.log(outbound);
   return (
     <Card className="hotel-card" style={{ width: "18rem" }}>
       <div className="card-image">

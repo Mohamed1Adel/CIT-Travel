@@ -6,7 +6,7 @@ import { faArrowRight, faStar } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 function Temb(item) {
-  console.log(item.item);
+  // console.log(item.item);
   let star = <FontAwesomeIcon className="star" icon={faStar} />;
   let rateStars = [];
   for (let i = 1; i <= Number(item.item.stars); i++) {

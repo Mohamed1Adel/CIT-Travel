@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useRef} from "react";
 import { Col, Row } from "react-bootstrap";
 import { Zoom } from "react-reveal";
 import Temb from "../Temb/Temb";
@@ -8,7 +8,10 @@ import { faBars, faStar, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { API_URL, MONGODB_URL } from "../../envData";
 import { Progress } from "../../progressComponent";
 import axios from "axios";
+
 function Domestic() {
+
+  
   const [data, setData] = useState({});
   const [newDataArray, setNewDataArray] = useState({});
     const [isOpen, setIsopen] = useState(false);

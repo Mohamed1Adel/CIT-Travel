@@ -1,13 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button, Carousel, Col, Container, Row } from "react-bootstrap";
 import "./TembDetails.scss";
 import Form from "react-bootstrap/Form";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
-import {API_URL, MONGODB_URL} from '../../envData'
+import { API_URL, MONGODB_URL } from "../../envData";
 import { Progress } from "../../progressComponent";
+import emailjs from "@emailjs/browser";
 function TembDetails() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    console.log(form.current);
+     emailjs
+       .sendForm(
+         "service_a5le1fd",
+         "template_vjwhzni",
+         form.current,
+         "YZfMIBWVpK33gBYsx"
+       )
+       .then(
+         (result) => {
+           console.log(result.text);
+         },
+         (error) => {
+           console.log(error.text);
+         }
+       );
+  };
   const [itemDetails, setItemDetails] = useState({ value: "" });
   const [images, setImages] = useState([]);
   const { id } = useParams(0);
@@ -86,28 +108,56 @@ function TembDetails() {
           <Col sm="12" md="3" lg="4">
             <div className="book-form">
               <h2>Book Now</h2>
-              <Form>
+
+              <Form ref={form} onSubmit={sendEmail}>
                 <Form.Group className="mb-3" controlId="formBasicName">
-                  <Form.Control type="text" placeholder="Your Name" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Control type="email" placeholder="Your Email Address" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicNumber">
-                  <Form.Control type="text" placeholder="Your Phone Number" />
+                  <Form.Control
+                    type="text"
+                    name="title"
+                    
+                    value={itemDetails?.title}
+                    style={{display:"none"}}
+                  />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicName">
                   <Form.Control
                     type="text"
+                    name="sender_name"
+                    placeholder="Your Name"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Control
+                    type="email"
+                    name="email"
+                    placeholder="Your Email Address"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicNumber">
+                  <Form.Control
+                    type="text"
+                    name="Phone_No"
+                    placeholder="Your Phone Number"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicName">
+                  <Form.Control
+                    type="text"
+                    name="Rooms_Count"
                     placeholder="Enter Number of Rooms"
                   />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicName">
-                  <Form.Control type="text" placeholder="Enter Number of Pax" />
+                  <Form.Control
+                    type="text"
+                    name="Pax_Count"
+                    placeholder="Enter Number of Pax"
+                  />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicName">
                   <Form.Control
                     type="text"
+                    name="Childs_Count"
                     placeholder="Enter Number of Child"
                   />
                 </Form.Group>
