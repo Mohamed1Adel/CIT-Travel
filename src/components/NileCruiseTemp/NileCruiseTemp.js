@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function NileCruiseTemp(nileCruise) {
   console.log({ nileCruise });
   return (
-    <Card className="hotel-card" style={{ width: "18rem" }}>
+    <Card className="hotel-card">
       <div className="card-image">
         <Card.Img
           variant="top"

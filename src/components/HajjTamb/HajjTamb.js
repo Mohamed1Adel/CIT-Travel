@@ -12,7 +12,7 @@ function HajjTamb({hajjOmrah}) {
     <Card
       className="hotel hotel-card "
       id='hajj-card'
-      style={{ width: "18rem" }}
+      // style={{ width: "18rem" }}
     >
       <div className="card-image">
         <Card.Img variant="top" src={hajjOmrah?.images[0].img_url} />

@@ -26,9 +26,10 @@ import HistorecalTembDetails from "./components/HistorecalTempDetails/Historecal
 import OutboundTempDetails from "./components/OutboundTempDetails/OutboundTempDetails";
 import NileCruiseTempDetails from "./components/NileCruiseTempDetails/NileCruiseTempDetails";
 import DayTourTempDetails from "./components/DayTourTempDetails/DayTourTempDetails";
+
 function App() {
   return (
-    <div className="">
+    <div className="home-section" >
       {/* <div class="wrapper">
       <div><span class="dot"></span></div>
       <div><span class="dot"></span></div>

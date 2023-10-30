@@ -9,13 +9,13 @@ import { MONGODB_URL } from "../../envData";
 import HistorecalTemp from "../HistorecalTemp/HistorecalTemp";
 import OutboundTemp from "../OutboundTemp/OutboundTemp";
 import { Progress } from "../../progressComponent";
+import './MostPopular.scss'
 
 function MostPopular() {
   const [domestic, setDomestic] = useState();
   const [historical, setHistorical] = useState();
   const [outbounds, setOutbound] = useState();
-  const [hotDeals , setHotDeals] = useState([]);
-
+  const [hotDeals, setHotDeals] = useState([]);
 
   // console.log(hotDeals);
   const getDomestic = async () => {
@@ -57,17 +57,16 @@ function MostPopular() {
       console.log("====================================");
     }
   };
-    const getHotDeals = () => {
-      const deals = domestic?.filter((item) => item.hotOffer === true);
-      console.log(deals);
-    };
-
+  const getHotDeals = () => {
+    const deals = domestic?.filter((item) => item.hotOffer === true);
+    console.log(deals);
+  };
 
   useEffect(() => {
     getDomestic();
     getHistoracal();
     getOutbound();
-    getHotDeals()
+    getHotDeals();
     console.log(domestic);
     // console.log(historical);
     // console.log(outbounds);
@@ -135,7 +134,13 @@ function MostPopular() {
           <h1 className="text-center main-heading">Domestics</h1>
           {domestic?.length >= 1 ? (
             domestic?.map((item) => {
-              return <Temb item={item} />;
+
+             return <div class="hot-offer-box">
+                <div class="ribbon red">
+                  <span>Hot Offer</span>
+                </div>
+                  <Temb item={item} />
+              </div>;
             })
           ) : (
             <Progress />

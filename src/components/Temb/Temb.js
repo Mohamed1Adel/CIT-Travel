@@ -13,7 +13,7 @@ function Temb(item) {
     rateStars.push(star);
   }
   return (
-    <Card className="hotel-card" style={{ width: "18rem" }}>
+    <Card className="hotel-card" >
       <div className="card-image">
         <Card.Img variant="top" src={item.item?.images[0]?.img_url} />
       </div>

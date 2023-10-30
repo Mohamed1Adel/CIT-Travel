@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function OutboundTemp({ outbound }) {
   // console.log(outbound);
   return (
-    <Card className="hotel-card" style={{ width: "18rem" }}>
+    <Card className="hotel-card" >
       <div className="card-image">
         <Card.Img variant="top" src={outbound.images[0].img_url} />
       </div>
