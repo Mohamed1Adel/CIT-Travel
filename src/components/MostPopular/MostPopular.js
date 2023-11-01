@@ -135,12 +135,8 @@ function MostPopular() {
           {domestic?.length >= 1 ? (
             domestic?.map((item) => {
 
-             return <div class="hot-offer-box">
-                <div class="ribbon red">
-                  <span>Hot Offer</span>
-                </div>
-                  <Temb item={item} />
-              </div>;
+             return <Temb item={item} />
+
             })
           ) : (
             <Progress />
