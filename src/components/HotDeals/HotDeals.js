@@ -18,13 +18,54 @@ import OutboundTemp from "../OutboundTemp/OutboundTemp";
 import NileCruiseTemp from "../NileCruiseTemp/NileCruiseTemp";
 import { Progress } from "../../progressComponent";
 function HotDeals() {
-  const settings = {
-    dots: true,
-    Infinity: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+  const [screenSize, setScreenSize] = useState(getCurrentDimension());
+
+  function getCurrentDimension() {
+    return {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+  }
+
+  useEffect(() => {
+    const updateDimension = () => {
+      setScreenSize(getCurrentDimension());
+    };
+    window.addEventListener("resize", updateDimension);
+
+    return () => {
+      window.removeEventListener("resize", updateDimension);
+    };
+  }, [screenSize]);
+
+  const sett = () => {
+    return screenSize.width > 991
+      ? {
+          dots: true,
+          Infinity: true,
+          speed: 500,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      : screenSize.width < 991 && screenSize.width > 700
+      ? {
+          dots: true,
+          Infinity: true,
+          speed: 500,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      : screenSize.width < 700
+      ? {
+          dots: true,
+          Infinity: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      : {};
   };
+
   // const [domesticHotDeals, setDomesticHotDeals] = useState();
   // const [historicalHotDeals, setHistoricalHotDeals] = useState();
   // const [nileCruiseHotDeals, setNileCruiseHotDeals] = useState();
@@ -134,7 +175,7 @@ function HotDeals() {
             <Temb />
           </Col> */}
           {allHotDeals?.domestics?.length >= 1 ? (
-            <Slider {...settings}>
+            <Slider {...sett()}>
               {}
               {allHotDeals?.domestics?.map((item) => {
                 return (
