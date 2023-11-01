@@ -1,7 +1,21 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { Button, Carousel, Container, Form } from "react-bootstrap";
 import "./Transportation.scss";
+import { MONGODB_URL } from "../../envData";
+import axios from "axios";
 function Transportation() {
+
+    const [images, setImages] = useState([]);
+    const getImages = async () => {
+      const response = await axios.get(`${MONGODB_URL}/getTransportationSlider`);
+      const data = response.data;
+      setImages(data);
+      console.log(data);
+    };
+
+    useEffect(() => {
+      getImages();
+    }, []);
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
@@ -9,32 +23,20 @@ function Transportation() {
   return (
     <Container>
       <Carousel activeIndex={index} onSelect={handleSelect}>
-        <Carousel.Item>
-          {/* <ExampleCarouselImage text="First slide" /> */}
-          <img src={require("../../images/bus2.jpg")} alt="..." />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          {/* <ExampleCarouselImage text="Second slide" /> */}
-          <img src={require("../../images/bus2.jpg")} alt="..." />
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          {/* <ExampleCarouselImage text="Third slide" /> */}
-          <img src={require("../../images/bus2.jpg")} alt="..." />
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
+        {images[0]?.images?.map((img) => {
+          console.log(img?.img_url);
+          return (
+            <Carousel.Item>
+              <img src={img?.img_url} style={{ height: "400px" }} alt="..." />
+              {/* <Carousel.Caption>
+                <h3>First slide label</h3>
+                <p>
+                  Nulla vitae elit libero, a pharetra augue mollis interdum.
+                </p>
+              </Carousel.Caption> */}
+            </Carousel.Item>
+          );
+        })}
       </Carousel>
 
       <div className="transport-video my-5  d-flex align-items-center justify-content-evenly">
