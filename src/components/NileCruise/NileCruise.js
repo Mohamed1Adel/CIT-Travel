@@ -33,7 +33,7 @@ function NileCruise() {
           {nileCruises?.length >= 1 ? (
             nileCruises?.map((nileCruise) => {
               return (
-                <Col sm="12" md="6" lg="4">
+                <Col sm="12" md="6" lg="4" xxl="3">
                   <NileCruiseTemp nileCruise={nileCruise} />
                 </Col>
               );

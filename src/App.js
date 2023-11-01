@@ -28,8 +28,10 @@ import NileCruiseTempDetails from "./components/NileCruiseTempDetails/NileCruise
 import DayTourTempDetails from "./components/DayTourTempDetails/DayTourTempDetails";
 
 function App() {
+
+  var items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
-    <div className="home-section" >
+    <div className="home-section">
       {/* <div class="wrapper">
       <div><span class="dot"></span></div>
       <div><span class="dot"></span></div>
@@ -49,7 +51,7 @@ function App() {
     </div> */}
       <NavBar />
       {/* <Landing /> */}
-      <div style={{minHeight:"100vh"}}>
+      <div style={{ minHeight: "100vh" }}>
         <BrowserRouter>
           <Routes>
             <Route

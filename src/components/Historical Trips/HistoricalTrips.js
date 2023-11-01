@@ -31,7 +31,7 @@ function HistoricalTrips() {
           {programs?.length >= 1 ? (
             programs?.map((program) => {
               return (
-                <Col sm="12" md="6" lg="4">
+                <Col sm="12" md="6" lg="4" xxl="3">
                   <HistorecalTemp program={program} />
                 </Col>
               );

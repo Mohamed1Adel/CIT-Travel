@@ -59,8 +59,8 @@ a {
 //   justify-content: center;
 // }
 .hotel-card {
-  // width: 90% !important;
-  width:330px;
+  width: 90% !important;
+  // width:330px;
   padding: 0;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -117,15 +117,15 @@ a {
 
 .hotel-card {
   margin: 10px;
-  min-height: 400px;
+  min-height: 500px;
  border:2px solid var(--yellow-color)
 }
 .card-image{
-  height: 200px;
+  height: 250px;
 }
 .card-image img{
   width: 350px;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
 }
 
@@ -218,23 +218,23 @@ button{
 //   height: 300px;
 // }
 
-.card{
-  position: relative;
-}
-.card button{
-position: absolute;
-bottom: 20px;
-right:20px;
-background-color:var(--primary-color);
-color: var(--yellow-color);
-border:none
+// .card{
+//   position: relative;
+// }
+// .card button{
+// position: absolute;
+// bottom: 20px;
+// right:20px;
+// background-color:var(--primary-color);
+// color: var(--yellow-color);
+// border:none
 
-}
+// }
 
-.card button:hover{
-  color:var(--primary-color);
-background-color: var(--yellow-color);
-}
+// .card button:hover{
+//   color:var(--primary-color);
+// background-color: var(--yellow-color);
+// }
 
 
 // hot offer 
