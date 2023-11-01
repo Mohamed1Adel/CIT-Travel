@@ -24,7 +24,7 @@ getImages()
     },[])
   return (
     <Container>
-      <Carousel activeIndex={index} onSelect={handleSelect}>
+      <Carousel activeIndex={index} onSelect={handleSelect} style={{marginBottom:"30px"}}>
       {
          images[0]?.images?.map((img)=>{
           console.log(img?.img_url);

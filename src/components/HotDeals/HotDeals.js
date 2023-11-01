@@ -7,7 +7,7 @@ import "./hotDeals.scss";
 import { Zoom } from "react-reveal";
 import axios from "axios";
 import { MONGODB_URL } from "../../envData";
-import Temb from '../Temb/Temb'
+import Temb from "../Temb/Temb";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -18,13 +18,13 @@ import OutboundTemp from "../OutboundTemp/OutboundTemp";
 import NileCruiseTemp from "../NileCruiseTemp/NileCruiseTemp";
 import { Progress } from "../../progressComponent";
 function HotDeals() {
-    const settings = {
-        dots:true,
-        Infinity:true,
-        speed:500,
-        slidesToShow:3,
-        slidesToScroll:3
-    }
+  const settings = {
+    dots: true,
+    Infinity: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+  };
   // const [domesticHotDeals, setDomesticHotDeals] = useState();
   // const [historicalHotDeals, setHistoricalHotDeals] = useState();
   // const [nileCruiseHotDeals, setNileCruiseHotDeals] = useState();
@@ -198,8 +198,6 @@ function HotDeals() {
 }
 
 export default HotDeals;
-
-
 
 // /************************************
 // 1. If you want to add or remove items you will need to change a variable called $slide-count in the CSS *minimum 3 slides
