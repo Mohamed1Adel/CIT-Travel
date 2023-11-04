@@ -13,6 +13,7 @@ import HajjImg3 from "../../images/hajj/hajjImg3.jpg";
 import axios from "axios";
 import { Progress } from "../../progressComponent";
 import {MONGODB_URL} from '../../envData'
+import FullProgress from "../../FullProgress";
 function HajjAndOmrah() {
   const [images, setImages] = useState([]);
       const getImages = async () => {
@@ -75,7 +76,7 @@ function HajjAndOmrah() {
     getAllHajjOmrah();
   }, []);
   return (
-    <div dir="rtl">
+    <div dir="rtl" style={{backgroundColor:"#fff"}}>
       <Container>
         <Carousel activeIndex={index} onSelect={handleSelect}>
           {images[0]?.images?.map((img) => {
@@ -554,7 +555,7 @@ function HajjAndOmrah() {
                     );
                   })
                 ) : (
-                  <Progress />
+                  <FullProgress />
                 )}
               </Row>
             </Col>

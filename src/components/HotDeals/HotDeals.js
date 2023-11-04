@@ -17,7 +17,7 @@ import DayTourTemp from "../DayTourTemp/DayTourTemp";
 import OutboundTemp from "../OutboundTemp/OutboundTemp";
 import NileCruiseTemp from "../NileCruiseTemp/NileCruiseTemp";
 import { Progress } from "../../progressComponent";
-function HotDeals() {
+function HotDeals({checkConnection}) {
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
 
   function getCurrentDimension() {
@@ -73,33 +73,39 @@ function HotDeals() {
   // const [outboundHotDeals, setOutboundHotDeals] = useState();
   // const [hajjOmrahHotDeals, setHajjOmrahHotDeals] = useState();
   const [allHotDeals, setAllHotDeals] = useState({});
+  const [connection,setConnection] = useState(true)
 
   const getAllHotDeals = async () => {
-    const domesticHots = await axios.get(`${MONGODB_URL}/getAllDomestics`);
-    const domData = await domesticHots.data;
-
-    const historicalHots = await axios.get(`${MONGODB_URL}/getAllProgram`);
-    const historicalHotsData = await historicalHots.data;
-
-    const outboundHots = await axios.get(`${MONGODB_URL}/getAllOutbound`);
-    const outboundHotsData = await outboundHots.data;
-
-    const dayToursHots = await axios.get(`${MONGODB_URL}/getAllDayTours`);
-    const dayToursHotsData = await dayToursHots.data;
-
-    const nileCruiseHots = await axios.get(`${MONGODB_URL}/getAllNileCruise`);
-    const nileCruiseHotsData = await nileCruiseHots.data;
-
-    const hajjOmrahHots = await axios.get(`${MONGODB_URL}/getAllHajjOmrah`);
-    const hajjOmrahHotsData = await hajjOmrahHots.data;
-    setAllHotDeals({
-      domestics: domData?.filter((item) => item.hotOffer === true),
-      historical: historicalHotsData?.filter((item) => item.hotOffer === true),
-      dayTours: dayToursHotsData?.filter((item) => item.hotOffer === true),
-      outbound: outboundHotsData?.filter((item) => item.hotOffer === true),
-      nileCruise: nileCruiseHotsData?.filter((item) => item.hotOffer === true),
-      hajjOmrah: hajjOmrahHotsData?.filter((item) => item.hotOffer === true),
-    });
+    try{
+      const domesticHots = await axios.get(`${MONGODB_URL}/getAllDomestics`);
+      const domData = await domesticHots.data;
+  
+      const historicalHots = await axios.get(`${MONGODB_URL}/getAllProgram`);
+      const historicalHotsData = await historicalHots.data;
+  
+      const outboundHots = await axios.get(`${MONGODB_URL}/getAllOutbound`);
+      const outboundHotsData = await outboundHots.data;
+  
+      const dayToursHots = await axios.get(`${MONGODB_URL}/getAllDayTours`);
+      const dayToursHotsData = await dayToursHots.data;
+  
+      const nileCruiseHots = await axios.get(`${MONGODB_URL}/getAllNileCruise`);
+      const nileCruiseHotsData = await nileCruiseHots.data;
+  
+      const hajjOmrahHots = await axios.get(`${MONGODB_URL}/getAllHajjOmrah`);
+      const hajjOmrahHotsData = await hajjOmrahHots.data;
+      setAllHotDeals({
+        domestics: domData?.filter((item) => item.hotOffer === true),
+        historical: historicalHotsData?.filter((item) => item.hotOffer === true),
+        dayTours: dayToursHotsData?.filter((item) => item.hotOffer === true),
+        outbound: outboundHotsData?.filter((item) => item.hotOffer === true),
+        nileCruise: nileCruiseHotsData?.filter((item) => item.hotOffer === true),
+        hajjOmrah: hajjOmrahHotsData?.filter((item) => item.hotOffer === true),
+      });
+    }catch(e){
+      checkConnection(false)
+    }
+ 
   };
 
   useEffect(() => {
@@ -108,7 +114,7 @@ function HotDeals() {
 
   return (
     <div className="hot-deals">
-      <h1 className="text-center main-heading">Hot Deals</h1>
+      <h1 className="text-center main-heading">Hot Offers</h1>
       <Zoom>
         <Row>
           {/* <Col sm="12" md="6" lg="4" xl="4" className="box">

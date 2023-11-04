@@ -24,7 +24,7 @@ function HistorecalTemp({program}) {
         </Card.Text>
 
         <Card.Body></Card.Body>
-        <Button style={{ width: "130px" }} variant="primary">
+        <Button id="card-btn" style={{ width: "130px" }} variant="primary">
           <Link to={`/historecaltembDetails/${program?._id}`}>
             Book Now <FontAwesomeIcon icon={faArrowRight} />
           </Link>

@@ -6,6 +6,7 @@ import HistorecalTemp from "../HistorecalTemp/HistorecalTemp";
 import axios from "axios";
 import { API_URL, MONGODB_URL } from "../../envData";
 import { Progress } from "../../progressComponent";
+import FullProgress from "../../FullProgress";
 function HistoricalTrips() {
   const [programs, setPrograms] = useState("");
 
@@ -37,7 +38,7 @@ function HistoricalTrips() {
               );
             })
           ) : (
-            <Progress />
+            <FullProgress />
           )}
         </Row>
       </Container>

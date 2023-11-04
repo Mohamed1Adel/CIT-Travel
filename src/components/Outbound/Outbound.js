@@ -9,6 +9,7 @@ import { API_URL, MONGODB_URL } from "../../envData";
 import OutboundTempDetails from "../OutboundTempDetails/OutboundTempDetails";
 import OutboundTemp from "../OutboundTemp/OutboundTemp";
 import { Progress } from "../../progressComponent";
+import FullProgress from "../../FullProgress";
 function Outbound() {
   const [outbounds, setOutbounds] = useState();
 
@@ -326,7 +327,7 @@ function Outbound() {
                     );
                   })
                 ) : (
-                  <Progress />
+                  <FullProgress />
                 )}
               </Row>
             </Col>

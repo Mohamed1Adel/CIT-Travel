@@ -7,6 +7,7 @@ import axios from "axios";
 import DayTourTemp from "../DayTourTemp/DayTourTemp";
 import { Progress } from "../../progressComponent";
 import {MONGODB_URL} from '../../envData'
+import FullProgress from "../../FullProgress";
 function DayTour() {
   const [dayTours, setDayTours] = useState();
 
@@ -43,7 +44,7 @@ function DayTour() {
               );
             })
           ) : (
-            <Progress />
+            <FullProgress />
           )}
         </Row>
       </Container>

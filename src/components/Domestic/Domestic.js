@@ -8,6 +8,7 @@ import { faBars, faStar, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { API_URL, MONGODB_URL } from "../../envData";
 import { Progress } from "../../progressComponent";
 import axios from "axios";
+import FullProgress from "../../FullProgress";
 
 function Domestic() {
 
@@ -711,7 +712,7 @@ function Domestic() {
                   );
                 })
               ) : (
-                <Progress />
+                <FullProgress />
               )}
             </Row>
           </Col>

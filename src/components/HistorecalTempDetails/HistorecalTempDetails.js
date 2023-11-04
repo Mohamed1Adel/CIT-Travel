@@ -48,14 +48,14 @@ function HistorecalTembDetails() {
               <ul>
                 <h4>{programDetails?.title}</h4>
                 <h5>{programDetails?.nights} night tour</h5>
-                <h5>
+                <h6>
                   {" "}
                   <div
                     dangerouslySetInnerHTML={{
                       __html: programDetails?.highilghts,
                     }}
                   />
-                </h5>
+                </h6>
                 <h5>{programDetails?.box6}</h5>
                 <h5>{programDetails?.box7}</h5>
                 <h5>{programDetails?.box8}</h5>
@@ -71,7 +71,7 @@ function HistorecalTembDetails() {
                   console.log("images is loaded");
                   return (
                     <Carousel.Item key={Math.random()}>
-                      <img src={img.img_url} alt="..." />
+                      <img src={img.img_url} alt="..." style={{height:"450px"}}/>
                     </Carousel.Item>
                   );
                 })

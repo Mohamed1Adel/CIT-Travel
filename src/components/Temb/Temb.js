@@ -31,7 +31,7 @@ function Temb(item) {
           {}
         </Card.Text>
         <Card.Body></Card.Body>
-        <Button style={{ width: "130px" }} variant="primary">
+        <Button id="card-btn" style={{ width: "130px" }} variant="primary">
           <Link to={"/tembDetails/" + item.item._id}>
             Book Now <FontAwesomeIcon icon={faArrowRight} />
           </Link>

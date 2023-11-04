@@ -62,7 +62,7 @@ function NavBar() {
               <NavDropdown.Item className="navbar-item" href="/contactUs">
                 Contact Us
               </NavDropdown.Item>
-              <NavDropdown.Item className="navbar-item" href="#">
+              <NavDropdown.Item className="navbar-item" href="/careers">
                 Career
               </NavDropdown.Item>
             </NavDropdown>

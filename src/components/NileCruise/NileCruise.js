@@ -5,6 +5,7 @@ import NileCruiseTemp from "../NileCruiseTemp/NileCruiseTemp";
 import axios from "axios";
 import { API_URL, MONGODB_URL } from "../../envData";
 import { Progress } from "../../progressComponent";
+import FullProgress from "../../FullProgress";
 function NileCruise() {
   const [nileCruises, setNileCruises] = useState({});
   const getAllNileCruises = async () => {
@@ -39,7 +40,7 @@ function NileCruise() {
               );
             })
           ) : (
-            <Progress />
+            <FullProgress />
           )}
         </Row>
       </Container>

@@ -58,8 +58,13 @@ function MostPopular() {
     }
   };
   const getHotDeals = () => {
-    const deals = domestic?.filter((item) => item.hotOffer === true);
-    console.log(deals);
+    try{
+      const deals = domestic?.filter((item) => item.hotOffer === true);
+      console.log(deals);
+    }catch(e){
+      console.log(e);
+    }
+
   };
 
   useEffect(() => {

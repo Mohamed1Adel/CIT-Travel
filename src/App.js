@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import Landing from "./components/Landing/Landing";
@@ -26,10 +26,36 @@ import HistorecalTembDetails from "./components/HistorecalTempDetails/Historecal
 import OutboundTempDetails from "./components/OutboundTempDetails/OutboundTempDetails";
 import NileCruiseTempDetails from "./components/NileCruiseTempDetails/NileCruiseTempDetails";
 import DayTourTempDetails from "./components/DayTourTempDetails/DayTourTempDetails";
-
+import NoInternetConnection from "./components//InternetConnectionComponents/InternetConnectionComponents";
+import Careers from "./components/Careers/Careers";
+import FlyRequests from "./components/FlyRequests/FlyRequests";
 function App() {
+  const [connection, setConnection] = useState(true);
 
-  var items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const checkConnection = (check) => {
+    setConnection(check);
+  };
+  const [isOnline, setIsOnline] = useState(window.navigator.onLine);
+
+  useEffect(() => {
+    // Update network status
+    const handleStatusChange = () => {
+      setIsOnline(window.navigator.onLine);
+    };
+
+    // Listen to the online status
+    window.addEventListener("online", handleStatusChange);
+
+    // Listen to the offline status
+    window.addEventListener("offline", handleStatusChange);
+
+    // Specify how to clean up after this effect for performance improvment
+    return () => {
+      window.removeEventListener("online", handleStatusChange);
+      window.removeEventListener("offline", handleStatusChange);
+    };
+  }, [isOnline]);
+
   return (
     <div className="home-section">
       {/* <div class="wrapper">
@@ -51,18 +77,25 @@ function App() {
     </div> */}
       <NavBar />
       {/* <Landing /> */}
-      <div style={{ minHeight: "100vh" }}>
+      <div className="app-section" style={{ minHeight: "100vh" }}>
         <BrowserRouter>
           <Routes>
             <Route
               path="/"
               element={
                 <>
-                  <Landing />
-                  <Container>
-                    <HotDeals />
-                    <MostPopular />
-                  </Container>
+                  {connection ? (
+                    <>
+                      <Landing />
+                      <Container>
+                        {/* <FlyRequests /> */}
+                        <HotDeals checkConnection={checkConnection} />
+                        <MostPopular />
+                      </Container>
+                    </>
+                  ) : (
+                    <h3>Connection Field Please Check Your Internet</h3>
+                  )}
                 </>
               }
             />
@@ -106,11 +139,12 @@ function App() {
             <Route path="/transportation" element={<Transportation />} />
             <Route path="/about" element={<About />} />
             <Route path="/contactUs" element={<ContactUs />} />
+            <Route path="/careers" element={<Careers />} />
           </Routes>
         </BrowserRouter>
       </div>
-
       <Footer />
+
       {/* <SimpleMap/> */}
       {/* <UploadImages /> */}
     </div>

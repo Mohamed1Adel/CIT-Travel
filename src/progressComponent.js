@@ -2,8 +2,9 @@ import { Box, CircularProgress } from "@mui/material";
 
 export const Progress = () => {
   return (
-    <Box sm={{ width:"60px", display: "flex"}}>
+    <div style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"center"}}>
       <CircularProgress />
-    </Box>
+      <h4 style={{display:"inline-block"}}>wait a moment</h4>
+    </div>
   );
 };
