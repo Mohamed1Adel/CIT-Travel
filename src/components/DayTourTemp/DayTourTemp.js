@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
-import Hotel2 from "../../images/hotel2.jpg";
 import "./DayTourTemp.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faStar } from "@fortawesome/free-solid-svg-icons";

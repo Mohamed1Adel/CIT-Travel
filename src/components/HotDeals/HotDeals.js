@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Card, Button } from "react-bootstrap";
-import HotelImage from "../../images/hotel1.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import "./hotDeals.scss";
