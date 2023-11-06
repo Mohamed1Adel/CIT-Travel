@@ -5,17 +5,17 @@ import { MONGODB_URL } from "../../envData";
 import axios from "axios";
 function Transportation() {
 
-    const [images, setImages] = useState([]);
-    const getImages = async () => {
-      const response = await axios.get(`${MONGODB_URL}/getTransportationSlider`);
-      const data = response.data;
-      setImages(data);
-      console.log(data);
-    };
+    // const [images, setImages] = useState([]);
+    // const getImages = async () => {
+    //   const response = await axios.get(`${MONGODB_URL}/getTransportationSlider`);
+    //   const data = response.data;
+    //   setImages(data);
+    //   console.log(data);
+    // };
 
-    useEffect(() => {
-      getImages();
-    }, []);
+    // useEffect(() => {
+    //   getImages();
+    // }, []);
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
@@ -23,20 +23,35 @@ function Transportation() {
   return (
     <Container>
       <Carousel activeIndex={index} onSelect={handleSelect}>
-        {images[0]?.images?.map((img) => {
+        {/* {images[0]?.images?.map((img) => {
           console.log(img?.img_url);
           return (
             <Carousel.Item>
               <img src={img?.img_url} style={{ height: "400px" }} alt="..." />
-              {/* <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
-              </Carousel.Caption> */}
             </Carousel.Item>
           );
-        })}
+        })} */}
+        <Carousel.Item>
+          <img
+            src={require("../../images/bus/f245447ec9946f1809146e63a7128a10.jpg")}
+            style={{ height: "400px" }}
+            alt="..."
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            src={require("../../images/bus/fabcab5800bbaee855348a70c80910a5.jpg")}
+            style={{ height: "400px" }}
+            alt="..."
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            src={require("../../images/bus/download.jpg")}
+            style={{ height: "400px" }}
+            alt="..."
+          />
+        </Carousel.Item>
       </Carousel>
 
       <div className="transport-video my-5  d-flex align-items-center justify-content-evenly">

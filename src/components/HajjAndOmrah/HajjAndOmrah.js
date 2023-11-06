@@ -7,25 +7,22 @@ import { faBars, faStar, faTimes } from "@fortawesome/free-solid-svg-icons";
 // import Temb from "../Temb/Temb";
 import HajjTamb from "../HajjTamb/HajjTamb";
 import "./HajjAndOmrah.scss";
-import HajjImg1 from "../../images/hajj/hajjImg1.jpg";
-import HajjImg2 from "../../images/hajj/hajjImg2.jpg";
-import HajjImg3 from "../../images/hajj/hajjImg3.jpg";
 import axios from "axios";
 import { Progress } from "../../progressComponent";
 import {MONGODB_URL} from '../../envData'
 import FullProgress from "../../FullProgress";
 function HajjAndOmrah() {
-  const [images, setImages] = useState([]);
-      const getImages = async () => {
-        const response = await axios.get(`${MONGODB_URL}/getHajjOmrahSlider`);
-        const data = response.data;
-        setImages(data);
-        console.log(data);
-      };
+  // const [images, setImages] = useState([]);
+  //     const getImages = async () => {
+  //       const response = await axios.get(`${MONGODB_URL}/getHajjOmrahSlider`);
+  //       const data = response.data;
+  //       setImages(data);
+  //       console.log(data);
+  //     };
 
-      useEffect(() => {
-        getImages();
-      }, []);
+  //     useEffect(() => {
+  //       getImages();
+  //     }, []);
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex) => {
@@ -76,23 +73,26 @@ function HajjAndOmrah() {
     getAllHajjOmrah();
   }, []);
   return (
-    <div dir="rtl" style={{backgroundColor:"#fff"}}>
+    <div dir="rtl" >
       <Container>
         <Carousel activeIndex={index} onSelect={handleSelect}>
-          {images[0]?.images?.map((img) => {
+          {/* {images[0]?.images?.map((img) => {
             console.log(img?.img_url);
             return (
               <Carousel.Item>
                 <img src={img?.img_url} style={{ height: "400px" }} alt="..." />
-                {/* <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
-              </Carousel.Caption> */}
               </Carousel.Item>
             );
-          })}
+          })} */}
+          <Carousel.Item>
+            <img src={require('../../images/hajj/istockphoto-458230647-612x612.jpg')} style={{ height: "400px" }} alt="..." />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src={require('../../images/hajj/360_F_364721334_XTDrYVVx80R4Tni1Grh06ohs8QkjuTvH.jpg')} style={{ height: "400px" }} alt="..." />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src={require('../../images/hajj/360_F_288164825_pfw4VohVvNz2RPeXTwIxVZwbu93R4tyk.jpg')} style={{ height: "400px" }} alt="..." />
+          </Carousel.Item>
         </Carousel>
       </Container>
       <Zoom>

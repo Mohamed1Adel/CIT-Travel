@@ -321,7 +321,7 @@ function Outbound() {
                 {outbounds?.length >= 1 ? (
                   outbounds?.map?.((outbound) => {
                     return (
-                      <Col sm="12" md="6" lg="4">
+                      <Col sm="12" md="6" lg="4" xxl="3">
                         <OutboundTemp outbound={outbound} />
                       </Col>
                     );

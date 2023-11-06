@@ -84,11 +84,27 @@ function App() {
               path="/"
               element={
                 <>
+
+                      <Landing />
+                      <Container>
+                        {/* <FlyRequests /> */}
+                        <HotDeals checkConnection={checkConnection} />
+                        <MostPopular />
+                      </Container>
+    
+
+                </>
+              }
+            />
+            {/* <Route
+              path="/"
+              element={
+                <>
                   {connection ? (
                     <>
                       <Landing />
                       <Container>
-                        {/* <FlyRequests /> */}
+                        <FlyRequests />
                         <HotDeals checkConnection={checkConnection} />
                         <MostPopular />
                       </Container>
@@ -98,7 +114,7 @@ function App() {
                   )}
                 </>
               }
-            />
+            /> */}
             {/* <Route path="/domestics" element={<AllDomestics />} /> */}
             <Route path="/historicalTrips" element={<HistoricalTrips />} />
             <Route path="/dayTour" element={<DayTour />} />

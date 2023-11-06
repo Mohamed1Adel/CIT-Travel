@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Landing.scss";
 import { Carousel, Container } from "react-bootstrap";
-import travel from "../../images/travel1.jpg";
 import axios from "axios";
 import { MONGODB_URL } from "../../envData";
 import { Progress } from "../../progressComponent";

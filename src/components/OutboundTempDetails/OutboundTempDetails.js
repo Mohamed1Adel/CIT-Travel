@@ -136,7 +136,7 @@ function OutboundTempDetails() {
                   <div class="tab-pane " id="rates">
                     <div className=" main-table">
                       <h6>Program Hotels</h6>
-                      <table class="table outbound-rate-table-body">
+                      <table class=" table-rates table outbound-rate-table-body">
                         <thead>
                           <tr>
                             <th scope="col">Location</th>
@@ -152,16 +152,32 @@ function OutboundTempDetails() {
                             return (
                               <tr>
                                 <th scope="row">
-                                  <th className="d-block" style={{height:"60px"}}>
+                                  <th
+                                    className="d-block"
+                                    style={{
+                                      height: "40px",
+                                      borderBottom: "1px solid #bebebe",
+                                    }}
+                                  >
                                     {pack.hotel[0].hotelLocation}
                                   </th>
-                                  <th>{pack.hotel[1].hotelLocation}</th>
+                                  <th style={{ height: "40px" }}>
+                                    {pack.hotel[1].hotelLocation}
+                                  </th>
                                 </th>
                                 <th scope="row">
-                                  <th className="d-block">
+                                  <th
+                                    style={{
+                                      height: "40px",
+                                      borderBottom: "1px solid #bebebe",
+                                    }}
+                                    className="d-block"
+                                  >
                                     {pack.hotel[0].hotelName}
                                   </th>
-                                  <th>{pack.hotel[1].hotelName}</th>
+                                  <th style={{ height: "40px" }}>
+                                    {pack.hotel[1].hotelName}
+                                  </th>
                                 </th>
                                 <td>{pack.single}</td>
                                 <td>{pack.double}</td>
@@ -237,7 +253,10 @@ function OutboundTempDetails() {
                                   __html: day?.dayContent,
                                 }}
                               />
-                              <h4 style={{ fontWeight: "bold", color: "red" }}>
+                              {
+                                day?.optTour !== ""  ?     
+                                <>
+                                <h4 style={{ fontWeight: "bold", color: "red" }}>
                                 Optional Tours
                               </h4>
                               <div
@@ -245,7 +264,12 @@ function OutboundTempDetails() {
                                 dangerouslySetInnerHTML={{
                                   __html: day?.optTour,
                                 }}
-                              />
+                                />
+                                </>
+                                
+                                : ""
+                              }
+
                             </Accordion.Body>
                           </Accordion.Item>
                         );
