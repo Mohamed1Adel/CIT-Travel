@@ -143,6 +143,10 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
+      <a href="https://wa.me/+2001556040246
+      " class="float" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
+</a>
       <Footer />
 
       {/* <SimpleMap/> */}
