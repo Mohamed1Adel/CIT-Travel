@@ -84,14 +84,16 @@ function App() {
               path="/"
               element={
                 <>
-
+                      
                       <Landing />
+                      <div class="container-fluid home-container" style={{backgroundColor:"#fff",marginTop:"100vh",zIndex:"9999",paddingTop:"50px"}}>
+                      <FlyRequests />
                       <Container>
                         {/* <FlyRequests /> */}
                         <HotDeals checkConnection={checkConnection} />
                         <MostPopular />
                       </Container>
-    
+                      </div>
 
                 </>
               }

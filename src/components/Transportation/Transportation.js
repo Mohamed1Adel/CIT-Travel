@@ -22,7 +22,7 @@ function Transportation() {
   };
   return (
     <Container>
-      <Carousel activeIndex={index} onSelect={handleSelect}>
+      <Carousel  activeIndex={index} onSelect={handleSelect}>
         {/* {images[0]?.images?.map((img) => {
           console.log(img?.img_url);
           return (
@@ -31,24 +31,24 @@ function Transportation() {
             </Carousel.Item>
           );
         })} */}
-        <Carousel.Item>
+        <Carousel.Item className="trans-carousel">
           <img
-            src={require("../../images/bus/f245447ec9946f1809146e63a7128a10.jpg")}
-            style={{ height: "400px" }}
+            src={require("../../images/bus/bus-image.jpeg")}
+            // style={{ height: "400px" }}
             alt="..."
           />
         </Carousel.Item>
-        <Carousel.Item>
+        <Carousel.Item className="trans-carousel">
           <img
-            src={require("../../images/bus/fabcab5800bbaee855348a70c80910a5.jpg")}
-            style={{ height: "400px" }}
+            src={require("../../images/bus/bus-image.jpeg")}
+            // style={{ height: "400px" }}
             alt="..."
           />
         </Carousel.Item>
-        <Carousel.Item>
+        <Carousel.Item className="trans-carousel">
           <img
-            src={require("../../images/bus/download.jpg")}
-            style={{ height: "400px" }}
+            src={require("../../images/bus/bus-image.jpeg")}
+            // style={{ height: "400px" }}
             alt="..."
           />
         </Carousel.Item>
@@ -63,7 +63,7 @@ function Transportation() {
         </div>
         <div className="video-box">
           <iframe
-            width="560"
+            width="380px"
             height="315"
             src="https://www.youtube.com/embed/sRdu9_EQFGs?si=BNvDjBxdtA_fQ_JI"
             title="YouTube video player"
@@ -75,7 +75,7 @@ function Transportation() {
       </div>
       <div className="contact-us mt-5">
         <h1 className="main-heading">Book Now</h1>
-        <Form className="d-flex">
+        <Form className="d-flex mb-3">
           <div className="left-form">
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Control type="text" placeholder="Your Name" />
@@ -98,7 +98,7 @@ function Transportation() {
                 rows={3}
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" id="book-btn">
               Book Now
             </Button>
           </div>

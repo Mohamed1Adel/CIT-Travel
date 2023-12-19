@@ -11,26 +11,14 @@ import emailjs from "@emailjs/browser";
 import FullProgress from "../../FullProgress";
 function TembDetails() {
   const form = useRef();
+  const [title,setTitle] = useState("");
+  const [name,setName] = useState("");
+  const [email,setEmail] = useState("");
+  const [phone,setPhone] = useState(0);
+  const [rooms,setRooms] = useState(0);
+  const [pax,setPax] = useState(0);
+  const [child,setChild] = useState(0);
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-    console.log(form.current);
-     emailjs
-       .sendForm(
-         "service_a5le1fd",
-         "template_vjwhzni",
-         form.current,
-         "YZfMIBWVpK33gBYsx"
-       )
-       .then(
-         (result) => {
-           console.log(result.text);
-         },
-         (error) => {
-           console.log(error.text);
-         }
-       );
-  };
   const [itemDetails, setItemDetails] = useState({ value: "" });
   const [images, setImages] = useState([]);
   const { id } = useParams(0);
@@ -41,6 +29,7 @@ function TembDetails() {
       const data = await response.json();
       console.log(data);
       setItemDetails(data);
+      setTitle(data?.title)
       getImages();
     } catch (e) {
       console.log(e);
@@ -54,13 +43,58 @@ function TembDetails() {
   for (let i = 1; i <= Number(itemDetails.stars); i++) {
     rateStars.push(star);
   }
+
+  
+  const sendMassage = (e) => {
+    e.preventDefault();
+    console.log(form.current);
+  
+    //  emailjs
+    //    .sendForm(
+    //      "service_a5le1fd",
+    //      "template_vjwhzni",
+    //      form.current,
+    //      "YZfMIBWVpK33gBYsx"
+    //    )
+    //    .then(
+    //      (result) => {
+    //        console.log(result.text);
+    //      },
+    //      (error) => {
+    //        console.log(error.text);
+    //      }
+    //    );
+    console.log(title,name,email,phone,rooms,pax,child);
+
+    var phonenumber = "+201556040246";
+
+    var url = "https://wa.me/" + phonenumber + "?text="
+    +"*Title :* "+title+"%0a"
+    +"*Name :* "+name+"%0a"
+    +"*Email :* "+email+"%0a"
+    +"*Phone:* "+phone+"%0a"
+    +"*Rooms:* "+rooms+"%0a"
+    +"*Pax:* "+pax+"%0a"
+    +"*Child:* "+child+"%0a"
+    +"%0a%0a"
+    +"Hello CIT Travel";
+
+    window.open(url, '_blank').focus();
+  };
+
+
+
+
   useEffect(() => {
     getDomesticById();
+  
   }, []);
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
+
+
   return (
 
 
@@ -75,18 +109,19 @@ function TembDetails() {
                 <Col sm="12" md="3" lg="4">
                   <div className="info-box">
                     <ul>
-                      <h4 style={{ color: "orange" }}>{itemDetails.title}</h4>
+                      <h4 style={{ color: "#fc4c03" }}>{itemDetails.title}</h4>
                       <h5>
                         {" "}
                         {rateStars.map((star) => {
                           return star;
                         })}
                       </h5>
-                      <h5 style={{ color: "green" }}>{itemDetails.description}</h5>
-                      <h5 style={{ color: "red" }}>
+                      <h5 style={{ color: "#fc4c03" }}>
                         <FontAwesomeIcon icon={faLocationDot} />{" "}
                         {itemDetails.destination}
                       </h5>
+                      <h5 style={{  }}>{itemDetails.description}</h5>
+
                       <h5>{itemDetails.box6}</h5>
                       <h5>{itemDetails.box7}</h5>
                       <h5>{itemDetails.box8}</h5>
@@ -117,7 +152,7 @@ function TembDetails() {
                   <div className="book-form">
                     <h2>Book Now</h2>
 
-                    <Form ref={form} onSubmit={sendEmail}>
+                    <Form  onSubmit={sendMassage}>
                       <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Control
                           type="text"
@@ -132,6 +167,7 @@ function TembDetails() {
                           type="text"
                           name="sender_name"
                           placeholder="Your Name"
+                          onChange={(e)=>setName(e.target.value)}
                         />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -139,20 +175,23 @@ function TembDetails() {
                           type="email"
                           name="email"
                           placeholder="Your Email Address"
+                          onChange={(e)=>setEmail(e.target.value)}
                         />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formBasicNumber">
                         <Form.Control
-                          type="text"
+                          type="tel"
                           name="Phone_No"
                           placeholder="Your Phone Number"
+                          onChange={(e)=>setPhone(e.target.value)}
                         />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Control
-                          type="text"
+                          type="tel"
                           name="Rooms_Count"
                           placeholder="Enter Number of Rooms"
+                          onChange={(e)=>setRooms(e.target.value)}
                         />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formBasicName">
@@ -160,6 +199,7 @@ function TembDetails() {
                           type="text"
                           name="Pax_Count"
                           placeholder="Enter Number of Pax"
+                          onChange={(e)=>setPax(e.target.value)}
                         />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formBasicName">
@@ -167,9 +207,10 @@ function TembDetails() {
                           type="text"
                           name="Childs_Count"
                           placeholder="Enter Number of Child"
+                          onChange={(e)=>setChild(e.target.value)}
                         />
                       </Form.Group>
-                      <Button variant="primary" type="submit">
+                      <Button id="book-btn" variant="primary" type="submit" style={{background:"#fc4c03",borderColor:"#fc4c03"}}>
                         Book Now
                       </Button>
                     </Form>
@@ -183,7 +224,7 @@ function TembDetails() {
                     <div class="card-header">
                       <ul class="nav nav-tabs card-header-tabs" id="tabs">
                         <li class="nav-item">
-                          <a class="nav-link" href="#rates" data-toggle="tab">
+                          <a class="nav-link" href="#rates" data-toggle="tab" style={{color:"#fc4c03",fontWeight:"bold",fontSize:"22px"}}>
                             Rates
                           </a>
                         </li>
@@ -193,7 +234,7 @@ function TembDetails() {
                       <div class="tab-content">
                         <div class="tab-pane " id="rates">
                           <div className=" main-table">
-                            <h6>Available Packages</h6>
+                            
                             <table class="table table-rates">
                               <thead>
                                 <tr>
@@ -210,13 +251,13 @@ function TembDetails() {
                                 {itemDetails.packages?.map((pack) => {
                                   return (
                                     <tr>
-                                      <th scope="row">{pack.packTitle}</th>
+                                      <td >{pack.packTitle}</td>
                                       <td>{pack.duration}</td>
                                       <td>{pack.startDate}</td>
-                                      <td>{pack.endDate}</td>
-                                      <td>{pack.single}</td>
-                                      <td>{pack.double}</td>
-                                      <td>{pack.triple}</td>
+                                      <td>{pack.endDate} </td>
+                                      <td>{pack.single} EGP</td>
+                                      <td>{pack.double} EGP</td>
+                                      <td>{pack.triple} EGP</td>
                                     </tr>
                                   );
                                 })}
@@ -249,30 +290,33 @@ function TembDetails() {
                   <div class="card text-center mt-3">
                     <div class="card-header">
                       <ul class="nav nav-tabs card-header-tabs" id="tabs">
-                        <li class="nav-item">
-                          <a
-                            class="nav-link"
-                            href="#cancellation-polices"
-                            data-toggle="tab"
-                          >
-                            Cancellation Polices
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#children" data-toggle="tab">
-                            Children Policy
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#terms" data-toggle="tab">
+                      <li class="nav-item">
+                          <a class="nav-link" href="#terms" data-toggle="tab" style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
                             terms & Conditions
                           </a>
                         </li>
                         <li class="nav-item">
                           <a
                             class="nav-link"
+                            href="#cancellation-polices"
+                            data-toggle="tab"
+                            style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}
+                          >
+                            Cancellation Polices
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#children" data-toggle="tab" style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
+                            Children Policy
+                          </a>
+                        </li>
+
+                        <li class="nav-item">
+                          <a
+                            class="nav-link"
                             href="#document-required"
                             data-toggle="tab"
+                            style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}
                           >
                             Required Docs
                           </a>
@@ -281,33 +325,44 @@ function TembDetails() {
                     </div>
                     <div class="card-body ">
                       <div class="tab-content">
-                        <div class="tab-pane active" id="cancellation-polices">
-                          <h4>Cancelation & No Show Plocies:</h4>
+                      <div class="tab-pane active" id="terms">
+
+                      <h4>Terms and Conditions</h4>
+                      <div style={{fontSize:"14px",fontWeight:'normal'}}
+                        dangerouslySetInnerHTML={{
+                          __html: itemDetails.termsAndConditions,
+                        }}
+                      />
+                      </div>
+                        <div class="tab-pane " id="cancellation-polices">
+                          {/* <h4>Cancelation & No Show Plocies:</h4> */}
                           {/* {itemDetails.cancellation} */}
-                          <div
+
+
+                          <div style={{fontSize:"14px",fontWeight:'normal'}}
                             dangerouslySetInnerHTML={{
                               __html: itemDetails.cancellation,
                             }}
                           />
                         </div>
+
                         <div class="tab-pane" id="children">
                           <h4>Children Polices : </h4>
-                          <div
+                          <div style={{fontSize:"14px",fontWeight:'normal'}}
                             dangerouslySetInnerHTML={{
                               __html: itemDetails.childrenPolices,
                             }}
                           />
+
                         </div>
-                        <div class="tab-pane" id="terms">
-                          <h4>Terms and Conditions</h4>
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: itemDetails.termsAndConditions,
-                            }}
-                          />
-                        </div>
+
                         <div class="tab-pane" id="document-required">
                           <h5>Documents required at the hotel:-</h5>
+                          <div style={{fontSize:"14px",fontWeight:'normal'}}
+                            dangerouslySetInnerHTML={{
+                              __html: itemDetails.requiredDocs,
+                            }}
+                          />
                         </div>
                       </div>
                     </div>

@@ -114,7 +114,7 @@ function HotDeals({checkConnection}) {
   return (
     <div className="hot-deals">
       <h1 className="text-center main-heading">Hot Offers</h1>
-      <Zoom>
+
         <Row>
           {/* <Col sm="12" md="6" lg="4" xl="4" className="box">
             <Card style={{ width: "18rem" }}>
@@ -237,7 +237,7 @@ function HotDeals({checkConnection}) {
             <Progress />
           )}
         </Row>
-      </Zoom>
+
       {console.log(allHotDeals)}
     </div>
   );

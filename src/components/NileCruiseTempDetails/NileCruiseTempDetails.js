@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Accordion, Button, Carousel, Col, Container, Row } from "react-bootstrap";
 import "./NileCruiseTempDetails.scss";
+// import Accordion from 'react-bootstrap/Accordion';
 import Form from "react-bootstrap/Form";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,6 +11,14 @@ import { Progress } from "../../progressComponent";
 function NileCruiseTempDetails() {
   const [nileCruiseDetails, setNileCruiseDetails] = useState();
   const [images, setImages] = useState([]);
+  const [title,setTitle] = useState("");
+  const [name,setName] = useState("");
+  const [email,setEmail] = useState("");
+  const [phone,setPhone] = useState(0);
+  const [rooms,setRooms] = useState(0);
+  const [pax,setPax] = useState(0);
+  const [child,setChild] = useState(0);
+
   const { id } = useParams();
 
   async function getDomesticById() {
@@ -19,6 +28,7 @@ function NileCruiseTempDetails() {
       const data = await response.json();
       console.log(data);
       setNileCruiseDetails(data);
+      setTitle(data?.title)
       getImages();
     } catch (e) {
       console.log(e);
@@ -26,6 +36,43 @@ function NileCruiseTempDetails() {
   }
   const getImages = async () => {
     setImages(nileCruiseDetails?.images);
+  };
+
+  const sendMassage = (e) => {
+    e.preventDefault();
+    // console.log(form.current);
+  
+    //  emailjs
+    //    .sendForm(
+    //      "service_a5le1fd",
+    //      "template_vjwhzni",
+    //      form.current,
+    //      "YZfMIBWVpK33gBYsx"
+    //    )
+    //    .then(
+    //      (result) => {
+    //        console.log(result.text);
+    //      },
+    //      (error) => {
+    //        console.log(error.text);
+    //      }
+    //    );
+    console.log(title,name,email,phone,rooms,pax,child);
+
+    var phonenumber = "+201556040246";
+
+    var url = "https://wa.me/" + phonenumber + "?text="
+    +"*Title :* "+title+"%0a"
+    +"*Name :* "+name+"%0a"
+    +"*Email :* "+email+"%0a"
+    +"*Phone:* "+phone+"%0a"
+    +"*Rooms:* "+rooms+"%0a"
+    +"*Pax:* "+pax+"%0a"
+    +"*Child:* "+child+"%0a"
+    +"%0a%0a"
+    +"Hello CIT Travel";
+
+    window.open(url, '_blank').focus();
   };
   useEffect(() => {
     getDomesticById();
@@ -43,8 +90,8 @@ function NileCruiseTempDetails() {
           <Col sm="12" md="3" lg="4">
             <div className="info-box">
               <ul>
-                <h4 style={{ color: "orange" }}>{nileCruiseDetails?.title}</h4>
-                <h5 style={{ color: "green" }}>
+                <h4 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.title}</h4>
+                <h5 >
                   {nileCruiseDetails?.description}
                 </h5>
                 <h5 style={{ color: "red" }}>
@@ -80,35 +127,69 @@ function NileCruiseTempDetails() {
           <Col sm="12" md="3" lg="4">
             <div className="book-form">
               <h2>Book Now</h2>
-              <Form>
-                <Form.Group className="mb-3" controlId="formBasicName">
-                  <Form.Control type="text" placeholder="Your Name" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Control type="email" placeholder="Your Email Address" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicNumber">
-                  <Form.Control type="text" placeholder="Your Phone Number" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicName">
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter Number of Rooms"
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicName">
-                  <Form.Control type="text" placeholder="Enter Number of Pax" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicName">
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter Number of Child"
-                  />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                  Book Now
-                </Button>
-              </Form>
+
+              <Form  onSubmit={sendMassage}>
+                      <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Control
+                          type="text"
+                          name="title"
+                          
+                          // value={itemDetails?.title}
+                          style={{display:"none"}}
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Control
+                          type="text"
+                          name="sender_name"
+                          placeholder="Your Name"
+                          onChange={(e)=>setName(e.target.value)}
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Control
+                          type="email"
+                          name="email"
+                          placeholder="Your Email Address"
+                          onChange={(e)=>setEmail(e.target.value)}
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicNumber">
+                        <Form.Control
+                          type="tel"
+                          name="Phone_No"
+                          placeholder="Your Phone Number"
+                          onChange={(e)=>setPhone(e.target.value)}
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Control
+                          type="tel"
+                          name="Rooms_Count"
+                          placeholder="Enter Number of Rooms"
+                          onChange={(e)=>setRooms(e.target.value)}
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Control
+                          type="text"
+                          name="Pax_Count"
+                          placeholder="Enter Number of Pax"
+                          onChange={(e)=>setPax(e.target.value)}
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Control
+                          type="text"
+                          name="Childs_Count"
+                          placeholder="Enter Number of Child"
+                          onChange={(e)=>setChild(e.target.value)}
+                        />
+                      </Form.Group>
+                      <Button id="book-btn" variant="primary" type="submit" style={{background:"#fc4c03",borderColor:"#fc4c03"}}>
+                        Book Now
+                      </Button>
+                    </Form>
             </div>
           </Col>
           <Col sm="12" md="9" lg="8">
@@ -119,7 +200,7 @@ function NileCruiseTempDetails() {
               <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs" id="tabs">
                   <li class="nav-item">
-                    <a class="nav-link" href="#rates" data-toggle="tab">
+                    <a class="nav-link" href="#rates" data-toggle="tab" style={{color:"#fc4c03",fontWeight:"bold",fontSize:"22px"}}>
                       Rates
                     </a>
                   </li>
@@ -129,7 +210,7 @@ function NileCruiseTempDetails() {
                 <div class="tab-content">
                   <div class="tab-pane " id="rates">
                     <div className=" main-table">
-                      <h6>Available Packages</h6>
+                   
                       <table class="table">
                         <thead>
                           <tr>
@@ -148,9 +229,9 @@ function NileCruiseTempDetails() {
                                 <th scope="row">{pack.packTitle}</th>
                                 <td>{pack.startDate}</td>
                                 <td>{pack.endDate}</td>
-                                <td>{pack.single}</td>
-                                <td>{pack.double}</td>
-                                <td>{pack.triple}</td>
+                                <td>{pack.single} EGP</td>
+                                <td>{pack.double} EGP</td>
+                                <td>{pack.triple} EGP</td>
                               </tr>
                             );
                           })}
@@ -165,17 +246,17 @@ function NileCruiseTempDetails() {
               <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs" id="tabs">
                   <li class="nav-item">
-                    <a class="nav-link" href="#itenary" data-toggle="tab">
+                    <a class="nav-link" href="#itenary" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
                       Itenary
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#details" data-toggle="tab">
+                    <a class="nav-link" href="#details" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
                       Details
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#terms" data-toggle="tab">
+                    <a class="nav-link" href="#terms" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
                       terms & Conditions
                     </a>
                   </li>
@@ -183,7 +264,7 @@ function NileCruiseTempDetails() {
                     <a
                       class="nav-link"
                       href="#cancellation-polices"
-                      data-toggle="tab"
+                      data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}
                     >
                       Cancellation Polices
                     </a>
@@ -197,6 +278,7 @@ function NileCruiseTempDetails() {
                     <Accordion
                       className="itenary-accordion"
                       defaultActiveKey="0"
+                      // flush
                     >
                       {nileCruiseDetails?.itenary?.map((day, index) => {
                         return (

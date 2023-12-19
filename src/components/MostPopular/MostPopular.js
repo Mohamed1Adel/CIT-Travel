@@ -74,7 +74,7 @@ function MostPopular() {
     getHotDeals();
     console.log(domestic);
     // console.log(historical);
-    // console.log(outbounds);
+    console.log(outbounds);
   }, []);
 
   return (

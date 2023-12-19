@@ -9,6 +9,8 @@ import { API_URL, MONGODB_URL } from "../../envData";
 import { Progress } from "../../progressComponent";
 import axios from "axios";
 import FullProgress from "../../FullProgress";
+import Footer from "../Footer/Footer";
+import image from "../../images/domestic/Beach-1.jpg";
 
 function Domestic() {
 
@@ -67,14 +69,21 @@ function Domestic() {
   //   console.log("on load");
   // };
   return (
+    <>
+<div class="Banner" style={{backgroundImage:`url(${image})`}}>
+
+</div>
+<div class="custom-opacity" >
+
+
     <Zoom>
-      <div className="domestics container-fluid">
+      <div className="domestics container-fluid" style={{marginTop:"90vh",paddingTop:"50px",backgroundColor:"#fff"}}>
         <Row className="domestic-section">
           {screenSize.width > 991 ? (
             <Col
               className="side-filter-col"
               lg="2"
-              style={{ minHeight: "100vh" }}
+              style={{ minHeight: "100vh", backgroundColor:"#fc4c03",marginTop:"90px"}}
             >
               <div className="location-filter">
                 <h2>Hotel Deals</h2>
@@ -360,7 +369,7 @@ function Domestic() {
             </Col>
           ) : (
             <div>
-              <div className="btn btn-danger" onClick={ToggleSidebar}>
+              <div className="btn " onClick={ToggleSidebar}>
                 {/* <i className="fa fa-bars"></i> */}
                 <FontAwesomeIcon icon={faBars} />
               </div>
@@ -368,7 +377,7 @@ function Domestic() {
                 className={`side-filter-col sidebar ${
                   isOpen == true ? "active" : ""
                 }`}
-                style={{ backgroundColor: "red", height: "100%" }}
+                style={{ backgroundColor: "#fc4c03", height: "100%" }}
               >
                 <div className="sd-header" style={{display:"flex",justifyContent:"flex-end"}}>
                   <div className="btn"  onClick={ToggleSidebar}>
@@ -703,6 +712,8 @@ function Domestic() {
 
           <Col className="domestic-hotels" lg="10">
             <Row>
+              <h4 style={{color:"",marginTop:"",fontWeight:"bold",}}>OTHER POPULAR HOLIDAY TYPES</h4>
+              <p>OTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPES</p>
               {data.length >= 1 ? (
                 data.map((item) => {
                   return (
@@ -719,6 +730,9 @@ function Domestic() {
         </Row>
       </div>
     </Zoom>
+    </div>
+    {/* <Footer /> */}
+    </>
   );
 }
 

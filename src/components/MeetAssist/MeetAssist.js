@@ -4,17 +4,13 @@ import Carousell from "../Carousell/Carousell";
 import "./MeetAssist.scss";
 function MeetAssist() {
   return (
-    <Container>
-      <Carousell />
-      <div className="about">
+    <Container >
+      
+      <div className="about mt-5">
         <h1 className="main-heading">Meet and Assist Service</h1>
         <p
           style={{
-            width: "90%",
-            margin: "0 auto",
-            fontWeight: "500",
-            fontSize: "20px",
-            textAlign: "start",
+           width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",padding:"15px",borderRadius:"5px"
           }}
         >
           Nothing is more assuring than to have a smiling face to greet you when
@@ -23,9 +19,9 @@ function MeetAssist() {
           will be there to welcome you as you arrive at Cairo International
           Airport, they will take you through immigration, customs and luggage
           collection. C.I.T Travel Egypt Representatives normally meet our guest
-          in the area before passport control . C.I.T Travel Egypt
+          in the area before passport control .<br /><br /> C.I.T Travel Egypt
           Representative will be holding a welcome sign including the guest's
-          name, company name, logo orother previously arranged symbol. The guest
+          name, company name, logo orother previously arranged symbol.<br /><br /> The guest
           is then accompanied through the various checkpointssecurity, Visa upon
           arrival (if required), passport control, immigration and customs, and
           luggage collection. Depending on the arrangements escort them to the
@@ -34,10 +30,10 @@ function MeetAssist() {
           <br />
           Departures Meet & Assist:Our Representatives will ensure you are well
           taken care of up to your departure Departures Meet and Assist Services
-          start at the terminal building and ends at boarding gate . C.I.T
+          start at the terminal building and ends at boarding gate .<br /><br /> C.I.T
           Travel Egypt Representatives are available to assist you atyour
           departure with luggage trolleys, airline check-in, security, and
-          Passport control. C.I.T Travel Egypt service ensures a swift, smooth,
+          Passport control.<br /><br /> C.I.T Travel Egypt service ensures a swift, smooth,
           safe passage through Cairo International Airport formalities on
           Departure.
           <br />
@@ -48,7 +44,7 @@ function MeetAssist() {
       </div>
       <div className="contact-us mt-5">
         <h1 className="main-heading">Book Now</h1>
-        <Form className="d-flex">
+        <Form className="d-flex mb-3">
           <div className="left-form">
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Control type="text" placeholder="Your Name" />
@@ -73,7 +69,7 @@ function MeetAssist() {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" id="book-btn">
               Book Now
             </Button>
           </div>

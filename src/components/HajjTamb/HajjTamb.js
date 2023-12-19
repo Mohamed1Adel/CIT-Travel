@@ -23,11 +23,11 @@ function HajjTamb({hajjOmrah}) {
         <Button
           className=""
           id="hajj-btn"
-          style={{ width: "100px" }}
+          style={{ width: "fit-content" }}
           variant="primary"
         >
-          <Link to={`/HajjAndOmrahDetails/${hajjOmrah?._id}`}>
-            احجز الان <FontAwesomeIcon icon={faArrowLeft} />
+          <Link class="card-btn" to={`/HajjAndOmrahDetails/${hajjOmrah?._id}`}>
+            لمزيد من التفاصيل  <FontAwesomeIcon icon={faArrowLeft} />
           </Link>
         </Button>
       </Card.Body>

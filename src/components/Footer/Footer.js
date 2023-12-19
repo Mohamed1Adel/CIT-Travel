@@ -11,10 +11,10 @@ import {
 
 function Footer() {
   return (
-    <div className="footer">
+    <div className="footer" style={{backgroundImage:"url(../../Footer-3.jpg)"}}>
       <Container>
         <Row>
-          <Col>
+          <Col style={{border:"none"}}>
             <img src={MainLogo} style={{ width: "250px" }} alt="main logo" />
             {/* <h3>Let's Socialize</h3> */}
             <div className="social-icons">
@@ -51,7 +51,7 @@ function Footer() {
               <a href="info@cit-egypt.com">info@cit-egypt</a>
             </h4>
           </Col>
-          <Col>
+          <Col style={{border:"none"}}>
             <h3>Explore</h3>
             <ul className="content-links">
               <li>
@@ -77,17 +77,17 @@ function Footer() {
               </li>
             </ul>
           </Col>
-          <Col>
+          <Col style={{border:"none"}}>
             <h3>Send Email To Out Team</h3>
-            <Form>
-              <Form.Group className="mb-3" controlId="formBasicName">
+            <Form style={{ display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"space-between"}}>
+              <Form.Group className="mb-4" controlId="formBasicName">
                 {/* <Form.Label>Enter Your Name</Form.Label> */}
                 <Form.Control type="text" placeholder="Enter Your Name" />
                 {/* <Form.Text className="text-muted">
                   We'll never share your email with anyone else.
                 </Form.Text> */}
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Group className="mb-4" controlId="formBasicEmail">
                 {/* <Form.Label>Email address</Form.Label> */}
                 <Form.Control type="email" placeholder="Enter Your email" />
                 {/* <Form.Text className="text-muted">
@@ -102,7 +102,8 @@ function Footer() {
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Check me out" />
               </Form.Group> */}
-              <Button variant="primary" type="submit">
+
+              <Button variant="primary" type="submit" id="book-btn" style={{width:"150px"}}>
                 Submit
               </Button>
             </Form>

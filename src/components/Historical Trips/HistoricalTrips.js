@@ -7,6 +7,7 @@ import axios from "axios";
 import { API_URL, MONGODB_URL } from "../../envData";
 import { Progress } from "../../progressComponent";
 import FullProgress from "../../FullProgress";
+import image from "../../images/historical/image.jpeg"
 function HistoricalTrips() {
   const [programs, setPrograms] = useState("");
 
@@ -24,11 +25,22 @@ function HistoricalTrips() {
   useEffect(() => {
     getAllPrograms();
   }, []);
+
   return (
+
+    <>
+<div className="Banner" style={{backgroundImage:`url(${image})`}}></div>
+
+    <div class="custom-opacity">
     <Zoom>
-      <Container style={{ marginTop: "50px" }} className="historical">
+    <div class="historical container-fluid" style={{marginTop:"90vh",paddingTop:"50px",backgroundColor:"#fff"}}>
+      <Container>
+
+
+        <Row className="domestic-section">
         <h3 className="text-center main-heading">HistoricalTrips</h3>
-        <Row>
+        <h4 style={{color:"",marginTop:"",fontWeight:"bold",}}>OTHER POPULAR HOLIDAY TYPES</h4>
+              <p>OTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPES</p>
           {programs?.length >= 1 ? (
             programs?.map((program) => {
               return (
@@ -41,8 +53,13 @@ function HistoricalTrips() {
             <FullProgress />
           )}
         </Row>
-      </Container>
+        </Container>
+      </div>
     </Zoom>
+
+    </div>
+
+    </>
   );
 }
 

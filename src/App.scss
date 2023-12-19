@@ -1,5 +1,5 @@
 .app-section{
-  background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2)) ,url('../public/bg-img.jpg') ;
+  // background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2)) ,url('../public/bg-img.jpg') ;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -139,4 +139,10 @@ div .dot {
     // background-repeat: no-repeat;
     // background-size: cover;
     // object-fit: cover;
+}
+
+@media (max-width:767px) {
+  .home-container{
+    margin-top:30vh !important;
+  }
 }

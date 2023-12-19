@@ -6,6 +6,7 @@ import axios from "axios";
 import { API_URL, MONGODB_URL } from "../../envData";
 import { Progress } from "../../progressComponent";
 import FullProgress from "../../FullProgress";
+import image from "../../images/nilecrouse/image.jpeg"
 function NileCruise() {
   const [nileCruises, setNileCruises] = useState({});
   const getAllNileCruises = async () => {
@@ -27,9 +28,16 @@ function NileCruise() {
     getAllNileCruises();
   });
   return (
+    <>
+<div class="Banner" style={{backgroundImage:`url(${image})`}}></div>
+
+    <div className="custom-opacity">
     <Zoom>
-      <Container style={{ marginTop: "50px" }} className="nile-cruise">
+    <div class="nile-cruise container-fluid" style={{marginTop:"90vh",paddingTop:"50px",backgroundColor:"#fff"}}>
+      <Container   >
         <h3 className="text-center main-heading">Nile Cruise</h3>
+        <h4 style={{color:"",marginTop:"",fontWeight:"bold",}}>OTHER POPULAR HOLIDAY TYPES</h4>
+              <p>OTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPES</p>
         <Row>
           {nileCruises?.length >= 1 ? (
             nileCruises?.map((nileCruise) => {
@@ -44,7 +52,12 @@ function NileCruise() {
           )}
         </Row>
       </Container>
+      </div>
     </Zoom>
+    
+
+    </div>
+    </>
   );
 }
 

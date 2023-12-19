@@ -7,6 +7,9 @@ import DayTourTemp from "../DayTourTemp/DayTourTemp";
 import { Progress } from "../../progressComponent";
 import {MONGODB_URL} from '../../envData'
 import FullProgress from "../../FullProgress";
+import image from "../../images/dayTour/Alex-3.jpg";
+import "./DayTour.scss";
+
 function DayTour() {
   const [dayTours, setDayTours] = useState();
 
@@ -30,9 +33,21 @@ function DayTour() {
     console.log("====================================");
   }, []);
   return (
-    <Zoom>
-      <Container style={{ marginTop: "50px" }} className="day-tour">
-        <h3 className="text-center main-heading">Day Tour</h3>
+<>
+<div class="Banner" style={{backgroundImage:`url(${image})`}}>
+
+</div>
+<div class="custom-opacity">
+
+
+    <Zoom >
+        {/* <img  src={require("../../images/dayTour/Alex-3.jpg")} /> */}
+
+<div class="container-fluid" style={{backgroundColor:"#fff"}}>
+<Container style={{marginTop:"90vh",paddingTop:"50px"}} className="day-tour">
+        {/* <h3 className="text-center main-heading">Day Tour</h3> */}
+        <h4 style={{color:"",marginTop:"",fontWeight:"bold",}}>OTHER POPULAR HOLIDAY TYPES</h4>
+              <p>OTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPES</p>
         <Row>
           {dayTours?.length >= 1 ? (
             dayTours?.map((dayTour) => {
@@ -47,7 +62,12 @@ function DayTour() {
           )}
         </Row>
       </Container>
+</div>
+
+
     </Zoom>
+    </div>
+      </>
   );
 }
 

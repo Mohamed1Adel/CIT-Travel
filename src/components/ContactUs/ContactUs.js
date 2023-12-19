@@ -53,7 +53,7 @@ function ContactUs() {
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit">
+              <Button style={{background:"#fc4c03",borderColor:"#fc4c03"}} type="submit">
                 Submit
               </Button>
             </div>

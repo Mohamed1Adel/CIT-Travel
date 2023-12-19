@@ -18,15 +18,15 @@ function HistorecalTemp({program}) {
             <h5>{program?.nights} Nights</h5>
           </div>
           <div className="card-desc">
-            <h5>{program?.desc}</h5>
+            <h6>{program?.description}</h6>
           </div>
           {}
         </Card.Text>
 
         <Card.Body></Card.Body>
-        <Button id="card-btn" style={{ width: "130px" }} variant="primary">
+        <Button id="card-btn" style={{ width: "fit-content" }} variant="primary">
           <Link to={`/historecaltembDetails/${program?._id}`}>
-            Book Now <FontAwesomeIcon icon={faArrowRight} />
+          More Details <FontAwesomeIcon icon={faArrowRight} />
           </Link>
         </Button>
       </Card.Body>

@@ -10,6 +10,7 @@ import OutboundTempDetails from "../OutboundTempDetails/OutboundTempDetails";
 import OutboundTemp from "../OutboundTemp/OutboundTemp";
 import { Progress } from "../../progressComponent";
 import FullProgress from "../../FullProgress";
+import image from "../../images/outbound/image.jpeg";
 function Outbound() {
   const [outbounds, setOutbounds] = useState();
 
@@ -49,6 +50,9 @@ function Outbound() {
 
   useEffect(() => {
     getAllOutbound();
+    console.log("====================================");
+    console.log(outbounds);
+    console.log("====================================");
   }, []);
 
   const checks = [
@@ -60,15 +64,22 @@ function Outbound() {
     "Middle East",
   ];
   return (
-    <div style={{ marginTop: "50px" }} className="outbound">
+
+    <>
+    <div class="Banner" style={{backgroundImage:`url(${image})`}}>
+    
+    </div>
+    <div class="custom-opacity">
+    
+    
       <Zoom>
-        <div className="container-fluid">
+        <div className="container-fluid"  style={{marginTop:"90vh",paddingTop:"50px",backgroundColor:"#fff"}}>
           <Row className="domestic-section">
             {screenSize.width > 991 ? (
               <Col
                 className="side-filter-col"
                 lg="2"
-                style={{ minHeight: "100vh" }}
+                style={{ minHeight: "100vh" ,backgroundColor:"#fc4c03",marginTop:"90px"}}
               >
                 <div className="location-filter">
                   <h2>Hotel Deals</h2>
@@ -164,7 +175,7 @@ function Outbound() {
               </Col>
             ) : (
               <div>
-                <div className="btn btn-danger" onClick={ToggleSidebar}>
+                <div className="btn " onClick={ToggleSidebar}>
                   {/* <i className="fa fa-bars"></i> */}
                   <FontAwesomeIcon icon={faBars} />
                 </div>
@@ -172,7 +183,7 @@ function Outbound() {
                   className={`side-filter-col sidebar ${
                     isOpen == true ? "active" : ""
                   }`}
-                  style={{ backgroundColor: "red", height: "100%" }}
+                  style={{ height: "100%" ,backgroundColor:"#fc4c03",}}
                 >
                   <div
                     className="sd-header"
@@ -317,6 +328,8 @@ function Outbound() {
               </div>
             )}
             <Col className="domestic-hotels" lg="10">
+            <h4 style={{color:"",marginTop:"",fontWeight:"bold",}}>OTHER POPULAR HOLIDAY TYPES</h4>
+              <p>OTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPES</p>
               <Row>
                 {outbounds?.length >= 1 ? (
                   outbounds?.map?.((outbound) => {
@@ -334,7 +347,8 @@ function Outbound() {
           </Row>
         </div>
       </Zoom>
-    </div>
+</div>
+</>
   );
 }
 

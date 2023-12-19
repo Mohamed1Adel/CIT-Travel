@@ -22,9 +22,9 @@ function DayTourTemp(dayTour) {
           {}
         </Card.Text>
         <Card.Body></Card.Body>
-        <Button id="card-btn" style={{ width: "130px" }} variant="primary">
+        <Button id="card-btn" style={{ width: "fit-content" }} variant="primary">
           <Link to={"/dayTourTempDetails/" + dayTour.dayTour._id}>
-            Book Now <FontAwesomeIcon icon={faArrowRight} />
+          More Details <FontAwesomeIcon icon={faArrowRight} />
           </Link>
         </Button>
       </Card.Body>
