@@ -14,7 +14,7 @@
   //   padding:10px;
   transition: all 0.3s ease-in-out;
 }
-.navbar-item:hover {
+.navbar-item:hover ,.dropdown-toggle:hover{
   background-color: var(--primary-color);
   color: #fff !important;
   border-radius: 4px;

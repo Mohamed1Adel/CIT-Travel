@@ -48,11 +48,11 @@ function Landing() {
     // getImages()
   }, []);
   return (
-    <div style={{width:"100%",position:"fixed",top:"70px",left:"0",zIndex:"-1000"}}>
+    <div style={{width:"100%",position:"fixed",top:"70px",left:"0",zIndex:"-1000",height:"100vh"}}>
       <Carousel
         activeIndex={index}
         onSelect={handleSelect}
-        style={{ marginBottom: "30px" }}
+        style={{ marginBottom: "30px" ,height:"100vh"}}
       >
         {/* {
          images[0]?.images?.length ? 
@@ -68,28 +68,28 @@ function Landing() {
         <Carousel.Item>
           <img
             src={require("../../images/home-silder/slide1.png")}
-            style={{ height: "90vh" }}
+            style={{ height: "100vh" }}
             alt="..."
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
             src={require("../../images/home-silder/slide2.jpg")}
-            style={{ height: "90vh" }}
+            style={{ height: "100vh" }}
             alt="..."
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
             src={require("../../images/home-silder/slide3.png")}
-            style={{ height: "90vh" }}
+            style={{ height: "100vh" }}
             alt="..."
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
             src={require("../../images/home-silder/slide4.jpg")}
-            style={{ height: "90vh" }}
+            style={{ height: "100vh" }}
             alt="..."
           />
         </Carousel.Item>
