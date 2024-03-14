@@ -54,23 +54,13 @@ function Transportation() {
         </Carousel.Item>
       </Carousel>
 
-      <div className="transport-video my-5  d-flex align-items-center justify-content-evenly">
-        <div className="info-box">
-          <h1>TRANSPORTATION</h1>
-          <h2>
-            Details about CIT Travel <br /> Egypt Transportation
-          </h2>
+      <div className="transport-video my-5  d-flex  justify-content-evenly">
+        <div className="info-box w-50">
+        <h6 style={{lineHeight:"1.5"}}>Our fleet which is used for airport transfers and excursions, as well as group handling consists of luxury owned and leased busses as well as mini-busses and limos driven by experienced and in tourism educated drivers. They are all in compliance with the latest quality and safety standards approved by the governing body of the region and with GPS Services. </h6>
+        <h6 style={{lineHeight:"1.5"}}>Our company is one of the strongest providers of transfers in Egypt ,we are in position to cover the transfers of individual clients, as well as many Online portals, providing shuttle transfers to dynamic packaging tour – operators. </h6>
         </div>
-        <div className="video-box">
-          <iframe
-            width="380px"
-            height="315"
-            src="https://www.youtube.com/embed/sRdu9_EQFGs?si=BNvDjBxdtA_fQ_JI"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
+        <div className="video-box" >
+        <iframe style={{width:"500px",maxWidth:"100%",height:"400px"}} src="https://www.youtube.com/embed/U65FbVKGFT4?si=t5_BFm7avnM6TCb2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
       </div>
       <div className="contact-us mt-5">

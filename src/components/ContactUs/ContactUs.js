@@ -53,36 +53,53 @@ function ContactUs() {
                 />
               </Form.Group>
 
-              <Button style={{background:"#fc4c03",borderColor:"#fc4c03"}} type="submit">
+              <Button
+                style={{ background: "#fc4c03", borderColor: "#fc4c03" }}
+                type="submit"
+              >
                 Submit
               </Button>
             </div>
           </Form>
         </div>
         <div className="contact-info">
-          <h1 className="main-heading">Contact Info</h1>.
+          {/* <h1 className="main-heading">Contact Info</h1>. */}
           <div className="info-boxes">
-            <div  className="left-box">
+            <div className="left-box">
               <h4>Address:</h4>
               <p>
-                9 B, Arab Organization for
+                Egypt, Cairo, Nasr City,
                 <br />
-                Industrialization Buildings, next to
+                Makram Ebid St., Building No. 9 (B),
                 <br />
-                City Center - beginning of Makram
-                <br />
-                Ebeid Street - Nasr City Cairo, Cairo
-                <br />
-                Governorate, Egypt 11762
+                behind City Center Mall
               </p>
-            </div>
-            <div  className="right-box">
-              <h4>Phone:</h4>
-              <p>+2 02 234 93 333</p>
-              <p>+2 02 234 92 245</p>
 
-              <h4>Email:</h4>
-              <p>info@cit-egypt.com</p>
+              <h4 className="py-2">Email:</h4>
+          <h5>info@cit-egypt.com</h5>
+          
+            </div>
+            <div className="right-box w-50 con-big">
+              <div className=" d-flex  align-items-start justify-content-start con-box" style={{gap:"60px"}}>
+              <div>
+                <h4 className="py-2">Tel:</h4>
+                <h5><a href="tel:+2 23492245" style={{color:"#000"}}>23492245</a> </h5>
+                <h5><a href="tel:+2 23492246" style={{color:"#000"}}>23492246</a> </h5>
+                <h5><a href="tel:+223493333" style={{color:"#000"}}>23493333</a> </h5>
+              </div>
+              <div>
+                <h4 className="py-2">Phone:</h4>
+                <h5><a href="tel:+2 01100918406" style={{color:"#000"}}>01100918406</a> </h5>
+                <h5><a href="tel:+2 01100918407" style={{color:"#000"}}>01100918407</a>  </h5>
+                <h5><a href="tel:+2 01140046060" style={{color:"#000"}}>01140046060</a> </h5>
+                <h5><a href="tel:+2 01140046060" style={{color:"#000"}}>01140046060</a> </h5>
+              </div>
+              </div>
+              <h4 className="py-2">Facebook Page:</h4>
+          <h5><a href="www.facebook.com/CIT.TravelEgypt" style={{color:"orange"}}>www.facebook.com/CIT.TravelEgypt</a>   </h5>
+         
+          {/* <h4 className="py-2">Email:</h4>
+          <h5>info@cit-egypt.com  </h5> */}
             </div>
           </div>
         </div>

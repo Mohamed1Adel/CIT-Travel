@@ -79,7 +79,7 @@ function Outbound() {
               <Col
                 className="side-filter-col"
                 lg="2"
-                style={{ minHeight: "100vh" ,backgroundColor:"#fc4c03",marginTop:"90px"}}
+                style={{ minHeight: "100vh" ,backgroundColor:"#fc4c03",marginTop:"10px"}}
               >
                 <div className="location-filter">
                   <h2>Hotel Deals</h2>
@@ -328,8 +328,14 @@ function Outbound() {
               </div>
             )}
             <Col className="domestic-hotels" lg="10">
-            <h4 style={{color:"",marginTop:"",fontWeight:"bold",}}>OTHER POPULAR HOLIDAY TYPES</h4>
-              <p>OTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPES</p>
+            {/* <h4 style={{color:"",marginTop:"",fontWeight:"bold",}}>OTHER POPULAR HOLIDAY TYPES</h4> */}
+              <h6 style={{lineHeight:"1.5"}}>Our company is focused on providing exciting international tour packages from Egypt within your budget. </h6>
+              <h6 style={{lineHeight:"1.5"}}>We are here to help in getting the best flight schedule and manage air tickets for our clients in various airlines. We have a proven track record and stability, experience and delivering on promise.   </h6>
+              <h6 style={{lineHeight:"1.5"}}> We are also highly skilled and experienced in visa processing service wherever our clients want to go over the world. </h6>
+              <h6 style={{lineHeight:"1.5"}}> We also provide worldwide hotel reservation service immediately according to your choice and budget.  </h6>
+              <h6 style={{lineHeight:"1.5"}}> Our Ticketing Office is part and parcel of our Outbound Department, which handles all of the travel arrangements for both our Operations Department and also its own esteemed clientele. </h6>
+              <h6 style={{lineHeight:"1.5"}}> The Outbound Department is fully equipped with the state-of-the-art reservations systems and is staffed by an experienced team which is trained to the highest standards required in such a competitive industry. </h6>
+
               <Row>
                 {outbounds?.length >= 1 ? (
                   outbounds?.map?.((outbound) => {

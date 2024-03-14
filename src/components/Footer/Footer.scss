@@ -8,7 +8,7 @@ ul {
   min-height: 330px;
   // margin-top: 40px;
   // background-color: var(--black-color);
-  background-image: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)) ,url("../../images/Footer-3.jpg") !important;
+  background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)) ,url("../../images/Footer-3.jpg") !important;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -28,7 +28,7 @@ ul {
 //     }
 // }
 .footer ul {
-  width: 200px;
+  width: 180px;
   padding: 0;
   display: flex;
   align-items: center;
@@ -36,16 +36,17 @@ ul {
   list-style: none;
 }
 .footer ul li a svg {
-  font-size: 35px;
+  margin-top: 2px;
+  font-size: 20px;
 }
 .face-icon {
-  color: #1877f2;
+  color: #fff;
 }
 .insta-icon {
-  color: #c32aa3;
+  color: #fff;
 }
-.twitter.icon {
-  color: #1da1f2;
+.youtube-icon {
+  color: #fff;
 }
 
 .content-links {
@@ -68,17 +69,21 @@ ul {
   font-size: 16px;
 }
 .content-links li:hover {
-  border:1px solid var(--primary-color);
+  // border:1px solid #fff;
   // padding:5px 10px;
-  border-radius: 5px;
+  // border-radius: 5px;
   // background-color: #fff;
 }
 .content-links li:hover a {
   font-weight: 600;
   color: var(--primary-color);
+
 }
 
 .footer input[type="text"],
 .footer input[type="email"] {
   width: 300px;
 }
+
+
+

@@ -5,9 +5,10 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import {API_URL, MONGODB_URL} from '../../envData'
 import {Progress} from '../../progressComponent'
+import FullProgress from "../../FullProgress";
 function HajjAndOmrahDetails() {
   const { id } = useParams();
-  const [hajjOmrah, setHajjOmrah] = useState();
+  const [hajjOmrah, setHajjOmrah] = useState({value :""});
   const [title,setTitle] = useState("");
   const [name,setName] = useState("");
   const [email,setEmail] = useState("");
@@ -49,7 +50,7 @@ function HajjAndOmrahDetails() {
     //    );
     console.log(title,name,email,phone,rooms,pax);
 
-    var phonenumber = "+201556040246";
+    var phonenumber = "+201100996929";
 
     var url = "https://wa.me/" + phonenumber + "?text="
     +"*Title :* "+title+"%0a"
@@ -73,7 +74,8 @@ function HajjAndOmrahDetails() {
   }, []);
   return (
     <Container dir="rtl">
-      <div className="hotel-info">
+      {
+        hajjOmrah.value != "" ?  <div className="hotel-info">
         <Row className="align-items-center">
           <Col sm="12" md="3" lg="4">
             <div className="info-box">
@@ -224,12 +226,12 @@ function HajjAndOmrahDetails() {
               <h2>احجز</h2>
               <Form onSubmit={sendMassage}>
                 <Form.Group className="mb-3" controlId="formBasicName">
-                  <Form.Control type="text" onChange={(e)=>setName(e.target.value)} placeholder="الاسم" />
+                  <Form.Control required type="text" onChange={(e)=>setName(e.target.value)} placeholder="الاسم" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Control type="email" onChange={(e)=>setEmail(e.target.value)} placeholder="الايميل" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicNumber">
+                <Form.Group required className="mb-3" controlId="formBasicNumber">
                   <Form.Control type="text" onChange={(e)=>setPhone(e.target.value)} placeholder="التليفون" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicName">
@@ -245,7 +247,9 @@ function HajjAndOmrahDetails() {
             </div>
           </Col>
         </Row>
-      </div>
+      </div>:<FullProgress />
+      }
+     
     </Container>
   );
 }

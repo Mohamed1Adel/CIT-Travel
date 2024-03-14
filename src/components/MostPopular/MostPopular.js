@@ -10,11 +10,13 @@ import HistorecalTemp from "../HistorecalTemp/HistorecalTemp";
 import OutboundTemp from "../OutboundTemp/OutboundTemp";
 import { Progress } from "../../progressComponent";
 import './MostPopular.scss'
+import NileCruiseTemp from "../NileCruiseTemp/NileCruiseTemp";
 
 function MostPopular() {
   const [domestic, setDomestic] = useState();
   const [historical, setHistorical] = useState();
   const [outbounds, setOutbound] = useState();
+  const [nileCruise, setNileCruise] = useState();
   const [hotDeals, setHotDeals] = useState([]);
 
   // console.log(hotDeals);
@@ -57,6 +59,19 @@ function MostPopular() {
       console.log("====================================");
     }
   };
+  const getNileCruises = async () => {
+    try {
+      const response = await axios.get(`${MONGODB_URL}/getAllNileCruise`);
+      const data = response.data;
+      console.log("====================================");
+      setNileCruise(data.slice(0, 3));
+      console.log("====================================");
+    } catch (e) {
+      console.log("====================================");
+      console.log(e);
+      console.log("====================================");
+    }
+  };
   const getHotDeals = () => {
     try{
       const deals = domestic?.filter((item) => item.hotOffer === true);
@@ -72,6 +87,7 @@ function MostPopular() {
     getHistoracal();
     getOutbound();
     getHotDeals();
+    getNileCruises();
     console.log(domestic);
     // console.log(historical);
     console.log(outbounds);
@@ -114,6 +130,27 @@ function MostPopular() {
             alignContent: "flex-start",
           }}
         >
+          <h1 className="text-center main-heading">Nile Cruise</h1>
+          {nileCruise?.length >= 1 ? (
+            nileCruise?.map((n) => {
+              return   <NileCruiseTemp nileCruise={n} />;
+            })
+          ) : (
+            <Progress />
+          )}
+        </Col>
+        {/* <Col
+          sm="12"
+          md="6"
+          lg="4"
+          xl="4"
+          className="box "
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignContent: "flex-start",
+          }}
+        >
           <h1 className="text-center main-heading">Outbound</h1>
           {outbounds?.length >= 1 ? (
             outbounds?.map((outbound) => {
@@ -122,7 +159,7 @@ function MostPopular() {
           ) : (
             <Progress />
           )}
-        </Col>
+        </Col> */}
 
         <Col
           sm="12"

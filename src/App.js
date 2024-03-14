@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "./components/NavBar/NavBar";
-import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter, Link } from "react-router-dom";
 import Landing from "./components/Landing/Landing";
 // import EgyptComponent from "./components/EgyptComponent";
-import { Container } from "react-bootstrap";
+import { Button, Container, Toast } from "react-bootstrap";
 // import UploadImages from "./components/UploadImages";
 import HotDeals from "./components/HotDeals/HotDeals";
 import Footer from "./components/Footer/Footer";
@@ -29,14 +29,20 @@ import DayTourTempDetails from "./components/DayTourTempDetails/DayTourTempDetai
 import NoInternetConnection from "./components//InternetConnectionComponents/InternetConnectionComponents";
 import Careers from "./components/Careers/Careers";
 import FlyRequests from "./components/FlyRequests/FlyRequests";
+import Popup from "./components/popup/popup";
+import Terms from "./components/Terms/Terms";
+import Popup2 from "./components/popup/popup2";
 function App() {
-  const [connection, setConnection] = useState(true);
 
+  
+  const [connection, setConnection] = useState(true);
+  const id = "65c27460d95b31a2231ed7f4";
   const checkConnection = (check) => {
     setConnection(check);
   };
   const [isOnline, setIsOnline] = useState(window.navigator.onLine);
-
+  const [showA, setShowA] = useState(true);
+  const toggleShowA = () => setShowA(!showA);
   useEffect(() => {
     // Update network status
     const handleStatusChange = () => {
@@ -75,19 +81,49 @@ function App() {
       <div><span class="dot"></span></div>
       <div><span class="dot"></span></div>
     </div> */}
+     {/* <Toast className="ms-auto" style={{position:"fixed",top:"70px",right:"10px",background:"#fff"}}>
+      <Toast.Header>
+        <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+        <strong className="m-auto">Bootstrap</strong>
+        <small>11 mins ago</small>
+      </Toast.Header>
+      <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+    </Toast> */}
+    
+   
       <NavBar />
       {/* <Landing /> */}
       <div className="app-section" style={{ minHeight: "100vh" }}>
         <BrowserRouter>
+
           <Routes>
             <Route
               path="/"
               element={
                 <>
                       
+                       <Popup />
+                       <Popup2 />
                       <Landing />
                       <div class="container-fluid home-container" style={{backgroundColor:"#fff",marginTop:"100vh",zIndex:"9999",paddingTop:"50px"}}>
                       <FlyRequests />
+                      <div className="container new-cont my-4" style={{width:"60%",margin:"auto",display:"flex",flexDirection:"column",alignItems:"center",gap:"15px"}}>
+                        {/* <img src={require("./images/LogoIcon.png")} width="200px"/> */}
+                        <h5 className="text-center main-heading mb-0 pb-0">C.I.T Travel</h5>
+                        <h5 className="text-center main-heading mb-0 py-0"  style={{}}>Your Ticket to a World Of Possibilitie </h5>
+                        <h5 className="text-center mb-0 pd-0">Explore the beauty of Egypt in a warm and pleasant atmosphere with our dedicated professional  agents who can help you with every details  when it comes to planning your getaway Depending on your priorities and requirements.</h5>
+                        <h5 className="text-center mb-0 pd-0 main-heading">WHY C.I.T TRAVEL EGYPT</h5>
+                        <ol className="list-group list-group-numbered">
+                          <li className="list-group-item">We are a travel agency located in Egypt, with people that know Egypt, Arabian, and Western cultures.</li>
+                          <li className="list-group-item">All our clients will obtain personalized and first class service of their Egypt vacation.</li>
+                          <li className="list-group-item">Our expertise and high quality customer service will help you create the perfect vacation package.</li>
+                          <li className="list-group-item">We are members of different prestigious organizations related to the travel industry.</li>
+                          <li className="list-group-item">A highly experienced multi-language service department at your service 24 hours a day</li>
+                          <li className="list-group-item">Problems solving and focus on solution-oriented methods for all customer requests and requirements…</li>
+                          <li className="list-group-item">Competitive prices combined with the highest quality services resulting in value for money across all our services and products</li>
+                          
+                        </ol>
+                      </div>
                       <Container>
                         {/* <FlyRequests /> */}
                         <HotDeals checkConnection={checkConnection} />
@@ -156,19 +192,21 @@ function App() {
 
             <Route path="/transportation" element={<Transportation />} />
             <Route path="/about" element={<About />} />
+            <Route path="/terms" element={<Terms />} />
             <Route path="/contactUs" element={<ContactUs />} />
             <Route path="/careers" element={<Careers />} />
           </Routes>
         </BrowserRouter>
       </div>
-      <a href="https://wa.me/+2001556040246
-      " class="float" target="_blank">
+      <a href="https://wa.me/+201100996929
+      " class="float" target="_blank" >
 <i class="fa fa-whatsapp my-float"></i>
 </a>
       <Footer />
-
+       
       {/* <SimpleMap/> */}
       {/* <UploadImages /> */}
+
     </div>
   );
 }

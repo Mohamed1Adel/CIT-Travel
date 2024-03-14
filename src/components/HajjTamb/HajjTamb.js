@@ -22,11 +22,11 @@ function HajjTamb({hajjOmrah}) {
         <Card.Text>{hajjOmrah?.description}</Card.Text>
         <Button
           className=""
-          id="hajj-btn"
-          style={{ width: "fit-content" }}
+          id="card-btn"
+          style={{ width: "fit-content" ,marginRight:"120px"}}
           variant="primary"
         >
-          <Link class="card-btn" to={`/HajjAndOmrahDetails/${hajjOmrah?._id}`}>
+          <Link class="card-btn"  to={`/HajjAndOmrahDetails/${hajjOmrah?._id}`}>
             لمزيد من التفاصيل  <FontAwesomeIcon icon={faArrowLeft} />
           </Link>
         </Button>

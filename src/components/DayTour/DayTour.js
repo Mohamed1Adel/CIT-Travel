@@ -46,8 +46,12 @@ function DayTour() {
 <div class="container-fluid" style={{backgroundColor:"#fff"}}>
 <Container style={{marginTop:"90vh",paddingTop:"50px"}} className="day-tour">
         {/* <h3 className="text-center main-heading">Day Tour</h3> */}
-        <h4 style={{color:"",marginTop:"",fontWeight:"bold",}}>OTHER POPULAR HOLIDAY TYPES</h4>
-              <p>OTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPES</p>
+        {/* <h4 style={{color:"",marginTop:"",fontWeight:"bold",}}>OTHER POPULAR HOLIDAY TYPES</h4> */}
+              <h6 style={{lineHeight:"1.5"}}>Welcome to the land of pharaohs, Pyramids, and breathtaking destinations, Egypt. <br />
+Egypt Day Trips should be on your to-do list if you plan to visit Egypt. <br />
+Egypt day tour provides a convenient way to explore Egypt’s stunning beauty and culture in a limited time.<br /> With many options available, you can choose from a range of Egypt day tours, including excursions to Egypt, Aswan tours, Luxor day tours, and Cairo sightseeing tours.<br />
+C.I.T Travel Egypt offered the best Egypt Day Tours to the most famous cities in Egypt to discover and explore the most famous Egypt tourist attractions.<br /> Our fantastic day tours in Egypt can be found all over Egypt, 
+</h6>
         <Row>
           {dayTours?.length >= 1 ? (
             dayTours?.map((dayTour) => {

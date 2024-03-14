@@ -9,7 +9,7 @@ function HistorecalTemp({program}) {
   return (
     <Card className="hotel-card" >
       <div className="card-image">
-        <Card.Img variant="top" src={program?.images[0].img_url} />
+        <Card.Img variant="top" src={program?.images[0]?.img_url} />
       </div>
       <Card.Body>
         <Card.Title>{program?.title} </Card.Title>

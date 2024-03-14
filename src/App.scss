@@ -140,9 +140,21 @@ div .dot {
     // background-size: cover;
     // object-fit: cover;
 }
-
+.main-home-slider{
+  height: 100vh;
+}
 @media (max-width:767px) {
+  .carousel .carousel-inner {
+    max-height: 300px !important;
+}
   .home-container{
-    margin-top:30vh !important;
+    margin-top:40vh !important;
   }
+
+  .main-home-slider{
+    height: 40vh;
+  }
+   .carousel-item img{
+    height: 40vh !important;
+   }
 }

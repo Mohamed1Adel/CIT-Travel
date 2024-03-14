@@ -16,15 +16,19 @@ function NileCruiseTemp(nileCruise) {
       </div>
       <Card.Body>
         <Card.Title>
-          {nileCruise.title ? nileCruise?.nileCruise.title : "dome"}{" "}
+          {nileCruise?.nileCruise.title}{" "}
         </Card.Title>
         <Card.Text>
+          <h5>{nileCruise?.nileCruise.packages[0]?.packTitle}</h5>
           <div className="card-desc">
-            <h6>{nileCruise.nileCruise.description}</h6>
+            <h6>{nileCruise?.nileCruise.description}</h6>
           </div>
+          
           {}
         </Card.Text>
-        <Card.Body></Card.Body>
+        <Card.Body>
+        
+        </Card.Body>
         <Button id="card-btn" style={{ width: "fit-content" }} variant="primary">
           <Link to={"/nileCruiseTempDetails/" + nileCruise.nileCruise._id}>
           More Details <FontAwesomeIcon icon={faArrowRight} />

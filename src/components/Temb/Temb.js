@@ -18,7 +18,7 @@ function Temb(item) {
         <Card.Img variant="top" src={item.item?.images[0]?.img_url} />
       </div>
       <Card.Body>
-        <Card.Title>{item.item.title ? item.item.title : "dome"} </Card.Title>
+        <Card.Title>{item.item.title}</Card.Title>
         <Card.Text>
           <div className="rates-stars">
             {rateStars.map((star) => {
@@ -32,6 +32,7 @@ function Temb(item) {
         </Card.Text>
         <Card.Body></Card.Body>
         <Button id="card-btn" style={{ width: "fit-content" }} variant="primary">
+          {/* <Link to={"/tembDetails/" + item.item._id}> */}
           <Link to={"/tembDetails/" + item.item._id}>
             More Details <FontAwesomeIcon icon={faArrowRight} />
           </Link>

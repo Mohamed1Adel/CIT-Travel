@@ -8,8 +8,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import {API_URL, MONGODB_URL} from '../../envData'
 import { Progress } from "../../progressComponent";
+import FullProgress from "../../FullProgress";
 function NileCruiseTempDetails() {
-  const [nileCruiseDetails, setNileCruiseDetails] = useState();
+  const [nileCruiseDetails, setNileCruiseDetails] = useState({value:""});
   const [images, setImages] = useState([]);
   const [title,setTitle] = useState("");
   const [name,setName] = useState("");
@@ -59,7 +60,7 @@ function NileCruiseTempDetails() {
     //    );
     console.log(title,name,email,phone,rooms,pax,child);
 
-    var phonenumber = "+201556040246";
+    var phonenumber = "+201100996929";
 
     var url = "https://wa.me/" + phonenumber + "?text="
     +"*Title :* "+title+"%0a"
@@ -85,24 +86,23 @@ function NileCruiseTempDetails() {
   };
   return (
     <Container>
-      <div className="hotel-info">
+      {
+        nileCruiseDetails.value !="" ?  <div className="hotel-info">
         <Row className="align-items-center">
           <Col sm="12" md="3" lg="4">
             <div className="info-box">
               <ul>
                 <h4 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.title}</h4>
-                <h5 >
-                  {nileCruiseDetails?.description}
-                </h5>
-                <h5 style={{ color: "red" }}>
-                  <FontAwesomeIcon icon={faLocationDot} />{" "}
+                <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box6}</h5>
+                <h5 style={{ color: "#fc4c03" }} >
+                  {/* <FontAwesomeIcon icon={faLocationDot} />{" "} */}
                   {nileCruiseDetails?.destination}
                 </h5>
-                <h5>{nileCruiseDetails?.box6}</h5>
-                <h5>{nileCruiseDetails?.box7}</h5>
-                <h5>{nileCruiseDetails?.box8}</h5>
-                <h5>{nileCruiseDetails?.box9}</h5>
-                <h5>{nileCruiseDetails?.box10}</h5>
+               
+                <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box7}</h5>
+                <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box8}</h5>
+                <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box9}</h5>
+                <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box10}</h5>
               </ul>
             </div>
           </Col>
@@ -139,7 +139,7 @@ function NileCruiseTempDetails() {
                         />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formBasicName">
-                        <Form.Control
+                        <Form.Control required
                           type="text"
                           name="sender_name"
                           placeholder="Your Name"
@@ -155,7 +155,7 @@ function NileCruiseTempDetails() {
                         />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formBasicNumber">
-                        <Form.Control
+                        <Form.Control required
                           type="tel"
                           name="Phone_No"
                           placeholder="Your Phone Number"
@@ -214,12 +214,12 @@ function NileCruiseTempDetails() {
                       <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">package</th>
-                            <th scope="col">from</th>
-                            <th scope="col">to</th>
-                            <th scope="col">single</th>
-                            <th scope="col">double</th>
-                            <th scope="col">triple</th>
+                            <th scope="col">Package</th>
+                            <th scope="col">From</th>
+                            {/* <th scope="col">to</th> */}
+                            <th scope="col">Single</th>
+                            <th scope="col">Double</th>
+                            <th scope="col">Triple</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -228,7 +228,7 @@ function NileCruiseTempDetails() {
                               <tr>
                                 <th scope="row">{pack.packTitle}</th>
                                 <td>{pack.startDate}</td>
-                                <td>{pack.endDate}</td>
+                                {/* <td>{pack.endDate}</td> */}
                                 <td>{pack.single} EGP</td>
                                 <td>{pack.double} EGP</td>
                                 <td>{pack.triple} EGP</td>
@@ -257,7 +257,7 @@ function NileCruiseTempDetails() {
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#terms" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
-                      terms & Conditions
+                      Terms & Conditions
                     </a>
                   </li>
                   <li class="nav-item">
@@ -274,7 +274,7 @@ function NileCruiseTempDetails() {
               <div class="card-body ">
                 <div class="tab-content">
                   <div class="tab-pane active" id="itenary">
-                    <h4>Itenary</h4>
+                    
                     <Accordion
                       className="itenary-accordion"
                       defaultActiveKey="0"
@@ -285,7 +285,8 @@ function NileCruiseTempDetails() {
                           <Accordion.Item eventKey={`${index + 1}`}>
                             <Accordion.Header>
                               Day {index + 1} {"  "}
-                              &nbsp; <FontAwesomeIcon icon={faArrowRight} />
+                              &nbsp; 
+                              {/* <FontAwesomeIcon icon={faArrowRight} /> */}
                               &nbsp;{"  "}
                               {day.dayTitle}
                             </Accordion.Header>
@@ -302,7 +303,7 @@ function NileCruiseTempDetails() {
                     </Accordion>
                   </div>
                   <div class="tab-pane" id="details">
-                    <h4>Details</h4>
+                    
 
                     <div
                       dangerouslySetInnerHTML={{
@@ -311,7 +312,7 @@ function NileCruiseTempDetails() {
                     />
                   </div>
                   <div class="tab-pane" id="terms">
-                    <h4>Terms and Conditions</h4>
+                  
                     <div
                       dangerouslySetInnerHTML={{
                         __html: nileCruiseDetails?.termsAndConditions,
@@ -319,7 +320,7 @@ function NileCruiseTempDetails() {
                     />
                   </div>
                   <div class="tab-pane" id="cancellation-polices">
-                    <h5>Cancelation</h5>
+                    
                     <div
                       dangerouslySetInnerHTML={{
                         __html: nileCruiseDetails?.cancellation,
@@ -331,7 +332,9 @@ function NileCruiseTempDetails() {
             </div>
           </Col>
         </Row>
-      </div>
+      </div>: <FullProgress />
+      }
+     
     </Container>
   );
 }

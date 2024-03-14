@@ -15,8 +15,9 @@ import { faArrowRight, faStar } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { API_URL, MONGODB_URL } from "../../envData";
 import { Progress } from "../../progressComponent";
+import FullProgress from "../../FullProgress";
 function HistorecalTembDetails() {
-  const [programDetails, setProgramDetails] = useState();
+  const [programDetails, setProgramDetails] = useState({value :""});
   const [images, setImages] = useState([]);
   const [title,setTitle] = useState("");
   const [name,setName] = useState("");
@@ -62,7 +63,7 @@ function HistorecalTembDetails() {
     //    );
     console.log(title,name,email,phone,rooms,pax,child);
 
-    var phonenumber = "+201556040246";
+    var phonenumber = "+201100996929";
 
     var url = "https://wa.me/" + phonenumber + "?text="
     +"*Title :* "+title+"%0a"
@@ -86,22 +87,28 @@ function HistorecalTembDetails() {
   };
   return (
     <Container>
-      <div className="hotel-info">
+      {
+        programDetails.value != "" ?  <div className="hotel-info">
         <Row className="align-items-center">
           <Col sm="12" md="3" lg="4">
             <div className="info-box">
               <ul>
                 <h4 style={{ color: "#fc4c03" }}>{programDetails?.title}</h4>
-                <h5>{programDetails?.nights} night tour</h5>
+                {/* <h5>{programDetails?.nights} night tour</h5> */}
                 <h6>
                   {" "}
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: programDetails?.highilghts,
+                      __html: programDetails?.description,
                     }}
                   />
                 </h6>
-                <h5>{programDetails?.box6}</h5>
+                <h6 style={{fontWeight:"bold",color:"#fc4c03"}}>Highlights : </h6>
+                <div
+                      dangerouslySetInnerHTML={{
+                        __html: programDetails?.highilghts,
+                      }}
+                    />
                 <h5>{programDetails?.box7}</h5>
                 <h5>{programDetails?.box8}</h5>
                 <h5>{programDetails?.box9}</h5>
@@ -116,7 +123,7 @@ function HistorecalTembDetails() {
                   console.log("images is loaded");
                   return (
                     <Carousel.Item key={Math.random()}>
-                      <img src={img.img_url} alt="..." />
+                      <img src={img?.img_url} alt="..." />
                     </Carousel.Item>
                   );
                 })
@@ -142,7 +149,7 @@ function HistorecalTembDetails() {
                         />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formBasicName">
-                        <Form.Control
+                        <Form.Control required
                           type="text"
                           name="sender_name"
                           placeholder="Your Name"
@@ -158,7 +165,7 @@ function HistorecalTembDetails() {
                         />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formBasicNumber">
-                        <Form.Control
+                        <Form.Control required
                           type="tel"
                           name="Phone_No"
                           placeholder="Your Phone Number"
@@ -201,7 +208,7 @@ function HistorecalTembDetails() {
                 <ul class="nav nav-tabs card-header-tabs" id="tabs">
                   <li class="nav-item">
                     <a class="nav-link" href="#rates" data-toggle="tab" style={{color:"#fc4c03",fontWeight:"bold",fontSize:"22px"}}>
-                      Rates
+                      Starting From
                     </a>
                   </li>
                 </ul>
@@ -214,10 +221,10 @@ function HistorecalTembDetails() {
                       <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">Hotel</th>
-                            <th scope="col">from</th>
-                            <th scope="col">to</th>
-                            <th scope="col">Starting from</th>
+                            {/* <th scope="col">Hotel</th>
+                            <th scope="col">From</th>
+                            <th scope="col">To</th> */}
+                            {/* <th scope="col">Starting from.............</th> */}
                           </tr>
                         </thead>
                         <tbody>
@@ -268,11 +275,11 @@ function HistorecalTembDetails() {
                       Package Details
                     </a>
                   </li>
-                  <li class="nav-item">
+                  {/* <li class="nav-item">
                     <a class="nav-link" href="#terms" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
-                      terms & Conditions
+                    Highlights
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
               <div class="card-body ">
@@ -297,13 +304,24 @@ function HistorecalTembDetails() {
                                   __html: day?.dayContent,
                                 }}
                               />
-                              <h4 style={{fontWeight:"bold",color:"red"}}>Optional Tours</h4>
-                              <div
+                              {
+                              
+                                day?.optTour !== "<p><br></p>" ? 
+
+                                day?.optTour !=="<p> </p>" ?
+                                <>
+ 
+                                <h4 style={{fontWeight:"bold",color:"red"}}>Optional Tours</h4>
+                                <div
                               style={{marginTop:"10px"}}
                                 dangerouslySetInnerHTML={{
                                   __html: day?.optTour,
                                 }}
                               />
+                                </>
+                                : "":""
+                              }
+                              
                             </Accordion.Body>
                           </Accordion.Item>
                         );
@@ -324,20 +342,23 @@ function HistorecalTembDetails() {
                       }}
                     />
                   </div>
-                  <div class="tab-pane" id="terms">
-                    <h4>Terms and Conditions</h4>
-                    <div
+                  {/* <div class="tab-pane" id="terms">
+                    
+                    
+                                        <div
                       dangerouslySetInnerHTML={{
-                        __html: programDetails?.termsAndConditions,
+                        __html: programDetails?.highilghts,
                       }}
                     />
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
           </Col>
         </Row>
-      </div>
+      </div>: <FullProgress />
+      }
+     
     </Container>
   );
 }

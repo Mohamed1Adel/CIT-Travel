@@ -4,11 +4,12 @@ import "./DayTourTempDetails.scss";
 import Form from "react-bootstrap/Form";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faClock, faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
 import { API_URL, MONGODB_URL } from "../../envData";
 import {Progress} from '../../progressComponent'
+import FullProgress from "../../FullProgress";
 function DayTourTempDetails() {
-  const [dayTourDetails, setDayTourDetails] = useState();
+  const [dayTourDetails, setDayTourDetails] = useState({value :""});
   const [title,setTitle] = useState("");
   const [name,setName] = useState("");
   const [email,setEmail] = useState("");
@@ -58,7 +59,7 @@ function DayTourTempDetails() {
     //    );
     console.log(title,name,email,phone,rooms,pax,child);
 
-    var phonenumber = "+201556040246";
+    var phonenumber = "+201100996929";
 
     var url = "https://wa.me/" + phonenumber + "?text="
     +"*Title :* "+title+"%0a"
@@ -82,20 +83,33 @@ function DayTourTempDetails() {
   };
   return (
     <Container>
-      <div className="hotel-info">
+      {
+        dayTourDetails.value != "" ? <div className="hotel-info">
         <Row className="align-items-center">
           <Col sm="12" md="3" lg="4">
             <div className="info-box">
               <ul>
                 <h4 style={{ color: "#fc4c03" }}>{dayTourDetails?.title}</h4>
-                <h5 >
+                {/* <h5 >
                   {dayTourDetails?.description}
-                </h5>
+                </h5> */}
                 <h5 >
                   <FontAwesomeIcon icon={faLocationDot} />{" "}
                   {dayTourDetails?.destination}
                 </h5>
-                <h5>{dayTourDetails?.box6}</h5>
+                <h5> <FontAwesomeIcon icon={faClock} /> {dayTourDetails?.box6}</h5>
+                {/* <div
+                      dangerouslySetInnerHTML={{
+                        __html: dayTourDetails?.termsAndConditions,
+                      }}
+                    /> */}
+                    {/* <div
+                      dangerouslySetInnerHTML={{
+                        __html: dayTourDetails?.cancelationPolices,
+                      }}
+                    /> */}
+                <h5 style={{color:"orange",paddingTop:"10px",paddingBottom:"10px"}}>Highlights : </h5>
+                
                 <h5>{dayTourDetails?.box7}</h5>
                 <h5>{dayTourDetails?.box8}</h5>
                 <h5>{dayTourDetails?.box9}</h5>
@@ -122,7 +136,7 @@ function DayTourTempDetails() {
           <Col sm="12" md="3" lg="4">
             <div className="book-form">
               <h2>Book Now</h2>
-  <Form  onSubmit={sendMassage}>
+     <Form  onSubmit={sendMassage}>
                       <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Control
                           type="text"
@@ -133,7 +147,7 @@ function DayTourTempDetails() {
                         />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formBasicName">
-                        <Form.Control
+                        <Form.Control required
                           type="text"
                           name="sender_name"
                           placeholder="Your Name"
@@ -141,7 +155,7 @@ function DayTourTempDetails() {
                         />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Control
+                        <Form.Control 
                           type="email"
                           name="email"
                           placeholder="Your Email Address"
@@ -149,7 +163,7 @@ function DayTourTempDetails() {
                         />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formBasicNumber">
-                        <Form.Control
+                        <Form.Control required
                           type="tel"
                           name="Phone_No"
                           placeholder="Your Phone Number"
@@ -195,7 +209,7 @@ function DayTourTempDetails() {
                 <ul class="nav nav-tabs card-header-tabs" id="tabs">
                   <li class="nav-item">
                     <a class="nav-link" href="#rates" data-toggle="tab" style={{color:"#fc4c03",fontWeight:"bold",fontSize:"22px"}}>
-                      Rates
+                      Starting from
                     </a>
                   </li>
                 </ul>
@@ -205,7 +219,7 @@ function DayTourTempDetails() {
                   <div class="tab-pane " id="rates">
                     <div className=" main-table">
                       
-                      <table class="table">
+                      {/* <table class="table">
                         <thead>
                           <tr>
                             <th scope="col">Persons</th>
@@ -226,7 +240,7 @@ function DayTourTempDetails() {
                             );
                           })}
                         </tbody>
-                      </table>
+                      </table> */}
                     </div>
                   </div>
                 </div>
@@ -242,15 +256,15 @@ function DayTourTempDetails() {
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#details" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
-                      Details
+                      Package Include
                     </a>
                   </li>
-                  <li class="nav-item">
+                  {/* <li class="nav-item">
                     <a class="nav-link" href="#terms" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
                       terms & Conditions
                     </a>
-                  </li>
-                  <li class="nav-item">
+                  </li> */}
+                  {/* <li class="nav-item">
                     <a
                       class="nav-link"
                       href="#cancellation-polices"
@@ -258,13 +272,13 @@ function DayTourTempDetails() {
                     >
                       Cancellation Polices
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
               <div class="card-body ">
                 <div class="tab-content">
                   <div class="tab-pane active" id="itenary">
-                    <h4>{dayTourDetails?.itenary[0].dayTitle}</h4>
+                    {/* <h4>{dayTourDetails?.itenary[0].dayTitle}</h4> */}
                     <div
                       dangerouslySetInnerHTML={{
                         __html: dayTourDetails?.itenary[0].dayContent,
@@ -272,35 +286,37 @@ function DayTourTempDetails() {
                     />
                   </div>
                   <div class="tab-pane" id="details">
-                    <h4>Details</h4>
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: dayTourDetails?.description,
-                      }}
-                    />
-                  </div>
-                  <div class="tab-pane" id="terms">
-                    <h4>Terms and Conditions</h4>
+                    {/* <h4>Details</h4> */}
                     <div
                       dangerouslySetInnerHTML={{
                         __html: dayTourDetails?.termsAndConditions,
                       }}
                     />
                   </div>
-                  <div class="tab-pane" id="cancellation-polices">
+                  {/* <div class="tab-pane" id="terms">
+                    <h4>Terms and Conditions</h4>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: dayTourDetails?.termsAndConditions,
+                      }}
+                    />
+                  </div> */}
+                  {/* <div class="tab-pane" id="cancellation-polices">
                     <h5>Cancelation</h5>
                     <div
                       dangerouslySetInnerHTML={{
                         __html: dayTourDetails?.cancelationPolices,
                       }}
                     />
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
           </Col>
         </Row>
-      </div>
+      </div>:<FullProgress />
+      }
+      
     </Container>
   );
 }

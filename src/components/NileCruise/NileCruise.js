@@ -26,7 +26,7 @@ function NileCruise() {
   };
   useEffect(() => {
     getAllNileCruises();
-  });
+  },[]);
   return (
     <>
 <div class="Banner" style={{backgroundImage:`url(${image})`}}></div>
@@ -36,8 +36,8 @@ function NileCruise() {
     <div class="nile-cruise container-fluid" style={{marginTop:"90vh",paddingTop:"50px",backgroundColor:"#fff"}}>
       <Container   >
         <h3 className="text-center main-heading">Nile Cruise</h3>
-        <h4 style={{color:"",marginTop:"",fontWeight:"bold",}}>OTHER POPULAR HOLIDAY TYPES</h4>
-              <p>OTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPES</p>
+        <h4 style={{color:"",marginTop:"",fontWeight:"bold",}}>Discover the Magic of Egypt Nile Cruise Packages: Unforgettable Journeys on the Nile</h4>
+              <h6 style={{lineHeight:"1.5"}}>Egypt has a long history that goes back far beyond the written words, the stories of the Gods, the monuments, and the Nile River which had made the famous culture. <br /> The river was known as “The Gift of Life“ which blessed the land with life.<br /> Sailing on the Nile is more than a relaxing five stars deluxe cruise; it is an inspiring trip into the fascinating past through a very dazzling present and a real opportunity of a lifetime.<br /> The life time experience to rome in one of the most perstigeous cruises The influence of the river on the Egyptian culture did not only provide a constant source of life-giving water but also create the fertile lands that fed the growth of this unique culture.</h6>
         <Row>
           {nileCruises?.length >= 1 ? (
             nileCruises?.map((nileCruise) => {

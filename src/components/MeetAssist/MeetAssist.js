@@ -15,7 +15,8 @@ function MeetAssist() {
         >
           Nothing is more assuring than to have a smiling face to greet you when
           you arrive at Cairo International Airport. <br />
-          <br /> Arrivals Meet & Assist:Our C.I.T Travel Egypt Representatives
+
+          <br /> <h5 style={{textDecoration:"underline"}}>Arrivals Meet & Assist:</h5>  Our C.I.T Travel Egypt Representatives
           will be there to welcome you as you arrive at Cairo International
           Airport, they will take you through immigration, customs and luggage
           collection. C.I.T Travel Egypt Representatives normally meet our guest
@@ -28,7 +29,8 @@ function MeetAssist() {
           arrivals area, vehicle, or family members awaiting the arrival.
           <br />
           <br />
-          Departures Meet & Assist:Our Representatives will ensure you are well
+          <h5 style={{textDecoration:"underline"}}>Departures Meet & Assist:</h5>
+          Our Representatives will ensure you are well
           taken care of up to your departure Departures Meet and Assist Services
           start at the terminal building and ends at boarding gate .<br /><br /> C.I.T
           Travel Egypt Representatives are available to assist you atyour
@@ -38,35 +40,33 @@ function MeetAssist() {
           Departure.
           <br />
           <br />
-          <h5>In Meet And Assist We :</h5> <br />• Do all formalities • Claim
+          <h5 style={{textDecoration:"underline"}}>In Meet And Assist We :</h5> <br />• Do all formalities • Claim
           luggage • TB1, TB2 & TB3 ( Arrival and Departure ).
         </p>
       </div>
       <div className="contact-us mt-5">
         <h1 className="main-heading">Book Now</h1>
-        <Form className="d-flex mb-3">
+        <Form className="d-flex mb-3" action="mailto:ma4698531@gmail.com?subject=Hello Cit" method="post" enctype="text/plain">
           <div className="left-form">
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Control type="text" placeholder="Your Name" />
+              <Form.Control type="text" placeholder="TB1" name="TB1 " />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Control type="text" placeholder="Your Phone Number" />
+              <Form.Control type="text" placeholder="TB2" name="TB2 "/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Control type="text" placeholder="Your E-Mail" />
+              <Form.Control type="text" placeholder="TB3" name="TB3 "/>
             </Form.Group>
           </div>
 
           <div className="right-form">
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-              <Form.Control
-                placeholder="Enter Your Massage"
-                as="textarea"
-                rows={3}
-              />
+          <Form.Group className="mb-3" controlId="formBasicNumber">
+            <Form.Label>Departure Date</Form.Label>
+              <Form.Control type="date"   name="Departure Date " placeholder="" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicNumber">
+            <Form.Label>Return Date</Form.Label>
+              <Form.Control type="date"   name="Return Date " placeholder="" />
             </Form.Group>
 
             <Button variant="primary" type="submit" id="book-btn">

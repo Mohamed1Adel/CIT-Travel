@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Zoom } from "react-reveal";
-import Temb from "../Temb/Temb";
 import HistorecalTemp from "../HistorecalTemp/HistorecalTemp";
 import axios from "axios";
-import { API_URL, MONGODB_URL } from "../../envData";
-import { Progress } from "../../progressComponent";
+import { MONGODB_URL } from "../../envData";
+
 import FullProgress from "../../FullProgress";
 import image from "../../images/historical/image.jpeg"
 function HistoricalTrips() {
@@ -38,9 +37,14 @@ function HistoricalTrips() {
 
 
         <Row className="domestic-section">
-        <h3 className="text-center main-heading">HistoricalTrips</h3>
-        <h4 style={{color:"",marginTop:"",fontWeight:"bold",}}>OTHER POPULAR HOLIDAY TYPES</h4>
-              <p>OTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPESOTHER POPULAR HOLIDAY TYPES</p>
+        <h3 className="text-center main-heading fw-bold">Historical Trips</h3>
+        {/* <h4 style={{color:"",marginTop:"",fontWeight:"bold",}}>OTHER POPULAR HOLIDAY TYPES</h4> */}
+              <h6 style={{lineHeight:"1.5"}}>Egypt is a land of wonder, a place where ancient history and modern culture come together to create a unique and unforgettable experience.<br /> For those who are fascinated by the mysteries of the past, there is no better destination than Egypt.<br /> With its ancient temples, pyramids, and tombs, the country is steeped in history and offers a glimpse into the lives of the people who lived there thousands of years ago.<br />
+  
+  But Egypt is much more than just the Nile.<br /> It is a country of vibrant, bustling cities, each with its unique character and charm. Cairo, the capital, is a bustling metropolis that is home to some of the most famous landmarks in the world, including the Pyramids of Giza, the Sphinx, and the Egyptian Museum.<br /> But it's also a city that is full of life, with lively markets, delicious food, and friendly people.<br />
+   
+  Other cities in Egypt offer a different experience.<br /> Luxor, for example, is a city that is steeped in history and is home to some of the most impressive temples and tombs in the country.<br /> Aswan, on the other hand, is a more laid-back, relaxed city that is perfect for those who want to escape the hustle and bustle of Cairo.<br />
+  </h6>
           {programs?.length >= 1 ? (
             programs?.map((program) => {
               return (

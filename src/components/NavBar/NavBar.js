@@ -24,6 +24,7 @@ function NavBar() {
               className="navbar-item"
               title="Visit Egypt"
               id="collapsible-nav-dropdown"
+              renderMenuOnMount={true}
             >
               <NavDropdown.Item className="navbar-item" href="/historicalTrips">
                 Historical Trips
@@ -55,10 +56,15 @@ function NavBar() {
               className="navbar-item"
               title="C.I.T Travel Egypt"
               id="collapsible-nav-dropdown"
+              renderMenuOnMount={true}
             >
+               <NavDropdown.Item className="navbar-item" href="/terms">
+                Terms & Conditions
+              </NavDropdown.Item>
               <NavDropdown.Item className="navbar-item" href="/about">
                 About Us
               </NavDropdown.Item>
+             
               <NavDropdown.Item className="navbar-item" href="/contactUs">
                 Contact Us
               </NavDropdown.Item>
