@@ -1,0 +1,30 @@
+@import "../../index.scss";
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: #fff !important;
+  width: 100%;
+}
+.navbar-item {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  font-weight: bold !important;
+  //   padding:10px;
+  transition: all 0.3s ease-in-out;
+}
+.navbar-item:hover ,.dropdown-toggle:hover{
+  background-color: var(--primary-color);
+  color: #fff !important;
+  border-radius: 4px;
+}
+.navbar-bg {
+  background-color: var(--primary-color);
+}
+.navbar-item a {
+  color: #000;
+}
+.navbar-item a.active{
+    background-color: var(--primary-color);
+}

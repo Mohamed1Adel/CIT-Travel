@@ -300,7 +300,7 @@ function TembDetails() {
                               );
                             })}
 
-                            {itemDetails.title == "Desert Rose" ? (
+                            {/* {itemDetails.title == "Desert Rose" ? (
                               <>
                                 <tr>
                                   <td
@@ -314,32 +314,32 @@ function TembDetails() {
 
                                 <tr>
                                   <td>4 Days / 3 Nights</td>
-                                  <td>2024-03-17</td>
+                                  <td>2024-02-11</td>
                                   <td>2024-04-09 </td>
-                                  <td>19680 EGP</td>
-                                  <td>12380 EGP</td>
-                                  <td>11240 EGP</td>
+                                  <td>13450 EGP</td>
+                                  <td>8500 EGP</td>
+                                  <td>7850 EGP</td>
                                 </tr>
                                 <tr>
                                   <td>4 Days / 3 Nights</td>
-                                  <td>2024-04-10</td>
-                                  <td>2024-04-13 </td>
-                                  <td>23080 EGP</td>
-                                  <td>14575 EGP</td>
-                                  <td>13180 EGP</td>
+                                  <td>2024-02-11</td>
+                                  <td>2024-04-09 </td>
+                                  <td>15700 EGP</td>
+                                  <td>10000 EGP</td>
+                                  <td>8900 EGP</td>
                                 </tr>
                                 <tr>
                                   <td>4 Days / 3 Nights</td>
-                                  <td>2024-04-14</td>
-                                  <td>2024-04-30 </td>
-                                  <td>19680 EGP</td>
-                                  <td>12380 EGP</td>
-                                  <td>11240 EGP</td>
+                                  <td>2024-02-11</td>
+                                  <td>2024-04-09 </td>
+                                  <td>13450 EGP</td>
+                                  <td>8500 EGP</td>
+                                  <td>7850 EGP</td>
                                 </tr>
                               </>
                             ) : (
                               ""
-                            )}
+                            )} */}
                           </tbody>
                         </table>
                       </div>

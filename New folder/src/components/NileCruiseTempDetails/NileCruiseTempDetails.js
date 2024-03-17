@@ -1,56 +1,48 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Button, Carousel, Col, Container, Row } from "react-bootstrap";
-import "./TembDetails.scss";
+import React, { useState, useEffect } from "react";
+import { Accordion, Button, Carousel, Col, Container, Row } from "react-bootstrap";
+import "./NileCruiseTempDetails.scss";
+// import Accordion from 'react-bootstrap/Accordion';
 import Form from "react-bootstrap/Form";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
-import { API_URL, MONGODB_URL } from "../../envData";
+import { faArrowRight, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import {API_URL, MONGODB_URL} from '../../envData'
 import { Progress } from "../../progressComponent";
-import emailjs from "@emailjs/browser";
 import FullProgress from "../../FullProgress";
-import { ToastContainer, toast } from "react-toastify";
-
-function TembDetails() {
-  const form = useRef();
-  const [title, setTitle] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState(0);
-  const [rooms, setRooms] = useState(0);
-  const [pax, setPax] = useState(0);
-  const [child, setChild] = useState(0);
-  // const emailSent = () => toast("Your Email Sent Successfully we will call you as soon as possible");
-  // const emailSentError = () => toast("Pl");
-  const [itemDetails, setItemDetails] = useState({ value: "" });
+function NileCruiseTempDetails() {
+  const [nileCruiseDetails, setNileCruiseDetails] = useState({value:""});
   const [images, setImages] = useState([]);
-  const { id } = useParams(0);
+  const [title,setTitle] = useState("");
+  const [name,setName] = useState("");
+  const [email,setEmail] = useState("");
+  const [phone,setPhone] = useState(0);
+  const [rooms,setRooms] = useState(0);
+  const [pax,setPax] = useState(0);
+  const [child,setChild] = useState(0);
+
+  const { id } = useParams();
+
   async function getDomesticById() {
     try {
-      const response = await fetch(`${MONGODB_URL}/getDomesticDetails/${id}`);
-      // const response = await fetch(`${API_URL}/domestics/${id}`);
+      // const response = await fetch(`${API_URL}/nileCruise/${id}`);
+      const response = await fetch(`${MONGODB_URL}/getNileCruiseDetails/${id}`);
       const data = await response.json();
       console.log(data);
-      setItemDetails(data);
-      setTitle(data?.title);
+      setNileCruiseDetails(data);
+      setTitle(data?.title)
       getImages();
     } catch (e) {
       console.log(e);
     }
   }
   const getImages = async () => {
-    setImages(itemDetails.images);
+    setImages(nileCruiseDetails?.images);
   };
-  let star = <FontAwesomeIcon className="star" icon={faStar} />;
-  let rateStars = [];
-  for (let i = 1; i <= Number(itemDetails.stars); i++) {
-    rateStars.push(star);
-  }
 
   const sendMassage = (e) => {
     e.preventDefault();
     // console.log(form.current);
-
+  
     //  emailjs
     //    .sendForm(
     //      "service_a5le1fd",
@@ -61,408 +53,293 @@ function TembDetails() {
     //    .then(
     //      (result) => {
     //        console.log(result.text);
-    //        emailSent()
-
     //      },
     //      (error) => {
     //        console.log(error.text);
     //      }
     //    );
-    // console.log(title,name,email,phone,rooms,pax,child);
+    console.log(title,name,email,phone,rooms,pax,child);
 
     var phonenumber = "+201100996929";
 
-    var url =
-      "https://wa.me/" +
-      phonenumber +
-      "?text=" +
-      "*Title :* " +
-      title +
-      "%0a" +
-      "*Name :* " +
-      name +
-      "%0a" +
-      "*Email :* " +
-      email +
-      "%0a" +
-      "*Phone:* " +
-      phone +
-      "%0a" +
-      "*Rooms:* " +
-      rooms +
-      "%0a" +
-      "*Pax:* " +
-      pax +
-      "%0a" +
-      "*Child:* " +
-      child +
-      "%0a" +
-      "%0a%0a" +
-      "Hello CIT Travel";
+    var url = "https://wa.me/" + phonenumber + "?text="
+    +"*Title :* "+title+"%0a"
+    +"*Name :* "+name+"%0a"
+    +"*Email :* "+email+"%0a"
+    +"*Phone:* "+phone+"%0a"
+    +"*Rooms:* "+rooms+"%0a"
+    +"*Pax:* "+pax+"%0a"
+    +"*Child:* "+child+"%0a"
+    +"%0a%0a"
+    +"Hello CIT Travel";
 
-    window.open(url, "_blank").focus();
+    window.open(url, '_blank').focus();
   };
-
   useEffect(() => {
     getDomesticById();
   }, []);
+
   const [index, setIndex] = useState(0);
+
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
-
   return (
     <Container>
-      {itemDetails.value != "" ? (
-        <div className="hotel-info">
-          <Row className="align-items-center">
-            <Col sm="12" md="3" lg="4">
-              <div className="info-box">
-                <ul>
-                  <h4 style={{ color: "#fc4c03" }}>{itemDetails.title}</h4>
-                  <h5>
-                    {" "}
-                    {rateStars.map((star) => {
-                      return star;
-                    })}
-                  </h5>
-                  <h5 style={{ color: "#fc4c03" }}>
-                    <FontAwesomeIcon icon={faLocationDot} />{" "}
-                    {itemDetails.destination}
-                  </h5>
-                  <h5 style={{}}>{itemDetails.description}</h5>
+      {
+        nileCruiseDetails.value !="" ?  <div className="hotel-info">
+        <Row className="align-items-center">
+          <Col sm="12" md="3" lg="4">
+            <div className="info-box">
+              <ul>
+                <h4 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.title}</h4>
+                <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box6}</h5>
+                <h5 style={{ color: "#fc4c03" }} >
+                  {/* <FontAwesomeIcon icon={faLocationDot} />{" "} */}
+                  {nileCruiseDetails?.destination}
+                </h5>
+               
+                <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box7}</h5>
+                <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box8}</h5>
+                <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box9}</h5>
+                <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box10}</h5>
+              </ul>
+            </div>
+          </Col>
+          <Col sm="12" md="9" lg="8">
+            <Carousel activeIndex={index} onSelect={handleSelect}>
+              {nileCruiseDetails?.images?.length >= 1 ? (
+                nileCruiseDetails?.images?.map((img) => {
+                  console.log("images is loaded");
+                  return (
+                    <Carousel.Item key={Math.random()}>
+                      <img src={img.img_url} alt="..." />
+                    </Carousel.Item>
+                  );
+                })
+              ) : (
+                <Progress />
+              )}
+            </Carousel>
+          </Col>
+        </Row>
+        <Row className="my-5 book-rates">
+          <Col sm="12" md="3" lg="4">
+            <div className="book-form">
+              <h2>Book Now</h2>
 
-                  <h5>{itemDetails.box6}</h5>
-                  <h5>{itemDetails.box7}</h5>
-                  <h5>{itemDetails.box8}</h5>
-                  <h5>{itemDetails.box9}</h5>
-                  <h5>{itemDetails.box10}</h5>
+              <Form  onSubmit={sendMassage}>
+                      <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Control
+                          type="text"
+                          name="title"
+                          
+                          // value={itemDetails?.title}
+                          style={{display:"none"}}
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Control required
+                          type="text"
+                          name="sender_name"
+                          placeholder="Your Name"
+                          onChange={(e)=>setName(e.target.value)}
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Control
+                          type="email"
+                          name="email"
+                          placeholder="Your Email Address"
+                          onChange={(e)=>setEmail(e.target.value)}
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicNumber">
+                        <Form.Control required
+                          type="tel"
+                          name="Phone_No"
+                          placeholder="Your Phone Number"
+                          onChange={(e)=>setPhone(e.target.value)}
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Control
+                          type="tel"
+                          name="Rooms_Count"
+                          placeholder="Enter Number of Rooms"
+                          onChange={(e)=>setRooms(e.target.value)}
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Control
+                          type="text"
+                          name="Pax_Count"
+                          placeholder="Enter Number of Pax"
+                          onChange={(e)=>setPax(e.target.value)}
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Control
+                          type="text"
+                          name="Childs_Count"
+                          placeholder="Enter Number of Child"
+                          onChange={(e)=>setChild(e.target.value)}
+                        />
+                      </Form.Group>
+                      <Button id="book-btn" variant="primary" type="submit" style={{background:"#fc4c03",borderColor:"#fc4c03"}}>
+                        Book Now
+                      </Button>
+                    </Form>
+            </div>
+          </Col>
+          <Col sm="12" md="9" lg="8">
+            <div
+              class="card bottom-card text-center"
+              style={{ width: "100% !important" }}
+            >
+              <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs" id="tabs">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#rates" data-toggle="tab" style={{color:"#fc4c03",fontWeight:"bold",fontSize:"22px"}}>
+                      Rates
+                    </a>
+                  </li>
                 </ul>
               </div>
-            </Col>
-            <Col sm="12" md="9" lg="8">
-              <Carousel activeIndex={index} onSelect={handleSelect}>
-                {itemDetails.images?.length >= 1 ? (
-                  itemDetails.images?.map((img) => {
-                    console.log("images is loaded");
-                    return (
-                      <Carousel.Item key={Math.random()}>
-                        <img src={img?.img_url} alt="..." />
-                      </Carousel.Item>
-                    );
-                  })
-                ) : (
-                  <Progress />
-                )}
-              </Carousel>
-            </Col>
-          </Row>
-          <Row className="my-5 book-rates">
-            <Col sm="12" md="3" lg="4">
-              <div className="book-form">
-                <h2>Book Now</h2>
-
-                <Form ref={form} onSubmit={sendMassage}>
-                  <Form.Group className="mb-3" controlId="formBasicName">
-                    <Form.Control
-                      type="text"
-                      name="title"
-                      value={itemDetails?.title}
-                      style={{ display: "none" }}
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-3" controlId="formBasicName">
-                    <Form.Control
-                      type="text"
-                      name="sender_name"
-                      placeholder="Your Name"
-                      onChange={(e) => setName(e.target.value)}
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control
-                      type="email"
-                      name="email"
-                      placeholder="Your Email Address"
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-3" controlId="formBasicNumber">
-                    <Form.Control
-                      type="tel"
-                      name="Phone_No"
-                      placeholder="Your Phone Number"
-                      onChange={(e) => setPhone(e.target.value)}
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-3" controlId="formBasicName">
-                    <Form.Control
-                      type="tel"
-                      name="Rooms_Count"
-                      placeholder="Enter Number of Rooms"
-                      onChange={(e) => setRooms(e.target.value)}
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-3" controlId="formBasicName">
-                    <Form.Control
-                      type="text"
-                      name="Pax_Count"
-                      placeholder="Enter Number of Pax"
-                      onChange={(e) => setPax(e.target.value)}
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-3" controlId="formBasicName">
-                    <Form.Control
-                      type="text"
-                      name="Childs_Count"
-                      placeholder="Enter Number of Child"
-                      onChange={(e) => setChild(e.target.value)}
-                    />
-                  </Form.Group>
-                  <Button
-                    id="book-btn"
-                    variant="primary"
-                    type="submit"
-                    style={{ background: "#fc4c03", borderColor: "#fc4c03" }}
-                  >
-                    Book Now
-                  </Button>
-                </Form>
-              </div>
-            </Col>
-            <Col sm="12" md="9" lg="8">
-              <div
-                class="card bottom-card text-center"
-                style={{ width: "100% !important" }}
-              >
-                <div class="card-header">
-                  <ul class="nav nav-tabs card-header-tabs" id="tabs">
-                    <li class="nav-item">
-                      <a
-                        class="nav-link"
-                        href="#rates"
-                        data-toggle="tab"
-                        style={{
-                          color: "#fc4c03",
-                          fontWeight: "bold",
-                          fontSize: "22px",
-                        }}
-                      >
-                        Rates
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="card-body tabs-card">
-                  <div class="tab-content">
-                    <div class="tab-pane " id="rates">
-                      <div className=" main-table">
-                        <table class="table table-rates">
-                          <thead>
-                            <tr>
-                              <th scope="col">Package</th>
-                              <th scope="col">From</th>
-                              <th scope="col">To</th>
-                              <th scope="col">Single</th>
-                              <th scope="col">
-                                Double <br /> (per person)
-                              </th>
-                              <th scope="col">
-                                Triple <br /> (per person)
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {itemDetails.title == "Desert Rose" && (
-                              <>
-                                <tr>
-                                  <td
-                                    colSpan={5}
-                                    style={{ fontWeight: "bold" }}
-                                    className="text-center fw-bold"
-                                  >
-                                    Midweek rates per person per 4 days/3 nights
-                                  </td>
-                                </tr>
-                              </>
-                            )}
-
-                            {itemDetails.packages?.map((pack) => {
-                              return (
-                                <tr>
-                                  <td>{pack.packTitle}</td>
-                                  <td>{pack.startDate}</td>
-                                  <td>{pack.endDate} </td>
-                                  <td>{pack.single} EGP</td>
-                                  <td>{pack.double} EGP</td>
-                                  <td>{pack.triple} EGP</td>
-                                </tr>
-                              );
-                            })}
-
-                            {itemDetails.title == "Desert Rose" ? (
-                              <>
-                                <tr>
-                                  <td
-                                    colSpan={5}
-                                    className="text-center fw-bold"
-                                    style={{ fontWeight: "bold" }}
-                                  >
-                                    Weekend rates per person per 4 days/3 nights
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <td>4 Days / 3 Nights</td>
-                                  <td>2024-03-17</td>
-                                  <td>2024-04-09 </td>
-                                  <td>19680 EGP</td>
-                                  <td>12380 EGP</td>
-                                  <td>11240 EGP</td>
-                                </tr>
-                                <tr>
-                                  <td>4 Days / 3 Nights</td>
-                                  <td>2024-04-10</td>
-                                  <td>2024-04-13 </td>
-                                  <td>23080 EGP</td>
-                                  <td>14575 EGP</td>
-                                  <td>13180 EGP</td>
-                                </tr>
-                                <tr>
-                                  <td>4 Days / 3 Nights</td>
-                                  <td>2024-04-14</td>
-                                  <td>2024-04-30 </td>
-                                  <td>19680 EGP</td>
-                                  <td>12380 EGP</td>
-                                  <td>11240 EGP</td>
-                                </tr>
-                              </>
-                            ) : (
-                              ""
-                            )}
-                          </tbody>
-                        </table>
-                      </div>
+              <div class="card-body tabs-card">
+                <div class="tab-content">
+                  <div class="tab-pane " id="rates">
+                    <div className=" main-table">
+                   
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Package</th>
+                            <th scope="col">From</th>
+                            {/* <th scope="col">to</th> */}
+                            <th scope="col">Single</th>
+                            <th scope="col">Double</th>
+                            <th scope="col">Triple</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {nileCruiseDetails?.packages?.map((pack) => {
+                            return (
+                              <tr>
+                                <th scope="row">{pack.packTitle}</th>
+                                <td>{pack.startDate}</td>
+                                {/* <td>{pack.endDate}</td> */}
+                                <td>{pack.single} EGP</td>
+                                <td>{pack.double} EGP</td>
+                                <td>{pack.triple} EGP</td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="card text-center mt-3">
-                <div class="card-header">
-                  <ul class="nav nav-tabs card-header-tabs" id="tabs">
-                    <li class="nav-item">
-                      <a
-                        class="nav-link"
-                        href="#terms"
-                        data-toggle="tab"
-                        style={{
-                          color: "#fc4c03",
-                          fontWeight: "bold",
-                          fontSize: "16px",
-                        }}
-                      >
-                        Terms & Conditions
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a
-                        class="nav-link"
-                        href="#cancellation-polices"
-                        data-toggle="tab"
-                        style={{
-                          color: "#fc4c03",
-                          fontWeight: "bold",
-                          fontSize: "16px",
-                        }}
-                      >
-                        Cancellation Polices
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a
-                        class="nav-link"
-                        href="#children"
-                        data-toggle="tab"
-                        style={{
-                          color: "#fc4c03",
-                          fontWeight: "bold",
-                          fontSize: "16px",
-                        }}
-                      >
-                        Children Policy
-                      </a>
-                    </li>
+            </div>
+            <div class="card text-center mt-3">
+              <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs" id="tabs">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#itenary" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
+                      Itenary
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#details" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
+                      Details
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#terms" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
+                      Terms & Conditions
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="#cancellation-polices"
+                      data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}
+                    >
+                      Cancellation Polices
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-body ">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="itenary">
+                    
+                    <Accordion
+                      className="itenary-accordion"
+                      defaultActiveKey="0"
+                      // flush
+                    >
+                      {nileCruiseDetails?.itenary?.map((day, index) => {
+                        return (
+                          <Accordion.Item eventKey={`${index + 1}`}>
+                            <Accordion.Header>
+                              Day {index + 1} {"  "}
+                              &nbsp; 
+                              {/* <FontAwesomeIcon icon={faArrowRight} /> */}
+                              &nbsp;{"  "}
+                              {day.dayTitle}
+                            </Accordion.Header>
+                            <Accordion.Body>
+                              <div
+                                dangerouslySetInnerHTML={{
+                                  __html: day?.dayContent,
+                                }}
+                              />
+                            </Accordion.Body>
+                          </Accordion.Item>
+                        );
+                      })}
+                    </Accordion>
+                  </div>
+                  <div class="tab-pane" id="details">
+                    
 
-                    <li class="nav-item">
-                      <a
-                        class="nav-link"
-                        href="#document-required"
-                        data-toggle="tab"
-                        style={{
-                          color: "#fc4c03",
-                          fontWeight: "bold",
-                          fontSize: "16px",
-                        }}
-                      >
-                        Required Documents
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="card-body ">
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="terms">
-                      <div
-                        style={{ fontSize: "14px", fontWeight: "normal" }}
-                        dangerouslySetInnerHTML={{
-                          __html: itemDetails.termsAndConditions,
-                        }}
-                      />
-                    </div>
-                    <div class="tab-pane " id="cancellation-polices">
-                      {/* <h4>Cancelation & No Show Plocies:</h4> */}
-                      {/* {itemDetails.cancellation} */}
-
-                      <div
-                        style={{ fontSize: "14px", fontWeight: "normal" }}
-                        dangerouslySetInnerHTML={{
-                          __html: itemDetails.cancellation,
-                        }}
-                      />
-                    </div>
-
-                    <div class="tab-pane" id="children">
-                      <div
-                        style={{ fontSize: "14px", fontWeight: "normal" }}
-                        dangerouslySetInnerHTML={{
-                          __html: itemDetails.childrenPolices,
-                        }}
-                      />
-                    </div>
-
-                    <div class="tab-pane" id="document-required">
-                      <div
-                        style={{ fontSize: "14px", fontWeight: "normal" }}
-                        dangerouslySetInnerHTML={{
-                          __html: itemDetails.requiredDocs,
-                        }}
-                      />
-                    </div>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: nileCruiseDetails?.description,
+                      }}
+                    />
+                  </div>
+                  <div class="tab-pane" id="terms">
+                  
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: nileCruiseDetails?.termsAndConditions,
+                      }}
+                    />
+                  </div>
+                  <div class="tab-pane" id="cancellation-polices">
+                    
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: nileCruiseDetails?.cancellation,
+                      }}
+                    />
                   </div>
                 </div>
               </div>
-            </Col>
-          </Row>
-          <ToastContainer />
-        </div>
-      ) : (
-        <FullProgress />
-      )}
+            </div>
+          </Col>
+        </Row>
+      </div>: <FullProgress />
+      }
+     
     </Container>
   );
 }
 
-export default TembDetails;
+export default NileCruiseTempDetails;
 // import { Button, Col, Container, Row } from "react-bootstrap";
 // import "./TembDetails.scss";
 // import Carousell from "../Carousell/Carousell";

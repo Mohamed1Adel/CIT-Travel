@@ -1,0 +1,66 @@
+// .domestic-section{
+//     margin-top: 50px;
+// }
+// .col{
+//     height: 100%;
+//     border:1px solid black
+// }
+// .domestic-hotels .row .col .card{
+//     margin-bottom: 10px;
+// }
+// .filter{
+//     margin-bottom: 20px;
+//     text-align: center;
+// }
+// .rating-filter ul{
+//     padding:0
+// }
+// .rating-filter button{
+// margin:5px
+// }
+
+// .rates-stars{
+//     cursor: pointer;
+//     transition: all 0.3s ease-in-out;
+// }
+// .rates-stars:hover{
+//     border-radius: 5px;
+//     background-color: #989898;
+//     transform: scale(1.1);
+// }
+
+.form-check {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+// .side-filter-col {
+//   padding: 15px;
+//   background-color: var(--red-color);
+//   color: #fff;
+// }
+// .side-filter-col .form-check:hover {
+//   background-color: var(--second-blue-color);
+// }
+.side-filter-col .form-check-label {
+  padding: 3px;
+  margin-right: 20px;
+  // padding-left:5px
+}
+
+.form-check .form-check-input {
+  //   margin-right: -1em;
+  margin-top: 0;
+}
+
+.side-filter-col-hajj .form-check:hover {
+  border:none !important;
+  cursor:  pointer
+}
+
+
+.side-filter-col-hajj .form-check-label {
+  cursor:  pointer !important;
+}
+

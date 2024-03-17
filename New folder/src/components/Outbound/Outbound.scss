@@ -1,0 +1,9 @@
+.rates-stars {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.rates-stars:hover {
+  border-radius: 5px;
+  background-color: #989898;
+  transform: scale(1.1);
+}

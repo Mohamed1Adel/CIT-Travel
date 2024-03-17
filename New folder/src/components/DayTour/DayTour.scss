@@ -1,0 +1,24 @@
+
+.Banner{
+    // background-image:url("../../images/dayTour/Alex-3.jpg") !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+    height:100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index: -1000;
+}
+
+@media (max-width:767px) {
+    .Banner{
+        background-size: contain;
+        height:50vh;
+    }
+
+    .day-tour{
+        margin-top: 40vh !important;
+    }
+}
