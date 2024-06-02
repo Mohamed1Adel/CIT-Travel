@@ -102,17 +102,17 @@ function App() {
               element={
                 <>
                       
-                       <Popup />
-                       <Popup2 />
+                       {/* <Popup /> */}
+                       {/* <Popup2 /> */}
                       <Landing />
                       <div class="container-fluid home-container" style={{backgroundColor:"#fff",marginTop:"100vh",zIndex:"9999",paddingTop:"50px"}}>
                       <FlyRequests />
                       <div className="container new-cont my-4" style={{width:"60%",margin:"auto",display:"flex",flexDirection:"column",alignItems:"center",gap:"15px"}}>
                         {/* <img src={require("./images/LogoIcon.png")} width="200px"/> */}
-                        <h5 className="text-center main-heading mb-0 pb-0">C.I.T Travel</h5>
-                        <h5 className="text-center main-heading mb-0 py-0"  style={{}}>Your Ticket to a World Of Possibilitie </h5>
-                        <h5 className="text-center mb-0 pd-0">Explore the beauty of Egypt in a warm and pleasant atmosphere with our dedicated professional  agents who can help you with every details  when it comes to planning your getaway Depending on your priorities and requirements.</h5>
-                        <h5 className="text-center mb-0 pd-0 main-heading">WHY C.I.T TRAVEL EGYPT</h5>
+                        <h5 className="text-center main-heading mb-0 pb-0">C.I.T Travel,</h5>
+                        <h5 className="text-center main-heading mb-0 py-0"  style={{}}>Your Ticket to a World Of Possibilities </h5>
+                        <h5 className=" mb-0 pd-0">Explore the beauty of Egypt in a warm and pleasant atmosphere with our dedicated professional  agents who can help you with every details  when it comes to planning your getaway Depending on your priorities and requirements.</h5>
+                        {/* <h5 className="text-center mb-0 pd-0 main-heading">WHY C.I.T TRAVEL EGYPT</h5>
                         <ol className="list-group list-group-numbered">
                           <li className="list-group-item">We are a travel agency located in Egypt, with people that know Egypt, Arabian, and Western cultures.</li>
                           <li className="list-group-item">All our clients will obtain personalized and first class service of their Egypt vacation.</li>
@@ -122,7 +122,7 @@ function App() {
                           <li className="list-group-item">Problems solving and focus on solution-oriented methods for all customer requests and requirements…</li>
                           <li className="list-group-item">Competitive prices combined with the highest quality services resulting in value for money across all our services and products</li>
                           
-                        </ol>
+                        </ol> */}
                       </div>
                       <Container>
                         {/* <FlyRequests /> */}
@@ -202,6 +202,7 @@ function App() {
       " class="float" target="_blank" >
 <i class="fa fa-whatsapp my-float"></i>
 </a>
+
       <Footer />
        
       {/* <SimpleMap/> */}

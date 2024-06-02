@@ -84,9 +84,10 @@ function HajjAndOmrah() {
         }}
       >
         <Carousel
+        interval={2000}
           activeIndex={index}
           onSelect={handleSelect}
-          style={{ marginBottom: "30px" }}
+          style={{ marginBottom: "30px" ,height:"100vh"}}
         >
           {/* {
          images[0]?.images?.length ? 
@@ -102,14 +103,14 @@ function HajjAndOmrah() {
           <Carousel.Item>
             <img
               src={require("../../images/hajj/360_F_288164825_pfw4VohVvNz2RPeXTwIxVZwbu93R4tyk.jpg")}
-              style={{ height: "100%" }}
+              style={{ height: "100vh" }}
               alt="..."
             />
           </Carousel.Item>
           <Carousel.Item>
             <img
               src={require("../../images/hajj/Home-Page-4.jpg")}
-              style={{ height: "100%" }}
+              style={{ height: "100vh" }}
               alt="..."
             />
           </Carousel.Item>

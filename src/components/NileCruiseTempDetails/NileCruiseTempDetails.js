@@ -9,6 +9,7 @@ import { faArrowRight, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import {API_URL, MONGODB_URL} from '../../envData'
 import { Progress } from "../../progressComponent";
 import FullProgress from "../../FullProgress";
+import axios from "axios";
 function NileCruiseTempDetails() {
   const [nileCruiseDetails, setNileCruiseDetails] = useState({value:""});
   const [images, setImages] = useState([]);
@@ -84,20 +85,68 @@ function NileCruiseTempDetails() {
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
+
+      // State to hold the fetched data
+      const [dataImg, setDataImg] = useState(null);
+      // State to hold loading state
+      const [loading, setLoading] = useState(true);
+    
+      useEffect(() => {
+        const fetchData = async () => {
+          try {
+            // Fetch data from your PHP API
+            const config = {
+              headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+              }
+            };
+            const response = await axios.get(process.env.PUBLIC_URL + `/dropimg/g.php?id=${id}`);
+            // Set the data in state
+            setDataImg(response.data);
+            console.log(response.data);
+            // Set loading state to false
+            setLoading(false);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+            // Handle error if needed
+          }
+        };
+    
+        // Call the fetchData function
+        fetchData();
+      }, []); // Empty dependency array to ensure useEffect only runs once
   return (
     <Container>
       {
         nileCruiseDetails.value !="" ?  <div className="hotel-info">
         <Row className="align-items-center">
           <Col sm="12" md="3" lg="4">
-            <div className="info-box">
+            <div className="info-box position-relative">
               <ul>
                 <h4 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.title}</h4>
+                
+               
                 <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box6}</h5>
+                
                 <h5 style={{ color: "#fc4c03" }} >
                   {/* <FontAwesomeIcon icon={faLocationDot} />{" "} */}
                   {nileCruiseDetails?.destination}
                 </h5>
+
+                {
+              nileCruiseDetails?.title === "Luxor - Cairo / Long Cruise " ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"18px"}}>Starting from 28000 EGP </h6>: ""
+            }
+            {
+              nileCruiseDetails?.title === "Aswan - Cairo / Long Cruise" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"18px"}}>Starting from 37000 EGP </h6>: ""
+            }
+            {
+              nileCruiseDetails?.destination === "4 Days - 3 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"18px"}}>Starting from 10500 EGP </h6>: ""
+            }
+            {
+              nileCruiseDetails?.destination === "5 Days - 4 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"18px"}}>Starting from 13500 EGP </h6>: ""
+            }
+            <h6 style={{  }}>{nileCruiseDetails?.description}</h6>
                
                 <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box7}</h5>
                 <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box8}</h5>
@@ -107,15 +156,22 @@ function NileCruiseTempDetails() {
             </div>
           </Col>
           <Col sm="12" md="9" lg="8">
-            <Carousel activeIndex={index} onSelect={handleSelect}>
-              {nileCruiseDetails?.images?.length >= 1 ? (
-                nileCruiseDetails?.images?.map((img) => {
+            <Carousel interval={2000} activeIndex={index} onSelect={handleSelect}>
+              {dataImg?.length >= 1 ? (
+                dataImg?.map((img,i) => {
                   console.log("images is loaded");
-                  return (
-                    <Carousel.Item key={Math.random()}>
-                      <img src={img.img_url} alt="..." />
-                    </Carousel.Item>
-                  );
+                  if(i<=dataImg.length - 2){
+                    return (
+                   <Carousel.Item key={Math.random()}>
+                     <img src={process.env.PUBLIC_URL + `/dropimg/uploads/${dataImg[i]}`} alt="..." />
+                   </Carousel.Item>
+                 );
+                 }
+                  // return (
+                  //   <Carousel.Item key={Math.random()}>
+                  //     <img src={img.img_url} alt="..." />
+                  //   </Carousel.Item>
+                  // );
                 })
               ) : (
                 <Progress />
@@ -201,7 +257,20 @@ function NileCruiseTempDetails() {
                 <ul class="nav nav-tabs card-header-tabs" id="tabs">
                   <li class="nav-item">
                     <a class="nav-link" href="#rates" data-toggle="tab" style={{color:"#fc4c03",fontWeight:"bold",fontSize:"22px"}}>
-                      Rates
+                     
+
+                      {
+              nileCruiseDetails?.title === "Luxor - Cairo / Long Cruise " ?  " Starting from 28000 EGP": ""
+            }
+            {
+              nileCruiseDetails?.title === "Aswan - Cairo / Long Cruise" ?  " Starting from 37000 EGP": ""
+            }
+            {
+              nileCruiseDetails?.destination === "4 Days - 3 Nights" ?  " Starting from 10500 EGP": ""
+            }
+            {
+              nileCruiseDetails?.destination === "5 Days - 4 Nights" ?  " Starting from 13500 EGP": ""
+            }
                     </a>
                   </li>
                 </ul>
@@ -216,7 +285,7 @@ function NileCruiseTempDetails() {
                           <tr>
                             <th scope="col">Package</th>
                             <th scope="col">From</th>
-                            {/* <th scope="col">to</th> */}
+                            <th scope="col">to</th>
                             <th scope="col">Single</th>
                             <th scope="col">Double</th>
                             <th scope="col">Triple</th>
@@ -227,8 +296,8 @@ function NileCruiseTempDetails() {
                             return (
                               <tr>
                                 <th scope="row">{pack.packTitle}</th>
-                                <td>{pack.startDate}</td>
-                                {/* <td>{pack.endDate}</td> */}
+                                <td>{pack.startDate.split('-').reverse().join('-')}</td>
+                                <td>{pack.endDate.split('-').reverse().join('-')}</td>
                                 <td>{pack.single} EGP</td>
                                 <td>{pack.double} EGP</td>
                                 <td>{pack.triple} EGP</td>
@@ -250,11 +319,7 @@ function NileCruiseTempDetails() {
                       Itenary
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#details" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
-                      Details
-                    </a>
-                  </li>
+                
                   <li class="nav-item">
                     <a class="nav-link" href="#terms" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
                       Terms & Conditions
@@ -267,6 +332,25 @@ function NileCruiseTempDetails() {
                       data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}
                     >
                       Cancellation Polices
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="#children-polices"
+                      data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}
+                    >
+                      Children Polices
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#include" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
+                      Include
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#exclude" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
+                      Exclude
                     </a>
                   </li>
                 </ul>
@@ -296,21 +380,31 @@ function NileCruiseTempDetails() {
                                   __html: day?.dayContent,
                                 }}
                               />
+
+{
+                              day?.hasOwnProperty('optTour') ?
+                              day?.optTour !== "<p><br></p>" ? 
+
+                              day?.optTour !=="<p> </p>" ?
+                              <>
+
+                              <h4 style={{fontWeight:"bold",color:"red"}}>Optional Tours</h4>
+                              <div
+                            style={{marginTop:"10px"}}
+                              dangerouslySetInnerHTML={{
+                                __html: day?.optTour,
+                              }}
+                            />
+                              </>
+                              : "":"" :""
+                            }
                             </Accordion.Body>
                           </Accordion.Item>
                         );
                       })}
                     </Accordion>
                   </div>
-                  <div class="tab-pane" id="details">
-                    
-
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: nileCruiseDetails?.description,
-                      }}
-                    />
-                  </div>
+                  
                   <div class="tab-pane" id="terms">
                   
                     <div
@@ -324,6 +418,32 @@ function NileCruiseTempDetails() {
                     <div
                       dangerouslySetInnerHTML={{
                         __html: nileCruiseDetails?.cancellation,
+                      }}
+                    />
+                  </div>
+                  <div class="tab-pane" id="children-polices">
+                    
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: nileCruiseDetails?.children,
+                      }}
+                    />
+                  </div>
+                  <div class="tab-pane" id="include">
+                    
+
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: nileCruiseDetails?.include,
+                      }}
+                    />
+                  </div>
+                  <div class="tab-pane" id="exclude">
+                    
+
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: nileCruiseDetails?.exclude,
                       }}
                     />
                   </div>

@@ -158,3 +158,16 @@ div .dot {
     height: 40vh !important;
    }
 }
+
+@media(min-width:1200px){
+  .btn-primary{
+    font-size:12px;
+    width:120px;
+    right:10px !important;
+    bottom:10px !important
+  }
+
+  .des-card{
+    font-size:14px !important
+  }
+}

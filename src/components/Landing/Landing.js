@@ -17,7 +17,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 function Landing() {
-  const nileid = "65cce9c2e762f434ed08d7bf";
+  const nileid = "662909405d90fc661870af7e";
   const [images, setImages] = useState([]);
   const [index, setIndex] = useState(0);
   const [isOnline, setIsOnline] = useState(window.navigator.onLine);
@@ -58,7 +58,7 @@ function Landing() {
   return (
     <>
       <Toast
-        className="d-none"
+        className=""
         show={showA}
         onClose={toggleShowA}
         style={{
@@ -70,15 +70,17 @@ function Landing() {
         }}
       >
         <Toast.Header>
+                      <img width="180" height="100" src={require("../../images/hot-offer/r.png")} style={{objectFit:"contain",position:"absolute",right:"60px",top:"-45px"}}/>
+
           <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-          <strong className="me-auto">Enjoy with us </strong>
+          <strong className="me-auto">Desert Rose <br /> <span style={{fontSize:"12px",fontWeight:"bold",color:"rgb(252, 76, 3)"}}> special price With 5% installment</span> </strong>
         </Toast.Header>
         <Toast.Body>
           <img
             width="100%"
-            height="300"
+            height="250"
             className="mb-2"
-            src={require("../../images/val.jpg")}
+            src={require("../../images/desert-rose-resort_153839788829.jpg")}
           />
 
           <Button
@@ -89,7 +91,7 @@ function Landing() {
           >
             {/* <Link to={"/tembDetails/" + id}> */}
             <Link
-              to={`/nileCruiseTempDetails/${nileid}`}
+              to={`/tembDetails/${nileid}`}
               style={{ color: "#000" }}
             >
               More Details
@@ -107,7 +109,7 @@ function Landing() {
           height: "100vh",
         }}
       >
-        <Carousel
+        <Carousel interval={2000}
           className="main-home-slider"
           activeIndex={index}
           onSelect={handleSelect}

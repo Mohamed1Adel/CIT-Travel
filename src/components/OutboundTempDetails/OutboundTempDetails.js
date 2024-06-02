@@ -116,7 +116,7 @@ function OutboundTempDetails() {
           </div>
         </Col>
         <Col sm="12" md="9" lg="8">
-          <Carousel activeIndex={index} onSelect={handleSelect}>
+          <Carousel interval={2000} activeIndex={index} onSelect={handleSelect}>
             {outboundDetails?.images?.length >= 1 ? (
               outboundDetails?.images?.map((img) => {
                 console.log("images is loaded");

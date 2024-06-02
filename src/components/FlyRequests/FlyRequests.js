@@ -46,7 +46,7 @@ function FlyRequests() {
     const sendMessage = (e)=>{
       e.preventDefault();
       console.log(from,to,depDate,retDate,traveller,child,Infant,cabine);
-      var phonenumber = "+201556040246";
+      var phonenumber = "+201100996929";
   
       var url = "https://wa.me/" + phonenumber + "?text="
       +"Fly Request"+"%0a"
@@ -77,14 +77,14 @@ function FlyRequests() {
 <h3 className="text-center fly-title" style={{color:"#fc4c03"}}>Flight Requests</h3>
 <div class="form-check">
   <input class="form-check-input" onClick={()=>{setFylOpt("Two Way")}} type="radio" name="flexRadioDefault" id="flexRadioDefault2"  />
-  <label class="form-check-label" for="flexRadioDefault2">
+  <label class="form-check-label" for="flexRadioDefault2" style={{fontSize:"14px"}}>
   &nbsp; Round Trip
   </label>
 </div>
 
       <div class="form-check">
   <input class="form-check-input" onClick={()=>{setFylOpt("One Way")}} type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-  <label class="form-check-label" for="flexRadioDefault1" >
+  <label class="form-check-label" for="flexRadioDefault1" style={{fontSize:"14px"}}>
     &nbsp; One Way
   </label>
 </div>

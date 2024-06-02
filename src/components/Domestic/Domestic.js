@@ -50,7 +50,7 @@ function Domestic() {
      const response = await axios.get(`${MONGODB_URL}/getAllDomestics`);
       const data = response.data;
       console.log(data);
-      setData(data);
+      setData(data.reverse());
     } catch (e) {
       console.log(e);
     }
@@ -89,39 +89,7 @@ function Domestic() {
                   <div className="location-filter">
                     <h2>Hotel Deals</h2>
                     <div className="checkboxes-group">
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          value=""
-                          id="AinElSokhna"
-                          onChange={(e) => {
-                            if (e.currentTarget.checked == true) {
-                              filtered != true ? setFiltered(true) :setFiltered()
-                              
-                              console.log("true");
-                              setNewDataArray([
-                                ...newDataArray,
-                                ...data.filter((item) =>
-                                  item.category == "Sokhna" ? item : ""
-                                ),
-                              ]);
-                            } else {
-                              filtered != false ? setFiltered(false) :setFiltered()
-                              // setFiltered(false);
-                              console.log("false");
-                              setNewDataArray([
-                                ...newDataArray.filter((item) =>
-                                  item.category != "Sokhna" ? item : ""
-                                ),
-                              ]);
-                            }
-                          }}
-                        ></input>
-                        <label class="form-check-label" for="AinElSokhna">
-                          Ain El Sokhna
-                        </label>
-                      </div>
+
                       <div class="form-check">
                         <input
                           class="form-check-input"
@@ -153,6 +121,39 @@ function Domestic() {
                         ></input>
                         <label class="form-check-label" for="Hurghada">
                           Hurghada
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="SomaBay"
+                          onChange={(e) => {
+                            if (e.currentTarget.checked == true) {
+                              filtered != true ? setFiltered(true) :setFiltered()
+                              
+                              console.log("true");
+                              setNewDataArray([
+                                ...newDataArray,
+                                ...data.filter((item) =>
+                                  item.category == "Soma" ? item : ""
+                                ),
+                              ]);
+                            } else {
+                              filtered != false ? setFiltered(false) :setFiltered()
+                              // setFiltered(false);
+                              console.log("false");
+                              setNewDataArray([
+                                ...newDataArray.filter((item) =>
+                                  item.category != "Soma" ? item : ""
+                                ),
+                              ]);
+                            }
+                          }}
+                        ></input>
+                        <label class="form-check-label" for="SomaBay">
+                          Soma Bay
                         </label>
                       </div>
                       <div class="form-check">
@@ -226,7 +227,7 @@ function Domestic() {
                           class="form-check-input"
                           type="checkbox"
                           value=""
-                          id="SomaBay"
+                          id="SharmElSheikh"
                           onChange={(e) => {
                             if (e.currentTarget.checked == true) {
                               filtered != true ? setFiltered(true) :setFiltered()
@@ -235,7 +236,7 @@ function Domestic() {
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
-                                  item.category == "Soma" ? item : ""
+                                  item.category == "Sharm" ? item : ""
                                 ),
                               ]);
                             } else {
@@ -244,47 +245,14 @@ function Domestic() {
                               console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
-                                  item.category != "Soma" ? item : ""
+                                  item.category != "Sharm" ? item : ""
                                 ),
                               ]);
                             }
                           }}
                         ></input>
-                        <label class="form-check-label" for="SomaBay">
-                          Soma Bay
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          value=""
-                          id="MarsaAlam"
-                          onChange={(e) => {
-                            if (e.currentTarget.checked == true) {
-                              filtered != true ? setFiltered(true) :setFiltered()
-                              
-                              console.log("true");
-                              setNewDataArray([
-                                ...newDataArray,
-                                ...data.filter((item) =>
-                                  item.category == "Marsa Alam" ? item : ""
-                                ),
-                              ]);
-                            } else {
-                              filtered != false ? setFiltered(false) :setFiltered()
-                              // setFiltered(false);
-                              console.log("false");
-                              setNewDataArray([
-                                ...newDataArray.filter((item) =>
-                                  item.category != "Marsa Alam" ? item : ""
-                                ),
-                              ]);
-                            }
-                          }}
-                        ></input>
-                        <label class="form-check-label" for="MarsaAlam">
-                          Marsa Alam
+                        <label class="form-check-label" for="SharmElSheikh">
+                          Sharm El Sheikh
                         </label>
                       </div>
                       <div class="form-check">
@@ -353,12 +321,16 @@ function Domestic() {
                           Taba
                         </label>
                       </div>
+
+                     
+
+
                       <div class="form-check">
                         <input
                           class="form-check-input"
                           type="checkbox"
                           value=""
-                          id="SharmElSheikh"
+                          id="MarsaAlam"
                           onChange={(e) => {
                             if (e.currentTarget.checked == true) {
                               filtered != true ? setFiltered(true) :setFiltered()
@@ -367,7 +339,7 @@ function Domestic() {
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
-                                  item.category == "Sharm" ? item : ""
+                                  item.category == "Marsa Alam" ? item : ""
                                 ),
                               ]);
                             } else {
@@ -376,16 +348,19 @@ function Domestic() {
                               console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
-                                  item.category != "Sharm" ? item : ""
+                                  item.category != "Marsa Alam" ? item : ""
                                 ),
                               ]);
                             }
                           }}
                         ></input>
-                        <label class="form-check-label" for="SharmElSheikh">
-                          Sharm El Sheikh
+                        <label class="form-check-label" for="MarsaAlam">
+                          Marsa Alam
                         </label>
                       </div>
+
+
+
                       <div class="form-check">
                         <input
                           class="form-check-input"
@@ -516,6 +491,39 @@ function Domestic() {
                         ></input>
                         <label class="form-check-label" for="MarsaMatrouh">
                           Marsa Matrouh
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="AinElSokhna"
+                          onChange={(e) => {
+                            if (e.currentTarget.checked == true) {
+                              filtered != true ? setFiltered(true) :setFiltered()
+                              
+                              console.log("true");
+                              setNewDataArray([
+                                ...newDataArray,
+                                ...data.filter((item) =>
+                                  item.category == "Sokhna" ? item : ""
+                                ),
+                              ]);
+                            } else {
+                              filtered != false ? setFiltered(false) :setFiltered()
+                              // setFiltered(false);
+                              console.log("false");
+                              setNewDataArray([
+                                ...newDataArray.filter((item) =>
+                                  item.category != "Sokhna" ? item : ""
+                                ),
+                              ]);
+                            }
+                          }}
+                        ></input>
+                        <label class="form-check-label" for="AinElSokhna">
+                          Ain El Sokhna
                         </label>
                       </div>
                     </div>

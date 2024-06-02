@@ -91,7 +91,7 @@ function HajjAndOmrahDetails() {
             </div>
           </Col>
           <Col sm="12" md="9" lg="8">
-          <Carousel activeIndex={index} onSelect={handleSelect}>
+          <Carousel interval={2000} activeIndex={index} onSelect={handleSelect}>
               {hajjOmrah?.images?.length >= 1 ? (
                 hajjOmrah?.images?.map((img) => {
                   console.log("images is loaded");

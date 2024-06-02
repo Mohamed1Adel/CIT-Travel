@@ -85,6 +85,38 @@ function HistorecalTembDetails() {
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
+
+  
+    // State to hold the fetched data
+    const [dataImg, setDataImg] = useState(null);
+    // State to hold loading state
+    const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          // Fetch data from your PHP API
+          const config = {
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+            }
+          };
+          const response = await axios.get(process.env.PUBLIC_URL + `/dropimg/g.php?id=${id}`);
+          // Set the data in state
+          setDataImg(response.data);
+          console.log(response.data);
+          // Set loading state to false
+          setLoading(false);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+          // Handle error if needed
+        }
+      };
+  
+      // Call the fetchData function
+      fetchData();
+    }, []); // Empty dependency array to ensure useEffect only runs once
   return (
     <Container>
       {
@@ -119,13 +151,20 @@ function HistorecalTembDetails() {
           <Col sm="12" md="9" lg="8">
             <Carousel activeIndex={index} onSelect={handleSelect}>
               {programDetails?.images?.length >= 1 ? (
-                programDetails?.images?.map((img) => {
+                programDetails?.images?.map((img,i) => {
                   console.log("images is loaded");
-                  return (
-                    <Carousel.Item key={Math.random()}>
-                      <img src={img?.img_url} alt="..." />
-                    </Carousel.Item>
-                  );
+                  if(i<=dataImg.length - 2){
+                    return (
+                   <Carousel.Item key={Math.random()}>
+                     <img src={process.env.PUBLIC_URL + `/dropimg/uploads/${dataImg[i]}`} alt="..." />
+                   </Carousel.Item>
+                 );
+                 }
+                  // return (
+                  //   <Carousel.Item key={Math.random()}>
+                  //     <img src={img?.img_url} alt="..." />
+                  //   </Carousel.Item>
+                  // );
                 })
               ) : (
                 <Progress />
@@ -232,8 +271,8 @@ function HistorecalTembDetails() {
                             return (
                               <tr>
                                 <th scope="row">{hotel.hotelTitle}</th>
-                                <td>{hotel.from}</td>
-                                <td>{hotel.to}</td>
+                                <td>{hotel.from.split('-').reverse().join('-')}</td>
+                                <td>{hotel.to.split('-').reverse().join('-')}</td>
                                 <td>{hotel.startingFrom} &#65284;</td>
                               </tr>
                             );

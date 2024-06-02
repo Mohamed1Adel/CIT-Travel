@@ -8,7 +8,7 @@ import { Progress } from '../../progressComponent';
 import { ToastContainer, toast } from "react-toastify";
 
 function Popup2() {
-    const popupid = "65f2d56507d653aa7596c568";
+    const popupid = "660c3537cd6c763f4ed70b2e";
     // const nileid = "65cce9c2e762f434ed08d7bf";
     const [itemDetails,setItemDetails] = useState();
 

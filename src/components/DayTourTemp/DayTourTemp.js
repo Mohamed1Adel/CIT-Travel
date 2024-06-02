@@ -1,17 +1,51 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Button, Card } from "react-bootstrap";
 import "./DayTourTemp.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faClock, faMoneyBill, faStar } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function DayTourTemp(dayTour) {
   console.log(dayTour);
   // console.log(domestic);
+        // State to hold the fetched data
+        const [dataImg, setDataImg] = useState([]);
+        // State to hold loading state
+        const [loading, setLoading] = useState(true);
+      
+        useEffect(() => {
+          const fetchData = async () => {
+            try {
+              // Fetch data from your PHP API
+              const config = {
+                headers: {
+                  "Access-Control-Allow-Origin": "*",
+                  "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+                }
+              };
+              const response = await axios.get(process.env.PUBLIC_URL + `/dropimg/g.php?id=${dayTour?.dayTour._id}`);
+              // Set the data in state
+              setDataImg(response.data);
+              console.log(response.data);
+              // Set loading state to false
+              setLoading(false);
+            } catch (error) {
+              console.error('Error fetching data:', error);
+              // Handle error if needed
+            }
+          };
+      
+          // Call the fetchData function
+          fetchData();
+        }, []); // Empty dependency array to ensure useEffect only runs once
+    
   return (
     <Card className="hotel-card" style={{ width: "18rem", minHeight:"340px"}}>
       <div className="card-image">
-        <Card.Img variant="top" src={dayTour?.dayTour.images[0].img_url} />
+        {/* <Card.Img variant="top" src={dayTour?.dayTour.images[0].img_url} /> */}
+        <Card.Img variant="top" src={process.env.PUBLIC_URL + `/dropimg/uploads/${dataImg[0]}`} />
+
       </div>
       <Card.Body>
         <Card.Title>{dayTour?.dayTour.title} </Card.Title>

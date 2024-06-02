@@ -10,6 +10,7 @@ import { Progress } from "../../progressComponent";
 import emailjs from "@emailjs/browser";
 import FullProgress from "../../FullProgress";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 
 function TembDetails() {
   const form = useRef();
@@ -111,13 +112,44 @@ function TembDetails() {
     setIndex(selectedIndex);
   };
 
+    // State to hold the fetched data
+    const [dataImg, setDataImg] = useState(null);
+    // State to hold loading state
+    const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          // Fetch data from your PHP API
+          const config = {
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+            }
+          };
+          const response = await axios.get(process.env.PUBLIC_URL + `/dropimg/g.php?id=${id}`);
+          // Set the data in state
+          setDataImg(response.data);
+          console.log(response.data);
+          // Set loading state to false
+          setLoading(false);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+          // Handle error if needed
+        }
+      };
+  
+      // Call the fetchData function
+      fetchData();
+    }, []); // Empty dependency array to ensure useEffect only runs once
+
   return (
     <Container>
       {itemDetails.value != "" ? (
         <div className="hotel-info">
           <Row className="align-items-center">
             <Col sm="12" md="3" lg="4">
-              <div className="info-box">
+              <div className="info-box position-relative">
                 <ul>
                   <h4 style={{ color: "#fc4c03" }}>{itemDetails.title}</h4>
                   <h5>
@@ -126,6 +158,27 @@ function TembDetails() {
                       return star;
                     })}
                   </h5>
+                  {
+         itemDetails.title === "Movenpick Soma Bay"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 8030 EGP</h6> :""
+        }
+        {
+         itemDetails.title === "Royal Lagoons Resort & Aqua Park"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 5330 EGP</h6> :""
+        }
+        {
+         itemDetails.title === "Three Corners Sunny Beach"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 6300 EGP</h6> :""
+        }
+        {
+         itemDetails.title === "New Eagles Aqua Park Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 5100 EGP</h6> :""
+        }
+        {
+         itemDetails.title === "Calimera Blend Paradise"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 7650 EGP</h6> :""
+        }
+        {
+         itemDetails.title === "Blend Club Aqua Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 6150 EGP</h6> :""
+        }
+        {
+         itemDetails.title === "Desert Rose"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",position:"absolute",bottom:"5px",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 9225 EGP</h6> :""
+        }
                   <h5 style={{ color: "#fc4c03" }}>
                     <FontAwesomeIcon icon={faLocationDot} />{" "}
                     {itemDetails.destination}
@@ -141,15 +194,18 @@ function TembDetails() {
               </div>
             </Col>
             <Col sm="12" md="9" lg="8">
-              <Carousel activeIndex={index} onSelect={handleSelect}>
-                {itemDetails.images?.length >= 1 ? (
-                  itemDetails.images?.map((img) => {
+              <Carousel interval={2000} activeIndex={index} onSelect={handleSelect}>
+                {dataImg?.length >= 1 ? (
+                  dataImg?.map((img,i) => {
                     console.log("images is loaded");
-                    return (
+                    if(i<=dataImg.length - 2){
+                       return (
                       <Carousel.Item key={Math.random()}>
-                        <img src={img?.img_url} alt="..." />
+                        <img src={process.env.PUBLIC_URL + `/dropimg/uploads/${dataImg[i]}`} alt="..." />
                       </Carousel.Item>
                     );
+                    }
+                   
                   })
                 ) : (
                   <Progress />
@@ -248,7 +304,28 @@ function TembDetails() {
                           fontSize: "22px",
                         }}
                       >
-                        Rates
+                         {
+
+                        itemDetails.title === "Movenpick Soma Bay"? "Starting from 8030 EGP" :""
+        }
+        {
+         itemDetails.title === "Royal Lagoons Resort & Aqua Park"? "Starting from 5330 EGP" :""
+        }
+        {
+         itemDetails.title === "Three Corners Sunny Beach"? "Starting from 6300 EGP" :""
+        }
+        {
+         itemDetails.title === "New Eagles Aqua Park Resort"? "Starting from 5100 EGP" :""
+        }
+        {
+         itemDetails.title === "Calimera Blend Paradise"? "Starting from 7650 EGP" :""
+        }
+        {
+         itemDetails.title === "Blend Club Aqua Resort"? "Starting from 6150 EGP" :""
+        }
+        {
+         itemDetails.title === "Desert Rose"? "Starting from 10050 EGP" :""
+        }
                       </a>
                     </li>
                   </ul>
@@ -279,7 +356,7 @@ function TembDetails() {
                                   <td
                                     colSpan={5}
                                     style={{ fontWeight: "bold" }}
-                                    className="text-center fw-bold"
+                                    className="text-center fw-bold d-none"
                                   >
                                     Midweek rates per person per 4 days/3 nights
                                   </td>
@@ -288,18 +365,21 @@ function TembDetails() {
                             )}
 
                             {itemDetails.packages?.map((pack) => {
-                              return (
-                                <tr>
-                                  <td>{pack.packTitle}</td>
-                                  <td>{pack.startDate}</td>
-                                  <td>{pack.endDate} </td>
-                                  <td>{pack.single} EGP</td>
-                                  <td>{pack.double} EGP</td>
-                                  <td>{pack.triple} EGP</td>
-                                </tr>
-                              );
+                              if( itemDetails.title !== "Royal Lagoons Resort & Aqua Park"){
+                                return (
+                                  <tr>
+                                    <td>{pack.packTitle}</td>
+                                    <td>{pack.startDate.split('-').reverse().join('-')}</td>
+                                    <td>{pack.endDate.split('-').reverse().join('-')} </td>
+                                    <td>{pack.single} EGP</td>
+                                    <td>{pack.double} EGP</td>
+                                    <td>{pack.triple} EGP</td>
+                                  </tr>
+                                );
+                              }
+                              
                             })}
-
+  <div className="d-none">
                             {itemDetails.title == "Desert Rose" ? (
                               <>
                                 <tr>
@@ -340,6 +420,8 @@ function TembDetails() {
                             ) : (
                               ""
                             )}
+
+                           </div>
                           </tbody>
                         </table>
                       </div>

@@ -25,7 +25,7 @@ function MostPopular() {
       const response = await axios.get(`${MONGODB_URL}/getAllDomestics`);
       const data = response.data;
       console.log("====================================");
-      setDomestic(data.slice(0, 3));
+      setDomestic(data.filter((item)=>item.home == true).slice(0,3).reverse());
       console.log("====================================");
     } catch (e) {
       console.log("====================================");
@@ -173,8 +173,8 @@ function MostPopular() {
             alignContent: "flex-start",
           }}
         >
-          <h1 className="text-center main-heading">Domestics</h1>
-          {domestic?.length >= 1 ? (
+          <h1 className="text-center main-heading">Domestic</h1>
+          {/* {domestic?.length >= 1 ? (
             domestic?.map((item) => {
 
              return <Temb item={item} />
@@ -182,7 +182,22 @@ function MostPopular() {
             })
           ) : (
             <Progress />
-          )}
+          )} */}
+          {
+          
+          domestic?.length >= 1 ? (
+            domestic?.map((item) => {
+
+  return <Temb item={item} />
+
+  
+
+            })
+          ) : (
+            <Progress />
+         )
+        
+        }
         </Col>
       </Row>
     </div>

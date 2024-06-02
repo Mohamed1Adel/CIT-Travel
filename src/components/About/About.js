@@ -1,6 +1,7 @@
 import React from "react";
 import Carousell from "../Carousell/Carousell";
 import { Container } from "react-bootstrap";
+import Button from 'react-bootstrap/Button';
 import "./About.scss"
 function About() {
   return (
@@ -52,11 +53,35 @@ We want to create value and to make a difference that is why we support the sust
 
 </p>
     <h3 style={{width:"90%",margin:"0 auto",textAlign:"start",padding:"20px"}}>STRATEGIC OBJECTIVE</h3>
-    <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",padding:"15px",borderRadius:"5px"}}>To recognize that a good service is more than a competitive price; it's a near-obsessive attention to detail that transforms a good experience into an exceptional one. We don't want to sell you a travel package; we want to understand your needs, so we can custom design a travel solution that meets your specific requirements. We look at your opportunities and challenges and design a solution customized to fit you</p>
-    <h3 style={{width:"90%",margin:"0 auto",textAlign:"start",padding:"20px"}}></h3>
-    <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",padding:"15px",borderRadius:"5px"}}></p>
+    <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",paddingLeft:"15px",borderRadius:"5px"}}>To recognize that a good service is more than a competitive price; it's a near-obsessive attention to detail that transforms a good experience into an exceptional one. We don't want to sell you a travel package; we want to understand your needs, so we can custom design a travel solution that meets your specific requirements. We look at your opportunities and challenges and design a solution customized to fit you</p>
+
+    <h3 style={{width:"90%",margin:"0 auto",textAlign:"start",padding:"20px"}}>WHY C.I.T TRAVEL EGYPT</h3>
+    <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",paddingLeft:"15px",borderRadius:"5px"}}>1-	We are a travel agency located in Egypt, with people that know Egypt, Arabian, and Western cultures.
+</p>
+    <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",paddingLeft:"15px",borderRadius:"5px"}}>2-	All our clients will obtain personalized and first class service of their Egypt vacation.
+</p>
+    <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",paddingLeft:"15px",borderRadius:"5px"}}>3-	Our expertise and high quality customer service will help you create the perfect vacation package.
+</p>
+    <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",paddingLeft:"15px",borderRadius:"5px"}}>4-	We are members of different prestigious organizations related to the travel industry.
+</p>
+    <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",paddingLeft:"15px",borderRadius:"5px"}}>5-	A highly experienced multi-language service department at your service 24 hours a day
+</p>
+    <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",paddingLeft:"15px",borderRadius:"5px"}}>6-	Problems solving and focus on solution-oriented methods for all customer requests and requirements…</p>
+    <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",paddingLeft:"15px",borderRadius:"5px"}}>7-	Competitive prices combined with the highest quality services resulting in value for money across all our services and products</p>
+   
+    {/* <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",paddingLeft:"15px",borderRadius:"5px"}}><a href="egypt-guide-rgb-version.pdf-new 1.pdf" style={{color:"#fc4c03",width:"90%",fontWeight:"500",fontSize:"20px",textAlign:"start",paddingLeft:"15px",borderRadius:"5px"}}>egypt-guide-rgb-version.pdf-new 1.pdf</a></p> */}
+    <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",paddingLeft:"15px",borderRadius:"5px"}}><Button variant="primary" style={{backgroundColor:"#fc4c03",border:"#fc4c03"}}><a href="egypt-guide-rgb-version.pdf-new 1.pdf" style={{width:"90%",fontWeight:"500",fontSize:"20px",textAlign:"start",borderRadius:"5px"}}>Egypt Guide.pdf</a></Button>{' '}</p>
+
+    
+
         </div>
        
+
+        {/* <img
+              src={process.env.PUBLIC_URL + '/dropimg/uploads/17145020034-Standard Double with Pool View..jpg'}
+              style={{ height: "50px",width:"50px" }}
+              alt="..."
+            /> */}
     </Container>
   );
 }

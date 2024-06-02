@@ -8,7 +8,7 @@ import { Progress } from '../../progressComponent';
 import { ToastContainer, toast } from "react-toastify";
 
 function Popup() {
-    const popupid = "65f2cf9007d653aa7596bf19";
+    const popupid = "660c3537cd6c763f4ed70b2e";
     // const nileid = "65cce9c2e762f434ed08d7bf";
     const [itemDetails,setItemDetails] = useState();
 
@@ -67,6 +67,7 @@ getDomesticById();
 
             {/* <img width="180" height="100" src={require("../../images/hot-offer/r.png")} style={{objectFit:"contain",position:"absolute",right:"-20px",top:"-45px"}}/> */}
             <Modal.Title>Enjoy With us and book now in <br /> <span style={{color:"#fc4c03"}}> <FontAwesomeIcon icon={faUmbrellaBeach} /> {itemDetails?.title}</span> </Modal.Title>
+            <p style={{position:"absolute",top:"80px",right:"125px"}}>Free Installment</p>
           </Modal.Header>
           <Modal.Body style={{margin:"0 "}}>
 

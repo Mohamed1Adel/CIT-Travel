@@ -22,7 +22,7 @@ function Transportation() {
   };
   return (
     <Container>
-      <Carousel  activeIndex={index} onSelect={handleSelect}>
+      <Carousel interval={2000}  activeIndex={index} onSelect={handleSelect}>
         {/* {images[0]?.images?.map((img) => {
           console.log(img?.img_url);
           return (
@@ -33,21 +33,21 @@ function Transportation() {
         })} */}
         <Carousel.Item className="trans-carousel">
           <img
-            src={require("../../images/bus/bus-image.jpeg")}
+            src={require("../../images/bus/bus-slide-1.jpg")}
             // style={{ height: "400px" }}
             alt="..."
           />
         </Carousel.Item>
         <Carousel.Item className="trans-carousel">
           <img
-            src={require("../../images/bus/bus-image.jpeg")}
+            src={require("../../images/bus/bus-slide-2.jpg")}
             // style={{ height: "400px" }}
             alt="..."
           />
         </Carousel.Item>
         <Carousel.Item className="trans-carousel">
           <img
-            src={require("../../images/bus/bus-image.jpeg")}
+            src={require("../../images/bus/bus-slide-3.jpg")}
             // style={{ height: "400px" }}
             alt="..."
           />
