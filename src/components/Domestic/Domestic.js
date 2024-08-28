@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Button,
+  Carousel,
+  Col,
+  Container,
+  Form,
+  Row,
+  Toast, } from "react-bootstrap";
+  import { Link } from "react-router-dom";
 import { Zoom } from "react-reveal";
 import Temb from "../Temb/Temb";
+import NileCruiseTemp from "../NileCruiseTemp/NileCruiseTemp";
 import "./Domestic.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faStar, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -14,14 +22,15 @@ import image from "../../images/domestic/Beach-1.jpg";
 
 function Domestic() {
   // let filtered = false;
+  const nileid = "662909405d90fc661870af7e";
   const [filtered, setFiltered] = useState(false);
   const [sFilter, setSFiltered] = useState(false);
 
   const [data, setData] = useState([]);
-
+  const [showA, setShowA] = useState(true);
   const [newDataArray, setNewDataArray] = useState([]);
   const [isOpen, setIsopen] = useState(false);
-
+  const toggleShowA = () => setShowA(!showA);
   const ToggleSidebar = () => {
     isOpen === true ? setIsopen(false) : setIsopen(true);
   };
@@ -50,7 +59,7 @@ function Domestic() {
      const response = await axios.get(`${MONGODB_URL}/getAllDomestics`);
       const data = response.data;
       console.log(data);
-      setData(data.reverse());
+      setData(data);
     } catch (e) {
       console.log(e);
     }
@@ -62,8 +71,70 @@ function Domestic() {
     // filtered == false ? "" : ""
   }, []);
 
+  const [nileCruises, setNileCruises] = useState({});
+  const getAllNileCruises = async () => {
+    try {
+      // const response = await axios.get(`${API_URL}/nileCruise`);
+      const response = await axios.get(`${MONGODB_URL}/getAllNileCruise`);
+      const nileCruise = await response.data;
+      console.log("====================================");
+      console.log(nileCruise.id);
+      console.log("====================================");
+      setNileCruises(nileCruise);
+    } catch (e) {
+      console.log("====================================");
+      console.log(e);
+      console.log("====================================");
+    }
+  };
+  useEffect(() => {
+    getAllNileCruises();
+  },[]);
+
   return (
     <>
+     <Toast
+        className=""
+        show={showA}
+        onClose={toggleShowA}
+        style={{
+          position: "fixed",
+          top: "70px",
+          right: "10px",
+          backgroundColor: "#fff",
+          zIndex: "99999",
+        }}
+      >
+        <Toast.Header>
+                      <img width="180" height="100" src={require("../../images/hot-offer/r.png")} style={{objectFit:"contain",position:"absolute",right:"60px",top:"-45px"}}/>
+
+          <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+          <strong className="me-auto">Desert Rose <br /> <span style={{fontSize:"12px",fontWeight:"bold",color:"rgb(252, 76, 3)"}}> special price With 5% installment</span> </strong>
+        </Toast.Header>
+        <Toast.Body>
+          <img
+            width="100%"
+            height="250"
+            className="mb-2"
+            src={require("../../images/desert-rose-resort_153839788829.jpg")}
+          />
+
+          <Button
+            id="book-btn"
+            variant="primary"
+            type="submit"
+            style={{ background: "#fc4c03", borderColor: "#fc4c03" }}
+          >
+            {/* <Link to={"/tembDetails/" + id}> */}
+            <Link
+              to={`/tembDetails/${nileid}`}
+              style={{ color: "#000" }}
+            >
+              More Details
+            </Link>
+          </Button>
+        </Toast.Body>
+      </Toast>
       <div class="Banner" style={{ backgroundImage: `url(${image})` }}></div>
       <div class="custom-opacity">
         <Zoom>
@@ -137,7 +208,7 @@ function Domestic() {
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
-                                  item.category == "Soma" ? item : ""
+                                  item.category == "Soma Bay" ? item : ""
                                 ),
                               ]);
                             } else {
@@ -146,7 +217,7 @@ function Domestic() {
                               console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
-                                  item.category != "Soma" ? item : ""
+                                  item.category != "Soma Bay" ? item : ""
                                 ),
                               ]);
                             }
@@ -170,7 +241,7 @@ function Domestic() {
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
-                                  item.category == "Hashesh" ? item : ""
+                                  item.category == "Sahl Hashesh" ? item : ""
                                 ),
                               ]);
                             } else {
@@ -179,7 +250,7 @@ function Domestic() {
                               console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
-                                  item.category != "Hashesh" ? item : ""
+                                  item.category != "Sahl Hashesh" ? item : ""
                                 ),
                               ]);
                             }
@@ -203,7 +274,7 @@ function Domestic() {
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
-                                  item.category == "Makady" ? item : ""
+                                  item.category == "Makadi Bay" ? item : ""
                                 ),
                               ]);
                             } else {
@@ -212,7 +283,7 @@ function Domestic() {
                               console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
-                                  item.category != "Makady" ? item : ""
+                                  item.category != "Makadi Bay" ? item : ""
                                 ),
                               ]);
                             }
@@ -236,7 +307,7 @@ function Domestic() {
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
-                                  item.category == "Sharm" ? item : ""
+                                  item.category == "Sharm El Sheikh" ? item : ""
                                 ),
                               ]);
                             } else {
@@ -245,7 +316,7 @@ function Domestic() {
                               console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
-                                  item.category != "Sharm" ? item : ""
+                                  item.category != "Sharm El Sheikh" ? item : ""
                                 ),
                               ]);
                             }
@@ -441,7 +512,7 @@ function Domestic() {
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
-                                  item.category == "Alex" ? item : ""
+                                  item.category == "Alexandria" ? item : ""
                                 ),
                               ]);
                             } else {
@@ -450,7 +521,7 @@ function Domestic() {
                               console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
-                                  item.category != "Alex" ? item : ""
+                                  item.category != "Alexandria" ? item : ""
                                 ),
                               ]);
                             }
@@ -474,7 +545,7 @@ function Domestic() {
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
-                                  item.category == "Matrouh" ? item : ""
+                                  item.category == "Marsa Matrouh" ? item : ""
                                 ),
                               ]);
                             } else {
@@ -483,7 +554,7 @@ function Domestic() {
                               console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
-                                  item.category != "Matrouh" ? item : ""
+                                  item.category != "Marsa Matrouh" ? item : ""
                                 ),
                               ]);
                             }
@@ -507,7 +578,7 @@ function Domestic() {
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
-                                  item.category == "Sokhna" ? item : ""
+                                  item.category == "Ain El Sokhna" ? item : ""
                                 ),
                               ]);
                             } else {
@@ -516,7 +587,7 @@ function Domestic() {
                               console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
-                                  item.category != "Sokhna" ? item : ""
+                                  item.category != "Ain El Sokhna" ? item : ""
                                 ),
                               ]);
                             }
@@ -1383,13 +1454,37 @@ function Domestic() {
                 <FullProgress />
               ):<FullProgress />
             } */}
+             {nileCruises?.length >= 1 ? (
+            nileCruises?.map((nileCruise) => {
+               
+              return (
+                nileCruise.title != "Aswan - Cairo / Long Cruise"   ?
+                 nileCruise.title != "Luxor - Cairo / Long Cruise " ?
+                 nileCruise.egypt_cruise != false ?
+                   <Col sm="12" md="6" lg="4" xxl="3">
+                <NileCruiseTemp nileCruise={nileCruise} />
+              </Col>
+              :""
+              : ""
+              : ""
+                
+              );
+            })
+          ) : (
+            <FullProgress />
+          )}
                   {filtered == false && newDataArray.length == 0? (
                     data.length >= 1 ? (
                       data.map((item) => {
                         return (
+
                           <Col key={item.id} sm="12" md="6" lg="4" xxl="3">
                             <Temb item={item} />
-                          </Col>
+                          </Col> 
+                          // item.title != "Strand Taba Heights " ?
+                          // <Col key={item.id} sm="12" md="6" lg="4" xxl="3">
+                          //   <Temb item={item} />
+                          // </Col> : ""
                         );
                       })
                     ) : (
@@ -1398,9 +1493,10 @@ function Domestic() {
                   ) : data.length >= 1 ? (
                     newDataArray.map((item) => {
                       return (
-                        <Col key={item.id} sm="12" md="6" lg="4" xxl="3">
-                          <Temb item={item} />
-                        </Col>
+                        item.title != "Strand Taba Heights " ? <Col key={item.id} sm="12" md="6" lg="4" xxl="3">
+                        <Temb item={item} />
+                      </Col> : ""
+                        
                       );
                     })
                   ) : (

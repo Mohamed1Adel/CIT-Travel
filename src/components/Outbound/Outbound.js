@@ -101,7 +101,7 @@ function Outbound() {
                     })}
                   </div>
                 </div>
-                <div className="rating-filter">
+                {/* <div className="rating-filter">
                   <h2>Star Rating</h2>
                   <ul>
                     <li>
@@ -132,9 +132,9 @@ function Outbound() {
                       </div>
                     </li>
                   </ul>
-                </div>
+                </div> */}
 
-                <div className="seasonal-offer">
+                {/* <div className="seasonal-offer">
                   <h2>Seasonal Offer</h2>
                   <div className="checkboxes-group">
                     <div class="form-check">
@@ -171,7 +171,7 @@ function Outbound() {
                       </label>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </Col>
             ) : (
               <div>
@@ -340,7 +340,7 @@ function Outbound() {
                 {outbounds?.length >= 1 ? (
                   outbounds?.map?.((outbound) => {
                     return (
-                      <Col sm="12" md="6" lg="4" xxl="3">
+                      <Col className="" sm="12" md="6" lg="4" xxl="3">
                         <OutboundTemp outbound={outbound} />
                       </Col>
                     );

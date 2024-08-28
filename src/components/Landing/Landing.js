@@ -58,7 +58,7 @@ function Landing() {
   return (
     <>
       <Toast
-        className=""
+        className="d-none"
         show={showA}
         onClose={toggleShowA}
         style={{

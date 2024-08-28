@@ -75,25 +75,46 @@ function Temb(item) {
         <Card.Body></Card.Body>
 
         {
-          item.item.title === "Movenpick Soma Bay"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 8030 EGP </h6> :""
+          item.item.title.trim() === "Movenpick Soma Bay"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 8930 EGP </h6> :""
         }
         {
-          item.item.title === "Royal Lagoons Resort & Aqua Park"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 5330 EGP </h6> :""
+          item.item.title.trim() === "Royal Lagoons Resort & Aqua Park"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 5330 EGP </h6> :""
         }
         {
-          item.item.title === "Three Corners Sunny Beach"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 6300 EGP </h6> :""
+          item.item.title.trim() === "Three Corners Sunny Beach"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 7200 EGP </h6> :""
         }
         {
-          item.item.title === "New Eagles Aqua Park Resort"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 5100 EGP </h6> :""
+          item.item.title.trim() === "New Eagles Aqua Park Resort"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 6900 EGP </h6> :""
         }
         {
-          item.item.title === "Calimera Blend Paradise"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 7650 EGP </h6> :""
+          item.item.title.trim() === "Calimera Blend Paradise"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 10300 EGP </h6> :""
         }
         {
-          item.item.title === "Blend Club Aqua Resort"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 6150 EGP </h6> :""
+          item.item.title.trim() === "Blend Club Aqua Resort"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 7750 EGP </h6> :""
         }
         {
-          item.item.title === "Desert Rose"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 9225 EGP </h6> :""
+          item.item.title.trim() === "Desert Rose"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 11995 EGP </h6> :""
+        }
+        {
+          item.item.title.trim() === "Barcelo Tiran"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 10350 EGP </h6> :""
+        }
+        {
+          item.item.title.trim() === "Charmillion Gardens Aqua Park"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 8250 EGP </h6> :""
+        }
+        {
+          item.item.title.trim() === "Akassia Swiss Resort"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 8550 EGP </h6> :""
+        }
+        {
+          item.item.title.trim() === "Sataya Resort"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 7650 EGP </h6> :""
+        }
+        {
+          item.item.title.trim() === "Amarina Abu Soma Resort"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 12900 EGP </h6> :""
+        }
+        {
+          item.item.title.trim() === "Tolip Taba Resort"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 4950 EGP </h6> :""
+        }
+        {
+          item.item.title.trim() === "Strand Taba Heights"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 5200 EGP </h6> :""
         }
         <Button id="card-btn" style={{ width: "fit-content" }} variant="primary">
           {/* <Link to={"/tembDetails/" + item.item._id}> */}

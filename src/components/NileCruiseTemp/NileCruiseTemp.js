@@ -64,10 +64,10 @@ function NileCruiseTemp(nileCruise) {
               nileCruise?.nileCruise.title === "Aswan - Cairo / Long Cruise" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px"}}>Starting from <br /> 37000 EGP </h6>: ""
             }
             {
-              nileCruise?.nileCruise.destination === "4 Days - 3 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px"}}>Starting from <br /> 10500 EGP </h6>: ""
+              nileCruise?.nileCruise.destination === "4 Days - 3 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px"}}>Starting from <br /> 550 $ </h6>: ""
             }
             {
-              nileCruise?.nileCruise.destination === "5 Days - 4 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px"}}>Starting from <br /> 13500 EGP </h6>: ""
+              nileCruise?.nileCruise.destination === "5 Days - 4 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px"}}>Starting from <br /> 670 $ </h6>: ""
             }
           </div>
           

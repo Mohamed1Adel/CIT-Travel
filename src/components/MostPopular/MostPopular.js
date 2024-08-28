@@ -64,7 +64,7 @@ function MostPopular() {
       const response = await axios.get(`${MONGODB_URL}/getAllNileCruise`);
       const data = response.data;
       console.log("====================================");
-      setNileCruise(data.slice(0, 3));
+      setNileCruise(data.reverse().slice(0, 2));
       console.log("====================================");
     } catch (e) {
       console.log("====================================");
@@ -133,7 +133,12 @@ function MostPopular() {
           <h1 className="text-center main-heading">Nile Cruise</h1>
           {nileCruise?.length >= 1 ? (
             nileCruise?.map((n) => {
-              return   <NileCruiseTemp nileCruise={n} />;
+              return (
+                n.title !== "Aswan - Cairo / Long Cruise"   ? n.title !== "Luxor - Cairo / Long Cruise " ?  
+                <NileCruiseTemp nileCruise={n} />
+              :"" : ""
+                
+              );
             })
           ) : (
             <Progress />

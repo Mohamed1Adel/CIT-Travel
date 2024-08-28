@@ -13,19 +13,30 @@ import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 
 function TembDetails() {
+  
   const form = useRef();
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState(0);
-  const [rooms, setRooms] = useState(0);
-  const [pax, setPax] = useState(0);
-  const [child, setChild] = useState(0);
+  const [phone, setPhone] = useState("");
+  const [rooms, setRooms] = useState("");
+  const [pax, setPax] = useState("");
+  const [child, setChild] = useState("");
   // const emailSent = () => toast("Your Email Sent Successfully we will call you as soon as possible");
   // const emailSentError = () => toast("Pl");
   const [itemDetails, setItemDetails] = useState({ value: "" });
   const [images, setImages] = useState([]);
   const { id } = useParams(0);
+   const [formData, setFormData] = useState({
+    title: '',
+    name: '',
+    email: '',
+    phone: '',
+    rooms: '',
+    pax: '',
+    child: '',
+   
+  });
   async function getDomesticById() {
     try {
       const response = await fetch(`${MONGODB_URL}/getDomesticDetails/${id}`);
@@ -33,6 +44,7 @@ function TembDetails() {
       const data = await response.json();
       console.log(data);
       setItemDetails(data);
+      setFormData({title : data?.title});
       setTitle(data?.title);
       getImages();
     } catch (e) {
@@ -47,61 +59,81 @@ function TembDetails() {
   for (let i = 1; i <= Number(itemDetails.stars); i++) {
     rateStars.push(star);
   }
+ 
+
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+
+    const response = await fetch('https://cit-egypt.com/sendEmail.php', { // Replace with the actual path to your PHP script
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams(formData).toString(),
+    });
+
+    if (response.ok) {
+      setSubmitted(true);
+      setFormData({
+        title: '',
+    name: '',
+    email: '',
+    phone: '',
+    rooms: '',
+    pax: '',
+    child: '',
+      });
+    } else {
+      alert('There was a problem with your submission. Please try again.');
+    }
+  };
+
 
   const sendMassage = (e) => {
-    e.preventDefault();
-    // console.log(form.current);
+    // e.preventDefault();
+    
+    // var phonenumber = "+201100996929";
 
-    //  emailjs
-    //    .sendForm(
-    //      "service_a5le1fd",
-    //      "template_vjwhzni",
-    //      form.current,
-    //      "YZfMIBWVpK33gBYsx"
-    //    )
-    //    .then(
-    //      (result) => {
-    //        console.log(result.text);
-    //        emailSent()
+    // var url =
+    //   "https://wa.me/" +
+    //   phonenumber +
+    //   "?text=" +
+    //   "*Title :* " +
+    //   title +
+    //   "%0a" +
+    //   "*Name :* " +
+    //   name +
+    //   "%0a" +
+    //   "*Email :* " +
+    //   email +
+    //   "%0a" +
+    //   "*Phone:* " +
+    //   phone +
+    //   "%0a" +
+    //   "*Rooms:* " +
+    //   rooms +
+    //   "%0a" +
+    //   "*Pax:* " +
+    //   pax +
+    //   "%0a" +
+    //   "*Child:* " +
+    //   child +
+    //   "%0a" +
+    //   "%0a%0a" +
+    //   "Hello CIT Travel";
 
-    //      },
-    //      (error) => {
-    //        console.log(error.text);
-    //      }
-    //    );
-    // console.log(title,name,email,phone,rooms,pax,child);
-
-    var phonenumber = "+201100996929";
-
-    var url =
-      "https://wa.me/" +
-      phonenumber +
-      "?text=" +
-      "*Title :* " +
-      title +
-      "%0a" +
-      "*Name :* " +
-      name +
-      "%0a" +
-      "*Email :* " +
-      email +
-      "%0a" +
-      "*Phone:* " +
-      phone +
-      "%0a" +
-      "*Rooms:* " +
-      rooms +
-      "%0a" +
-      "*Pax:* " +
-      pax +
-      "%0a" +
-      "*Child:* " +
-      child +
-      "%0a" +
-      "%0a%0a" +
-      "Hello CIT Travel";
-
-    window.open(url, "_blank").focus();
+    // window.open(url, "_blank").focus();
   };
 
   useEffect(() => {
@@ -146,6 +178,7 @@ function TembDetails() {
   return (
     <Container>
       {itemDetails.value != "" ? (
+        
         <div className="hotel-info">
           <Row className="align-items-center">
             <Col sm="12" md="3" lg="4">
@@ -159,25 +192,46 @@ function TembDetails() {
                     })}
                   </h5>
                   {
-         itemDetails.title === "Movenpick Soma Bay"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 8030 EGP</h6> :""
+         itemDetails.title.trim() === "Movenpick Soma Bay"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 8930 EGP</h6> :""
         }
         {
-         itemDetails.title === "Royal Lagoons Resort & Aqua Park"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 5330 EGP</h6> :""
+         itemDetails.title.trim() === "Royal Lagoons Resort & Aqua Park"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 5330 EGP</h6> :""
         }
         {
-         itemDetails.title === "Three Corners Sunny Beach"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 6300 EGP</h6> :""
+         itemDetails.title.trim() === "Three Corners Sunny Beach"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 7200 EGP</h6> :""
         }
         {
-         itemDetails.title === "New Eagles Aqua Park Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 5100 EGP</h6> :""
+         itemDetails.title.trim() === "New Eagles Aqua Park Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 6900 EGP</h6> :""
         }
         {
-         itemDetails.title === "Calimera Blend Paradise"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 7650 EGP</h6> :""
+         itemDetails.title.trim() === "Calimera Blend Paradise"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 10300 EGP</h6> :""
         }
         {
-         itemDetails.title === "Blend Club Aqua Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 6150 EGP</h6> :""
+         itemDetails.title.trim() === "Blend Club Aqua Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 7750 EGP</h6> :""
         }
         {
-         itemDetails.title === "Desert Rose"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",position:"absolute",bottom:"5px",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 9225 EGP</h6> :""
+         itemDetails.title.trim() === "Desert Rose"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",position:"absolute",bottom:"5px",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 11995 EGP</h6> :""
+        }
+        {
+          itemDetails.title.trim() === "Barcelo Tiran"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 10350 EGP</h6> :""
+        }
+        {
+          itemDetails.title.trim() === "Charmillion Gardens Aqua Park"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 8250 EGP</h6> :""
+        }
+        {
+          itemDetails.title.trim() === "Akassia Swiss Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 8550 EGP</h6> :""
+        }
+        {
+          itemDetails.title.trim() === "Sataya Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 7650 EGP</h6> :""
+        }
+        {
+          itemDetails.title.trim() === "Amarina Abu Soma Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 12900 EGP</h6> :""
+        }
+        {
+          itemDetails.title.trim() === "Strand Taba Heights"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 5200 EGP</h6> :""
+        }
+        {
+          itemDetails.title.trim() === "Tolip Taba Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 4950 EGP</h6> :""
         }
                   <h5 style={{ color: "#fc4c03" }}>
                     <FontAwesomeIcon icon={faLocationDot} />{" "}
@@ -217,62 +271,85 @@ function TembDetails() {
             <Col sm="12" md="3" lg="4">
               <div className="book-form">
                 <h2>Book Now</h2>
-
-                <Form ref={form} onSubmit={sendMassage}>
+      {submitted ? (
+        <div>Thank you! Your message has been sent.</div>
+      ) : (
+                <Form ref={form} onSubmit={handleSubmit}>
                   <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Control
+                      required
                       type="text"
                       name="title"
-                      value={itemDetails?.title}
+                       value={itemDetails?.title}
+                       
+                      
                       style={{ display: "none" }}
                     />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Control
+                    required
                       type="text"
-                      name="sender_name"
+                      name="name"
+                      value={formData.name}
+                        onChange={handleChange}
                       placeholder="Your Name"
-                      onChange={(e) => setName(e.target.value)}
+                      //onChange={(e) => setName(e.target.value)}
                     />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Control
+                    required
                       type="email"
                       name="email"
+                      value={formData.emaiil}
+                        onChange={handleChange}
                       placeholder="Your Email Address"
-                      onChange={(e) => setEmail(e.target.value)}
+                      //onChange={(e) => setEmail(e.target.value)}
                     />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicNumber">
                     <Form.Control
+                    required
                       type="tel"
-                      name="Phone_No"
+                      name="phone"
+                      value={formData.phone}
+                        onChange={handleChange}
                       placeholder="Your Phone Number"
-                      onChange={(e) => setPhone(e.target.value)}
+                      //onChange={(e) => setPhone(e.target.value)}
                     />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Control
+                    required
                       type="tel"
-                      name="Rooms_Count"
+                      name="rooms"
+                      value={formData.rooms}
+                        onChange={handleChange}
                       placeholder="Enter Number of Rooms"
-                      onChange={(e) => setRooms(e.target.value)}
+                      //onChange={(e) => setRooms(e.target.value)}
                     />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Control
+                    required
                       type="text"
-                      name="Pax_Count"
+                      name="pax"
+                      value={formData.pax}
+                        onChange={handleChange}
                       placeholder="Enter Number of Pax"
-                      onChange={(e) => setPax(e.target.value)}
+                      //onChange={(e) => setPax(e.target.value)}
                     />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Control
+                    required
                       type="text"
-                      name="Childs_Count"
+                      name="child"
+                      value={formData.child}
+                        onChange={handleChange}
                       placeholder="Enter Number of Child"
-                      onChange={(e) => setChild(e.target.value)}
+                      //onChange={(e) => setChild(e.target.value)}
                     />
                   </Form.Group>
                   <Button
@@ -284,6 +361,7 @@ function TembDetails() {
                     Book Now
                   </Button>
                 </Form>
+                  )}
               </div>
             </Col>
             <Col sm="12" md="9" lg="8">
@@ -304,7 +382,7 @@ function TembDetails() {
                           fontSize: "22px",
                         }}
                       >
-                         {
+                         {/* {
 
                         itemDetails.title === "Movenpick Soma Bay"? "Starting from 8030 EGP" :""
         }
@@ -325,7 +403,7 @@ function TembDetails() {
         }
         {
          itemDetails.title === "Desert Rose"? "Starting from 10050 EGP" :""
-        }
+        } */}
                       </a>
                     </li>
                   </ul>
@@ -347,6 +425,16 @@ function TembDetails() {
                               <th scope="col">
                                 Triple <br /> (per person)
                               </th>
+                              {/* {itemDetails.title == "Amarina Abu Soma Resort" && (
+                                <>
+                              <th scope="col">
+                              Quardable superior <br /> (per person)
+                              </th>
+                              <th scope="col">
+                              Quardable family <br /> (per person)
+                              </th>
+                              </>
+                        )} */}
                             </tr>
                           </thead>
                           <tbody>
@@ -364,9 +452,10 @@ function TembDetails() {
                               </>
                             )}
 
-                            {itemDetails.packages?.map((pack) => {
+                            {itemDetails.packages?.map((pack,i) => {
                               if( itemDetails.title !== "Royal Lagoons Resort & Aqua Park"){
                                 return (
+                                  <>
                                   <tr>
                                     <td>{pack.packTitle}</td>
                                     <td>{pack.startDate.split('-').reverse().join('-')}</td>
@@ -374,7 +463,44 @@ function TembDetails() {
                                     <td>{pack.single} EGP</td>
                                     <td>{pack.double} EGP</td>
                                     <td>{pack.triple} EGP</td>
+
+                                      {/* Conditionally add a new <td> */}
+                                      {/* {i === 0 && itemDetails.title == 'Amarina Abu Soma Resort'? (
+            <>
+              <td>10760 EGP</td>
+              <td>10910 EGP</td>
+            </>
+          ) : i === 1 && itemDetails.title == 'Amarina Abu Soma Resort' ? (
+            <>
+              <td>14150 EGP</td>
+              <td>14350 EGP</td>
+            </>
+          ) : i === 2 && itemDetails.title == 'Amarina Abu Soma Resort' ? (
+            <>
+              <td>13010 EGP</td>
+              <td>13160 EGP</td>
+            </>
+          ) : i === 3 && itemDetails.title == 'Amarina Abu Soma Resort' ? (
+            <>
+              <td>17150 EGP</td>
+              <td>17350 EGP</td>
+            </>
+          ) : i === 4 && itemDetails.title == 'Amarina Abu Soma Resort' ? (
+            <>
+              <td>11510 EGP</td>
+              <td>11660 EGP</td>
+            </>
+          ) : i === 5 && itemDetails.title == 'Amarina Abu Soma Resort' ? (
+            <>
+              <td>15159 EGP</td>
+              <td>15350 EGP</td>
+            </>
+          ) : (
+            ''
+          )} */}
+                                    
                                   </tr>
+                                  </>
                                 );
                               }
                               

@@ -11,7 +11,7 @@ import "./OutboundTempDetails.scss";
 import Form from "react-bootstrap/Form";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faStar,faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { Progress } from "../../progressComponent";
 import { API_URL, MONGODB_URL } from "../../envData";
@@ -28,6 +28,16 @@ function OutboundTempDetails() {
   const [child,setChild] = useState(0);
 
   const { id } = useParams();
+   const [formData, setFormData] = useState({
+    title: '',
+    name: '',
+    email: '',
+    phone: '',
+    rooms: '',
+    pax: '',
+    child: '',
+   
+  });
   console.log(id);
 
   async function getProgramById() {
@@ -36,6 +46,7 @@ function OutboundTempDetails() {
       const data = await response.json();
       console.log(data);
       setOutboundDetails(data);
+      setFormData({title : data?.title});
       setTitle(data?.title)
       // getImages();
     } catch (e) {
@@ -43,6 +54,44 @@ function OutboundTempDetails() {
     }
     console.log(outboundDetails);
   }
+
+    const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch('https://cit-egypt.com/sendEmail.php', { // Replace with the actual path to your PHP script
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams(formData).toString(),
+    });
+
+    if (response.ok) {
+      setSubmitted(true);
+      setFormData({
+        title: '',
+    name: '',
+    email: '',
+    phone: '',
+    rooms: '',
+    pax: '',
+    child: '',
+      });
+    } else {
+      alert('There was a problem with your submission. Please try again.');
+    }
+  };
+
   
   const sendMassage = (e) => {
     e.preventDefault();
@@ -89,6 +138,41 @@ function OutboundTempDetails() {
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
+
+  // State to hold the fetched data
+  const [dataImg, setDataImg] = useState(null);
+  // State to hold loading state
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Fetch data from your PHP API
+        const config = {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+          }
+        };
+        const response = await axios.get(process.env.PUBLIC_URL + `/dropimg/g.php?id=${id}`);
+        // Set the data in state
+        setDataImg(response.data);
+        console.log(response.data);
+        // Set loading state to false
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        // Handle error if needed
+      }
+    };
+
+    // Call the fetchData function
+    fetchData();
+  }, []); // Empty dependency array to ensure useEffect only runs once
+
+
+
+
   return (
 
     <Container>
@@ -99,15 +183,19 @@ function OutboundTempDetails() {
           <div className="info-box">
             <ul>
               <h4 style={{ color: "#fc4c03" }}>{outboundDetails?.title}</h4>
+              {/* <h5 style={{ color: "#fc4c03" }}>
+                    <FontAwesomeIcon icon={faLocationDot} />{" "}
+                    {outboundDetails.box6}
+                  </h5> */}
               <h5>{outboundDetails?.description}</h5>
-              <div class="card-desc">
+              {/* <div class="card-desc">
               <div
                     dangerouslySetInnerHTML={{
                       __html: outboundDetails?.packInclude,
                     }}
                   />
-              </div>
-              <h5>{outboundDetails?.box6}</h5>
+              </div> */}
+              {/* <h5>{outboundDetails?.box6}</h5> */}
               <h5>{outboundDetails?.box7}</h5>
               <h5>{outboundDetails?.box8}</h5>
               <h5>{outboundDetails?.box9}</h5>
@@ -117,18 +205,21 @@ function OutboundTempDetails() {
         </Col>
         <Col sm="12" md="9" lg="8">
           <Carousel interval={2000} activeIndex={index} onSelect={handleSelect}>
-            {outboundDetails?.images?.length >= 1 ? (
-              outboundDetails?.images?.map((img) => {
-                console.log("images is loaded");
-                return (
-                  <Carousel.Item key={Math.random()}>
-                    <img src={img.img_url} alt="..." />
-                  </Carousel.Item>
-                );
-              })
-            ) : (
-              <Progress />
-            )}
+          {dataImg?.length >= 1 ? (
+                  dataImg?.map((img,i) => {
+                    console.log("images is loaded");
+                    if(i<=dataImg.length - 2){
+                       return (
+                      <Carousel.Item key={Math.random()}>
+                        <img src={process.env.PUBLIC_URL + `/dropimg/uploads/${dataImg[i]}`} alt="..." />
+                      </Carousel.Item>
+                    );
+                    }
+                   
+                  })
+                ) : (
+                  <Progress />
+                )}
           </Carousel>
         </Col>
       </Row>
@@ -136,72 +227,101 @@ function OutboundTempDetails() {
         <Col sm="12" md="3" lg="4">
           <div className="book-form">
             <h2>Book Now</h2>
-            <Form  onSubmit={sendMassage}>
-                    <Form.Group className="mb-3" controlId="formBasicName">
-                      <Form.Control
-                        type="text"
-                        name="title"
-                        
-                        // value={itemDetails?.title}
-                        style={{display:"none"}}
-                      />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicName">
-                      <Form.Control required
-                        type="text"
-                        name="sender_name"
-                        placeholder="Your Name"
-                        onChange={(e)=>setName(e.target.value)}
-                      />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                      <Form.Control
-                        type="email"
-                        name="email"
-                        placeholder="Your Email Address"
-                        onChange={(e)=>setEmail(e.target.value)}
-                      />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicNumber">
-                      <Form.Control required
-                        type="tel"
-                        name="Phone_No"
-                        placeholder="Your Phone Number"
-                        onChange={(e)=>setPhone(e.target.value)}
-                      />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicName">
-                      <Form.Control
-                        type="tel"
-                        name="Rooms_Count"
-                        placeholder="Enter Number of Rooms"
-                        onChange={(e)=>setRooms(e.target.value)}
-                      />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicName">
-                      <Form.Control
-                        type="text"
-                        name="Pax_Count"
-                        placeholder="Enter Number of Pax"
-                        onChange={(e)=>setPax(e.target.value)}
-                      />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicName">
-                      <Form.Control
-                        type="text"
-                        name="Childs_Count"
-                        placeholder="Enter Number of Child"
-                        onChange={(e)=>setChild(e.target.value)}
-                      />
-                    </Form.Group>
-                    <Button id="book-btn" variant="primary" type="submit" style={{background:"#fc4c03",borderColor:"#fc4c03"}}>
-                      Book Now
-                    </Button>
-                  </Form>
+            {submitted ? (
+        <div>Thank you! Your message has been sent.</div>
+      ) : (
+                <Form  onSubmit={handleSubmit}>
+                  <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Control
+                      required
+                      type="text"
+                      name="title"
+                       value={outboundDetails?.title}
+                       
+                      
+                      style={{ display: "none" }}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Control
+                    required
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                        onChange={handleChange}
+                      placeholder="Your Name"
+                      //onChange={(e) => setName(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Control
+                    required
+                      type="email"
+                      name="email"
+                      value={formData.emaiil}
+                        onChange={handleChange}
+                      placeholder="Your Email Address"
+                      //onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicNumber">
+                    <Form.Control
+                    required
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                        onChange={handleChange}
+                      placeholder="Your Phone Number"
+                      //onChange={(e) => setPhone(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Control
+                    required
+                      type="tel"
+                      name="rooms"
+                      value={formData.rooms}
+                        onChange={handleChange}
+                      placeholder="Enter Number of Rooms"
+                      //onChange={(e) => setRooms(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Control
+                    required
+                      type="text"
+                      name="pax"
+                      value={formData.pax}
+                        onChange={handleChange}
+                      placeholder="Enter Number of Pax"
+                      //onChange={(e) => setPax(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Control
+                    required
+                      type="text"
+                      name="child"
+                      value={formData.child}
+                        onChange={handleChange}
+                      placeholder="Enter Number of Child"
+                      //onChange={(e) => setChild(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Button
+                    id="book-btn"
+                    variant="primary"
+                    type="submit"
+                    style={{ background: "#fc4c03", borderColor: "#fc4c03" }}
+                  >
+                    Book Now
+                  </Button>
+                </Form>
+                  )}
           </div>
         </Col>
         <Col sm="12" md="9" lg="8">
-          <div class="card text-center">
+          <div class="d-none card text-center">
             <div class="card-header">
               <ul class="nav nav-tabs card-header-tabs" id="tabs">
                 <li class="nav-item">
@@ -282,31 +402,52 @@ function OutboundTempDetails() {
                     href="#cancellation-polices"
                     data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}
                   >
-                    Itinerary
+                    Itenary
                   </a>
                 </li>
                 <li class="nav-item">
                   <a
                     class="nav-link"
                     href="#Package-Includes"
-                    data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}
+                    data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"15px"}}
                   >
-                    Package Includes
+                    Package Include
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#visa" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
+                  <a
+                    class="nav-link"
+                    href="#Package-Excludes"
+                    data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"15px"}}
+                  >
+                    Package Exclude
+                  </a>
+                </li>
+
+                {/* <li class="nav-item">
+                  <a class="nav-link" href="#fly-details" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
+                    Fly details
+                  </a>
+                </li> */}
+                <li class="nav-item">
+                  <a class="nav-link" href="#terms" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"15px"}}>
+                    Terms & Conditions
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#cancelation-policy" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"15px"}}>
+                  Cancelation Policy 
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#visa" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"15px"}}>
                     Visa
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#fly-details" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
-                    Fly details
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#terms" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
-                    Terms & Conditions
+                  <a class="nav-link" href="#notes" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"15px"}}>
+                    Notes
                   </a>
                 </li>
               </ul>
@@ -355,10 +496,24 @@ function OutboundTempDetails() {
                     })}
                   </Accordion>
                 </div>
-                <div class="tab-pane" id="Package-Includes">
+                <div class="tab-pane " id="Package-Includes">
                   <div
                     dangerouslySetInnerHTML={{
                       __html: outboundDetails?.packInclude,
+                    }}
+                  />
+                </div>
+                <div class="tab-pane" id="Package-Excludes">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: outboundDetails?.packExclude,
+                    }}
+                  />
+                </div>
+                <div class="tab-pane" id="notes">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: outboundDetails?.notes,
                     }}
                   />
                 </div>
@@ -369,22 +524,20 @@ function OutboundTempDetails() {
                     }}
                   />
                 </div>
-                <div class="tab-pane" id="fly-details">
-                  {
-                    /* <div
-                    dangerouslySetInnerHTML={{
-                      __html: outboundDetails?.flyDetails,
-                    }}
-                  /> */
-                    // console.log(outboundDetails.flyDetails[0].img_url)
-                  }
+                {/* <div class="tab-pane" id="fly-details">
                   <img src={outboundDetails?.flyDetails[0].img_url} style={{maxWidth:"100%"}} alt="flyImage" />
-                </div>
+                </div> */}
                 <div class="tab-pane" id="terms">
-                  <h4>Terms and Conditions</h4>
                   <div
                     dangerouslySetInnerHTML={{
                       __html: outboundDetails?.termsAndConditions,
+                    }}
+                  />
+                </div>
+                <div class="tab-pane" id="cancelation-policy">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: outboundDetails?.canceltion,
                     }}
                   />
                 </div>

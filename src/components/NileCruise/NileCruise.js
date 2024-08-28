@@ -41,10 +41,18 @@ function NileCruise() {
         <Row>
           {nileCruises?.length >= 1 ? (
             nileCruises?.map((nileCruise) => {
+               
               return (
-                <Col sm="12" md="6" lg="4" xxl="3">
-                  <NileCruiseTemp nileCruise={nileCruise} />
-                </Col>
+                nileCruise.title != "Aswan - Cairo / Long Cruise"   ?
+                 nileCruise.title != "Luxor - Cairo / Long Cruise " ?
+                 nileCruise.egypt_cruise != true ?
+                   <Col sm="12" md="6" lg="4" xxl="3">
+                <NileCruiseTemp nileCruise={nileCruise} />
+              </Col>:
+              "" :
+              "" :
+               ""
+                
               );
             })
           ) : (

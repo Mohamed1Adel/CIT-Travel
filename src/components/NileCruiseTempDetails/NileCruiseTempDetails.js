@@ -22,7 +22,16 @@ function NileCruiseTempDetails() {
   const [child,setChild] = useState(0);
 
   const { id } = useParams();
-
+const [formData, setFormData] = useState({
+    title: '',
+    name: '',
+    email: '',
+    phone: '',
+    rooms: '',
+    pax: '',
+    child: '',
+   
+  });
   async function getDomesticById() {
     try {
       // const response = await fetch(`${API_URL}/nileCruise/${id}`);
@@ -30,12 +39,51 @@ function NileCruiseTempDetails() {
       const data = await response.json();
       console.log(data);
       setNileCruiseDetails(data);
+      setFormData({title : data?.title});
       setTitle(data?.title)
       getImages();
     } catch (e) {
       console.log(e);
     }
   }
+
+      const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch('https://cit-egypt.com/sendEmail.php', { // Replace with the actual path to your PHP script
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams(formData).toString(),
+    });
+
+    if (response.ok) {
+      setSubmitted(true);
+      setFormData({
+        title: '',
+    name: '',
+    email: '',
+    phone: '',
+    rooms: '',
+    pax: '',
+    child: '',
+      });
+    } else {
+      alert('There was a problem with your submission. Please try again.');
+    }
+  };
+
   const getImages = async () => {
     setImages(nileCruiseDetails?.images);
   };
@@ -127,31 +175,31 @@ function NileCruiseTempDetails() {
                 <h4 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.title}</h4>
                 
                
-                <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box6}</h5>
+                
                 
                 <h5 style={{ color: "#fc4c03" }} >
                   {/* <FontAwesomeIcon icon={faLocationDot} />{" "} */}
                   {nileCruiseDetails?.destination}
                 </h5>
 
-                {
+                 {
               nileCruiseDetails?.title === "Luxor - Cairo / Long Cruise " ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"18px"}}>Starting from 28000 EGP </h6>: ""
             }
             {
               nileCruiseDetails?.title === "Aswan - Cairo / Long Cruise" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"18px"}}>Starting from 37000 EGP </h6>: ""
             }
             {
-              nileCruiseDetails?.destination === "4 Days - 3 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"18px"}}>Starting from 10500 EGP </h6>: ""
+              nileCruiseDetails?.destination === "4 Days - 3 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"18px"}}>Starting from 550 $ </h6>: ""
             }
             {
-              nileCruiseDetails?.destination === "5 Days - 4 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"18px"}}>Starting from 13500 EGP </h6>: ""
+              nileCruiseDetails?.destination === "5 Days - 4 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"18px"}}>Starting from 670 $ </h6>: ""
             }
             <h6 style={{  }}>{nileCruiseDetails?.description}</h6>
-               
-                <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box7}</h5>
-                <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box8}</h5>
-                <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box9}</h5>
-                <h5 style={{ color: "#fc4c03" }}>{nileCruiseDetails?.box10}</h5>
+            <h6 >{nileCruiseDetails?.box6}</h6>
+                <h6 >{nileCruiseDetails?.box7}</h6>
+                <h6 >{nileCruiseDetails?.box8}</h6>
+                <h6 >{nileCruiseDetails?.box9}</h6>
+                <h6 >{nileCruiseDetails?.box10}</h6>
               </ul>
             </div>
           </Col>
@@ -184,68 +232,97 @@ function NileCruiseTempDetails() {
             <div className="book-form">
               <h2>Book Now</h2>
 
-              <Form  onSubmit={sendMassage}>
-                      <Form.Group className="mb-3" controlId="formBasicName">
-                        <Form.Control
-                          type="text"
-                          name="title"
-                          
-                          // value={itemDetails?.title}
-                          style={{display:"none"}}
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-3" controlId="formBasicName">
-                        <Form.Control required
-                          type="text"
-                          name="sender_name"
-                          placeholder="Your Name"
-                          onChange={(e)=>setName(e.target.value)}
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Control
-                          type="email"
-                          name="email"
-                          placeholder="Your Email Address"
-                          onChange={(e)=>setEmail(e.target.value)}
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-3" controlId="formBasicNumber">
-                        <Form.Control required
-                          type="tel"
-                          name="Phone_No"
-                          placeholder="Your Phone Number"
-                          onChange={(e)=>setPhone(e.target.value)}
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-3" controlId="formBasicName">
-                        <Form.Control
-                          type="tel"
-                          name="Rooms_Count"
-                          placeholder="Enter Number of Rooms"
-                          onChange={(e)=>setRooms(e.target.value)}
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-3" controlId="formBasicName">
-                        <Form.Control
-                          type="text"
-                          name="Pax_Count"
-                          placeholder="Enter Number of Pax"
-                          onChange={(e)=>setPax(e.target.value)}
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-3" controlId="formBasicName">
-                        <Form.Control
-                          type="text"
-                          name="Childs_Count"
-                          placeholder="Enter Number of Child"
-                          onChange={(e)=>setChild(e.target.value)}
-                        />
-                      </Form.Group>
-                      <Button id="book-btn" variant="primary" type="submit" style={{background:"#fc4c03",borderColor:"#fc4c03"}}>
-                        Book Now
-                      </Button>
-                    </Form>
+             {submitted ? (
+        <div>Thank you! Your message has been sent.</div>
+      ) : (
+                <Form  onSubmit={handleSubmit}>
+                  <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Control
+                      required
+                      type="text"
+                      name="title"
+                       value={nileCruiseDetails?.title}
+                       
+                      
+                      style={{ display: "none" }}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Control
+                    required
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                        onChange={handleChange}
+                      placeholder="Your Name"
+                      //onChange={(e) => setName(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Control
+                    required
+                      type="email"
+                      name="email"
+                      value={formData.emaiil}
+                        onChange={handleChange}
+                      placeholder="Your Email Address"
+                      //onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicNumber">
+                    <Form.Control
+                    required
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                        onChange={handleChange}
+                      placeholder="Your Phone Number"
+                      //onChange={(e) => setPhone(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Control
+                    required
+                      type="tel"
+                      name="rooms"
+                      value={formData.rooms}
+                        onChange={handleChange}
+                      placeholder="Enter Number of Rooms"
+                      //onChange={(e) => setRooms(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Control
+                    required
+                      type="text"
+                      name="pax"
+                      value={formData.pax}
+                        onChange={handleChange}
+                      placeholder="Enter Number of Pax"
+                      //onChange={(e) => setPax(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Control
+                    required
+                      type="text"
+                      name="child"
+                      value={formData.child}
+                        onChange={handleChange}
+                      placeholder="Enter Number of Child"
+                      //onChange={(e) => setChild(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Button
+                    id="book-btn"
+                    variant="primary"
+                    type="submit"
+                    style={{ background: "#fc4c03", borderColor: "#fc4c03" }}
+                  >
+                    Book Now
+                  </Button>
+                </Form>
+                  )}
             </div>
           </Col>
           <Col sm="12" md="9" lg="8">
@@ -266,10 +343,10 @@ function NileCruiseTempDetails() {
               nileCruiseDetails?.title === "Aswan - Cairo / Long Cruise" ?  " Starting from 37000 EGP": ""
             }
             {
-              nileCruiseDetails?.destination === "4 Days - 3 Nights" ?  " Starting from 10500 EGP": ""
+              nileCruiseDetails?.destination === "4 Days - 3 Nights" ?  " Starting from 550 $": ""
             }
             {
-              nileCruiseDetails?.destination === "5 Days - 4 Nights" ?  " Starting from 13500 EGP": ""
+              nileCruiseDetails?.destination === "5 Days - 4 Nights" ?  " Starting from 670 $": ""
             }
                     </a>
                   </li>
@@ -286,9 +363,9 @@ function NileCruiseTempDetails() {
                             <th scope="col">Package</th>
                             <th scope="col">From</th>
                             <th scope="col">to</th>
-                            <th scope="col">Single</th>
+                            {/* <th scope="col">Single</th>
                             <th scope="col">Double</th>
-                            <th scope="col">Triple</th>
+                            <th scope="col">Triple</th> */}
                           </tr>
                         </thead>
                         <tbody>
@@ -298,9 +375,9 @@ function NileCruiseTempDetails() {
                                 <th scope="row">{pack.packTitle}</th>
                                 <td>{pack.startDate.split('-').reverse().join('-')}</td>
                                 <td>{pack.endDate.split('-').reverse().join('-')}</td>
-                                <td>{pack.single} EGP</td>
+                                {/* <td>{pack.single} EGP</td>
                                 <td>{pack.double} EGP</td>
-                                <td>{pack.triple} EGP</td>
+                                <td>{pack.triple} EGP</td> */}
                               </tr>
                             );
                           })}

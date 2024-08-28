@@ -55,7 +55,7 @@ function FlyRequests() {
       +"*Departure Date :* "+depDate+"%0a"
       +"*Return Date:* "+retDate+"%0a"
       +"*Traveller:* "+traveller+"%0a"
-      +"*Child (2-18 years):* "+child+"%0a"
+      +"*Child (12-18 years):* "+child+"%0a"
       +"*Infant (0-2 year):* "+Infant+"%0a"
       +"*Cabin Class:* "+cabine+"%0a"
       +"*Name:* "+name+"%0a"
@@ -127,8 +127,8 @@ function FlyRequests() {
     </div>
     <div class="col-6 col-md-4 col-lg-2" style={{ border: "none" }}>
       <Form.Group className="mb-3" controlId="formBasicName">
-      <Form.Label>Child (2-18 years)</Form.Label>
-        <Form.Control type="tel"  onChange={(e)=>setChild(e.target.value)} name="Child (2-18 years)" placeholder="0" />
+      <Form.Label>Child (12-18 years)</Form.Label>
+        <Form.Control type="tel"  onChange={(e)=>setChild(e.target.value)} name="Child (12-18 years)" placeholder="0" />
       </Form.Group>
     </div>
     <div class="col-6 col-md-4 col-lg-2" style={{ border: "none" }}>
