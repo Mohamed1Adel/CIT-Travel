@@ -369,7 +369,7 @@ function DayTourTempDetails() {
                 <ul class="nav nav-tabs card-header-tabs" id="tabs">
                   <li class="nav-item">
                     <a class="nav-link" href="#itenary" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
-                      Itenary
+                    Itinerary 
                     </a>
                   </li>
                   <li class="nav-item">
@@ -382,15 +382,15 @@ function DayTourTempDetails() {
                       terms & Conditions
                     </a>
                   </li> */}
-                  {/* <li class="nav-item">
+                  <li class="nav-item">
                     <a
                       class="nav-link"
                       href="#cancellation-polices"
                       data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}
                     >
-                      Cancellation Polices
+                      Package Exclude
                     </a>
-                  </li> */}
+                  </li>
                 </ul>
               </div>
               <div class="card-body ">
@@ -399,7 +399,7 @@ function DayTourTempDetails() {
                     {/* <h4>{dayTourDetails?.itenary[0].dayTitle}</h4> */}
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: dayTourDetails?.itenary[0].dayContent,
+                        __html: dayTourDetails?.packInclude,
                       }}
                     />
                   </div>
@@ -419,14 +419,13 @@ function DayTourTempDetails() {
                       }}
                     />
                   </div> */}
-                  {/* <div class="tab-pane" id="cancellation-polices">
-                    <h5>Cancelation</h5>
+                  <div class="tab-pane" id="cancellation-polices">
                     <div
                       dangerouslySetInnerHTML={{
                         __html: dayTourDetails?.cancelationPolices,
                       }}
                     />
-                  </div> */}
+                  </div>
                 </div>
               </div>
             </div>

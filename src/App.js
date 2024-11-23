@@ -32,6 +32,8 @@ import FlyRequests from "./components/FlyRequests/FlyRequests";
 import Popup from "./components/popup/popup";
 import Terms from "./components/Terms/Terms";
 import Popup2 from "./components/popup/popup2";
+import ScrollToTop from "./components/scrollToTop";
+
 function App() {
 
   
@@ -95,7 +97,7 @@ function App() {
       {/* <Landing /> */}
       <div className="app-section" style={{ minHeight: "100vh" }}>
         <BrowserRouter>
-
+        <ScrollToTop />
           <Routes>
             <Route
               path="/"

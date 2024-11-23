@@ -48,9 +48,9 @@ function HistorecalTemp({program}) {
       <Card.Body>
         <Card.Title>{program?.title} </Card.Title>
         <Card.Text>
-          <div className="rates-stars">
+          {/* <div className="rates-stars">
             <h5>{program?.nights} Nights</h5>
-          </div>
+          </div> */}
           <div className="card-desc">
             <h6>{program?.description}</h6>
           </div>
@@ -58,7 +58,34 @@ function HistorecalTemp({program}) {
         </Card.Text>
 
         <Card.Body></Card.Body>
-        <h6 class="m-0 pb-3" style={{position:"absolute",bottom:"18px"}}>From $</h6>
+        
+        {
+              program?._id === "65d23b192eb6764f97ff219f" ?  <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 1150 $ </h6>: <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>  </h6>
+            }
+        {
+              program?._id === "65d22e40825030440a589a13" ?  <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 1157 $ </h6>: <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>  </h6>
+            }
+        {
+              program?._id === "65d73de5ee516e16db863bd8" ?  <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 528 $ </h6>: <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>  </h6>
+            }
+        {
+              program?._id === "65d238902eb6764f97ff2114" ?  <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 3304 $ </h6>: <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>  </h6>
+            }
+        {
+              program?._id === "65d23d822eb6764f97ff21ad" ?  <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 570 $ </h6>: <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>  </h6>
+            }
+        {
+              program?._id === "65d240de2eb6764f97ff21dd" ?  <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 582 $ </h6>: <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>  </h6>
+            }
+        {
+              program?._id === "65d73b71ee516e16db863bd0" ?  <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 441 $ </h6>: <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>  </h6>
+            }
+        {
+              program?._id === "670b7f3037836f581e3e2ffd" ?  <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 1170 $ </h6>: <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>  </h6>
+            }
+        {
+              program?._id === "65d73eebee516e16db863be3" ?  <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 277 $ </h6>: <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>  </h6>
+            }
         <Button id="card-btn" style={{ width: "fit-content" }} variant="primary">
           {/* <Link to={"/tembDetails/" + item.item._id}> */}
           <Link to={`/historecaltembDetails/${program?._id}`}>

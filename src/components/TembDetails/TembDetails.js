@@ -192,7 +192,7 @@ function TembDetails() {
                     })}
                   </h5>
                   {
-         itemDetails.title.trim() === "Movenpick Soma Bay"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 8930 EGP</h6> :""
+         itemDetails.title.trim() === "Movenpick Soma Bay"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 8780 EGP</h6> :""
         }
         {
          itemDetails.title.trim() === "Royal Lagoons Resort & Aqua Park"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 5330 EGP</h6> :""
@@ -204,34 +204,40 @@ function TembDetails() {
          itemDetails.title.trim() === "New Eagles Aqua Park Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 6900 EGP</h6> :""
         }
         {
-         itemDetails.title.trim() === "Calimera Blend Paradise"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 10300 EGP</h6> :""
+         itemDetails.title.trim() === "Calimera Blend Paradise"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 8850 EGP</h6> :""
         }
         {
-         itemDetails.title.trim() === "Blend Club Aqua Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 7750 EGP</h6> :""
+         itemDetails.title.trim() === "Blend Club Aqua Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 6750 EGP</h6> :""
         }
         {
-         itemDetails.title.trim() === "Desert Rose"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",position:"absolute",bottom:"5px",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 11995 EGP</h6> :""
+         itemDetails.title.trim() === "Desert Rose"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",position:"absolute",bottom:"5px",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 11430 EGP</h6> :""
         }
         {
-          itemDetails.title.trim() === "Barcelo Tiran"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 10350 EGP</h6> :""
+          itemDetails.title.trim() === "Barcelo Tiran"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 9200 EGP</h6> :""
         }
         {
-          itemDetails.title.trim() === "Charmillion Gardens Aqua Park"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 8250 EGP</h6> :""
+          itemDetails.title.trim() === "Charmillion Gardens Aqua Park"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 9050 EGP</h6> :""
         }
         {
-          itemDetails.title.trim() === "Akassia Swiss Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 8550 EGP</h6> :""
+          itemDetails.title.trim() === "Akassia Swiss Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 10200 EGP</h6> :""
         }
         {
-          itemDetails.title.trim() === "Sataya Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 7650 EGP</h6> :""
+          itemDetails.title.trim() === "Sataya Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 8650 EGP</h6> :""
         }
         {
-          itemDetails.title.trim() === "Amarina Abu Soma Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 12900 EGP</h6> :""
+          itemDetails.title.trim() === "Amarina Abu Soma Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 11900 EGP</h6> :""
         }
         {
           itemDetails.title.trim() === "Strand Taba Heights"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 5200 EGP</h6> :""
         }
         {
           itemDetails.title.trim() === "Tolip Taba Resort"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 4950 EGP</h6> :""
+        }
+        {
+          itemDetails.title.trim() === "Charmillion Club Aqua Park"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 8800 EGP</h6> :""
+        }
+        {
+          itemDetails.title.trim() === "Charmillion Sea Life"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 8525 EGP</h6> :""
         }
                   <h5 style={{ color: "#fc4c03" }}>
                     <FontAwesomeIcon icon={faLocationDot} />{" "}

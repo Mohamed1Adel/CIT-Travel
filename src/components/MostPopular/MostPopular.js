@@ -25,7 +25,20 @@ function MostPopular() {
       const response = await axios.get(`${MONGODB_URL}/getAllDomestics`);
       const data = response.data;
       console.log("====================================");
-      setDomestic(data.filter((item)=>item.home == true).slice(0,3).reverse());
+      const filteredData = data.filter((item) => 
+        (item._id === "662909405d90fc661870af7e" || 
+         item._id === "6629181e956917d909e58c2a" ||  
+         item._id === "662936e5497f70eb371ea824")
+      );
+      
+      if (filteredData.length >= 3) {
+        const temp = filteredData[1];
+        filteredData[1] = filteredData[2];
+        filteredData[2] = temp;
+      }
+      
+      setDomestic(filteredData);
+      
       console.log("====================================");
     } catch (e) {
       console.log("====================================");
@@ -64,7 +77,7 @@ function MostPopular() {
       const response = await axios.get(`${MONGODB_URL}/getAllNileCruise`);
       const data = response.data;
       console.log("====================================");
-      setNileCruise(data.reverse().slice(0, 2));
+      setNileCruise(data.reverse().slice(0, 1));
       console.log("====================================");
     } catch (e) {
       console.log("====================================");
@@ -116,9 +129,21 @@ function MostPopular() {
           ) : (
             <Progress />
           )}
+          {/* {nileCruise?.length >= 1 ? (
+            nileCruise?.map((n) => {
+              return (
+                n.title !== "Aswan - Cairo / Long Cruise"   ? n.title !== "Luxor - Cairo / Long Cruise " ?  
+                <NileCruiseTemp nileCruise={n} />
+              :"" : ""
+                
+              );
+            })
+          ) : (
+            ''
+          )} */}
         </Col>
 
-        <Col
+        {/* <Col
           sm="12"
           md="6"
           lg="4"
@@ -143,8 +168,8 @@ function MostPopular() {
           ) : (
             <Progress />
           )}
-        </Col>
-        {/* <Col
+        </Col> */}
+        <Col
           sm="12"
           md="6"
           lg="4"
@@ -164,7 +189,7 @@ function MostPopular() {
           ) : (
             <Progress />
           )}
-        </Col> */}
+        </Col>
 
         <Col
           sm="12"

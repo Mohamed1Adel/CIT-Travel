@@ -411,7 +411,7 @@ function OutboundTempDetails() {
                     href="#Package-Includes"
                     data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"15px"}}
                   >
-                    Package Include
+                    Include
                   </a>
                 </li>
                 <li class="nav-item">
@@ -420,7 +420,7 @@ function OutboundTempDetails() {
                     href="#Package-Excludes"
                     data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"15px"}}
                   >
-                    Package Exclude
+                    Exclude
                   </a>
                 </li>
 
@@ -436,7 +436,7 @@ function OutboundTempDetails() {
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#cancelation-policy" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"15px"}}>
-                  Cancelation Policy 
+                  Cancelation 
                   </a>
                 </li>
 
@@ -475,20 +475,20 @@ function OutboundTempDetails() {
                               }}
                             />
                             {
-                            
-                            day?.optTour !== "<p><br></p>" ? 
-                            
-                            <>
-
-                            <h4 style={{fontWeight:"bold",color:"red"}}>Optional Tours</h4>
-                            <div
-                          style={{marginTop:"10px"}}
-                            dangerouslySetInnerHTML={{
-                              __html: day?.optTour,
-                            }}
-                          />
-                            </> : ""
-                          }
+                              day?.optTour && day.optTour.trim() !== "<p><br></p>" ? (
+                                <>
+                                  <h4 style={{ fontWeight: "bold", color: "red" }}>Optional Tours</h4>
+                                  <div
+                                    style={{ marginTop: "10px" }}
+                                    dangerouslySetInnerHTML={{
+                                      __html: day?.optTour,
+                                    }}
+                                  />
+                                </>
+                              ) : (
+                                ""
+                              )
+                            }
 
                           </Accordion.Body>
                         </Accordion.Item>

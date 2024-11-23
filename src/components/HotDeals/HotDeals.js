@@ -182,7 +182,7 @@ function HotDeals({checkConnection}) {
           {allHotDeals?.domestics?.length >= 1 ? (
             <Slider {...sett()}>
               {}
-              {allHotDeals?.domestics?.map((item) => {
+              {/* {allHotDeals?.domestics?.map((item) => {
                 return (
                   <div class="hot-offer-box">
                     <div class="ribbon red">
@@ -191,7 +191,7 @@ function HotDeals({checkConnection}) {
                     <Temb item={item} />
                   </div>
                 );
-              })}
+              })} */}
               {allHotDeals?.historical?.map((item) => {
                 return (
                   <div class="hot-offer-box">

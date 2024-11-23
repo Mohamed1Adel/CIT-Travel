@@ -52,7 +52,17 @@ function DayTourTemp(dayTour) {
         <Card.Text >
           <div className="card-desc d-flex align-items-center w-100" style={{position:"absolute",bottom:"60px",gap:"30px"}}>
             <h6 className="text-end" style={{}}><FontAwesomeIcon icon={faClock} /> {dayTour.dayTour.box6}</h6>
-            <h6 style={{}}><FontAwesomeIcon icon={faMoneyBill} /> from...</h6>
+            
+            {
+              // <FontAwesomeIcon icon={faMoneyBill} />
+          dayTour?.dayTour._id === "65e7b2a5c6aee86da25bc8e8"? <h6 style={{color:'#FD4E12'}}> Starting from 60$</h6> :""
+          }
+            {
+          dayTour?.dayTour._id === "65e7b401c6aee86da25bc9fb"? <h6 style={{color:'#FD4E12'}}> Starting from 70$</h6> :""
+          }
+            {
+          dayTour?.dayTour._id === "65e7b34dc6aee86da25bc9f6"? <h6 style={{color:'#FD4E12'}}> Starting from 58$</h6> :""
+          }
           </div>
           
         </Card.Text>

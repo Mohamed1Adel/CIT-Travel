@@ -10,6 +10,7 @@ import { Button,
 import { Zoom } from "react-reveal";
 import Temb from "../Temb/Temb";
 import NileCruiseTemp from "../NileCruiseTemp/NileCruiseTemp";
+import HistorecalTemp from "../HistorecalTemp/HistorecalTemp";
 import "./Domestic.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faStar, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -91,6 +92,26 @@ function Domestic() {
     getAllNileCruises();
   },[]);
 
+  const [programs, setPrograms] = useState({});
+  const getAllPrograms = async () => {
+    try {
+      // const response = await axios.get(`${API_URL}/nileCruise`);
+      const response = await axios.get(`${MONGODB_URL}/getAllProgram`);
+      const programs = await response.data;
+      console.log("====================================");
+      console.log(programs.id);
+      console.log("====================================");
+      setPrograms(programs);
+    } catch (e) {
+      console.log("====================================");
+      console.log(e);
+      console.log("====================================");
+    }
+  };
+  useEffect(() => {
+    getAllPrograms();
+  },[]);
+
   return (
     <>
      <Toast
@@ -106,17 +127,17 @@ function Domestic() {
         }}
       >
         <Toast.Header>
-                      <img width="180" height="100" src={require("../../images/hot-offer/r.png")} style={{objectFit:"contain",position:"absolute",right:"60px",top:"-45px"}}/>
+                      <img width="180" height="100" src={require("../../images/hot-offer/r.png")} style={{objectFit:"contain",position:"absolute",right:"0px",top:"-45px"}}/>
 
           <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-          <strong className="me-auto">Desert Rose <br /> <span style={{fontSize:"12px",fontWeight:"bold",color:"rgb(252, 76, 3)"}}> special price With 5% installment</span> </strong>
+          <strong className="me-auto">Semiramis lll (5* deluxe) <br /> <span style={{fontSize:"12px",fontWeight:"bold",color:"rgb(252, 76, 3)"}}> 4 Days / 3 Nights</span><br /> <span style={{fontSize:"12px",fontWeight:"bold",color:"rgb(252, 76, 3)"}}> Starting from 10400 EGP</span> </strong>
         </Toast.Header>
         <Toast.Body>
           <img
             width="100%"
             height="250"
             className="mb-2"
-            src={require("../../images/desert-rose-resort_153839788829.jpg")}
+            src="https://cit-egypt.com/dropimg/uploads/17247582932.%20Reception.jpg"
           />
 
           <Button
@@ -127,7 +148,7 @@ function Domestic() {
           >
             {/* <Link to={"/tembDetails/" + id}> */}
             <Link
-              to={`/tembDetails/${nileid}`}
+              to={`https://cit-egypt.com/nileCruiseTempDetails/66cf0657785b59a0f6d21e9c`}
               style={{ color: "#000" }}
             >
               More Details
@@ -1454,6 +1475,34 @@ function Domestic() {
                 <FullProgress />
               ):<FullProgress />
             } */}
+             {/* {programs?.length >= 1 ? (
+            programs?.map((program) => {
+              return (
+                program._id == "66fe8633e9045f096a95797d"   ?
+                   <Col sm="12" md="6" lg="4" xxl="3">
+                <HistorecalTemp program={program} />
+              </Col>
+              :""
+              );
+            })
+          ) : (
+            <FullProgress />
+          )} */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
              {nileCruises?.length >= 1 ? (
             nileCruises?.map((nileCruise) => {
                
@@ -1473,18 +1522,22 @@ function Domestic() {
           ) : (
             <FullProgress />
           )}
+
+
+
+
+
                   {filtered == false && newDataArray.length == 0? (
                     data.length >= 1 ? (
                       data.map((item) => {
                         return (
 
-                          <Col key={item.id} sm="12" md="6" lg="4" xxl="3">
-                            <Temb item={item} />
-                          </Col> 
-                          // item.title != "Strand Taba Heights " ?
-                          // <Col key={item.id} sm="12" md="6" lg="4" xxl="3">
-                          //   <Temb item={item} />
-                          // </Col> : ""
+                          (item._id != "66294201497f70eb371eae5e" && item._id != "662e205899d8bcfa2a9f6287") ? (
+                            <Col key={item.id} sm="12" md="6" lg="4" xxl="3">
+                              <Temb item={item} />
+                            </Col>
+                          ) : ""
+                          
                         );
                       })
                     ) : (
@@ -1493,9 +1546,11 @@ function Domestic() {
                   ) : data.length >= 1 ? (
                     newDataArray.map((item) => {
                       return (
-                        item.title != "Strand Taba Heights " ? <Col key={item.id} sm="12" md="6" lg="4" xxl="3">
-                        <Temb item={item} />
-                      </Col> : ""
+                        (item._id != "66294201497f70eb371eae5e" && item._id != "662e205899d8bcfa2a9f6287" && item._id != "6661c7b0f5320df705d77068") ? (
+                          <Col key={item.id} sm="12" md="6" lg="4" xxl="3">
+                            <Temb item={item} />
+                          </Col>
+                        ) : ""
                         
                       );
                     })
@@ -1505,6 +1560,19 @@ function Domestic() {
                   
                   
                   }
+
+
+
+
+
+
+
+
+
+
+
+
+
                   {/* {
                     (
                       newDataArray.length == 0 ? (

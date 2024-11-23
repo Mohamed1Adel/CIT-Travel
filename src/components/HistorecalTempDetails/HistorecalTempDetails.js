@@ -154,7 +154,7 @@ function HistorecalTembDetails() {
           const response = await axios.get(process.env.PUBLIC_URL + `/dropimg/g.php?id=${id}`);
           // Set the data in state
           setDataImg(response.data);
-          console.log(response.data);
+          console.log("the images is :" , response.data);
           // Set loading state to false
           setLoading(false);
         } catch (error) {
@@ -198,27 +198,23 @@ function HistorecalTembDetails() {
             </div>
           </Col>
           <Col sm="12" md="9" lg="8">
-            <Carousel activeIndex={index} onSelect={handleSelect}>
-              {programDetails?.images?.length >= 1 ? (
-                programDetails?.images?.map((img,i) => {
-                  console.log("images is loaded");
-                  if(i<=dataImg.length - 2){
-                    return (
-                   <Carousel.Item key={Math.random()}>
-                     <img src={process.env.PUBLIC_URL + `/dropimg/uploads/${dataImg[i]}`} alt="..." />
-                   </Carousel.Item>
-                 );
-                 }
-                  // return (
-                  //   <Carousel.Item key={Math.random()}>
-                  //     <img src={img?.img_url} alt="..." />
-                  //   </Carousel.Item>
-                  // );
-                })
-              ) : (
-                <Progress />
-              )}
-            </Carousel>
+          <Carousel interval={2000} activeIndex={index} onSelect={handleSelect}>
+                {dataImg?.length >= 1 ? (
+                  dataImg?.map((img,i) => {
+                    console.log("images is loaded");
+                    if(i<=dataImg.length - 2){
+                       return (
+                      <Carousel.Item key={Math.random()}>
+                        <img src={process.env.PUBLIC_URL + `/dropimg/uploads/${dataImg[i]}`} alt="..." />
+                      </Carousel.Item>
+                    );
+                    }
+                   
+                  })
+                ) : (
+                  <Progress />
+                )}
+              </Carousel>
           </Col>
         </Row>
         <Row className="my-5 book-rates">
@@ -392,6 +388,13 @@ function HistorecalTembDetails() {
                       Package Excludes
                     </a>
                   </li>
+                  {
+                   programDetails._id == "66fe8633e9045f096a95797d" ? <li class="nav-item">
+                   <a class="nav-link" href="#notes" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
+                   Notes
+                   </a>
+                 </li> : ""
+                  }
                   {/* <li class="nav-item">
                     <a class="nav-link" href="#terms" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
                     Highlights
@@ -459,6 +462,14 @@ function HistorecalTembDetails() {
                       }}
                     />
                   </div>
+                  {
+                   programDetails._id == "66fe8633e9045f096a95797d" ? 
+                   <div class="tab-pane" id="notes">
+                      <p>- Cost subject to change upon number of people.</p>
+                      <p>- Slight changes might occur due to circumstances beyond our control.</p>
+                      <p>- The itinerary can be altered based on your personal interests.</p>
+                  </div>
+                   :""}
                   {/* <div class="tab-pane" id="terms">
                     
                     

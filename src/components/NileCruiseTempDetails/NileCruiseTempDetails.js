@@ -182,17 +182,26 @@ const [formData, setFormData] = useState({
                   {nileCruiseDetails?.destination}
                 </h5>
 
-                 {
+                 {/* {
               nileCruiseDetails?.title === "Luxor - Cairo / Long Cruise " ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"18px"}}>Starting from 28000 EGP </h6>: ""
             }
             {
               nileCruiseDetails?.title === "Aswan - Cairo / Long Cruise" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"18px"}}>Starting from 37000 EGP </h6>: ""
+            } */}
+            {
+              nileCruiseDetails?.destination === "4 Days / 3 Nights " ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"14px",position: "absolute",
+                top: "60px",
+                right: "10px"}}>Starting from 385 $ </h6>: ""
             }
             {
-              nileCruiseDetails?.destination === "4 Days - 3 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"18px"}}>Starting from 550 $ </h6>: ""
+              nileCruiseDetails?.destination === "5 Days / 4 Nights " ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"14px",position: "absolute",
+                top: "60px",
+                right: "10px"}}>Starting from 475 $ </h6>: ""
             }
             {
-              nileCruiseDetails?.destination === "5 Days - 4 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"18px"}}>Starting from 670 $ </h6>: ""
+              nileCruiseDetails?.destination === "8 Days/ 7 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",fontSize:"14px",position: "absolute",
+                top: "60px",
+                right: "10px"}}>Starting from 700 $ </h6>: ""
             }
             <h6 style={{  }}>{nileCruiseDetails?.description}</h6>
             <h6 >{nileCruiseDetails?.box6}</h6>
@@ -363,22 +372,56 @@ const [formData, setFormData] = useState({
                             <th scope="col">Package</th>
                             <th scope="col">From</th>
                             <th scope="col">to</th>
-                            {/* <th scope="col">Single</th>
+                            <th scope="col">Single</th>
                             <th scope="col">Double</th>
-                            <th scope="col">Triple</th> */}
+                            <th scope="col">Triple</th>
                           </tr>
                         </thead>
                         <tbody>
-                          {nileCruiseDetails?.packages?.map((pack) => {
+                          {nileCruiseDetails?.packages?.map((pack,i) => {
                             return (
-                              <tr>
-                                <th scope="row">{pack.packTitle}</th>
-                                <td>{pack.startDate.split('-').reverse().join('-')}</td>
-                                <td>{pack.endDate.split('-').reverse().join('-')}</td>
-                                {/* <td>{pack.single} EGP</td>
-                                <td>{pack.double} EGP</td>
-                                <td>{pack.triple} EGP</td> */}
-                              </tr>
+                              nileCruiseDetails?.destination == "5 Days / 4 Nights " && i == 2 ?
+                            <tr>
+                             <th scope="row">XMAS Cruise 23 December 2024 (EX.Luxor)</th>
+                             <td></td>
+                             <td></td>
+                             <td>{pack.single} {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                             <td>{pack.double}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                             <td>{pack.triple}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                           </tr> 
+                           :nileCruiseDetails?.destination == "5 Days / 4 Nights " && i == 3 ? <tr>
+                             <th scope="row">New Year 30 December 2024 (EX.Luxor)</th>
+                             <td></td>
+                             <td></td>
+                             <td>{pack.single}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                             <td>{pack.double}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                             <td>{pack.triple}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                           </tr> :
+                           nileCruiseDetails?.destination == "5 Days / 4 Nights" && i == 2 && nileCruiseDetails?.egypt_cruise == true ? <tr>
+                           <th scope="row">XMAS Cruise 23 December 2024 (EX.Luxor)</th>
+                           <td></td>
+                           <td></td>
+                           <td>{pack.single}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                           <td>{pack.double}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                           <td>{pack.triple}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                         </tr> :
+                         nileCruiseDetails?.destination == "5 Days / 4 Nights" && i == 3 && nileCruiseDetails?.egypt_cruise == true ? <tr>
+                         <th scope="row">New Year 30 December 2024 (EX.Luxor)</th>
+                         <td></td>
+                         <td></td>
+                         <td>{pack.single}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                         <td>{pack.double}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                         <td>{pack.triple}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                       </tr> :
+                           <tr>
+                             <th scope="row">{pack.packTitle}</th>
+                             <td>{pack.startDate?.split('-').reverse().join('-')}</td>
+                             <td>{pack.endDate?.split('-').reverse().join('-')}</td>
+                             <td>{pack.single} {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                             <td>{pack.double} {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                             <td>{pack.triple} {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                           </tr>
+                              
                             );
                           })}
                         </tbody>
@@ -396,6 +439,16 @@ const [formData, setFormData] = useState({
                       Itenary
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#include" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
+                      Include
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#exclude" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
+                      Exclude
+                    </a>
+                  </li>
                 
                   <li class="nav-item">
                     <a class="nav-link" href="#terms" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
@@ -408,7 +461,7 @@ const [formData, setFormData] = useState({
                       href="#cancellation-polices"
                       data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}
                     >
-                      Cancellation Polices
+                      Cancellation
                     </a>
                   </li>
                   <li class="nav-item">
@@ -420,16 +473,7 @@ const [formData, setFormData] = useState({
                       Children Polices
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#include" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
-                      Include
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#exclude" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
-                      Exclude
-                    </a>
-                  </li>
+
                 </ul>
               </div>
               <div class="card-body ">
@@ -481,6 +525,24 @@ const [formData, setFormData] = useState({
                       })}
                     </Accordion>
                   </div>
+                  <div class="tab-pane" id="include">
+                    
+
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: nileCruiseDetails?.include,
+                      }}
+                    />
+                  </div>
+                  <div class="tab-pane" id="exclude">
+                    
+
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: nileCruiseDetails?.exclude,
+                      }}
+                    />
+                  </div>
                   
                   <div class="tab-pane" id="terms">
                   
@@ -506,24 +568,7 @@ const [formData, setFormData] = useState({
                       }}
                     />
                   </div>
-                  <div class="tab-pane" id="include">
-                    
 
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: nileCruiseDetails?.include,
-                      }}
-                    />
-                  </div>
-                  <div class="tab-pane" id="exclude">
-                    
-
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: nileCruiseDetails?.exclude,
-                      }}
-                    />
-                  </div>
                 </div>
               </div>
             </div>

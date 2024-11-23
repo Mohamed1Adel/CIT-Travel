@@ -57,17 +57,26 @@ function NileCruiseTemp(nileCruise) {
           <h5>{nileCruise?.nileCruise.packages[0]?.packTitle}</h5>
           <div className="card-desc">
             <h6>{nileCruise?.nileCruise.description}</h6>
-            {
+            {/* {
               nileCruise?.nileCruise.title === "Luxor - Cairo / Long Cruise " ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px"}}>Starting from <br /> 28000 EGP </h6>: ""
             }
             {
               nileCruise?.nileCruise.title === "Aswan - Cairo / Long Cruise" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px"}}>Starting from <br /> 37000 EGP </h6>: ""
+            } */}
+            {
+              nileCruise?.nileCruise.destination === "4 Days / 3 Nights " ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 385 $ </h6>: ""
             }
             {
-              nileCruise?.nileCruise.destination === "4 Days - 3 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px"}}>Starting from <br /> 550 $ </h6>: ""
+              nileCruise?.nileCruise.destination === "4 Days / 3 Nights" && nileCruise?.nileCruise.egypt_cruise === true ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 10400 EGP </h6>: ""
             }
             {
-              nileCruise?.nileCruise.destination === "5 Days - 4 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px"}}>Starting from <br /> 670 $ </h6>: ""
+              nileCruise?.nileCruise.destination === "5 Days / 4 Nights " ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 475 $ </h6>: ""
+            }
+            {
+              nileCruise?.nileCruise.destination === "5 Days / 4 Nights" && nileCruise?.nileCruise.egypt_cruise === true ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 13950 EGP </h6>: ""
+            }
+            {
+              nileCruise?.nileCruise.destination === "8 Days/ 7 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 700 $ </h6>: ""
             }
           </div>
           

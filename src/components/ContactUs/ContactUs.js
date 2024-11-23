@@ -83,16 +83,18 @@ function ContactUs() {
               <div className=" d-flex  align-items-start justify-content-start con-box" style={{gap:"60px"}}>
               <div>
                 <h4 className="py-2">Tel:</h4>
-                <h5><a href="tel:+2 23492245" style={{color:"#000"}}>23492245</a> </h5>
-                <h5><a href="tel:+2 23492246" style={{color:"#000"}}>23492246</a> </h5>
-                <h5><a href="tel:+223493333" style={{color:"#000"}}>23493333</a> </h5>
+                <h5><a href="tel:+2 23492245" style={{color:"#000"}}>+23492245</a> </h5>
+                <h5><a href="tel:+2 23492246" style={{color:"#000"}}>+23492246</a> </h5>
+                <h5><a href="tel:+223493333" style={{color:"#000"}}>+23493333</a> </h5>
               </div>
               <div>
                 <h4 className="py-2">Phone:</h4>
-                <h5><a href="tel:+2 01100918406" style={{color:"#000"}}>01100918406</a> </h5>
-                <h5><a href="tel:+2 01100918407" style={{color:"#000"}}>01100918407</a>  </h5>
-                <h5><a href="tel:+2 01140046060" style={{color:"#000"}}>01140046060</a> </h5>
-                <h5><a href="tel:+2 01140046060" style={{color:"#000"}}>01140046060</a> </h5>
+                <h5><a href="tel:+201100918406" style={{color:"#000"}}>01100918406</a> </h5>
+                <h5><a href="tel:+201100918407" style={{color:"#000"}}>01100918407</a> </h5>
+                <h5><a href="tel:+201100918408" style={{color:"#000"}}>01100918408</a>  </h5>
+                <h5><a href="tel:+201100918409" style={{color:"#000"}}>01100918409</a>  </h5>
+                <h5><a href="tel:+201100918410" style={{color:"#000"}}>01100918410</a>  </h5>
+
               </div>
               </div>
               <h4 className="py-2">Facebook Page:</h4>
