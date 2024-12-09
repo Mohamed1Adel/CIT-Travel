@@ -46,10 +46,18 @@ function NileCruise() {
               return (
                 nileCruise.title != "Aswan - Cairo / Long Cruise"   ?
                  nileCruise.title != "Luxor - Cairo / Long Cruise " ?
+                 nileCruise._id != "66d09e64b9c6a200571c2d77" ?
+                 nileCruise._id != "6741bccc34b3910041eb1c97" ?
+                 nileCruise._id != "6741ed0582fe9fbf3d960113" ?
+                 nileCruise._id != "6743008be370124078606370" ?
                  nileCruise.egypt_cruise != true ?
                    <Col sm="12" md="6" lg="4" xxl="4">
                 <NileCruiseTemp nileCruise={nileCruise} />
               </Col>:
+              "" :
+              "" :
+              "" :
+              "" :
               "" :
               "" :
                ""

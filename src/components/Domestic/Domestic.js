@@ -58,7 +58,7 @@ function Domestic() {
   const getAllData = async () => {
     try {
      const response = await axios.get(`${MONGODB_URL}/getAllDomestics`);
-      const data = response.data;
+      const data = response.data.reverse();
       console.log(data);
       setData(data);
     } catch (e) {
@@ -130,7 +130,7 @@ function Domestic() {
                       <img width="180" height="100" src={require("../../images/hot-offer/r.png")} style={{objectFit:"contain",position:"absolute",right:"0px",top:"-45px"}}/>
 
           <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-          <strong className="me-auto">Semiramis lll (5* deluxe) <br /> <span style={{fontSize:"12px",fontWeight:"bold",color:"rgb(252, 76, 3)"}}> 4 Days / 3 Nights</span><br /> <span style={{fontSize:"12px",fontWeight:"bold",color:"rgb(252, 76, 3)"}}> Starting from 10400 EGP</span> </strong>
+          <strong className="me-auto">Semiramis lll (5* deluxe) <br /> <span style={{fontSize:"12px",fontWeight:"bold",color:"rgb(252, 76, 3)"}}> 4 Days / 3 Nights</span><br /> <span style={{fontSize:"12px",fontWeight:"bold",color:"rgb(252, 76, 3)"}}> 9650 EGP</span> </strong>
         </Toast.Header>
         <Toast.Body>
           <img
@@ -1532,7 +1532,13 @@ function Domestic() {
                       data.map((item) => {
                         return (
 
-                          (item._id != "66294201497f70eb371eae5e" && item._id != "662e205899d8bcfa2a9f6287") ? (
+                          (item._id != "66294201497f70eb371eae5e" &&
+                             item._id != "662e205899d8bcfa2a9f6287" &&
+                              item._id != "66605280757508d3e0129c8e" &&
+                               item._id != "665f2e2c7e35dabd2da59fbb" &&
+                                item._id != "667d7d8df0b44fde0da99db9" &&
+                                item._id != "662909405d90fc661870af7e" &&
+                                 item._id != "6629181e956917d909e58c2a") ? (
                             <Col key={item.id} sm="12" md="6" lg="4" xxl="3">
                               <Temb item={item} />
                             </Col>

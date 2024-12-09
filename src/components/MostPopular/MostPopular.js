@@ -17,18 +17,26 @@ function MostPopular() {
   const [historical, setHistorical] = useState();
   const [outbounds, setOutbound] = useState();
   const [nileCruise, setNileCruise] = useState();
+  const [oneCrouseDatas, setOneCrouseData] = useState();
   const [hotDeals, setHotDeals] = useState([]);
 
   // console.log(hotDeals);
   const getDomestic = async () => {
     try {
+      const oneCrouse = await axios.get(`${MONGODB_URL}/getAllNileCruise`);
+      const oneCrouseData = oneCrouse.data;
+      console.log("====================================");
+      const filtereOneCrouseData = oneCrouseData.filter((item) => 
+        (item._id === "6741e96682fe9fbf3d95ffe1")
+      );
+      setOneCrouseData(filtereOneCrouseData);
       const response = await axios.get(`${MONGODB_URL}/getAllDomestics`);
       const data = response.data;
       console.log("====================================");
       const filteredData = data.filter((item) => 
-        (item._id === "662909405d90fc661870af7e" || 
-         item._id === "6629181e956917d909e58c2a" ||  
-         item._id === "662936e5497f70eb371ea824")
+        ( 
+         item._id === "666710ee6ecff983ba07889d" ||  
+         item._id === "6746f5bfa685f69b8545f83f")
       );
       
       if (filteredData.length >= 3) {
@@ -63,8 +71,14 @@ function MostPopular() {
     try {
       const response = await axios.get(`${MONGODB_URL}/getAllOutbound`);
       const data = response.data;
+      const filteredData = data.filter((item) => 
+        ( 
+         item._id === "66ea9ab5ad9141661eaa03fd" ||  
+         item._id === "670bd406b8b4ef3f8a29df0e" ||  
+         item._id === "66d9c892ebca084e99b00751")
+      );
       console.log("====================================");
-      setOutbound(data.slice(0, 3));
+      setOutbound(filteredData);
       console.log("====================================");
     } catch (e) {
       console.log("====================================");
@@ -215,10 +229,25 @@ function MostPopular() {
           )} */}
           {
           
+          oneCrouseDatas?.length >= 1 ? (
+            oneCrouseDatas?.map((item) => {
+
+          return <NileCruiseTemp nileCruise={item}/>
+
+  
+
+            })
+          ) : (
+            ''
+         )
+        
+        }
+          {
+          
           domestic?.length >= 1 ? (
             domestic?.map((item) => {
 
-  return <Temb item={item} />
+        return <Temb item={item} />
 
   
 

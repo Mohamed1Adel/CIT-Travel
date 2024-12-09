@@ -179,10 +179,10 @@ function HotDeals({checkConnection}) {
           <Col sm="12" md="6" lg="4">
             <Temb />
           </Col> */}
-          {allHotDeals?.domestics?.length >= 1 ? (
+          {allHotDeals?.domestics?.length >= 0 ? (
             <Slider {...sett()}>
               {}
-              {/* {allHotDeals?.domestics?.map((item) => {
+              {allHotDeals?.domestics?.map((item) => {
                 return (
                   <div class="hot-offer-box">
                     <div class="ribbon red">
@@ -191,7 +191,7 @@ function HotDeals({checkConnection}) {
                     <Temb item={item} />
                   </div>
                 );
-              })} */}
+              })}
               {allHotDeals?.historical?.map((item) => {
                 return (
                   <div class="hot-offer-box">

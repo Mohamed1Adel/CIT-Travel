@@ -436,7 +436,8 @@ const [formData, setFormData] = useState({
                 <ul class="nav nav-tabs card-header-tabs" id="tabs">
                   <li class="nav-item">
                     <a class="nav-link" href="#itenary" data-toggle="tab"style={{color:"#fc4c03",fontWeight:"bold",fontSize:"16px"}}>
-                      Itenary
+                    Itinerary
+
                     </a>
                   </li>
                   <li class="nav-item">
