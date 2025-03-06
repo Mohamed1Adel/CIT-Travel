@@ -117,8 +117,20 @@
     text-decoration: none;
 }
 
-.Banner{
-  // background-image:url("../../images/domestic/Beach-1.jpg") !important;
+
+@media (min-width:768px) {
+    .Banner{
+    // background-image:url("../../images/domestic/Beach-1.jpg") !important;
+    background-position:center 70px !important;
+    background-size: 100% 90% !important;
+  }
+}
+.btn-close{
+  z-index: 1000;
+}
+
+.react-reveal {
+  opacity: 1 !important;
 }
 
 @media (max-width:767px) {

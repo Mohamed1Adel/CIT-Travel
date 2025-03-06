@@ -47,34 +47,40 @@ function OutboundTemp({ outbound }) {
       <Card.Body>
       {/* <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>From $</h6> */}
       {
-          outbound.title.trim() === "Azerbaijan 6 days / 5 Nights"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 525 $  </h6> :""
+          outbound._id === "66d99de55d9473fe0508a2f6"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 525 $  </h6> :""
       }
       {
-          outbound.title.trim() === "Budapest 4 Days/3 Nights"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from<br /> 200 $  </h6> :""
+          outbound._id === "66d9c892ebca084e99b00751"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from<br /> 200 $  </h6> :""
       }
       {
-          outbound.title.trim() === "Tbilisi 4 Days /3 Nights"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 202$  </h6> :""
+          outbound._id === "66e98fe6cd35c428c034c4a0"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 630$  </h6> :""
       }
       {
-          outbound.title.trim() === "Istanbul 5Days/ 4 Nights"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 630$  </h6> :""
+          outbound._id === "66ea9ab5ad9141661eaa03fd"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 978$  </h6> :""
       }
       {
-          outbound.title.trim() === "Sri Lanka 7 Days / 6 Nights"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 978$  </h6> :""
+          outbound._id === "66eab5bfbe575c6436016319"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 480$  </h6> :""
       }
       {
-          outbound.title.trim() === "Bali & Kuala 09 Days / 08 nights"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 480$  </h6> :""
+          outbound._id === "66eae37466ae3b8dd8d0b248"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 245 $  </h6> :""
       }
       {
-          outbound.title.trim() === "Dubai 5 Days/ 4 Nights"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 245 $  </h6> :""
+          outbound._id === "670bd406b8b4ef3f8a29df0e"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 525 $  </h6> :""
       }
       {
-          outbound.title.trim() === "Bali & Kuala 8 Days/7 Nights"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 525 $  </h6> :""
+          outbound._id === "670bde56285f19ffeb93c5e7"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 1970 $  </h6> :""
       }
       {
-          outbound.title.trim() === "BUDAPEST – VIENNA – PRAGUE"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 1970 $  </h6> :""
+          outbound._id === "670cf013ba4fe651682e810f"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 224 $  </h6> :""
       }
       {
-          outbound.title.trim() === "Tbilisi 4 Days / 3 Nights"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 224 $  </h6> :""
+          outbound._id === "67acae4633206940bb3996ee"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 260 $  </h6> :""
+      }
+      {
+          outbound._id === "67ac8ed378d32c2ec48519d9"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 50000 EGY  </h6> :""
+      }
+      {
+          outbound._id === "67ac7b6542b345ef56c5aa58"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 526 $  </h6> :""
       }
         <Card.Title>{outbound.title ? outbound.title : "dome"} </Card.Title>
         <Card.Text>

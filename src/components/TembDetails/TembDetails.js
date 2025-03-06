@@ -191,7 +191,7 @@ function TembDetails() {
                       return star;
                     })}
                   </h5>
-                  {
+                  {/* {
          itemDetails.title.trim() === "Movenpick Soma Bay"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 8780 EGP</h6> :""
         }
         {
@@ -238,7 +238,7 @@ function TembDetails() {
         }
         {
           itemDetails.title.trim() === "Charmillion Sea Life"? <h6 style={{color:"#fc4c03",display:"inline-block",zIndex:"999",fontSize:"18px",margin:"0",position:"absolute",top:"60px",right:"10px"}}>Starting from 8525 EGP</h6> :""
-        }
+        } */}
                   <h5 style={{ color: "#fc4c03" }}>
                     <FontAwesomeIcon icon={faLocationDot} />{" "}
                     {itemDetails.destination}

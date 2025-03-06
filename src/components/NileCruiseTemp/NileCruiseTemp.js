@@ -64,10 +64,10 @@ function NileCruiseTemp(nileCruise) {
               nileCruise?.nileCruise.title === "Aswan - Cairo / Long Cruise" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px"}}>Starting from <br /> 37000 EGP </h6>: ""
             } */}
             {
-              nileCruise?.nileCruise._id === "6741cde58497790efca936f0" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 7100 EGP </h6>: ""
+              nileCruise?.nileCruise._id === "6741cde58497790efca936f0" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 7250 EGP </h6>: ""
             }
             {
-              nileCruise?.nileCruise._id === "6741e0843e18d3425dfd3b5c" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 9150 EGP </h6>: ""
+              nileCruise?.nileCruise._id === "6741e0843e18d3425dfd3b5c" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 9350 EGP </h6>: ""
             }
 
 
@@ -98,7 +98,7 @@ function NileCruiseTemp(nileCruise) {
 {
   nileCruise?.nileCruise._id === "6743244a5ebc906ebbaa1e68" ? (
     <h6 style={{ color: "#fc4c03", display: "block", zIndex: "999", position: "absolute", bottom: "10px", fontSize: "16px" }}>
-      Starting from <br /> 15350 EGP
+      Starting from <br /> 16150 EGP
     </h6>
   ) : null
 }
@@ -138,7 +138,7 @@ function NileCruiseTemp(nileCruise) {
 {
   nileCruise?.nileCruise._id === "6741bccc34b3910041eb1c91" ? (
     <h6 style={{ color: "#fc4c03", display: "block", zIndex: "999", position: "absolute", bottom: "10px", fontSize: "16px" }}>
-      Starting from <br /> 8000 EGP
+      Starting from <br /> 8450 EGP
     </h6>
   ) : null
 }
@@ -146,23 +146,23 @@ function NileCruiseTemp(nileCruise) {
 {
   nileCruise?.nileCruise._id === "6741ca3c8497790efca9337b" ? (
     <h6 style={{ color: "#fc4c03", display: "block", zIndex: "999", position: "absolute", bottom: "10px", fontSize: "16px" }}>
-      Starting from <br /> 10350 EGP
+      Starting from <br /> 10950 EGP
     </h6>
   ) : null
 }
 
-{
+{/* {
   nileCruise?.nileCruise._id === "6741f5131a52db6af354f301" ? (
     <h6 style={{ color: "#fc4c03", display: "block", zIndex: "999", position: "absolute", bottom: "10px", fontSize: "16px" }}>
       Starting from <br /> 9350 EGP
     </h6>
   ) : null
-}
+} */}
 
 {
   nileCruise?.nileCruise._id === "6741f9d61a52db6af354f785" ? (
     <h6 style={{ color: "#fc4c03", display: "block", zIndex: "999", position: "absolute", bottom: "10px", fontSize: "16px" }}>
-      Starting from <br /> 12150 EGP
+      Starting from <br /> 14150 EGP
     </h6>
   ) : null
 }
@@ -170,7 +170,7 @@ function NileCruiseTemp(nileCruise) {
 {
   nileCruise?.nileCruise._id === "6741e96682fe9fbf3d95ffe1" ? (
     <h6 style={{ color: "#fc4c03", display: "block", zIndex: "999", position: "absolute", bottom: "10px", fontSize: "16px" }}>
-      Starting from <br /> 6880 EGP
+      Starting from <br /> 7880 EGP
     </h6>
   ) : null
 }
@@ -178,7 +178,7 @@ function NileCruiseTemp(nileCruise) {
 {
   nileCruise?.nileCruise._id === "6741ecad82fe9fbf3d96010c" ? (
     <h6 style={{ color: "#fc4c03", display: "block", zIndex: "999", position: "absolute", bottom: "10px", fontSize: "16px" }}>
-      Starting from <br /> 8400 EGP
+      Starting from <br /> 11800 EGP
     </h6>
   ) : null
 }
@@ -199,23 +199,26 @@ function NileCruiseTemp(nileCruise) {
               nileCruise?.nileCruise.destination === "8 Days/ 7 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 700 $ </h6>: ""
             } */}
             {
-              nileCruise?.nileCruise._id === "66cdb7fe4e1c0d18a205d904" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 385 $ </h6>: ""
+              nileCruise?.nileCruise._id === "66cdb7fe4e1c0d18a205d904" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 400 $ </h6>: ""
             }
             {
-              nileCruise?.nileCruise._id === "66cdc0af1209a4b809acc3d0" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 475 $ </h6>: ""
+              nileCruise?.nileCruise._id === "66cdc0af1209a4b809acc3d0" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 495 $ </h6>: ""
             }
             
         {
-          nileCruise?.nileCruise._id === "6745ad2aa41360fc6fbfd7b1"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 4500 EGP </h6> :""
+          nileCruise?.nileCruise._id === "6745ad2aa41360fc6fbfd7b1"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 6500 EGP </h6> :""
         }
          {
-          nileCruise?.nileCruise._id === "6745c6ea7a6e1b7ef4640866"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 4000 EGP </h6> :""
+          nileCruise?.nileCruise._id === "6745c6ea7a6e1b7ef4640866"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 5200 EGP </h6> :""
         }
          {
-          nileCruise?.nileCruise._id === "6745cbcc7a6e1b7ef46409d4"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 4000 EGP </h6> :""
+          nileCruise?.nileCruise._id === "6745cbcc7a6e1b7ef46409d4"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 5200 EGP </h6> :""
         }
          {
-          nileCruise?.nileCruise._id === "6745d749fd35046c0eaf38be"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 3200 EGP </h6> :""
+          nileCruise?.nileCruise._id === "6745d749fd35046c0eaf38be"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 4200 EGP </h6> :""
+        }
+         {
+          nileCruise?.nileCruise._id === "6741f5131a52db6af354f301"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 10850 EGP </h6> :""
         }
           </div>
           
