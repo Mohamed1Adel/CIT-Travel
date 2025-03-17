@@ -26,13 +26,13 @@ function Popup() {
           const response = await fetch(`${MONGODB_URL}/getDomesticDetails/${popupid}`);
           // const response = await fetch(`${API_URL}/domestics/${id}`);
           const data = await response.json();
-          console.log(data);
+          // console.log(data);
           setItemDetails(data);
           setShow(true);
         //   setTitle(data?.title);
         //   getImages();
         } catch (e) {
-          console.log(e);
+          // console.log(e);
         }
       }
 

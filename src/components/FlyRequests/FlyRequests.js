@@ -45,7 +45,7 @@ function FlyRequests() {
 
     const sendMessage = (e)=>{
       e.preventDefault();
-      console.log(from,to,depDate,retDate,traveller,child,Infant,cabine);
+      // console.log(from,to,depDate,retDate,traveller,child,Infant,cabine);
       var phonenumber = "+201100996929";
   
       var url = "https://wa.me/" + phonenumber + "?text="

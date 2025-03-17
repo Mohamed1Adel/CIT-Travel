@@ -49,7 +49,7 @@ function Outbound() {
       const data = response.data;
       setOutbounds(data);
       setFilteredOutbounds(data); // Initialize filtered data
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       console.error("Error fetching outbound data:", error);
     }

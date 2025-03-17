@@ -238,7 +238,7 @@ function HotDeals({checkConnection}) {
           )}
         </Row>
 
-      {console.log(allHotDeals)}
+      {/* {console.log(allHotDeals)} */}
     </div>
   );
 }

@@ -3,16 +3,16 @@ import React, { useState } from "react";
 function UploadImages() {
   const [image, setImage] = useState("");
   const convertToBase64 = (e) => {
-    console.log(e);
+    // console.log(e);
     var reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.onload = () => {
-      console.log(reader.result); // base64encode string
+      // console.log(reader.result); // base64encode string
 
       setImage(reader.result);
     };
     reader.onerror = (error) => {
-      console.log("Error: ", error);
+      // console.log("Error: ", error);
     };
   };
   return (

@@ -37,13 +37,13 @@ const [formData, setFormData] = useState({
       // const response = await fetch(`${API_URL}/nileCruise/${id}`);
       const response = await fetch(`${MONGODB_URL}/getNileCruiseDetails/${id}`);
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setNileCruiseDetails(data);
       setFormData({title : data?.title});
       setTitle(data?.title)
       getImages();
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   }
 
@@ -107,7 +107,7 @@ const [formData, setFormData] = useState({
     //        console.log(error.text);
     //      }
     //    );
-    console.log(title,name,email,phone,rooms,pax,child);
+    // console.log(title,name,email,phone,rooms,pax,child);
 
     var phonenumber = "+201100996929";
 
@@ -152,7 +152,7 @@ const [formData, setFormData] = useState({
             const response = await axios.get(process.env.PUBLIC_URL + `/dropimg/g.php?id=${id}`);
             // Set the data in state
             setDataImg(response.data);
-            console.log(response.data);
+            // console.log(response.data);
             // Set loading state to false
             setLoading(false);
           } catch (error) {
@@ -216,7 +216,7 @@ const [formData, setFormData] = useState({
             <Carousel interval={2000} activeIndex={index} onSelect={handleSelect}>
               {dataImg?.length >= 1 ? (
                 dataImg?.map((img,i) => {
-                  console.log("images is loaded");
+                  // console.log("images is loaded");
                   if(i<=dataImg.length - 2){
                     return (
                    <Carousel.Item key={Math.random()}>
@@ -381,38 +381,42 @@ const [formData, setFormData] = useState({
                           {nileCruiseDetails?.packages?.map((pack,i) => {
                             return (
                               nileCruiseDetails?.destination == "5 Days / 4 Nights " && i == 2 ?
-                            <tr>
-                             <th scope="row">XMAS Cruise 23 December 2024 (EX.Luxor)</th>
-                             <td></td>
-                             <td></td>
-                             <td>{pack.single} {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
-                             <td>{pack.double}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
-                             <td>{pack.triple}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
-                           </tr> 
-                           :nileCruiseDetails?.destination == "5 Days / 4 Nights " && i == 3 ? <tr>
-                             <th scope="row">New Year 30 December 2024 (EX.Luxor)</th>
-                             <td></td>
-                             <td></td>
-                             <td>{pack.single}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
-                             <td>{pack.double}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
-                             <td>{pack.triple}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
-                           </tr> :
-                           nileCruiseDetails?.destination == "5 Days / 4 Nights" && i == 2 && nileCruiseDetails?.egypt_cruise == true ? <tr>
-                           <th scope="row">XMAS Cruise 23 December 2024 (EX.Luxor)</th>
-                           <td></td>
-                           <td></td>
-                           <td>{pack.single}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
-                           <td>{pack.double}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
-                           <td>{pack.triple}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
-                         </tr> :
-                         nileCruiseDetails?.destination == "5 Days / 4 Nights" && i == 3 && nileCruiseDetails?.egypt_cruise == true ? <tr>
-                         <th scope="row">New Year 30 December 2024 (EX.Luxor)</th>
-                         <td></td>
-                         <td></td>
-                         <td>{pack.single}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
-                         <td>{pack.double}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
-                         <td>{pack.triple}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
-                       </tr> :
+                              ""
+                          //   <tr>
+                          //    <th scope="row">XMAS Cruise 23 December 2024 (EX.Luxor)</th>
+                          //    <td></td>
+                          //    <td></td>
+                          //    <td>{pack.single} {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                          //    <td>{pack.double}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                          //    <td>{pack.triple}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                          //  </tr> 
+                          //  :nileCruiseDetails?.destination == "5 Days / 4 Nights " && i == 3 ? <tr>
+                          //    <th scope="row">New Year 30 December 2024 (EX.Luxor)</th>
+                          //    <td></td>
+                          //    <td></td>
+                          //    <td>{pack.single}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                          //    <td>{pack.double}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                          //    <td>{pack.triple}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                          //  </tr> 
+                        //    :
+                        //    nileCruiseDetails?.destination == "5 Days / 4 Nights" && i == 2 && nileCruiseDetails?.egypt_cruise == true ? <tr>
+                        //    <th scope="row">XMAS Cruise 23 December 2024 (EX.Luxor)</th>
+                        //    <td></td>
+                        //    <td></td>
+                        //    <td>{pack.single}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                        //    <td>{pack.double}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                        //    <td>{pack.triple}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                        //  </tr> 
+                      //    :
+                      //    nileCruiseDetails?.destination == "5 Days / 4 Nights" && i == 3 && nileCruiseDetails?.egypt_cruise == true ? <tr>
+                      //    <th scope="row">New Year 30 December 2024 (EX.Luxor)</th>
+                      //    <td></td>
+                      //    <td></td>
+                      //    <td>{pack.single}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                      //    <td>{pack.double}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                      //    <td>{pack.triple}  {nileCruiseDetails.egypt_cruise === true ? 'EGP' : '$'}</td>
+                      //  </tr> 
+                       :
                            <tr>
                              <th scope="row">{pack.packTitle}</th>
                              <td>{pack.startDate?.split('-').reverse().join('-')}</td>

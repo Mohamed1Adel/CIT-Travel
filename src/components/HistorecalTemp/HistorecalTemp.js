@@ -26,7 +26,7 @@ function HistorecalTemp({program}) {
             const response = await axios.get(process.env.PUBLIC_URL + `/dropimg/g.php?id=${program?._id}`);
             // Set the data in state
             setDataImg(response.data);
-            console.log(response.data);
+            // console.log(response.data);
             // Set loading state to false
             setLoading(false);
           } catch (error) {

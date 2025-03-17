@@ -48,7 +48,7 @@ function HajjAndOmrahDetails() {
     //        console.log(error.text);
     //      }
     //    );
-    console.log(title,name,email,phone,rooms,pax);
+    // console.log(title,name,email,phone,rooms,pax);
 
     var phonenumber = "+201100996929";
 
@@ -94,7 +94,7 @@ function HajjAndOmrahDetails() {
           <Carousel interval={2000} activeIndex={index} onSelect={handleSelect}>
               {hajjOmrah?.images?.length >= 1 ? (
                 hajjOmrah?.images?.map((img) => {
-                  console.log("images is loaded");
+                  // console.log("images is loaded");
                   return (
                     <Carousel.Item key={Math.random()}>
                       <img src={img.img_url} alt="..." />

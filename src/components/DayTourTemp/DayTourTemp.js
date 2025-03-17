@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 function DayTourTemp(dayTour) {
-  console.log(dayTour);
+  // console.log(dayTour);
   // console.log(domestic);
         // State to hold the fetched data
         const [dataImg, setDataImg] = useState([]);
@@ -27,7 +27,7 @@ function DayTourTemp(dayTour) {
               const response = await axios.get(process.env.PUBLIC_URL + `/dropimg/g.php?id=${dayTour?.dayTour._id}`);
               // Set the data in state
               setDataImg(response.data);
-              console.log(response.data);
+              // console.log(response.data);
               // Set loading state to false
               setLoading(false);
             } catch (error) {

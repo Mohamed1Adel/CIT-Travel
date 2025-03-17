@@ -6,7 +6,7 @@ import { faArrowRight,faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import axios from "axios";
 function OutboundTemp({ outbound }) {
-  console.log(outbound);
+  // console.log(outbound);
 
         // State to hold the fetched data
         const [dataImg, setDataImg] = useState([]);
@@ -26,7 +26,7 @@ function OutboundTemp({ outbound }) {
               const response = await axios.get(process.env.PUBLIC_URL + `/dropimg/g.php?id=${outbound?._id}`);
               // Set the data in state
               setDataImg(response.data);
-              console.log(response.data);
+              // console.log(response.data);
               // Set loading state to false
               setLoading(false);
             } catch (error) {

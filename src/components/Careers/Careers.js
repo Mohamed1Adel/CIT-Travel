@@ -19,11 +19,11 @@ function Careers() {
       )
       .then(
         (result) => {
-          console.log("Success:", result.text);
+          // console.log("Success:", result.text);
           alert("Message sent successfully!");
         },
         (error) => {
-          console.log("Error:", error.text);
+          // console.log("Error:", error.text);
           alert("Message failed to send. Please try again.");
         }
       );

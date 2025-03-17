@@ -38,21 +38,21 @@ function OutboundTempDetails() {
     child: '',
    
   });
-  console.log(id);
+  // console.log(id);
 
   async function getProgramById() {
     try {
       const response = await fetch(`${MONGODB_URL}/getOutboundDetails/${id}`);
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setOutboundDetails(data);
       setFormData({title : data?.title});
       setTitle(data?.title)
       // getImages();
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
-    console.log(outboundDetails);
+    // console.log(outboundDetails);
   }
 
     const [submitted, setSubmitted] = useState(false);
@@ -112,7 +112,7 @@ function OutboundTempDetails() {
     //        console.log(error.text);
     //      }
     //    );
-    console.log(title,name,email,phone,rooms,pax,child);
+    // console.log(title,name,email,phone,rooms,pax,child);
 
     var phonenumber = "+201100996929";
 
@@ -157,7 +157,7 @@ function OutboundTempDetails() {
         const response = await axios.get(process.env.PUBLIC_URL + `/dropimg/g.php?id=${id}`);
         // Set the data in state
         setDataImg(response.data);
-        console.log(response.data);
+        // console.log(response.data);
         // Set loading state to false
         setLoading(false);
       } catch (error) {
@@ -207,7 +207,7 @@ function OutboundTempDetails() {
           <Carousel interval={2000} activeIndex={index} onSelect={handleSelect}>
           {dataImg?.length >= 1 ? (
                   dataImg?.map((img,i) => {
-                    console.log("images is loaded");
+                    // console.log("images is loaded");
                     if(i<=dataImg.length - 2){
                        return (
                       <Carousel.Item key={Math.random()}>

@@ -15,14 +15,14 @@ function NileCruise() {
       // const response = await axios.get(`${API_URL}/nileCruise`);
       const response = await axios.get(`${MONGODB_URL}/getAllNileCruise`);
       const data = await response.data;
-      console.log("====================================");
-      console.log(data.id);
-      console.log("====================================");
+      // console.log("====================================");
+      // console.log(data.id);
+      // console.log("====================================");
       setNileCruises(data);
     } catch (e) {
-      console.log("====================================");
-      console.log(e);
-      console.log("====================================");
+      // console.log("====================================");
+      // console.log(e);
+      // console.log("====================================");
     }
   };
   useEffect(() => {
@@ -50,10 +50,18 @@ function NileCruise() {
                  nileCruise._id != "6741bccc34b3910041eb1c97" ?
                  nileCruise._id != "6741ed0582fe9fbf3d960113" ?
                  nileCruise._id != "6743008be370124078606370" ?
+                 nileCruise._id != "6745ad2aa41360fc6fbfd7b1" ?
+                 nileCruise._id != "6745c6ea7a6e1b7ef4640866" ?
+                 nileCruise._id != "6745cbcc7a6e1b7ef46409d4" ?
+                 nileCruise._id != "6745d749fd35046c0eaf38be" ?
                  nileCruise.egypt_cruise != true ?
                    <Col sm="12" md="6" lg="4" xxl="4">
                 <NileCruiseTemp nileCruise={nileCruise} />
               </Col>:
+              "" :
+              "" :
+              "" :
+              "" :
               "" :
               "" :
               "" :

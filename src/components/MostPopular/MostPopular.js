@@ -25,14 +25,14 @@ function MostPopular() {
     try {
       const oneCrouse = await axios.get(`${MONGODB_URL}/getAllNileCruise`);
       const oneCrouseData = oneCrouse.data;
-      console.log("====================================");
+      // console.log("====================================");
       const filtereOneCrouseData = oneCrouseData.filter((item) => 
         (item._id === "6741e96682fe9fbf3d95ffe1")
       );
       setOneCrouseData(filtereOneCrouseData);
       const response = await axios.get(`${MONGODB_URL}/getAllDomestics`);
       const data = response.data;
-      console.log("====================================");
+      // console.log("====================================");
       const filteredData = data.filter((item) => 
         ( 
          item._id === "666710ee6ecff983ba07889d" ||  
@@ -47,24 +47,24 @@ function MostPopular() {
       
       setDomestic(filteredData);
       
-      console.log("====================================");
+      // console.log("====================================");
     } catch (e) {
-      console.log("====================================");
-      console.log(e);
-      console.log("====================================");
+      // console.log("====================================");
+      // console.log(e);
+      // console.log("====================================");
     }
   };
   const getHistoracal = async () => {
     try {
       const response = await axios.get(`${MONGODB_URL}/getAllProgram`);
       const data = response.data;
-      console.log("====================================");
+      // console.log("====================================");
       setHistorical(data.slice(0, 3));
-      console.log("====================================");
+      // console.log("====================================");
     } catch (e) {
-      console.log("====================================");
-      console.log(e);
-      console.log("====================================");
+      // console.log("====================================");
+      // console.log(e);
+      // console.log("====================================");
     }
   };
   const getOutbound = async () => {
@@ -77,34 +77,34 @@ function MostPopular() {
          item._id === "670bd406b8b4ef3f8a29df0e" ||  
          item._id === "66d9c892ebca084e99b00751")
       );
-      console.log("====================================");
+      // console.log("====================================");
       setOutbound(filteredData);
-      console.log("====================================");
+      // console.log("====================================");
     } catch (e) {
-      console.log("====================================");
-      console.log(e);
-      console.log("====================================");
+      // console.log("====================================");
+      // console.log(e);
+      // console.log("====================================");
     }
   };
   const getNileCruises = async () => {
     try {
       const response = await axios.get(`${MONGODB_URL}/getAllNileCruise`);
       const data = response.data;
-      console.log("====================================");
+      // console.log("====================================");
       setNileCruise(data.reverse().slice(0, 1));
-      console.log("====================================");
+      // console.log("====================================");
     } catch (e) {
-      console.log("====================================");
-      console.log(e);
-      console.log("====================================");
+      // console.log("====================================");
+      // console.log(e);
+      // console.log("====================================");
     }
   };
   const getHotDeals = () => {
     try{
       const deals = domestic?.filter((item) => item.hotOffer === true);
-      console.log(deals);
+      // console.log(deals);
     }catch(e){
-      console.log(e);
+      // console.log(e);
     }
 
   };
@@ -115,9 +115,9 @@ function MostPopular() {
     getOutbound();
     getHotDeals();
     getNileCruises();
-    console.log(domestic);
-    // console.log(historical);
-    console.log(outbounds);
+    // console.log(domestic);
+    // // console.log(historical);
+    // console.log(outbounds);
   }, []);
 
   return (

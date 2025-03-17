@@ -5,9 +5,9 @@ import { faArrowLeft, faStar } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import "./HajjTamb.scss"
 function HajjTamb({hajjOmrah}) {
-  console.log('====================================');
-  console.log(hajjOmrah);
-  console.log('====================================');
+  // console.log('====================================');
+  // console.log(hajjOmrah);
+  // console.log('====================================');
   return (
     <Card
       className="hotel hotel-card "

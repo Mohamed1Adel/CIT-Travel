@@ -32,7 +32,7 @@ function Temb(item) {
             const response = await axios.get(process.env.PUBLIC_URL + `/dropimg/g.php?id=${item?.item._id}`);
             // Set the data in state
             setDataImg(response.data);
-            console.log(response.data);
+            // console.log(response.data);
             // Set loading state to false
             setLoading(false);
           } catch (error) {
@@ -75,7 +75,7 @@ function Temb(item) {
         <Card.Body></Card.Body>
 
         {
-          item.item._id === "6633a0ce518e33c6eacb9d3f"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 9280 EGP </h6> :""
+          item.item._id === "6633a0ce518e33c6eacb9d3f"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 10785 EGP </h6> :""
         }
         {
           item.item.title.trim() === "Royal Lagoons Resort & Aqua Park"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 5330 EGP </h6> :""
@@ -87,7 +87,7 @@ function Temb(item) {
           item.item.title.trim() === "New Eagles Aqua Park Resort"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 6900 EGP </h6> :""
         }
         {
-          item.item._id === "662936e5497f70eb371ea824"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 9800 EGP </h6> :""
+          item.item._id === "662936e5497f70eb371ea824"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 10550 EGP </h6> :""
         }
         {
           item.item.title.trim() === "Blend Club Aqua Resort"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 6750 EGP </h6> :""
@@ -99,7 +99,7 @@ function Temb(item) {
           item.item.title.trim() === "Barcelo Tiran"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 9200 EGP </h6> :""
         }
         {
-          item.item._id === "665f219f9fc12b76935ade92"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 9050 EGP </h6> :""
+          item.item._id === "665f219f9fc12b76935ade92"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 8450 EGP </h6> :""
         }
         {
           item.item.title.trim() === "Akassia Swiss Resort"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 10200 EGP </h6> :""
@@ -114,13 +114,13 @@ function Temb(item) {
           item.item._id === "666710ee6ecff983ba07889d"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 5200 EGP </h6> :""
         }
         {
-          item.item._id === "6661c7b0f5320df705d77068"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 5575 EGP </h6> :""
+          item.item._id === "6661c7b0f5320df705d77068"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 5950 EGP </h6> :""
         }
         {
-          item.item._id === "66a9ff2e8e6ce0d33277b41c"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 8375 EGP </h6> :""
+          item.item._id === "66a9ff2e8e6ce0d33277b41c"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 7700 EGP </h6> :""
         }
         {
-          item.item._id === "66aa080669670bf6cfb0c44d"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 8375 EGP </h6> :""
+          item.item._id === "66aa080669670bf6cfb0c44d"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 7700 EGP </h6> :""
         }
         {/* starting id  */}
         {
@@ -143,40 +143,43 @@ function Temb(item) {
         {/* =================================== */}
 
         {
-          item.item._id === "6746f5bfa685f69b8545f83f"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 3525 EGP </h6> :""
+          item.item._id === "6746f5bfa685f69b8545f83f"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 4200 EGP </h6> :""
         }
           {
-          item.item._id === "674717bb8b323857e95b0c81"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 4425 EGP </h6> :""
+          item.item._id === "674717bb8b323857e95b0c81"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 4800 EGP </h6> :""
         }
           {
           item.item._id === "67471cde4a0f4296ff6adcb5"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 5025 EGP </h6> :""
         }
           {
-          item.item._id === "674721714a0f4296ff6ade27"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 6450 EGP </h6> :""
+          item.item._id === "674721714a0f4296ff6ade27"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 6075 EGP </h6> :""
         }
           {
           item.item._id === "67472cde9656b261043bf739"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 6410 EGP </h6> :""
         }
           {
-          item.item._id === "67029cd0b046ea6972b8454b"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 5272 EGP </h6> :""
+          item.item._id === "67029cd0b046ea6972b8454b"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 4900 EGP </h6> :""
         }
           {
-          item.item._id === "67028c776b9f7170acfab100"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 4900 EGP </h6> :""
+          item.item._id === "67028c776b9f7170acfab100"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 4600 EGP </h6> :""
         }
           {
-          item.item._id === "6754398c862d1c1395fde39f"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 9000 EGP </h6> :""
+          item.item._id === "6754398c862d1c1395fde39f"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 8375 EGP </h6> :""
         }
           {
-          item.item._id === "6773ed7af569208dda2705de"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 9975  EGP </h6> :""
+          item.item._id === "6773ed7af569208dda2705de"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 7875  EGP </h6> :""
         }
           {
           item.item._id === "6773fdb88d5ffc888702817d"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 7650 EGP </h6> :""
         }
           {
-          item.item._id === "67850594d97eb1307a2fc668"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 6650 EGP </h6> :""
+          item.item._id === "67850594d97eb1307a2fc668"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 5900 EGP </h6> :""
         }
           {
-          item.item._id === "678517cbace1c104b8d5757b"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 9800 EGP </h6> :""
+          item.item._id === "678517cbace1c104b8d5757b"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 8375 EGP </h6> :""
+        }
+          {
+          item.item._id === "665f08c21495eaf6b6ec0396"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 9100 EGP </h6> :""
         }
          
        

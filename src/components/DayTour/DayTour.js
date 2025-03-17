@@ -20,17 +20,17 @@ function DayTour() {
       const data = response.data;
       setDayTours(data);
     } catch (e) {
-      console.log("====================================");
-      console.log(e);
-      console.log("====================================");
+      // console.log("====================================");
+      // console.log(e);
+      // console.log("====================================");
     }
   };
 
   useEffect(() => {
     getAllDayTours();
-    console.log("====================================");
-    console.log(dayTours);
-    console.log("====================================");
+    // console.log("====================================");
+    // console.log(dayTours);
+    // console.log("====================================");
   }, []);
   return (
 <>

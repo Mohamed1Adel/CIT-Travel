@@ -15,10 +15,10 @@ function HistoricalTrips() {
       // const response = await axios.get(`${API_URL}/programs`);
       const response = await axios.get(`${MONGODB_URL}/getAllProgram`);
       const data = await response.data;
-      console.log(data);
+      // console.log(data);
       setPrograms(data);
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
   useEffect(() => {
@@ -48,7 +48,7 @@ function HistoricalTrips() {
           {programs?.length >= 1 ? (
             programs?.map((program) => {
               return (
-                (program._id != "66fe8633e9045f096a95797d") ? (
+                (program._id != "66fe8633e9045f096a95797d" && program._id != "65d739a7ee516e16db863bc9") ? (
                 // (program._id != "66fe8633e9045f096a95797d") ? (
                   <Col sm="12" md="6" lg="4" xxl="3">
                   <HistorecalTemp program={program} />

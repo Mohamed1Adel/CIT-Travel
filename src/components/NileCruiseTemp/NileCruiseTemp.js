@@ -6,7 +6,7 @@ import { faArrowRight, faStar } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import axios from "axios";
 function NileCruiseTemp(nileCruise) {
-  console.log({ nileCruise });
+  // console.log({ nileCruise });
 
         // State to hold the fetched data
         const [dataImg, setDataImg] = useState([]);
@@ -26,7 +26,7 @@ function NileCruiseTemp(nileCruise) {
               const response = await axios.get(process.env.PUBLIC_URL + `/dropimg/g.php?id=${nileCruise?.nileCruise._id}`);
               // Set the data in state
               setDataImg(response.data);
-              console.log(response.data);
+              // console.log(response.data);
               // Set loading state to false
               setLoading(false);
             } catch (error) {
@@ -98,7 +98,7 @@ function NileCruiseTemp(nileCruise) {
 {
   nileCruise?.nileCruise._id === "6743244a5ebc906ebbaa1e68" ? (
     <h6 style={{ color: "#fc4c03", display: "block", zIndex: "999", position: "absolute", bottom: "10px", fontSize: "16px" }}>
-      Starting from <br /> 16150 EGP
+      Starting from <br /> 15150 EGP
     </h6>
   ) : null
 }
@@ -162,7 +162,7 @@ function NileCruiseTemp(nileCruise) {
 {
   nileCruise?.nileCruise._id === "6741f9d61a52db6af354f785" ? (
     <h6 style={{ color: "#fc4c03", display: "block", zIndex: "999", position: "absolute", bottom: "10px", fontSize: "16px" }}>
-      Starting from <br /> 14150 EGP
+      Starting from <br /> 12150 EGP
     </h6>
   ) : null
 }
@@ -178,7 +178,7 @@ function NileCruiseTemp(nileCruise) {
 {
   nileCruise?.nileCruise._id === "6741ecad82fe9fbf3d96010c" ? (
     <h6 style={{ color: "#fc4c03", display: "block", zIndex: "999", position: "absolute", bottom: "10px", fontSize: "16px" }}>
-      Starting from <br /> 11800 EGP
+      Starting from <br /> 10200 EGP
     </h6>
   ) : null
 }
@@ -190,7 +190,7 @@ function NileCruiseTemp(nileCruise) {
               nileCruise?.nileCruise.destination === "5 Days / 4 Nights " ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 475 $ </h6>: ""
             } */}
             {
-              nileCruise?.nileCruise._id === "66cf2021f007f7877ba3d82b" && nileCruise?.nileCruise.egypt_cruise === true ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 13950 EGP </h6>: ""
+              nileCruise?.nileCruise._id === "66cf2021f007f7877ba3d82b" && nileCruise?.nileCruise.egypt_cruise === true ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 13550 EGP </h6>: ""
             }
             {
               nileCruise?.nileCruise._id === "66cf0657785b59a0f6d21e9c" && nileCruise?.nileCruise.egypt_cruise === true ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 10400 EGP </h6>: ""
@@ -199,10 +199,10 @@ function NileCruiseTemp(nileCruise) {
               nileCruise?.nileCruise.destination === "8 Days/ 7 Nights" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 700 $ </h6>: ""
             } */}
             {
-              nileCruise?.nileCruise._id === "66cdb7fe4e1c0d18a205d904" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 400 $ </h6>: ""
+              nileCruise?.nileCruise._id === "66cdb7fe4e1c0d18a205d904" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 445 $ </h6>: ""
             }
             {
-              nileCruise?.nileCruise._id === "66cdc0af1209a4b809acc3d0" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 495 $ </h6>: ""
+              nileCruise?.nileCruise._id === "66cdc0af1209a4b809acc3d0" ?  <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"10px",fontSize:"16px"}}>Starting from <br /> 555 $ </h6>: ""
             }
             
         {
@@ -218,7 +218,7 @@ function NileCruiseTemp(nileCruise) {
           nileCruise?.nileCruise._id === "6745d749fd35046c0eaf38be"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 4200 EGP </h6> :""
         }
          {
-          nileCruise?.nileCruise._id === "6741f5131a52db6af354f301"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 10850 EGP </h6> :""
+          nileCruise?.nileCruise._id === "6741f5131a52db6af354f301"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 9350 EGP </h6> :""
         }
           </div>
           

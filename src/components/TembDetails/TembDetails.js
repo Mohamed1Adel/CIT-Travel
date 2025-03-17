@@ -42,13 +42,13 @@ function TembDetails() {
       const response = await fetch(`${MONGODB_URL}/getDomesticDetails/${id}`);
       // const response = await fetch(`${API_URL}/domestics/${id}`);
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setItemDetails(data);
       setFormData({title : data?.title});
       setTitle(data?.title);
       getImages();
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   }
   const getImages = async () => {
@@ -73,7 +73,7 @@ function TembDetails() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    // console.log(formData);
 
     const response = await fetch('https://cit-egypt.com/sendEmail.php', { // Replace with the actual path to your PHP script
       method: 'POST',
@@ -162,7 +162,7 @@ function TembDetails() {
           const response = await axios.get(process.env.PUBLIC_URL + `/dropimg/g.php?id=${id}`);
           // Set the data in state
           setDataImg(response.data);
-          console.log(response.data);
+          // console.log(response.data);
           // Set loading state to false
           setLoading(false);
         } catch (error) {
@@ -257,7 +257,7 @@ function TembDetails() {
               <Carousel interval={2000} activeIndex={index} onSelect={handleSelect}>
                 {dataImg?.length >= 1 ? (
                   dataImg?.map((img,i) => {
-                    console.log("images is loaded");
+                    // console.log("images is loaded");
                     if(i<=dataImg.length - 2){
                        return (
                       <Carousel.Item key={Math.random()}>

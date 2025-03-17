@@ -58,14 +58,14 @@ function HajjAndOmrah() {
       // const response = await axios.get(`http://localhost:9000/hajjOmrah`);
       const response = await axios.get(`${MONGODB_URL}/getAllHajjOmrah`);
       const data = await response.data;
-      console.log("====================================");
-      console.log(data);
-      console.log("====================================");
+      // console.log("====================================");
+      // console.log(data);
+      // console.log("====================================");
       setHajjOmrahs(data);
     } catch (e) {
-      console.log("====================================");
-      console.log(e);
-      console.log("====================================");
+      // console.log("====================================");
+      // console.log(e);
+      // console.log("====================================");
     }
   };
   useEffect(() => {

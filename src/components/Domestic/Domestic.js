@@ -60,10 +60,10 @@ function Domestic() {
     try {
      const response = await axios.get(`${MONGODB_URL}/getAllDomestics`);
       const data = response.data.reverse();
-      console.log(data);
+      // console.log(data);
       setData(data);
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
   useEffect(() => {
@@ -79,14 +79,14 @@ function Domestic() {
       // const response = await axios.get(`${API_URL}/nileCruise`);
       const response = await axios.get(`${MONGODB_URL}/getAllNileCruise`);
       const nileCruise = await response.data;
-      console.log("====================================");
-      console.log(nileCruise.id);
-      console.log("====================================");
+      // console.log("====================================");
+      // console.log(nileCruise.id);
+      // console.log("====================================");
       setNileCruises(nileCruise);
     } catch (e) {
-      console.log("====================================");
-      console.log(e);
-      console.log("====================================");
+      // console.log("====================================");
+      // console.log(e);
+      // console.log("====================================");
     }
   };
   useEffect(() => {
@@ -99,14 +99,14 @@ function Domestic() {
       // const response = await axios.get(`${API_URL}/nileCruise`);
       const response = await axios.get(`${MONGODB_URL}/getAllProgram`);
       const programs = await response.data;
-      console.log("====================================");
-      console.log(programs.id);
-      console.log("====================================");
+      // console.log("====================================");
+      // console.log(programs.id);
+      // console.log("====================================");
       setPrograms(programs);
     } catch (e) {
-      console.log("====================================");
-      console.log(e);
-      console.log("====================================");
+      // console.log("====================================");
+      // console.log(e);
+      // console.log("====================================");
     }
   };
   useEffect(() => {
@@ -193,7 +193,7 @@ function Domestic() {
                             if (e.currentTarget.checked == true) {
                               filtered != true ? setFiltered(true) :setFiltered()
                               
-                              console.log("true");
+                              // console.log("true");
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
@@ -203,7 +203,7 @@ function Domestic() {
                             } else {
                               filtered != false ? setFiltered(false) :setFiltered()
                               // setFiltered(false);
-                              console.log("false");
+                              // console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
                                   item.category != "Hurghada" ? item : ""
@@ -226,7 +226,7 @@ function Domestic() {
                             if (e.currentTarget.checked == true) {
                               filtered != true ? setFiltered(true) :setFiltered()
                               
-                              console.log("true");
+                              // console.log("true");
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
@@ -236,7 +236,7 @@ function Domestic() {
                             } else {
                               filtered != false ? setFiltered(false) :setFiltered()
                               // setFiltered(false);
-                              console.log("false");
+                              // console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
                                   item.category != "Soma Bay" ? item : ""
@@ -259,7 +259,7 @@ function Domestic() {
                             if (e.currentTarget.checked == true) {
                               filtered != true ? setFiltered(true) :setFiltered()
                               
-                              console.log("true");
+                              // console.log("true");
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
@@ -269,7 +269,7 @@ function Domestic() {
                             } else {
                               filtered != false ? setFiltered(false) :setFiltered()
                               // setFiltered(false);
-                              console.log("false");
+                              // console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
                                   item.category != "Sahl Hashesh" ? item : ""
@@ -292,7 +292,7 @@ function Domestic() {
                             if (e.currentTarget.checked == true) {
                               filtered != true ? setFiltered(true) :setFiltered()
                               
-                              console.log("true");
+                              // console.log("true");
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
@@ -302,7 +302,7 @@ function Domestic() {
                             } else {
                               filtered != false ? setFiltered(false) :setFiltered()
                               // setFiltered(false);
-                              console.log("false");
+                              // console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
                                   item.category != "Makadi Bay" ? item : ""
@@ -325,7 +325,7 @@ function Domestic() {
                             if (e.currentTarget.checked == true) {
                               filtered != true ? setFiltered(true) :setFiltered()
                               
-                              console.log("true");
+                              // console.log("true");
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
@@ -335,7 +335,7 @@ function Domestic() {
                             } else {
                               filtered != false ? setFiltered(false) :setFiltered()
                               // setFiltered(false);
-                              console.log("false");
+                              // console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
                                   item.category != "Sharm El Sheikh" ? item : ""
@@ -358,7 +358,7 @@ function Domestic() {
                             if (e.currentTarget.checked == true) {
                               filtered != true ? setFiltered(true) :setFiltered()
                               
-                              console.log("true");
+                              // console.log("true");
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
@@ -368,7 +368,7 @@ function Domestic() {
                             } else {
                               filtered != false ? setFiltered(false) :setFiltered()
                               // setFiltered(false);
-                              console.log("false");
+                              // console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
                                   item.category != "Dahab" ? item : ""
@@ -391,7 +391,7 @@ function Domestic() {
                             if (e.currentTarget.checked == true) {
                               filtered != true ? setFiltered(true) :setFiltered()
                               
-                              console.log("true");
+                              // console.log("true");
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
@@ -401,7 +401,7 @@ function Domestic() {
                             } else {
                               filtered != false ? setFiltered(false) :setFiltered()
                               // setFiltered(false);
-                              console.log("false");
+                              // console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
                                   item.category != "Taba" ? item : ""
@@ -428,7 +428,7 @@ function Domestic() {
                             if (e.currentTarget.checked == true) {
                               filtered != true ? setFiltered(true) :setFiltered()
                               
-                              console.log("true");
+                              // console.log("true");
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
@@ -438,7 +438,7 @@ function Domestic() {
                             } else {
                               filtered != false ? setFiltered(false) :setFiltered()
                               // setFiltered(false);
-                              console.log("false");
+                              // console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
                                   item.category != "Marsa Alam" ? item : ""
@@ -464,7 +464,7 @@ function Domestic() {
                             if (e.currentTarget.checked == true) {
                               filtered != true ? setFiltered(true) :setFiltered()
                               
-                              console.log("true");
+                              // console.log("true");
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
@@ -474,7 +474,7 @@ function Domestic() {
                             } else {
                               filtered != false ? setFiltered(false) :setFiltered()
                               // setFiltered(false);
-                              console.log("false");
+                              // console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
                                   item.category != "Luxor" ? item : ""
@@ -497,7 +497,7 @@ function Domestic() {
                             if (e.currentTarget.checked == true) {
                               filtered != true ? setFiltered(true) :setFiltered()
                               
-                              console.log("true");
+                              // console.log("true");
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
@@ -507,7 +507,7 @@ function Domestic() {
                             } else {
                               filtered != false ? setFiltered(false) :setFiltered()
                               // setFiltered(false);
-                              console.log("false");
+                              // console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
                                   item.category != "Aswan" ? item : ""
@@ -530,7 +530,7 @@ function Domestic() {
                             if (e.currentTarget.checked == true) {
                               filtered != true ? setFiltered(true) :setFiltered()
                               
-                              console.log("true");
+                              // console.log("true");
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
@@ -540,7 +540,7 @@ function Domestic() {
                             } else {
                               filtered != false ? setFiltered(false) :setFiltered()
                               // setFiltered(false);
-                              console.log("false");
+                              // console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
                                   item.category != "Alexandria" ? item : ""
@@ -563,7 +563,7 @@ function Domestic() {
                             if (e.currentTarget.checked == true) {
                               filtered != true ? setFiltered(true) :setFiltered()
                               
-                              console.log("true");
+                              // console.log("true");
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
@@ -573,7 +573,7 @@ function Domestic() {
                             } else {
                               filtered != false ? setFiltered(false) :setFiltered()
                               // setFiltered(false);
-                              console.log("false");
+                              // console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
                                   item.category != "Marsa Matrouh" ? item : ""
@@ -596,7 +596,7 @@ function Domestic() {
                             if (e.currentTarget.checked == true) {
                               filtered != true ? setFiltered(true) :setFiltered()
                               
-                              console.log("true");
+                              // console.log("true");
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
@@ -606,7 +606,7 @@ function Domestic() {
                             } else {
                               filtered != false ? setFiltered(false) :setFiltered()
                               // setFiltered(false);
-                              console.log("false");
+                              // console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
                                   item.category != "Ain El Sokhna" ? item : ""
@@ -641,7 +641,7 @@ function Domestic() {
                                       ),
                                     ])
                               }
-                              console.log("true");
+                              // console.log("true");
                               // if(setNewDataArray.length != 0){
                               //   setNewDataArray([
                               //     ...newDataArray,
@@ -671,7 +671,7 @@ function Domestic() {
                                       ),
                                     ])
                               }
-                              console.log("false");
+                              // console.log("false");
                               // if(setNewDataArray.length != 0){
                               //   setNewDataArray([
                               //     ...newDataArray.filter((item) =>
@@ -711,7 +711,7 @@ function Domestic() {
                             if (e.currentTarget.checked == true) {
                               filtered == true ? setFiltered(true) :setFiltered()
                               
-                              console.log("true");
+                              // console.log("true");
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
@@ -721,7 +721,7 @@ function Domestic() {
                             } else {
                               filtered == false ? setFiltered(false) :setFiltered()
                               // setFiltered(false);
-                              console.log("false");
+                              // console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
                                   item.stars != "4" ? item : ""
@@ -751,7 +751,7 @@ function Domestic() {
                             if (e.currentTarget.checked == true) {
                               filtered == true ? setFiltered(true) :setFiltered()
                               
-                              console.log("true");
+                              // console.log("true");
                               setNewDataArray([
                                 ...newDataArray,
                                 ...data.filter((item) =>
@@ -761,7 +761,7 @@ function Domestic() {
                             } else {
                               filtered == false ? setFiltered(false) :setFiltered()
                               // setFiltered(false);
-                              console.log("false");
+                              // console.log("false");
                               setNewDataArray([
                                 ...newDataArray.filter((item) =>
                                   item.stars != "3" ? item : ""
@@ -878,7 +878,7 @@ function Domestic() {
                                 if (e.currentTarget.checked == true) {
                                   filtered != true ? setFiltered(true) :setFiltered()
                                   
-                                  console.log("true");
+                                  // console.log("true");
                                   setNewDataArray([
                                     ...newDataArray,
                                     ...data.filter((item) =>
@@ -888,7 +888,7 @@ function Domestic() {
                                 } else {
                                   filtered != false ? setFiltered(false) :setFiltered()
                                   // setFiltered(false);
-                                  console.log("false");
+                                  // console.log("false");
                                   setNewDataArray([
                                     ...newDataArray.filter((item) =>
                                       item.category != "Sokhna" ? item : ""
@@ -911,7 +911,7 @@ function Domestic() {
                                 if (e.currentTarget.checked == true) {
                                   filtered != true ? setFiltered(true) :setFiltered()
                                   
-                                  console.log("true");
+                                  // console.log("true");
                                   setNewDataArray([
                                     ...newDataArray,
                                     ...data.filter((item) =>
@@ -921,7 +921,7 @@ function Domestic() {
                                 } else {
                                   filtered != false ? setFiltered(false) :setFiltered()
                                   // setFiltered(false);
-                                  console.log("false");
+                                  // console.log("false");
                                   setNewDataArray([
                                     ...newDataArray.filter((item) =>
                                       item.category != "Hurghada" ? item : ""
@@ -944,7 +944,7 @@ function Domestic() {
                                 if (e.currentTarget.checked == true) {
                                   filtered != true ? setFiltered(true) :setFiltered()
                                   
-                                  console.log("true");
+                                  // console.log("true");
                                   setNewDataArray([
                                     ...newDataArray,
                                     ...data.filter((item) =>
@@ -954,7 +954,7 @@ function Domestic() {
                                 } else {
                                   filtered != false ? setFiltered(false) :setFiltered()
                                   // setFiltered(false);
-                                  console.log("false");
+                                  // console.log("false");
                                   setNewDataArray([
                                     ...newDataArray.filter((item) =>
                                       item.category != "Hashesh" ? item : ""
@@ -977,7 +977,7 @@ function Domestic() {
                                 if (e.currentTarget.checked == true) {
                                   filtered != true ? setFiltered(true) :setFiltered()
                                   
-                                  console.log("true");
+                                  // console.log("true");
                                   setNewDataArray([
                                     ...newDataArray,
                                     ...data.filter((item) =>
@@ -987,7 +987,7 @@ function Domestic() {
                                 } else {
                                   filtered != false ? setFiltered(false) :setFiltered()
                                   // setFiltered(false);
-                                  console.log("false");
+                                  // console.log("false");
                                   setNewDataArray([
                                     ...newDataArray.filter((item) =>
                                       item.category != "Makady" ? item : ""
@@ -1010,7 +1010,7 @@ function Domestic() {
                                 if (e.currentTarget.checked == true) {
                                   filtered != true ? setFiltered(true) :setFiltered()
                                   
-                                  console.log("true");
+                                  // console.log("true");
                                   setNewDataArray([
                                     ...newDataArray,
                                     ...data.filter((item) =>
@@ -1020,7 +1020,7 @@ function Domestic() {
                                 } else {
                                   filtered != false ? setFiltered(false) :setFiltered()
                                   // setFiltered(false);
-                                  console.log("false");
+                                  // console.log("false");
                                   setNewDataArray([
                                     ...newDataArray.filter((item) =>
                                       item.category != "Soma" ? item : ""
@@ -1043,7 +1043,7 @@ function Domestic() {
                                 if (e.currentTarget.checked == true) {
                                   filtered != true ? setFiltered(true) :setFiltered()
                                   
-                                  console.log("true");
+                                  // console.log("true");
                                   setNewDataArray([
                                     ...newDataArray,
                                     ...data.filter((item) =>
@@ -1053,7 +1053,7 @@ function Domestic() {
                                 } else {
                                   filtered != false ? setFiltered(false) :setFiltered()
                                   // setFiltered(false);
-                                  console.log("false");
+                                  // console.log("false");
                                   setNewDataArray([
                                     ...newDataArray.filter((item) =>
                                       item.category != "Marsa Alam" ? item : ""
@@ -1076,7 +1076,7 @@ function Domestic() {
                                 if (e.currentTarget.checked == true) {
                                   filtered != true ? setFiltered(true) :setFiltered()
                                   
-                                  console.log("true");
+                                  // console.log("true");
                                   setNewDataArray([
                                     ...newDataArray,
                                     ...data.filter((item) =>
@@ -1086,7 +1086,7 @@ function Domestic() {
                                 } else {
                                   filtered != false ? setFiltered(false) :setFiltered()
                                   // setFiltered(false);
-                                  console.log("false");
+                                  // console.log("false");
                                   setNewDataArray([
                                     ...newDataArray.filter((item) =>
                                       item.category != "Dahab" ? item : ""
@@ -1109,7 +1109,7 @@ function Domestic() {
                                 if (e.currentTarget.checked == true) {
                                   filtered != true ? setFiltered(true) :setFiltered()
                                   
-                                  console.log("true");
+                                  // console.log("true");
                                   setNewDataArray([
                                     ...newDataArray,
                                     ...data.filter((item) =>
@@ -1119,7 +1119,7 @@ function Domestic() {
                                 } else {
                                   filtered != false ? setFiltered(false) :setFiltered()
                                   // setFiltered(false);
-                                  console.log("false");
+                                  // console.log("false");
                                   setNewDataArray([
                                     ...newDataArray.filter((item) =>
                                       item.category != "Taba" ? item : ""
@@ -1142,7 +1142,7 @@ function Domestic() {
                                 if (e.currentTarget.checked == true) {
                                   filtered != true ? setFiltered(true) :setFiltered()
                                   
-                                  console.log("true");
+                                  // console.log("true");
                                   setNewDataArray([
                                     ...newDataArray,
                                     ...data.filter((item) =>
@@ -1152,7 +1152,7 @@ function Domestic() {
                                 } else {
                                   filtered != false ? setFiltered(false) :setFiltered()
                                   // setFiltered(false);
-                                  console.log("false");
+                                  // console.log("false");
                                   setNewDataArray([
                                     ...newDataArray.filter((item) =>
                                       item.category != "Sharm" ? item : ""
@@ -1175,7 +1175,7 @@ function Domestic() {
                                 if (e.currentTarget.checked == true) {
                                   filtered != true ? setFiltered(true) :setFiltered()
                                   
-                                  console.log("true");
+                                  // console.log("true");
                                   setNewDataArray([
                                     ...newDataArray,
                                     ...data.filter((item) =>
@@ -1185,7 +1185,7 @@ function Domestic() {
                                 } else {
                                   filtered != false ? setFiltered(false) :setFiltered()
                                   // setFiltered(false);
-                                  console.log("false");
+                                  // console.log("false");
                                   setNewDataArray([
                                     ...newDataArray.filter((item) =>
                                       item.category != "Luxor" ? item : ""
@@ -1208,7 +1208,7 @@ function Domestic() {
                                 if (e.currentTarget.checked == true) {
                                   filtered != true ? setFiltered(true) :setFiltered()
                                   
-                                  console.log("true");
+                                  // console.log("true");
                                   setNewDataArray([
                                     ...newDataArray,
                                     ...data.filter((item) =>
@@ -1218,7 +1218,7 @@ function Domestic() {
                                 } else {
                                   filtered != false ? setFiltered(false) :setFiltered()
                                   // setFiltered(false);
-                                  console.log("false");
+                                  // console.log("false");
                                   setNewDataArray([
                                     ...newDataArray.filter((item) =>
                                       item.category != "Aswan" ? item : ""
@@ -1241,7 +1241,7 @@ function Domestic() {
                                 if (e.currentTarget.checked == true) {
                                   filtered != true ? setFiltered(true) :setFiltered()
                                   
-                                  console.log("true");
+                                  // console.log("true");
                                   setNewDataArray([
                                     ...newDataArray,
                                     ...data.filter((item) =>
@@ -1251,7 +1251,7 @@ function Domestic() {
                                 } else {
                                   filtered != false ? setFiltered(false) :setFiltered()
                                   // setFiltered(false);
-                                  console.log("false");
+                                  // console.log("false");
                                   setNewDataArray([
                                     ...newDataArray.filter((item) =>
                                       item.category != "Alex" ? item : ""
@@ -1274,7 +1274,7 @@ function Domestic() {
                                 if (e.currentTarget.checked == true) {
                                   filtered != true ? setFiltered(true) :setFiltered()
                                   
-                                  console.log("true");
+                                  // console.log("true");
                                   setNewDataArray([
                                     ...newDataArray,
                                     ...data.filter((item) =>
@@ -1284,7 +1284,7 @@ function Domestic() {
                                 } else {
                                   filtered != false ? setFiltered(false) :setFiltered()
                                   // setFiltered(false);
-                                  console.log("false");
+                                  // console.log("false");
                                   setNewDataArray([
                                     ...newDataArray.filter((item) =>
                                       item.category != "Matrouh" ? item : ""
@@ -1538,6 +1538,7 @@ function Domestic() {
                               item._id != "66605280757508d3e0129c8e" &&
                                item._id != "665f2e2c7e35dabd2da59fbb" &&
                                 item._id != "667d7d8df0b44fde0da99db9" &&
+                                item._id != "67471cde4a0f4296ff6adcb5" &&
                                 // item._id != "662936e5497f70eb371ea824" &&
                                 // item._id != "662909405d90fc661870af7e" &&
                                  item._id != "6629181e956917d909e58c2a") ? (
