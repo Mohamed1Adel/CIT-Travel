@@ -106,6 +106,48 @@ function App() {
                       
                        {/* <Popup /> */}
                        {/* <Popup2 /> */}
+                       <Toast
+                        className="d-nonex"
+                        show={showA}
+                        onClose={toggleShowA}
+                        style={{
+                          position: "fixed",
+                          top: "70px",
+                          right: "10px",
+                          backgroundColor: "#fff",
+                          zIndex: "99999",
+                        }}
+                      >
+                        <Toast.Header>
+                          
+                          <img width="180" height="100" src="https://cit-egypt.com/static/media/r.cab10df8a13877c1b5e2.png" style={{objectFit:"contain",position:"absolute",right:"0px",top:"-45px"}}/>
+
+                          <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+                          <strong className="me-auto" style={{ fontSize: "18px" }}>Porto Marina <br /> <span style={{fontSize:"16px",fontWeight:"bold",color:"rgb(252, 76, 3)"}}> Special offer</span> </strong>
+                        </Toast.Header>
+                        <Toast.Body>
+                          <img
+                            width="100%"
+                            height="250"
+                            className="mb-2"
+                            src="https://cit-egypt.com/dropimg/uploads/1746526613porto-marina-resort-spa-al-alamein-3.webp"
+                          />
+
+                          <Button
+                            id="book-btn"
+                            variant="primary"
+                            type="submit"
+                            style={{ background: "#fc4c03", borderColor: "#fc4c03" }}
+                          >
+                            <Link
+                              to={`https://cit-egypt.com/tembDetails/6819dfdc23ec3a4f74cad79a`}
+                              style={{ color: "#000" }}
+                            >
+                              More Details
+                            </Link>
+                          </Button>
+                        </Toast.Body>
+                      </Toast>
                       <Landing />
                       <div class="container-fluid home-container" style={{backgroundColor:"#fff",marginTop:"100vh",zIndex:"9999",paddingTop:"50px"}}>
                       <FlyRequests />

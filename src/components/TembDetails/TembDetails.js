@@ -421,16 +421,27 @@ function TembDetails() {
                         <table class="table table-rates">
                           <thead>
                             <tr>
-                              <th scope="col">Package</th>
-                              <th scope="col">From</th>
-                              <th scope="col">To</th>
-                              <th scope="col">Single</th>
-                              <th scope="col">
-                                Double <br /> (per person)
-                              </th>
-                              <th scope="col">
-                                Triple <br /> (per person)
-                              </th>
+                              {itemDetails._id === "6819dfdc23ec3a4f74cad79a" || itemDetails._id ===  "683596213f55541768d8ff87" ? (
+                                <>
+                                  {/* <th scope="col">Package</th> */}
+                                  <th scope="col">From</th>
+                                  <th scope="col">To</th>
+                                  <th scope="col">Single <br /> (per room)</th>
+                                  <th scope="col">Double <br /> (per room)</th>
+                                  <th scope="col">Triple <br /> (per room)</th>
+                                </>
+                              ) : (
+                                <>
+                                  <th scope="col">Package</th>
+                                  <th scope="col">From</th>
+                                  <th scope="col">To</th>
+                                  <th scope="col">Single</th>
+                                  <th scope="col">Double <br /> (per person)</th>
+                                  <th scope="col">Triple <br /> (per person)</th>
+                                </>
+                              )}
+
+                              
                               {/* {itemDetails.title == "Amarina Abu Soma Resort" && (
                                 <>
                               <th scope="col">
@@ -463,9 +474,19 @@ function TembDetails() {
                                 return (
                                   <>
                                   <tr>
-                                    <td>{pack.packTitle}</td>
-                                    <td>{pack.startDate.split('-').reverse().join('-')}</td>
-                                    <td>{pack.endDate.split('-').reverse().join('-')} </td>
+                                    {itemDetails._id === "6819dfdc23ec3a4f74cad79a" || itemDetails._id ===  "683596213f55541768d8ff87" ? (
+                                <>
+                                  
+                                </>
+                              ) : (
+                                <>
+                                 <td>{pack.packTitle}</td>
+                                </>
+                              )}
+
+                                    
+                                    <td>{pack.startDate ? pack.startDate.split('-').reverse().join('-') : ''}</td>
+                                    <td>{pack.endDate ? pack.endDate.split('-').reverse().join('-') : ''} </td>
                                     <td>{pack.single} EGP</td>
                                     <td>{pack.double} EGP</td>
                                     <td>{pack.triple} EGP</td>

@@ -59,9 +59,20 @@ function Domestic() {
   const getAllData = async () => {
     try {
      const response = await axios.get(`${MONGODB_URL}/getAllDomestics`);
-      const data = response.data.reverse();
+      let data = response.data.reverse();
+      const priorityItems = data.filter(item =>
+        item._id === '662909405d90fc661870af7e' || item._id === '6633a0ce518e33c6eacb9d3f'
+      );
+
+      const otherItems = data.filter(item =>
+        item._id !== '662909405d90fc661870af7e' && item._id !== '6633a0ce518e33c6eacb9d3f'
+      );
+
+      const sortedData = [...priorityItems, ...otherItems];
+
+      setData(sortedData);
       // console.log(data);
-      setData(data);
+      // setData(data);
     } catch (e) {
       // console.log(e);
     }
@@ -1504,25 +1515,6 @@ function Domestic() {
 
 
 
-             {nileCruises?.length >= 1 ? (
-            nileCruises?.map((nileCruise) => {
-               
-              return (
-                nileCruise.title != "Aswan - Cairo / Long Cruise"   ?
-                 nileCruise.title != "Luxor - Cairo / Long Cruise " ?
-                 nileCruise.egypt_cruise != false ?
-                   <Col sm="12" md="6" lg="4" xxl="3">
-                <NileCruiseTemp nileCruise={nileCruise} />
-              </Col>
-              :""
-              : ""
-              : ""
-                
-              );
-            })
-          ) : (
-            <FullProgress />
-          )}
 
 
 
@@ -1533,15 +1525,20 @@ function Domestic() {
                       data.map((item) => {
                         return (
 
-                          (item._id != "66294201497f70eb371eae5e" &&
-                             item._id != "662e205899d8bcfa2a9f6287" &&
+                          (
+                            // item._id != "66294201497f70eb371eae5e" &&
+                            //  item._id != "662e205899d8bcfa2a9f6287" &&
                               item._id != "66605280757508d3e0129c8e" &&
                                item._id != "665f2e2c7e35dabd2da59fbb" &&
                                 item._id != "667d7d8df0b44fde0da99db9" &&
                                 item._id != "67471cde4a0f4296ff6adcb5" &&
+                               
+                                item._id != "6741ecad82fe9fbf3d96010c" &&
+                                item._id != "674721714a0f4296ff6ade27" 
                                 // item._id != "662936e5497f70eb371ea824" &&
                                 // item._id != "662909405d90fc661870af7e" &&
-                                 item._id != "6629181e956917d909e58c2a") ? (
+                                //  item._id != "6629181e956917d909e58c2a"
+                                ) ? (
                             <Col key={item.id} sm="12" md="6" lg="4" xxl="3">
                               <Temb item={item} />
                             </Col>
@@ -1555,7 +1552,20 @@ function Domestic() {
                   ) : data.length >= 1 ? (
                     newDataArray.map((item) => {
                       return (
-                        (item._id != "66294201497f70eb371eae5e" && item._id != "662e205899d8bcfa2a9f6287" && item._id != "6661c7b0f5320df705d77068") ? (
+                        (
+                          // item._id != "66294201497f70eb371eae5e" &&
+                            //  item._id != "662e205899d8bcfa2a9f6287" &&
+                            item._id != "66605280757508d3e0129c8e" &&
+                            item._id != "665f2e2c7e35dabd2da59fbb" &&
+                             item._id != "667d7d8df0b44fde0da99db9" &&
+                             item._id != "67471cde4a0f4296ff6adcb5" &&
+                            
+                             item._id != "6741ecad82fe9fbf3d96010c" &&
+                             item._id != "674721714a0f4296ff6ade27" 
+                             // item._id != "662936e5497f70eb371ea824" &&
+                            //  item._id != "662909405d90fc661870af7e" &&
+                              // item._id != "6629181e956917d909e58c2a"
+                          ) ? (
                           <Col key={item.id} sm="12" md="6" lg="4" xxl="3">
                             <Temb item={item} />
                           </Col>
@@ -1569,6 +1579,40 @@ function Domestic() {
                   
                   
                   }
+
+
+                  
+             {/* {nileCruises?.length >= 1 ? (
+            nileCruises?.map((nileCruise) => {
+               
+              return (
+                nileCruise.title != "Aswan - Cairo / Long Cruise"   ?
+                 nileCruise.title != "Luxor - Cairo / Long Cruise " ?
+                 nileCruise._id != "6745ad2aa41360fc6fbfd7b1" ?
+                 nileCruise._id != "6745c6ea7a6e1b7ef4640866" ?
+                 nileCruise._id != "6745d749fd35046c0eaf38be" ?
+                 nileCruise._id != "6745cbcc7a6e1b7ef46409d4" ?
+                 nileCruise._id != "6741e96682fe9fbf3d95ffe1" ?
+                 nileCruise._id != "6741ecad82fe9fbf3d96010c" ?
+                 nileCruise.egypt_cruise != false ?
+                   <Col sm="12" md="6" lg="4" xxl="3">
+                <NileCruiseTemp nileCruise={nileCruise} />
+              </Col>
+              :""
+              : ""
+              : ""
+              : ""
+              : ""
+              : ""
+              : ""
+              : ""
+              : ""
+                
+              );
+            })
+          ) : (
+            <FullProgress />
+          )} */}
 
 
 

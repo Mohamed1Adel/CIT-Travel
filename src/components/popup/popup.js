@@ -91,7 +91,7 @@ getDomesticById();
                       <Progress />
                     )}
                   </Carousel> */}
-                                              <img src={itemDetails?.images?.[0].img_url} alt="..." style={{width:"100%",height:"250px",objectFit:"cover",position:"bottom center",borderRadius:"10px"}} />
+                  <img src={itemDetails?.images?.[0].img_url} alt="..." style={{width:"100%",height:"250px",objectFit:"cover",position:"bottom center",borderRadius:"10px"}} />
 
           </Modal.Body>
           <Modal.Footer>
