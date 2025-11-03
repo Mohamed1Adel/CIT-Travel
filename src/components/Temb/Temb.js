@@ -75,16 +75,16 @@ function Temb(item) {
         <Card.Body></Card.Body>
 
         {
-          item.item._id === "6633a0ce518e33c6eacb9d3f"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 11900 EGP </h6> :""
+          item.item._id === "6633a0ce518e33c6eacb9d3f"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 11730 EGP </h6> :""
         }
         {
           item.item.title.trim() === "Royal Lagoons Resort & Aqua Park"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 5330 EGP </h6> :""
         }
         {
-          item.item.title.trim() === "Three Corners Sunny Beach"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 7200 EGP </h6> :""
+          item.item.title.trim() === "Three Corners Sunny Beach"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 9930 EGP </h6> :""
         }
         {
-          item.item.title.trim() === "New Eagles Aqua Park Resort"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 6900 EGP </h6> :""
+          item.item.title.trim() === "New Eagles Aqua Park Resort"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 9820 EGP </h6> :""
         }
         {
           item.item._id === "662936e5497f70eb371ea824"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 13550 EGP </h6> :""
@@ -180,6 +180,18 @@ function Temb(item) {
         }
           {
           item.item._id === "665f08c21495eaf6b6ec0396"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 9300 EGP </h6> :""
+        }
+          {
+          item.item._id === "680a17e93057634d789e57a3"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 7830 EGP </h6> :""
+        }
+          {
+          item.item._id === "680a30343412586277f628a6"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 8130 EGP </h6> :""
+        }
+          {
+          item.item._id === "680a4b3c34d6b24504b0e408"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 8440 EGP </h6> :""
+        }
+          {
+          item.item._id === "680a5cd194277e313bd94720"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 11440 EGP </h6> :""
         }
          
        

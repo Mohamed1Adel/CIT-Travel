@@ -36,7 +36,8 @@ function MostPopular() {
       const filteredData = data.filter((item) => 
         ( 
           item._id === "6633a0ce518e33c6eacb9d3f" ||  
-         item._id === "6819dfdc23ec3a4f74cad79a" ||  
+        //  item._id === "6819dfdc23ec3a4f74cad79a" ||  
+         item._id === "6754398c862d1c1395fde39f" ||  
          item._id === "662909405d90fc661870af7e")
       );
       

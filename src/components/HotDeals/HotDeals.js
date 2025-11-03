@@ -37,11 +37,17 @@ function HotDeals({checkConnection}) {
     };
   }, [screenSize]);
 
+  const count = allHotDeals?.domestics?.length +
+              allHotDeals?.historical?.length +
+              allHotDeals?.dayTours?.length +
+              allHotDeals?.outbound?.length +
+              allHotDeals?.nileCruise?.length || 0;
+
   const sett = () => {
     return screenSize.width > 991
       ? {
           dots: true,
-          Infinity: true,
+          infinite: count > 3,
           speed: 500,
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -49,7 +55,7 @@ function HotDeals({checkConnection}) {
       : screenSize.width < 991 && screenSize.width > 700
       ? {
           dots: true,
-          Infinity: true,
+          infinite: count > 3,
           speed: 500,
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -57,7 +63,7 @@ function HotDeals({checkConnection}) {
       : screenSize.width < 700
       ? {
           dots: true,
-          Infinity: true,
+          infinite: count > 3,
           speed: 500,
           slidesToShow: 1,
           slidesToScroll: 1,

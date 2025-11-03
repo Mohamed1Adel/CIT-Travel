@@ -107,7 +107,7 @@ function App() {
                        {/* <Popup /> */}
                        {/* <Popup2 /> */}
                        <Toast
-                        className="d-nonex"
+                        className="d-none"
                         show={showA}
                         onClose={toggleShowA}
                         style={{
