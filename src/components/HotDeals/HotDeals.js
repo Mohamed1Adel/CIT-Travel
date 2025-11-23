@@ -36,7 +36,7 @@ function HotDeals({checkConnection}) {
       window.removeEventListener("resize", updateDimension);
     };
   }, [screenSize]);
-
+const [allHotDeals, setAllHotDeals] = useState({});
   const count = allHotDeals?.domestics?.length +
               allHotDeals?.historical?.length +
               allHotDeals?.dayTours?.length +
@@ -77,7 +77,7 @@ function HotDeals({checkConnection}) {
   // const [dayTourHotDeals, setDayTourHotDeals] = useState();
   // const [outboundHotDeals, setOutboundHotDeals] = useState();
   // const [hajjOmrahHotDeals, setHajjOmrahHotDeals] = useState();
-  const [allHotDeals, setAllHotDeals] = useState({});
+  
   const [connection,setConnection] = useState(true)
 
   const getAllHotDeals = async () => {
