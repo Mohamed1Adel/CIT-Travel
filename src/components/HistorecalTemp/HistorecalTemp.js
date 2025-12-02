@@ -59,7 +59,7 @@ function HistorecalTemp({program}) {
 
         <Card.Body></Card.Body>
         
-        {
+        {/* {
               program?._id === "65d23b192eb6764f97ff219f" ?  <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 795 $ </h6>: <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>  </h6>
             }
         {
@@ -88,7 +88,7 @@ function HistorecalTemp({program}) {
             }
         {
               program?._id === "65dc479ab70767aaed4f2e03" ?  <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 320 $ </h6>: <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>  </h6>
-            }
+            } */}
         <Button id="card-btn" style={{ width: "fit-content" }} variant="primary">
           {/* <Link to={"/tembDetails/" + item.item._id}> */}
           <Link to={`/historecaltembDetails/${program?._id}`}>
