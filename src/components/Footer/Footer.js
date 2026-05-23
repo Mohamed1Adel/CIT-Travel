@@ -27,7 +27,7 @@ function Footer() {
             {/* <h3>Let's Socialize</h3> */}
             
             <div className="social-icons">
-              <ul style={{gap:"0px" ,padding:"5px",border:"1px solid #fff",borderRadius:"10px",margin:"0 auto",marginTop:"10px",marginLeft:"20px"}}>
+              <ul style={{gap:"0px" ,paddingTop:"5px"}}>
                 <li>
                   <a
                     href="https://www.facebook.com/CIT.TravelEgypt"
@@ -72,7 +72,7 @@ function Footer() {
             <h5></h5>
           
           
-          <a href="tel:0223493333">0223493333</a>
+          <a href="tel:0223499500">0223499500</a>
           <br />
           <a href="tel:+201100918406">01100918406</a>
 
@@ -124,7 +124,7 @@ function Footer() {
             {/* <h4 style={{textAlign:"center"}}>Payment Methods</h4> */}
             <h5 className="m-0" style={{paddingTop:"5px"}}>Payment Methods</h5>
            
-            <Row className="mt-2 f-t" style={{border:"1px solid #fff",padding:"0px",borderRadius:"10px"}}>
+            <Row className="mt-4 f-t" style={{padding:"0px"}}>
 <Col className="col-12 col-lg-3 border-0 px-0">
 <div style={{ border: "none" }}>
                 <img

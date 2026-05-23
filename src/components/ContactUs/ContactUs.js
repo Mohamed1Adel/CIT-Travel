@@ -7,7 +7,7 @@ function ContactUs() {
       <div className="contact-section">
         <div className="location d-flex align-items-center justify-content-center my-5">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.939280461237!2d31.348103259579712!3d30.067274917592364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fc25b39e115%3A0xd2e3098916f31eca!2sC.I.T%20-%20Travel%20Egypt!5e0!3m2!1sar!2seg!4v1696468412304!5m2!1sar!2seg"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2792.2927624734466!2d31.35993382552574!3d30.057786317940344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fc25b39e115%3A0xd2e3098916f31eca!2sC.I.T%20-%20Travel%20Egypt!5e1!3m2!1sar!2seg!4v1779260365922!5m2!1sar!2seg"
             width="100%"
             height="400"
             style={{ border: "0" }}
@@ -68,24 +68,23 @@ function ContactUs() {
             <div className="left-box">
               <h4>Address:</h4>
               <p>
-                Egypt, Cairo, Nasr City,
+                2nd upper floor, Al-Israa Tower,
                 <br />
-                Makram Ebid St., Building No. 9 (B),
+                7 Hassan El-Maamoun St,
                 <br />
-                behind City Center Mall
+                Nasr City, Cairo, Egypt
               </p>
 
               <h4 className="py-2">Email:</h4>
-          <h5>info@cit-egypt.com</h5>
+              <h5>info@cit-egypt.com</h5>
           
             </div>
             <div className="right-box w-50 con-big">
               <div className=" d-flex  align-items-start justify-content-start con-box" style={{gap:"60px"}}>
               <div>
                 <h4 className="py-2">Tel:</h4>
-                <h5><a href="tel:+2 23492245" style={{color:"#000"}}>+23492245</a> </h5>
-                <h5><a href="tel:+2 23492246" style={{color:"#000"}}>+23492246</a> </h5>
-                <h5><a href="tel:+223493333" style={{color:"#000"}}>+23493333</a> </h5>
+                <h5><a href="tel:+223499500" style={{color:"#000"}}>+223499500</a> </h5>
+                <h5><a href="tel:+223499100" style={{color:"#000"}}>+223499100</a> </h5>
               </div>
               <div>
                 <h4 className="py-2">Phone:</h4>

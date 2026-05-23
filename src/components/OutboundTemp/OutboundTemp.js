@@ -46,7 +46,7 @@ function OutboundTemp({ outbound }) {
       </div>
       <Card.Body>
       {/* <h6 class="m-0 pb-3" style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>From $</h6> */}
-      {
+      {/* {
           outbound._id === "66d99de55d9473fe0508a2f6"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 525 $  </h6> :""
       }
       {
@@ -81,7 +81,7 @@ function OutboundTemp({ outbound }) {
       }
       {
           outbound._id === "67ac7b6542b345ef56c5aa58"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 526 $  </h6> :""
-      }
+      } */}
         <Card.Title>{outbound.title ? outbound.title : "dome"} </Card.Title>
         <Card.Text>
           <div className="rates-stars">

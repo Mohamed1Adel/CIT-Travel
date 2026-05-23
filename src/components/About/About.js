@@ -70,7 +70,7 @@ We want to create value and to make a difference that is why we support the sust
     <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",paddingLeft:"15px",borderRadius:"5px"}}>7-	Competitive prices combined with the highest quality services resulting in value for money across all our services and products</p>
    
     {/* <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",paddingLeft:"15px",borderRadius:"5px"}}><a href="egypt-guide-rgb-version.pdf-new 1.pdf" style={{color:"#fc4c03",width:"90%",fontWeight:"500",fontSize:"20px",textAlign:"start",paddingLeft:"15px",borderRadius:"5px"}}>egypt-guide-rgb-version.pdf-new 1.pdf</a></p> */}
-    <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",paddingLeft:"15px",borderRadius:"5px"}}><Button variant="primary" style={{backgroundColor:"#fc4c03",border:"#fc4c03"}}><a href="egypt-guide-rgb-version.pdf-new 1.pdf" style={{width:"90%",fontWeight:"500",fontSize:"20px",textAlign:"start",borderRadius:"5px"}}>Egypt Guide.pdf</a></Button>{' '}</p>
+    <p style={{width:"90%",margin:"0 auto",fontWeight:"500",fontSize:"20px",textAlign:"start",paddingLeft:"15px",borderRadius:"5px"}}><Button variant="primary" style={{width:"250px",marginTop:"30px",backgroundColor:"#fc4c03",border:"#fc4c03"}}><a href="egypt-guide-rgb-version.pdf-new 1.pdf" style={{width:"90%",fontWeight:"500",fontSize:"20px",textAlign:"start",borderRadius:"5px"}}>Egypt Guide.pdf</a></Button>{' '}</p>
 
     
 

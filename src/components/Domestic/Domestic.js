@@ -59,7 +59,7 @@ function Domestic() {
   const getAllData = async () => {
     try {
      const response = await axios.get(`${MONGODB_URL}/getAllDomestics`);
-      let data = response.data.reverse();
+      let data = response.data;
       const priorityItems = data.filter(item =>
         item._id === '662909405d90fc661870af7e' || item._id === '6633a0ce518e33c6eacb9d3f'
       );

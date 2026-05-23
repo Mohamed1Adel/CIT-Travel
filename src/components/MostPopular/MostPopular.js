@@ -47,7 +47,7 @@ function MostPopular() {
         filteredData[2] = temp;
       }
       
-      setDomestic(filteredData);
+      setDomestic(data.slice(0, 3));
       
       // console.log("====================================");
     } catch (e) {

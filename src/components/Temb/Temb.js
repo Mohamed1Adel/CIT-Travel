@@ -74,7 +74,7 @@ function Temb(item) {
         </Card.Text>
         <Card.Body></Card.Body>
 
-        {
+        {/* {
           item.item._id === "6633a0ce518e33c6eacb9d3f"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 11730 EGP </h6> :""
         }
         {
@@ -94,11 +94,11 @@ function Temb(item) {
         }
         {
           item.item.title.trim() === "Desert Rose"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 13050 EGP </h6> :""
-        }
+        } */}
         {/* {
           item.item.title.trim() === "Barcelo Tiran"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 9200 EGP </h6> :""
         } */}
-        {
+        {/* {
           item.item._id === "665f219f9fc12b76935ade92"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 12800 EGP </h6> :""
         }
         {
@@ -121,9 +121,9 @@ function Temb(item) {
         }
         {
           item.item._id === "66aa080669670bf6cfb0c44d"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 10650 EGP </h6> :""
-        }
+        } */}
         {/* starting id  */}
-        {
+        {/* {
           item.item._id === "6745ad2aa41360fc6fbfd7b1"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 6500 EGP </h6> :""
         }
         {
@@ -134,7 +134,7 @@ function Temb(item) {
         }
         {
           item.item._id === "6745d749fd35046c0eaf38be"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 4200 EGP </h6> :""
-        }
+        } */}
 
 
         {/* =================================== */}
@@ -142,7 +142,7 @@ function Temb(item) {
 
         {/* =================================== */}
 
-        {
+        {/* {
           item.item._id === "6746f5bfa685f69b8545f83f"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 4275 EGP </h6> :""
         }
           {
@@ -192,7 +192,7 @@ function Temb(item) {
         }
           {
           item.item._id === "680a5cd194277e313bd94720"? <h6 style={{color:"#fc4c03",display:"block",zIndex:"999",position:"absolute",bottom:"20px",fontSize:"16px",margin:"0"}}>Starting from <br /> 11440 EGP </h6> :""
-        }
+        } */}
          
        
         <Button id="card-btn" style={{ width: "fit-content" }} variant="primary">
